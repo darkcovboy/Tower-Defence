@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyTower : MonoBehaviour {
+public class Enemy : MonoBehaviour {
     
     public Transform shootElement;
     public GameObject bullet;

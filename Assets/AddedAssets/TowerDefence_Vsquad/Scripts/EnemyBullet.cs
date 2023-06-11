@@ -9,7 +9,7 @@ public class EnemyBullet : MonoBehaviour
     public GameObject impactParticle; // bullet impact    
     public Vector3 impactNormal; 
     Vector3 lastBulletPosition; 
-    public EnemyTower twr;
+    public Enemy twr;
     float i = 0.05f; // delay time of bullet destruction
 
 
