@@ -1,42 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _speed = 10f;
+    [SerializeField] private int _health;
+    [SerializeField] private int _reward;
+    [SerializeField] private Player _target;
 
-    private Transform _target;
-    private int _wavePointIndex = 0;
+    public Player Target => _target;
 
-    private void Start()
+    public event UnityAction Dying;
+    
+    public void TakeDamage(int damage)
     {
-        _target = Waypoints.points[0];
-    }
+        _health -= damage;
 
-    private void Update()
-    {
-        Vector3 direction = _target.position - transform.position;
-        transform.Translate(direction.normalized * _speed * Time.deltaTime,Space.World);
-        //Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        //transform.rotation = rotation;
-        transform.forward = direction;
-
-        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
+        if (_health <= 0)
         {
-            GetNextWaypoint();
+            Die();
         }
     }
 
-    private void GetNextWaypoint()
+    private void Die()
     {
-        if (_wavePointIndex >= Waypoints.points.Length-1)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _wavePointIndex++;
-        _target = Waypoints.points[_wavePointIndex];
+        Debug.Log("убит");
     }
 }
