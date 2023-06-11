@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private Waves[] _waves;
+    [SerializeField] protected Waves[] _waves;
+    [SerializeField] private Player _target;
+    [SerializeField] Transform _spawns;
 
     private int _currentEnemyIndex;
     private int _currentWaveIndex;
     private int _enemiesLeftToSpawn;
+
+    public int EnemiesLeftToSpawn => _enemiesLeftToSpawn;
 
     private void Start()
     {
@@ -21,7 +25,8 @@ public class WaveSpawner : MonoBehaviour
         if (_enemiesLeftToSpawn > 0)
         {
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
-            Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity);
+            Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity,_spawns).GetComponent<Enemy>();
+            enemy.Init(_target);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
             StartCoroutine(SpawnEnemyInWave());

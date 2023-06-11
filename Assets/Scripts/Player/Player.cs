@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
 
     private int _currentHealth;
 
+    public int Money { get; private set; }
+
     private void Start()
     {
         _currentHealth = _health;
     }
-
-    public int Money { get; private set; }
 
     public void OnEnemyDied(int reward)
     {
@@ -28,5 +28,10 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddMoney(int money)
+    {
+        Money += money;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMover : State
+public class EnemyMoverState : State
 {
     [SerializeField] private float _speed = 10f;
 
@@ -28,11 +28,15 @@ public class EnemyMover : State
         }
     }
 
+    public void Init(Player target)
+    {
+        _target = target.transform;
+    }
+
     private void GetNextWaypoint()
     {
         if (_wavePointIndex >= Waypoints.points.Length-1)
         {
-            //Destroy(gameObject);
             return;
         }
 

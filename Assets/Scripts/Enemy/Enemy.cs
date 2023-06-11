@@ -7,24 +7,22 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
-    [SerializeField] private Player _target;
+    [SerializeField] private EnemyMoverState _enemyMoverState;
 
-    public Player Target => _target;
+    private Player _target;
 
     public event UnityAction Dying;
-    
+
+    public Player Target => _target;
+    public int Health => _health;
+
     public void TakeDamage(int damage)
     {
         _health -= damage;
-
-        if (_health <= 0)
-        {
-            Die();
-        }
     }
 
-    private void Die()
+    public void Init(Player target)
     {
-        Debug.Log("убит");
+        _target = target;
     }
 }

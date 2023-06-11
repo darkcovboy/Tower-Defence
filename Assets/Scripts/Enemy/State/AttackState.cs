@@ -7,6 +7,7 @@ public class AttackState : State
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _delay;
+    [SerializeField] private Enemy _enemy;
 
     private float _lastAttackTime;
     private Animator _animator;
@@ -29,11 +30,8 @@ public class AttackState : State
 
     private void Attack(Player target)
     {
-        //Vector3 direction = target.transform.position - transform.position;
-        //transform.forward = direction;
-        //_animator.SetTrigger("Attacks");
-        //_animator.SetBool("AttackTrigger",true);
         _animator.Play("Attacks");
         target.ApplyDamage(_damage);
+        _enemy.TakeDamage(10);
     }
 }
