@@ -5,7 +5,6 @@ using UnityEngine;
 public class TestWaves : MonoBehaviour
 {
     private WaveSpawner _wavespawner;
-    [SerializeField]private Transform _spawns;
 
     private void Awake()
     {

@@ -25,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
         if (_enemiesLeftToSpawn > 0)
         {
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
-            Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity,_spawns).GetComponent<Enemy>();
+            Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity).GetComponent<Enemy>();
             enemy.Init(_target);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;

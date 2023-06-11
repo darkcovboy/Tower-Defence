@@ -16,7 +16,8 @@ public class DieState : State
     private void OnEnable()
     {
         _animator.Play("Death");
-        StartCoroutine(ActiveSelfOff());
+        //StartCoroutine(ActiveSelfOff());
+        Destroy(gameObject,3f);
     }
 
     private void OnDisable()
@@ -24,11 +25,11 @@ public class DieState : State
         _animator.StopPlayback();
     }
 
-    IEnumerator ActiveSelfOff()
-    {
-        yield return new WaitForSeconds(3f);
-        //gameObject.SetActive(false);
-        Destroy(gameObject);
-    }
+    //IEnumerator ActiveSelfOff()
+    //{
+    //    yield return new WaitForSeconds(3f);
+    //    //gameObject.SetActive(false);
+    //    Destroy(gameObject);
+    //}
 }
 
