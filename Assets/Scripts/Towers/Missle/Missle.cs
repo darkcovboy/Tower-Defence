@@ -7,7 +7,7 @@ public class Missle : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _distanceBetweenTargetAndEnemy;
 
-    private float _damage;
+    private int _damage;
     private Transform _target;
     private Enemy _enemy;
 
@@ -37,7 +37,7 @@ public class Missle : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Create(Transform target,Enemy enemy, float damage)
+    public void Create(Transform target,Enemy enemy, int damage)
     {
         _target = target;
         _damage = damage;
