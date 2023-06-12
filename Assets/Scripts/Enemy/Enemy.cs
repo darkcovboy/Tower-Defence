@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
-    [SerializeField] private EnemyMoverState _enemyMoverState;
 
     private Player _target;
 

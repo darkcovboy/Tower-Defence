@@ -20,6 +20,11 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Update()
     {
+        if (_target == null)
+        {
+            return;
+        }
+
         if (_currentState == null)
         {
             return;

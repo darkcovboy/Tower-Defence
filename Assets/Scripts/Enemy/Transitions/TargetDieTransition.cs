@@ -6,7 +6,11 @@ public class TargetDieTransition : Transition
 {
     private void Update()
     {
-        if (Target == null)
+        //if (Target == null)
+        //{
+        //    NeedTransit = true;
+        //}
+        if (Target.gameObject.activeSelf == false)
         {
             NeedTransit = true;
         }
