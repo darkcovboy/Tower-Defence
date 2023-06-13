@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherTower : Tower
+public class CanonTower : Tower
 {
     [SerializeField] private Transform _target;
 
@@ -10,9 +10,9 @@ public class ArcherTower : Tower
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.TryGetComponent(out Enemy enemy))
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            if(_target == null)
+            if (_target == null)
             {
                 _target = enemy.transform;
                 _enemy = enemy;

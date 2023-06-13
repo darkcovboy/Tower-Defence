@@ -2,46 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Type
+{
+    Fire,
+    Ice,
+    Physical
+}
+
 public class Missle : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _distanceBetweenTargetAndEnemy;
+    [SerializeField] protected float Speed;
+    [SerializeField] protected float DistanceBetweenTarget;
 
-    private int _damage;
-    private Transform _target;
-    private Enemy _enemy;
+    public Type Type;
+
+    protected int Damage;
+    protected Transform Target;
+    protected Enemy Enemy;
 
     private void OnDisable()
     {
         StopCoroutine(MoveToTarget());
     }
 
-    private void Update()
+    protected virtual IEnumerator MoveToTarget()
     {
-        if(_target != null)
+        while(Vector3.Distance(transform.position, Target.position) > DistanceBetweenTarget)
         {
-            transform.LookAt(_target);
-        }
-    }
-
-    private IEnumerator MoveToTarget()
-    {
-        while(Vector3.Distance(transform.position, _target.position) > _distanceBetweenTargetAndEnemy)
-        {
-            //transform.LookAt(_target);
-            transform.position = Vector3.MoveTowards(transform.position, _target.position, Time.deltaTime * _speed);
+            transform.LookAt(Target);
+            transform.position = Vector3.MoveTowards(transform.position, Target.position, Time.deltaTime * Speed);
             yield return null;
         }
 
-        _enemy.TakeDamage(_damage);
-        Destroy(gameObject);
+        Enemy.TakeDamage(Damage, Type);
+        gameObject.SetActive(false);
     }
 
-    public void Create(Transform target,Enemy enemy, int damage)
+    public virtual void Create(Transform target,Enemy enemy, int damage)
     {
-        _target = target;
-        _damage = damage;
-        _enemy = enemy;
+        Target = target;
+        Damage = damage;
+        Enemy = enemy;
         StartCoroutine(MoveToTarget());
     }
 }
