@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] protected Waves[] _waves;
     [SerializeField] private Player _target;
+    [SerializeField] private Warrior _warrior;
     [SerializeField] Transform _spawns;
 
     private int _currentEnemyIndex;
@@ -26,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
             Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity).GetComponent<Enemy>();
-            enemy.Init(_target);
+            enemy.Init(_target,_warrior);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
             StartCoroutine(SpawnEnemyInWave());

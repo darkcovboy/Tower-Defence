@@ -15,11 +15,9 @@ public class TestWaves : MonoBehaviour
     {
         int enemiesLeft = 0;
         enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log("енеми мертв");
 
         if (enemiesLeft == 0)
         {
-            Debug.Log("енеми 0");
             _wavespawner.LaunchWave();
         }
     }

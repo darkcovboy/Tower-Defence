@@ -7,18 +7,21 @@ public abstract class State : MonoBehaviour
     [SerializeField] private List<Transition> _transitions;
 
     protected Player Target { get; set; }
+    protected Warrior Warrior { get; set; }
 
-    public void Enter(Player target)
+    public void Enter(Player target, Warrior warrior)
     {
         if (enabled == false)
         {
             Target = target;
+            Warrior = warrior;
+
             enabled = true;
 
             foreach (var transition in _transitions)
             {
                 transition.enabled = true;
-                transition.Init(Target);
+                transition.Init(Target,Warrior);
             }
         }
     }
