@@ -37,6 +37,11 @@ public class Enemy : MonoBehaviour
         _warrior = warrior;
     }
 
+    public void Init(Warrior warrior)
+    {
+        _warrior = warrior;
+    }
+
     public void DyingEnemy()
     {
         Dying.Invoke(this);

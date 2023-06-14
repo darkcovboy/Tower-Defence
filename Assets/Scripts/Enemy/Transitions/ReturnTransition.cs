@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class ReturnTransition : Transition
 {
-    //private void Update()
-    //{
-    //    if (Warrior.gameObject.activeSelf == false)
-    //    {
-    //        Debug.Log("ВСЕ выключен оно");
-    //        NeedTransit = true;
-    //    }
-    //}
+    [SerializeField] private Enemy _enemy;
 
-    //public void NextTransit()
-    //{
-    //    NeedTransit = true;
-    //    Debug.Log("дальше");
-    //}
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (_enemy.Warrior.gameObject.activeSelf==false)
+        {
+            _animator.Play("Run");
+            NeedTransit = true;
+        }
+    }
 }

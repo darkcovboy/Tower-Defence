@@ -1703,6 +1703,10 @@ GameObject:
   - component: {fileID: 3840712128533102180}
   - component: {fileID: 8587536721812587383}
   - component: {fileID: 380427280197684874}
+  - component: {fileID: 3658880408290481232}
+  - component: {fileID: 5800784118217912886}
+  - component: {fileID: -4816959188295777502}
+  - component: {fileID: 3322213266595829278}
   m_Layer: 0
   m_Name: GoblinGreen
   m_TagString: Enemy
@@ -1805,6 +1809,7 @@ MonoBehaviour:
   - {fileID: 51534553085604421}
   - {fileID: 1750019197742807660}
   - {fileID: 1130076778625125437}
+  - {fileID: 3322213266595829278}
   _speed: 10
   _distanceTransitions: {fileID: 0}
 --- !u!114 &51534553085604421
@@ -1905,6 +1910,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd528ee8146d65a44b654c9e82e78201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &3658880408290481232
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5800784118217912886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282ae4c64f7b4e745a8592dddb4a5e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: -4816959188295777502}
+  _damage: 6
+  _delay: 1
+  _enemy: {fileID: 1311135158026822090}
+--- !u!114 &-4816959188295777502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0aa7880f6fc1e4bb24460c417902ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 6529382392829838489}
+  _enemy: {fileID: 1311135158026822090}
+--- !u!114 &3322213266595829278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f1188c79d211349a3118e55ba0cabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 5800784118217912886}
+  _enemy: {fileID: 1311135158026822090}
 --- !u!1 &7535969814244887189
 GameObject:
   m_ObjectHideFlags: 0

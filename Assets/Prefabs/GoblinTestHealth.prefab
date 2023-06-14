@@ -1076,8 +1076,10 @@ GameObject:
   - component: {fileID: 1603343705239155559}
   - component: {fileID: 1603343705239155560}
   - component: {fileID: 625966815214547533}
-  - component: {fileID: 904788444883466069}
   - component: {fileID: 517299179723012797}
+  - component: {fileID: 1100460013032697405}
+  - component: {fileID: -8472473759350977905}
+  - component: {fileID: 3751451960520239670}
   m_Layer: 0
   m_Name: GoblinTestHealth
   m_TagString: Enemy
@@ -1153,6 +1155,7 @@ MonoBehaviour:
   - {fileID: 1603343705239155556}
   - {fileID: 1603343705239155560}
   - {fileID: 1603343705239155554}
+  - {fileID: 1100460013032697405}
   _speed: 5
   _distanceTransitions: {fileID: 1603343705239155556}
 --- !u!114 &1603343705239155553
@@ -1196,7 +1199,6 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1603343705239155554}
   - {fileID: 1603343705239155560}
-  - {fileID: 904788444883466069}
   _damage: 5
   _delay: 1
   _enemy: {fileID: 1603343705239155558}
@@ -1281,19 +1283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd528ee8146d65a44b654c9e82e78201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &904788444883466069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603343705239155580}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0aa7880f6fc1e4bb24460c417902ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 1603343705239155581}
 --- !u!54 &517299179723012797
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1310,6 +1299,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1100460013032697405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603343705239155580}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f1188c79d211349a3118e55ba0cabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: -8472473759350977905}
+  _enemy: {fileID: 1603343705239155558}
+--- !u!114 &-8472473759350977905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603343705239155580}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282ae4c64f7b4e745a8592dddb4a5e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 3751451960520239670}
+  _damage: 5
+  _delay: 1
+  _enemy: {fileID: 1603343705239155558}
+--- !u!114 &3751451960520239670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603343705239155580}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0aa7880f6fc1e4bb24460c417902ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1603343705239155581}
+  _enemy: {fileID: 1603343705239155558}
 --- !u!1 &1603343705248200439
 GameObject:
   m_ObjectHideFlags: 0
