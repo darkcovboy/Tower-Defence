@@ -8,10 +8,10 @@ public class AttackState : State
     [SerializeField] private int _damage;
     [SerializeField] private float _delay;
     [SerializeField] private Enemy _enemy;
-    [SerializeField] private DistanceTransitions _distanceTransitions;
-    [SerializeField] private ReturnTransition _returnTransition;
-    [SerializeField] private EnemyMoverState _enemyMoverState;
-    [SerializeField] private AttackState _attackState;
+    //[SerializeField] private DistanceTransitions _distanceTransitions;
+    //[SerializeField] private ReturnTransition _returnTransition;
+    //[SerializeField] private EnemyMoverState _enemyMoverState;
+    //[SerializeField] private AttackState _attackState;
 
     private float _lastAttackTime;
     private Animator _animator;
@@ -25,26 +25,26 @@ public class AttackState : State
     {
         if (_lastAttackTime <= 0)
         {
-            if (_distanceTransitions.Flag == true)
-            {
-                Attack(Warrior);
-                _lastAttackTime = _delay;
+            //if (_distanceTransitions.Flag == true)
+            //{
+            //    Attack(Warrior);
+            //    _lastAttackTime = _delay;
 
-                if (Warrior.gameObject.activeSelf == false) 
-                {
-                    _distanceTransitions.Flag = false;
-                    _distanceTransitions.enabled = true;
-                    _enemyMoverState.enabled = true;
-                    _attackState.enabled = false;
+            //    if (Warrior.gameObject.activeSelf == false) 
+            //    {
+            //        _distanceTransitions.Flag = false;
+            //        _distanceTransitions.enabled = true;
+            //        _enemyMoverState.enabled = true;
+            //        _attackState.enabled = false;
 
-                    _animator.Play("Run");
-                }
-            }
-            else
-            {
+            //        _animator.Play("Run");
+            //    }
+            //}
                 Attack(Target);
                 _lastAttackTime = _delay;
-            }
+            //else
+            //{
+            //}
         }
 
         _lastAttackTime -= Time.deltaTime;
@@ -54,7 +54,7 @@ public class AttackState : State
     {
         _animator.Play("Attacks");
         target.ApplyDamage(_damage);
-        //_enemy.TakeDamage(10);
+        _enemy.TakeDamage(10);
     }
 
     private void Attack(Warrior warrior)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -10,19 +11,23 @@ public class Player : MonoBehaviour
 
     public int Money { get; private set; }
 
+    public event UnityAction<int,int> HealthChanged;
+    public event UnityAction<int> MoneyChanged;
+
     private void Start()
     {
         _currentHealth = _health;
     }
 
-    public void OnEnemyDied(int reward)
-    {
-        Money += reward;
-    }
+    //public void OnEnemyDied(int reward)
+    //{
+    //    Money += reward;
+    //}
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
+        HealthChanged?.Invoke(_currentHealth,_health);
 
         if (_currentHealth <= 0)
         {
@@ -34,5 +39,6 @@ public class Player : MonoBehaviour
     public void AddMoney(int money)
     {
         Money += money;
+        MoneyChanged?.Invoke(Money);
     }
 }

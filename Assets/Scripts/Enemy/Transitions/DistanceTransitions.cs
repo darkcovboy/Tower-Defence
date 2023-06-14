@@ -21,12 +21,12 @@ public class DistanceTransitions : Transition
             NeedTransit = true;
         }
 
-        if (Vector3.Distance(transform.position, Warrior.transform.position) <= 1)
-        {
-            NeedTransit = true;
-            Flag = true;
-        }
-        else
-            Flag = false;
+        //if (Vector3.Distance(transform.position, Warrior.transform.position) <= 1)
+        //{
+        //    NeedTransit = true;
+        //    Flag = true;
+        //}
+        //else
+        //    Flag = false;
     }
 }

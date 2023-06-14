@@ -28,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
             Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity).GetComponent<Enemy>();
             enemy.Init(_target,_warrior);
+            enemy.Dying += OnEnemyDying;
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
             StartCoroutine(SpawnEnemyInWave());
@@ -41,6 +42,12 @@ public class WaveSpawner : MonoBehaviour
                 _currentEnemyIndex = 0;
             }
         }
+    }
+
+    private void OnEnemyDying(Enemy enemy)
+    {
+        enemy.Dying -= OnEnemyDying;
+        _target.AddMoney(enemy.Reward);
     }
 
     public void LaunchWave()

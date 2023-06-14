@@ -9,8 +9,9 @@ public class EnemyDieTransition : Transition
 
     private void Update()
     {
-        if (_enemy.Health <= 0)
+        if (_enemy.CurrentHealth <= 0)
         {
+            _enemy.DyingEnemy();
             NeedTransit = true;
         }
     }
