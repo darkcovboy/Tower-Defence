@@ -3029,6 +3029,7 @@ GameObject:
   - component: {fileID: -3240753897832702962}
   - component: {fileID: -2357218494725786587}
   - component: {fileID: 1459944375964357737}
+  - component: {fileID: 580613215071755045}
   m_Layer: 0
   m_Name: Bull
   m_TagString: Enemy
@@ -3274,7 +3275,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: -3240753897832702962}
   _damage: 15
-  _delay: 1.5
+  _delay: 1.16
   _enemy: {fileID: 4034829458369389427}
 --- !u!54 &1459944375964357737
 Rigidbody:
@@ -3292,6 +3293,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &580613215071755045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7453216736695616550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ccdfeab6d25d4daa61844e65a8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7457276713546404843
 GameObject:
   m_ObjectHideFlags: 0

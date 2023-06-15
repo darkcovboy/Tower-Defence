@@ -1707,6 +1707,7 @@ GameObject:
   - component: {fileID: 5800784118217912886}
   - component: {fileID: -4816959188295777502}
   - component: {fileID: 3322213266595829278}
+  - component: {fileID: -2134657701286238698}
   m_Layer: 0
   m_Name: GoblinGreen
   m_TagString: Enemy
@@ -1941,7 +1942,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: -4816959188295777502}
   _damage: 6
-  _delay: 1
+  _delay: 1.3
   _enemy: {fileID: 1311135158026822090}
 --- !u!114 &-4816959188295777502
 MonoBehaviour:
@@ -1971,6 +1972,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 5800784118217912886}
   _enemy: {fileID: 1311135158026822090}
+--- !u!114 &-2134657701286238698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ccdfeab6d25d4daa61844e65a8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7535969814244887189
 GameObject:
   m_ObjectHideFlags: 0

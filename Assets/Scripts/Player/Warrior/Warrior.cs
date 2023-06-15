@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Warrior : MonoBehaviour
 {
     [SerializeField] private int _health;
+
+    private int _currentHealth;
+
+    public event UnityAction<int,int> ChangeHealth;
+
+    private void Start()
+    {
+        _currentHealth = _health;
+    }
 
     private void Update()
     {
@@ -16,9 +26,10 @@ public class Warrior : MonoBehaviour
 
     public void ApplyDamage(int damage)
     {
-        _health -= damage;
+        _currentHealth -= damage;
+        ChangeHealth?.Invoke(_currentHealth,_health);
 
-        if (_health <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }

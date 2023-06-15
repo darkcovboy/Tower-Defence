@@ -6,18 +6,18 @@ public class ReturnTransition : Transition
 {
     [SerializeField] private Enemy _enemy;
 
-    private Animator _animator;
+    private EnemyAnimations _enemyAnimations;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _enemyAnimations = GetComponent<EnemyAnimations>();
     }
 
     private void Update()
     {
-        if (_enemy.Warrior.gameObject.activeSelf==false)
+        if (_enemy.Warrior.gameObject.activeSelf == false)
         {
-            _animator.Play("Run");
+            _enemyAnimations.AttackAnimation(false);
             NeedTransit = true;
         }
     }

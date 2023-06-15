@@ -10,11 +10,11 @@ public class AttackWarriorState : State
 
     private float _lastAttackTime;
 
-    private Animator _animator;
+    private EnemyAnimations _enemyAnimations;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _enemyAnimations = GetComponent<EnemyAnimations>();
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class AttackWarriorState : State
 
     private void Attack(Warrior warrior)
     {
-        _animator.Play("Attacks");
+        _enemyAnimations.AttackAnimation(true);
         warrior.ApplyDamage(_damage);
     }
 }

@@ -6,22 +6,22 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class DieState : State
 {
-    private Animator _animator;
+    private EnemyAnimations _enemyAnimations;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _enemyAnimations = GetComponent<EnemyAnimations>();
     }
 
     private void OnEnable()
     {
-        _animator.Play("Death");
+        _enemyAnimations.DeathAnimation(true);
         Destroy(gameObject,3f);
     }
 
     private void OnDisable()
     {
-        _animator.StopPlayback();
+        _enemyAnimations.DeathAnimation(false);
     }
 }
 

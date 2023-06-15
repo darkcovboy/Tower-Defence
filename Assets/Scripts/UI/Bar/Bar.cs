@@ -11,4 +11,5 @@ public abstract class Bar : MonoBehaviour
     {
         Slider.value = (float)value / maxValue;
     }
+
 }
