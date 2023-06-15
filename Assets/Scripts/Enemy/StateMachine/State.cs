@@ -4,24 +4,23 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
-    [SerializeField] private List<Transition> _transitions;
+    [SerializeField] private List<Transitions> _transitions;
 
     protected Player Target { get; set; }
     protected Warrior Warrior { get; set; }
 
-    public void Enter(Player target, Warrior warrior)
+    public void Enter(Player target)
     {
         if (enabled == false)
         {
             Target = target;
-            Warrior = warrior;
 
             enabled = true;
 
             foreach (var transition in _transitions)
             {
                 transition.enabled = true;
-                transition.Init(Target,Warrior);
+                transition.Init(Target);
             }
         }
     }

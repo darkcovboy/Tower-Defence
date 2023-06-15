@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SearchWarriorTransition : Transition
+public class SearchWarriorTransition : Transitions
 {
     [SerializeField] private Enemy _enemy;
 

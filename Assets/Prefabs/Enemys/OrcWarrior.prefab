@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 35
+  _health: 100
   _reward: 10
 --- !u!114 &1257858082454618437
 MonoBehaviour:
@@ -596,7 +596,6 @@ MonoBehaviour:
   - {fileID: 2410876150184823704}
   - {fileID: 2295191402623920994}
   _speed: 6
-  _distanceTransitions: {fileID: 0}
 --- !u!114 &6559792722537117556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +724,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1397111218581837993}
+  - {fileID: 2410876150184823704}
+  - {fileID: 6401136576397210921}
   _damage: 10
   _delay: 1.16
   _enemy: {fileID: 4523420827666391610}
@@ -742,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 8907584093646019762}
   _enemy: {fileID: 4523420827666391610}
+  _attackWarriorState: {fileID: 4151257664168139806}
 --- !u!114 &2295191402623920994
 MonoBehaviour:
   m_ObjectHideFlags: 0

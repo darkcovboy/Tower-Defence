@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DistanceTransitions : Transition
+public class DistanceTransitions : Transitions
 {
     [SerializeField] private float _transitionRange;
     [SerializeField] private float _rangeSpread;

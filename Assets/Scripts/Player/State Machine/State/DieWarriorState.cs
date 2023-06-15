@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-[RequireComponent(typeof(Animator))]
-public class DieState : State
+public class DieWarriorState : State
 {
-    private EnemyAnimations _enemyAnimations;
+    private WarriorAnimations _warriorAnimations;
     private Coroutine _coroutine;
 
     private void Awake()
     {
-        _enemyAnimations = GetComponent<EnemyAnimations>();
+        _warriorAnimations = GetComponent<WarriorAnimations>();
     }
 
     private void OnEnable()
     {
-        _enemyAnimations.DeathAnimation(true);
+        _warriorAnimations.DieAnimation(true);
 
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }
-        _coroutine = StartCoroutine(Die());
-        //Destroy(gameObject,3f);
+        _coroutine= StartCoroutine(Die());
+        //gameObject.SetActive(false);
+        //Destroy(gameObject, 3f);
     }
 
     private void OnDisable()
@@ -32,14 +31,13 @@ public class DieState : State
         {
             StopCoroutine(_coroutine);
         }
-        _enemyAnimations.DeathAnimation(false);
+        _warriorAnimations.DieAnimation(false);
     }
 
-    IEnumerator Die()
+    public IEnumerator Die()
     {
         var WaitForSeconds = new WaitForSeconds(3f);
         yield return WaitForSeconds;
         gameObject.SetActive(false);
     }
 }
-

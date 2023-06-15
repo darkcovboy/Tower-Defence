@@ -7,8 +7,14 @@ public class Warrior : MonoBehaviour
 {
     [SerializeField] private int _health;
 
+    private Enemy _enemy; 
     private int _currentHealth;
+    private bool _die = false;
 
+    public bool DieWarrior => _die;
+    public int CurrentHealth => _currentHealth;
+    public Enemy Enemy => _enemy;
+            
     public event UnityAction<int,int> ChangeHealth;
 
     private void Start()
@@ -28,16 +34,15 @@ public class Warrior : MonoBehaviour
     {
         _currentHealth -= damage;
         ChangeHealth?.Invoke(_currentHealth,_health);
-
-        if (_currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
-    private void Die()
+    public void Init(Enemy enemy)
     {
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
+        _enemy = enemy; 
+    }
+
+    public void Die()
+    {
+        _die = true;
     }
 }

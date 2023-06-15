@@ -2,35 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackWarriorState : State
+public class AttackEnemyState : State
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _delay;
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Warrior _warrior;
 
     private float _lastAttackTime;
-
-    private EnemyAnimations _enemyAnimations;
+    private WarriorAnimations _warriorAnimations;
 
     private void Start()
     {
-        _enemyAnimations = GetComponent<EnemyAnimations>();
+        _warriorAnimations = GetComponent<WarriorAnimations>();
     }
 
     private void Update()
     {
         if (_lastAttackTime <= 0)
         {
-            Attack(_enemy.Warrior);
+            Attack(_warrior.Enemy);
             _lastAttackTime = _delay;
         }
         _lastAttackTime -= Time.deltaTime;
     }
 
-    private void Attack(Warrior warrior)
+    private void Attack(Enemy enemy)
     {
-        _enemyAnimations.AttackAnimation(true);
-        warrior.ApplyDamage(_damage);
+        _warriorAnimations.AttackAnimation(true);
+        enemy.TakeDamage(_damage);
     }
 
     public void ResetAttackTime()

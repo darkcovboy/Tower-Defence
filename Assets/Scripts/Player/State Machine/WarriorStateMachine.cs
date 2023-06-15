@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
-public class EnemyStateMachine : MonoBehaviour
+[RequireComponent(typeof(Warrior))]
+public class WarriorStateMachine : MonoBehaviour
 {
     [SerializeField] private State _firstState;
 
+    private Enemy _enemy;
     private Player _target;
-    //private Warrior _warrior;
+    private Warrior _warrior;
     private State _currentState;
 
     public State Current => _currentState;
 
     private void Start()
     {
-        _target = GetComponent<Enemy>().Target;
-        //_warrior = GetComponent<Enemy>().Warrior;
+        //_target = GetComponent<Enemy>().Target;
         Reset(_firstState);
     }
 
     private void Update()
     {
-        if (_target == null)
-        {
-            return;
-        }
+        //if (_target == null)
+        //{
+        //    return;
+        //}
 
         if (_currentState == null)
         {
@@ -38,7 +38,6 @@ public class EnemyStateMachine : MonoBehaviour
         {
             Transit(nextState);
         }
-
     }
 
     public void Reset(State startState)
@@ -56,7 +55,7 @@ public class EnemyStateMachine : MonoBehaviour
             _currentState.Exit();
         }
 
-            _currentState = nextState;
+        _currentState = nextState;
 
         if (_currentState != null)
         {

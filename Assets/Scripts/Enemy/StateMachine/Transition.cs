@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Transition : MonoBehaviour
+public abstract class Transitions : MonoBehaviour
 {
     [SerializeField] private State _targetState;
 
@@ -13,10 +13,9 @@ public abstract class Transition : MonoBehaviour
 
     public bool NeedTransit { get; protected set; }
 
-    public void Init(Player target ,Warrior warrior)
+    public void Init(Player target)
     {
         Target = target;
-        Warrior = warrior;
     }
 
     private void OnEnable()

@@ -5,15 +5,12 @@ using UnityEngine;
 public class EnemyMoverState : State
 {
     [SerializeField] private float _speed = 10f;
-    [SerializeField] private DistanceTransitions _distanceTransitions;
 
     private Transform _target;
     private int _wavePointIndex = 0;
-    private Animator _animator;
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
         _target = Waypoints.points[0];
     }
 
@@ -30,11 +27,6 @@ public class EnemyMoverState : State
             GetNextWaypoint();
         }
     }
-
-    //public void Init(Player target,Warrior warrior)
-    //{
-    //    _target = target.transform;
-    //}
 
     private void GetNextWaypoint()
     {

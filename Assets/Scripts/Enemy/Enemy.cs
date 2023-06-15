@@ -11,7 +11,9 @@ public class Enemy : MonoBehaviour
     private Player _target;
     private Warrior _warrior;
     private int _currentHealth;
+    private bool _dieCheck = false;
 
+    public bool DieCheck => _dieCheck;
     public int Reward => _reward;
     public Player Target => _target;
     public Warrior Warrior => _warrior;
@@ -45,5 +47,10 @@ public class Enemy : MonoBehaviour
     public void DyingEnemy()
     {
         Dying.Invoke(this);
+    }
+
+    public void OnDie()
+    {
+        _dieCheck = true;
     }
 }
