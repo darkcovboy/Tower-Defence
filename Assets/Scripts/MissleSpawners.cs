@@ -17,6 +17,7 @@ public class MissleSpawners : ObjectPool
     {
         if(TryGetObject(out GameObject missle))
         {
+            Debug.Log("PushMissle");
             missle.SetActive(true);
             missle.transform.position = StartPosition.position;
             missle.GetComponent<Missle>().Create(target, enemy, damage);

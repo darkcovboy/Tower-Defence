@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanonTower : Tower
 {
     [SerializeField] private Transform _target;
+    [SerializeField] private ParticleSystem[] _particleSystems;
 
     private Enemy _enemy;
 
@@ -42,9 +43,13 @@ public class CanonTower : Tower
     {
         while (_enemy.Health > 0)
         {
+            Debug.Log("ShootDownDelay");
             Shoot();
+            _particleSystems[Level].Play();
             yield return new WaitForSeconds(AttackRates[Level]);
         }
+
+        StopCoroutine(ShootDownDelay());
     }
 
     private void Shoot()
