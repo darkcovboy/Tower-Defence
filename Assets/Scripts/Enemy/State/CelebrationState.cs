@@ -5,20 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class CelebrationState : State
 {
-    private Animator _animator;
+    private EnemyAnimations _enemyAnimations;
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _enemyAnimations = GetComponent<EnemyAnimations>();
     }
 
     private void OnEnable()
     {
-        _animator.Play("Celebration");
+        _enemyAnimations.CelebrationAnimation(true);
     }
 
     private void OnDisable()
     {
-        _animator.StopPlayback();
+        _enemyAnimations.CelebrationAnimation(false);
     }
 }

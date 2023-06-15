@@ -4,15 +4,17 @@ using UnityEngine;
 
 public abstract class State : MonoBehaviour
 {
-    [SerializeField] private List<Transition> _transitions;
+    [SerializeField] private List<Transitions> _transitions;
 
     protected Player Target { get; set; }
+    protected Warrior Warrior { get; set; }
 
     public void Enter(Player target)
     {
         if (enabled == false)
         {
             Target = target;
+
             enabled = true;
 
             foreach (var transition in _transitions)

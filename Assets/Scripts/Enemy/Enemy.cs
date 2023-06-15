@@ -5,54 +5,52 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
-    [SerializeField] private EnemyMoverState _enemyMoverState;
 
     private Player _target;
+    private Warrior _warrior;
+    private int _currentHealth;
+    private bool _dieCheck = false;
 
-    public event UnityAction Dying;
-
+    public bool DieCheck => _dieCheck;
+    public int Reward => _reward;
     public Player Target => _target;
-    public int Health => _health;
+    public Warrior Warrior => _warrior;
+    public int CurrentHealth => _currentHealth;
 
-    public void TakeDamage(int damage, Type damageType)
+    public event UnityAction<Enemy> Dying;
+    public event UnityAction<int,int> HealthChanged;
+
+    private void Start()
     {
-        _health -= damage;
-
-        int i = (int)damageType;
-
-        switch(i)
-        {
-            case 0:
-                //Добавить корутины чуть позже
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-        }
-
-        if(_health < 0)
-        {
-            Destroy(gameObject);
-        }
+        _currentHealth = _health;
     }
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
-
-        if (_health < 0)
-        {
-            Destroy(gameObject);
-        }
+        _currentHealth -= damage;
+        HealthChanged?.Invoke(_currentHealth,_health);
     }
 
-    public void Init(Player target)
+    public void Init(Player target, Warrior warrior)
     {
         _target = target;
+        _warrior = warrior;
     }
 
+    public void Init(Warrior warrior)
+    {
+        _warrior = warrior;
+    }
+
+    public void DyingEnemy()
+    {
+        Dying.Invoke(this);
+    }
+
+    public void OnDie()
+    {
+        _dieCheck = true;
+    }
 }
