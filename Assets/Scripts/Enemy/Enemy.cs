@@ -33,6 +33,12 @@ public class Enemy : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth,_health);
     }
 
+    public void TakeDamage(int damage, Type type)
+    {
+        _currentHealth -= damage;
+        HealthChanged?.Invoke(_currentHealth, _health);
+    }
+
     public void Init(Player target, Warrior warrior)
     {
         _target = target;
