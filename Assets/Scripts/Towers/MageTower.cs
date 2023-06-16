@@ -40,7 +40,7 @@ public class MageTower : Tower
 
     private IEnumerator ShootDownDelay()
     {
-        while (_enemy.Health > 0)
+        while (_enemy.CurrentHealth > 0)
         {
             Shoot();
             yield return new WaitForSeconds(AttackRates[Level]);

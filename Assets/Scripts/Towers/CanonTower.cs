@@ -41,9 +41,8 @@ public class CanonTower : Tower
 
     private IEnumerator ShootDownDelay()
     {
-        while (_enemy.Health > 0)
+        while (_enemy.CurrentHealth > 0)
         {
-            Debug.Log("ShootDownDelay");
             Shoot();
             _particleSystems[Level].Play();
             yield return new WaitForSeconds(AttackRates[Level]);
