@@ -6,11 +6,13 @@ using UnityEngine.Events;
 public class Warrior : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private int _damage;
 
     private Enemy _enemy; 
     private int _currentHealth;
     private bool _die = false;
 
+    public int Damage => _damage;
     public bool DieWarrior => _die;
     public int CurrentHealth => _currentHealth;
     public Enemy Enemy => _enemy;
