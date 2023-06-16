@@ -47,4 +47,9 @@ public class Warrior : MonoBehaviour
     {
         _die = true;
     }
+
+    public void EnemyDead()
+    {
+        _enemy = null;
+    }
 }
