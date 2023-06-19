@@ -7,12 +7,14 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
+    [SerializeField] private int _damage;
 
     private Player _target;
     private Warrior _warrior;
     private int _currentHealth;
     private bool _dieCheck = false;
 
+    public int Damage => _damage;
     public bool DieCheck => _dieCheck;
     public int Reward => _reward;
     public Player Target => _target;
@@ -33,7 +35,7 @@ public class Enemy : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth,_health);
     }
 
-    public void TakeDamage(int damage, Type type)
+    public void TakeDamage(int damage,Type type)
     {
         _currentHealth -= damage;
         HealthChanged?.Invoke(_currentHealth, _health);

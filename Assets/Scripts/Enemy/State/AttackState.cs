@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AttackState : State
 {
-    [SerializeField] private int _damage;
     [SerializeField] private float _delay;
     [SerializeField] private Enemy _enemy;
 
@@ -31,7 +30,7 @@ public class AttackState : State
     private void Attack(Player target)
     {
         _enemyAnimations.AttackAnimation(true);
-        target.ApplyDamage(_damage);
+        target.ApplyDamage(_enemy.Damage);
         _enemy.TakeDamage(10);
     }
 }

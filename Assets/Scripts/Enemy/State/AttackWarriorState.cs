@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackWarriorState : State
 {
-    [SerializeField] private int _damage;
     [SerializeField] private float _delay;
     [SerializeField] private Enemy _enemy;
 
@@ -30,7 +29,7 @@ public class AttackWarriorState : State
     private void Attack(Warrior warrior)
     {
         _enemyAnimations.AttackAnimation(true);
-        warrior.ApplyDamage(_damage);
+        warrior.ApplyDamage(_enemy.Damage);
     }
 
     public void ResetAttackTime()
