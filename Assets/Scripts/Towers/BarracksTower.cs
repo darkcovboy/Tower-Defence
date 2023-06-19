@@ -15,10 +15,6 @@ public class BarracksTower : Tower
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
 
-    private void Start()
-    {
-        transform.LookAt(_target);
-    }
 
     private void Update()
     {
