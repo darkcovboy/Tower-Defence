@@ -7,7 +7,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] protected Waves[] _waves;
     [SerializeField] private Player _target;
     [SerializeField] private Warrior _warrior;
-    [SerializeField] Transform _spawns;
 
     private int _currentEnemyIndex;
     private int _currentWaveIndex;

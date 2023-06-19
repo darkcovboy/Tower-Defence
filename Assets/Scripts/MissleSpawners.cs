@@ -6,20 +6,17 @@ public class MissleSpawners : ObjectPool
 {
     [SerializeField] private Missle _misslePrefab;
 
-    public Transform StartPosition;
-
     private void Start()
     {
         Initialize(_misslePrefab.gameObject);
     }
 
-    public void PushMissle(Transform target, Enemy enemy, int damage)
+    public void PushMissle(Transform target, Enemy enemy, int damage, Transform startPosition)
     {
-        if(TryGetObject(out GameObject missle))
+        if(TryGetObject(out GameObject missle) && target != null)
         {
-            Debug.Log("PushMissle");
             missle.SetActive(true);
-            missle.transform.position = StartPosition.position;
+            missle.transform.position = startPosition.position;
             missle.GetComponent<Missle>().Create(target, enemy, damage);
         }
     }

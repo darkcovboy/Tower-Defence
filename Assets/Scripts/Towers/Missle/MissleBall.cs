@@ -13,26 +13,31 @@ public class MissleBall : Missle
     private Transform _startTransform;
     private readonly float g = Physics.gravity.y;
 
+    private void OnDisable()
+    {
+        StopCoroutine(DisableObject());
+    }
+
     protected override IEnumerator MoveToTarget()
     {
         BallPhysics();
 
-        while (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > DistanceBetweenTarget)
+        while (Vector3.Distance(transform.position, Target.transform.position) > DistanceBetweenTarget)
         {
             if (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > _maxDistance)
                 break;
             yield return null;
         }
 
-        StartCoroutine(PlayParticles());
         ExploseDamage();
-        gameObject.SetActive(false);
+        StartCoroutine(DisableObject());
     }
 
-    private IEnumerator PlayParticles()
+    private IEnumerator DisableObject()
     {
         _afterExploseParticle.Play();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
 
     public override void Create(Transform target, Enemy enemy, int damage)

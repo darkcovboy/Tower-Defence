@@ -17,9 +17,10 @@ public class Warrior : MonoBehaviour
             
     public event UnityAction<int,int> ChangeHealth;
 
-    private void Start()
+    private void OnEnable()
     {
         _currentHealth = _health;
+        Debug.Log(_currentHealth + " Новая жыыызнь" + _health);
     }
 
     private void Update()
@@ -29,10 +30,16 @@ public class Warrior : MonoBehaviour
             return;
         }
     }
+    
+    public void SendData(int damage)
+    {
+
+    }
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
+        Debug.Log(_currentHealth);
         ChangeHealth?.Invoke(_currentHealth,_health);
     }
 

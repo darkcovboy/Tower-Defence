@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DieWarriorState : State
 {
+    [SerializeField] WarriorStateMachine stateMachine;
+    [SerializeField] private State _firstState;
     private WarriorAnimations _warriorAnimations;
     private Coroutine _coroutine;
 
@@ -20,7 +22,8 @@ public class DieWarriorState : State
         {
             StopCoroutine(_coroutine);
         }
-        _coroutine= StartCoroutine(Die());
+        _coroutine = StartCoroutine(Die());
+
         //gameObject.SetActive(false);
         //Destroy(gameObject, 3f);
     }
@@ -32,6 +35,8 @@ public class DieWarriorState : State
             StopCoroutine(_coroutine);
         }
         _warriorAnimations.DieAnimation(false);
+
+        enabled = false;
     }
 
     public IEnumerator Die()

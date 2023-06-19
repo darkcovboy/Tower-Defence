@@ -40,6 +40,12 @@ public class WarriorStateMachine : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        Debug.Log("Something");
+        Reset(_firstState);
+    }
+
     public void Reset(State startState)
     {
         _currentState = startState;
