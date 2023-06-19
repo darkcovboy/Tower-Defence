@@ -3106,6 +3106,7 @@ MonoBehaviour:
   - {fileID: 480293248452217266}
   - {fileID: -7312043286275011571}
   _speed: 5
+  _waypoints: {fileID: 0}
 --- !u!114 &4034829458369389427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 50
   _reward: 15
-  _damage: 0
+  _damage: 15
 --- !u!114 &6195168554443569373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3274,6 +3275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: -3240753897832702962}
+  - {fileID: 480293248452217266}
+  - {fileID: 5817177605413838185}
   _delay: 1.16
   _enemy: {fileID: 4034829458369389427}
 --- !u!54 &1459944375964357737
