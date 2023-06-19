@@ -1682,7 +1682,6 @@ MonoBehaviour:
   - {fileID: 823402180877305113}
   - {fileID: -2023483943778190983}
   _speed: 10
-  _distanceTransitions: {fileID: 3048408684504270417}
 --- !u!114 &3949690462116715485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,7 +1723,6 @@ MonoBehaviour:
   _transitions:
   - {fileID: 823402180877305113}
   - {fileID: 1485839319692604735}
-  _damage: 5
   _delay: 1
   _enemy: {fileID: 8611977804776116672}
 --- !u!114 &3048408684504270417
@@ -1769,6 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 30
   _reward: 5
+  _damage: 0
 --- !u!114 &623992659246379988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,6 +1821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 882708559566704345}
   _enemy: {fileID: 8611977804776116672}
+  _attackWarriorState: {fileID: -5726456071878506908}
 --- !u!114 &-5726456071878506908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1836,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: -1368229511642806990}
-  _damage: 5
   _delay: 1.5
   _enemy: {fileID: 8611977804776116672}
 --- !u!114 &-2023483943778190983

@@ -11,8 +11,15 @@ public class SearchWarriorTransition : Transitions
         if (other.GetComponent<Warrior>())
         {
             Warrior warrior = other.GetComponent<Warrior>();
-            _enemy.Init(warrior);
-            NeedTransit = true;
+
+            if (_enemy.HaveEnemy && warrior.Battle == false)
+            {
+                warrior.CallToFight(true);
+                _enemy.Init(warrior);
+                NeedTransit = true;
+            }
+            else
+                return;
         }
     }
 }

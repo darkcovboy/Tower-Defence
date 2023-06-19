@@ -5,13 +5,29 @@ using UnityEngine;
 public class EnemyMoverState : State
 {
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private Waypoints _waypoints;
 
     private Transform _target;
     private int _wavePointIndex = 0;
 
+    private void Awake()
+    {
+        _waypoints = FindObjectOfType<Waypoints>();
+    }
+
     private void Start()
     {
-        _target = Waypoints.points[0];
+        var numberArrayWaypoints = Random.Range(0, 2);
+
+        if (numberArrayWaypoints == 0)
+        {
+            _target = _waypoints.Points[0];
+        }
+        else
+        {
+            _target = _waypoints.Points1[0];
+        }
+        //_target = Waypoints.points[0];
     }
 
     private void Update()
@@ -30,12 +46,23 @@ public class EnemyMoverState : State
 
     private void GetNextWaypoint()
     {
-        if (_wavePointIndex >= Waypoints.points.Length - 1)
+        var indexArray = Random.Range(0, 2);
+        //if (_wavePointIndex >= Waypoints.points.Length - 1)
+        if(_wavePointIndex>=_waypoints.Points.Length-1|| _wavePointIndex >= _waypoints.Points1.Length-1)
         {
             return;
         }
 
         _wavePointIndex++;
-        _target = Waypoints.points[_wavePointIndex];
+
+        if(indexArray==0)
+        {
+            _target = _waypoints.Points[_wavePointIndex];
+        }
+        else
+        {
+            _target = _waypoints.Points1[_wavePointIndex];
+        }
+        //_target = Waypoints.points[_wavePointIndex];
     }
 }

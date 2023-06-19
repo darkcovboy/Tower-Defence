@@ -4,13 +4,5 @@ using UnityEngine;
 
 public class WarriorMoveState : State
 {
-    private void Start()
-    {
-        
-    }
 
-    private void Update()
-    {
-        
-    }
 }

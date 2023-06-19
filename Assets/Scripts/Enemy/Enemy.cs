@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private int _currentHealth;
     private bool _dieCheck = false;
 
+    public bool HaveEnemy => _warrior == null;
     public int Damage => _damage;
     public bool DieCheck => _dieCheck;
     public int Reward => _reward;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
     public int CurrentHealth => _currentHealth;
 
     public event UnityAction<Enemy> Dying;
-    public event UnityAction<int,int> HealthChanged;
+    public event UnityAction<int, int> HealthChanged;
 
     private void Start()
     {
@@ -32,10 +33,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth,_health);
+        HealthChanged?.Invoke(_currentHealth, _health);
     }
 
-    public void TakeDamage(int damage,Type type)
+    public void TakeDamage(int damage, Type type)
     {
         _currentHealth -= damage;
         HealthChanged?.Invoke(_currentHealth, _health);
@@ -60,5 +61,10 @@ public class Enemy : MonoBehaviour
     public void OnDie()
     {
         _dieCheck = true;
+    }
+
+    public void TargetNull()
+    {
+        _warrior = null;
     }
 }

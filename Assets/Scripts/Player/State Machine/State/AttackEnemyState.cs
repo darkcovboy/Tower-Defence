@@ -27,6 +27,8 @@ public class AttackEnemyState : State
 
     private void Attack(Enemy enemy)
     {
+        Vector3 direction = enemy.transform.position - transform.position;
+        transform.forward = direction;
         _warriorAnimations.AttackAnimation(true);
         enemy.TakeDamage(_warrior.Damage);
     }

@@ -12,17 +12,19 @@ public class Warrior : MonoBehaviour
     private int _currentHealth;
     private bool _die = false;
 
+    public bool Battle { get; private set; } = false;
     public int Damage => _damage;
     public bool DieWarrior => _die;
     public int CurrentHealth => _currentHealth;
     public Enemy Enemy => _enemy;
+    public bool HaveEnemy => _enemy == null;
             
     public event UnityAction<int,int> ChangeHealth;
 
     private void OnEnable()
     {
         _currentHealth = _health;
-        Debug.Log(_currentHealth + " Новая жыыызнь" + _health);
+        //Debug.Log(_currentHealth + " Новая жыыызнь" + _health);
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class Warrior : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        Debug.Log(_currentHealth);
+        //Debug.Log(_currentHealth);
         ChangeHealth?.Invoke(_currentHealth,_health);
     }
 
@@ -58,5 +60,10 @@ public class Warrior : MonoBehaviour
     public void EnemyDead()
     {
         _enemy = null;
+    }
+
+    public void CallToFight(bool flag)
+    {
+        Battle = flag;
     }
 }

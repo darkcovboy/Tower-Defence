@@ -19,11 +19,6 @@ public class Player : MonoBehaviour
         _currentHealth = _health;
     }
 
-    //public void OnEnemyDied(int reward)
-    //{
-    //    Money += reward;
-    //}
-
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;

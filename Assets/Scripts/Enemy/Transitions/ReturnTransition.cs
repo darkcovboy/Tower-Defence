@@ -16,14 +16,9 @@ public class ReturnTransition : Transitions
 
     private void Update()
     {
-        //if (_enemy.Warrior.gameObject.activeSelf == false)
-        //{
-        //    _attackWarriorState.ResetAttackTime();
-        //    _enemyAnimations.AttackAnimation(false);
-        //    NeedTransit = true;
-        //}
         if (_enemy.Warrior.DieWarrior == true)
         {
+            _enemy.TargetNull();
             _attackWarriorState.ResetAttackTime();
             _enemyAnimations.AttackAnimation(false);
             NeedTransit = true;

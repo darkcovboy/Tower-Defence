@@ -25,6 +25,7 @@ public class ReturnWarriorTransition : Transitions
 
         if (_warrior.Enemy.DieCheck == true)
         {
+            _warrior.CallToFight(false);
             _warrior.EnemyDead();
             _attackEnemyState.ResetAttackTime();
             _warriorAnimations.AttackAnimation(false);

@@ -25,9 +25,11 @@ public class AttackWarriorState : State
         }
         _lastAttackTime -= Time.deltaTime;
     }
-
+    
     private void Attack(Warrior warrior)
     {
+        Vector3 direction = warrior.transform.position - transform.position;
+        transform.forward = direction;
         _enemyAnimations.AttackAnimation(true);
         warrior.ApplyDamage(_enemy.Damage);
     }
