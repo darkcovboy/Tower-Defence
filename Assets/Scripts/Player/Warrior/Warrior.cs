@@ -24,7 +24,6 @@ public class Warrior : MonoBehaviour
     private void OnEnable()
     {
         _currentHealth = _health;
-        //Debug.Log(_currentHealth + " Новая жыыызнь" + _health);
     }
 
     private void Update()
@@ -34,16 +33,16 @@ public class Warrior : MonoBehaviour
             return;
         }
     }
-    
-    public void SendData(int damage)
-    {
 
+    public void SendData(int damage, Transform _target)
+    {
+        _damage = damage;
+        GetComponent<WarriorMoveState>().TargetPosition = _target;
     }
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        //Debug.Log(_currentHealth);
         ChangeHealth?.Invoke(_currentHealth,_health);
     }
 

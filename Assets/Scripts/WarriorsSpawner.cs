@@ -19,9 +19,9 @@ public class WarriorsSpawner : ObjectPool
     {
         if(TryGetObject(out GameObject warrior))
         {
+            warrior.GetComponent<Warrior>().SendData(damage, target);
             warrior.SetActive(true);
-            warrior.transform.position = target.position;
-            warrior.GetComponent<Warrior>().SendData(damage);
+            warrior.transform.position = transform.position;
         }
     }
 }
