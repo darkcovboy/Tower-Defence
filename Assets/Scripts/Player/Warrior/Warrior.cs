@@ -37,7 +37,7 @@ public class Warrior : MonoBehaviour
     public void SendData(int damage, Transform _target)
     {
         _damage = damage;
-        GetComponent<WarriorMoveState>().TargetPosition = _target;
+        //GetComponent<WarriorMoveState>().TargetPosition = _target;
     }
 
     public void ApplyDamage(int damage)
