@@ -29,10 +29,10 @@ public class WaveSpawner : MonoBehaviour
             Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner[indexArray].transform.position, Quaternion.identity).GetComponent<Enemy>();
             enemy.Init(_target,_warrior);
             enemy.Dying += OnEnemyDying;
+            enemy.GetIndexToArray(indexArray);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
             StartCoroutine(SpawnEnemyInWave());
-            Debug.Log(indexArray);
         }
         else
         {

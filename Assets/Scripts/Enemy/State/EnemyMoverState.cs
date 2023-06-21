@@ -20,7 +20,7 @@ public class EnemyMoverState : State
     {
         var numberArrayWaypoints = Random.Range(0, 2);
 
-        if (numberArrayWaypoints == 0)
+        if (_enemy.Index == 0)
         {
             _target = _waypoints.Points[0];
         }
@@ -49,20 +49,33 @@ public class EnemyMoverState : State
     {
         var indexArray = Random.Range(0, 2);
         //if (_wavePointIndex >= Waypoints.points.Length - 1)
-        if(_wavePointIndex>=_waypoints.Points.Length-1|| _wavePointIndex >= _waypoints.Points1.Length-1)
+        if (_wavePointIndex >= _waypoints.Points.Length - 1 || _wavePointIndex >= _waypoints.Points1.Length - 1)
         {
             return;
         }
 
         _wavePointIndex++;
 
-        if(indexArray==0)
+        if (_enemy.Index == 0)
         {
-            _target = _waypoints.Points[_wavePointIndex];
+            if (indexArray == 0)
+            {
+                _target = _waypoints.Points[_wavePointIndex];
+
+            }
+            else
+            {
+                _target = _waypoints.Points2[_wavePointIndex];
+            }
         }
         else
         {
-            _target = _waypoints.Points1[_wavePointIndex];
+            if (indexArray == 0)
+            {
+                _target = _waypoints.Points1[_wavePointIndex];
+            }
+            else
+                _target = _waypoints.Points3[_wavePointIndex];
         }
         //_target = Waypoints.points[_wavePointIndex];
     }

@@ -1765,8 +1765,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3423475, y: 1.1642966, z: 0.4363572}
-  m_Center: {x: 0.026452031, y: 0.6048159, z: -0.003993082}
+  m_Size: {x: 0.73007697, y: 1.1642966, z: 0.8993427}
+  m_Center: {x: 0.0129352175, y: 0.6048159, z: -0.02297628}
 --- !u!114 &1311135158026822090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,6 +1782,13 @@ MonoBehaviour:
   _health: 15
   _reward: 6
   _damage: 6
+  _speed: 10
+  _burnRates: 0
+  _burnDamage: 0
+  _fireEffect: {fileID: 0}
+  _iceRates: 0
+  _iceSpeedPercentage: 0
+  _iceEffect: {fileID: 0}
 --- !u!114 &4571724591916796430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,7 +1819,6 @@ MonoBehaviour:
   - {fileID: 1750019197742807660}
   - {fileID: 1130076778625125437}
   - {fileID: 3322213266595829278}
-  _speed: 10
   _waypoints: {fileID: 0}
 --- !u!114 &51534553085604421
 MonoBehaviour:
@@ -1886,6 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
+  _dieEffect: {fileID: 19800006, guid: 2a474af3f4c27be4e9bdce39cfe4315d, type: 3}
 --- !u!114 &8587536721812587383
 MonoBehaviour:
   m_ObjectHideFlags: 0

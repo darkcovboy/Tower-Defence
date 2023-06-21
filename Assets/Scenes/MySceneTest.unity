@@ -27461,15 +27461,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - _wavesSettings:
-    - _enemy: {fileID: 566493062515035319, guid: 6649243db2c858c46bfe100e1efc87bf, type: 3}
-      _nedeedSpawner: {fileID: 105485558}
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
       _spawnDelay: 0.5
-    - _enemy: {fileID: 566493062515035319, guid: 6649243db2c858c46bfe100e1efc87bf, type: 3}
-      _nedeedSpawner: {fileID: 105485558}
-      _spawnDelay: 1
-    - _enemy: {fileID: 566493062515035319, guid: 6649243db2c858c46bfe100e1efc87bf, type: 3}
-      _nedeedSpawner: {fileID: 105485558}
-      _spawnDelay: 1
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
+    - _enemy: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      _nedeedSpawner:
+      - {fileID: 105485558}
+      - {fileID: 1339490680}
+      _spawnDelay: 0.5
   _target: {fileID: 1601179342}
   _warrior: {fileID: 0}
 --- !u!4 &1061924404
@@ -39322,7 +39363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff5be99f3404264ca57944aa5b36ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _health: 1000
 --- !u!65 &1601179343
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54023,11 +54064,11 @@ PrefabInstance:
       objectReference: {fileID: 51602631}
     - target: {fileID: 4101065500824152940, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4101065500824152940, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4101065501098759840, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
       propertyPath: m_RootOrder
@@ -54080,6 +54121,10 @@ PrefabInstance:
     - target: {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
       propertyPath: m_Name
       value: Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
