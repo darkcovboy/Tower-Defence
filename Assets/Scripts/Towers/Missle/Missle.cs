@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type
+public enum DamageType
 {
     Fire,
     Ice,
@@ -14,7 +14,7 @@ public class Missle : MonoBehaviour
     [SerializeField] protected float Speed;
     [SerializeField] protected float DistanceBetweenTarget;
 
-    public Type Type;
+    public DamageType Type;
 
     protected int Damage;
     protected Transform Target;

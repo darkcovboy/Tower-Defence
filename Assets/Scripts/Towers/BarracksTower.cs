@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BarracksTower : Tower
 {
@@ -11,10 +12,25 @@ public class BarracksTower : Tower
     [SerializeField] private Transform _target;
 
     public GameObject WarriorPrefab => _warriorPrefabs[Level];
+    public UnityAction OnWarriorDied;
 
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
 
+    private void Start()
+    {
+        transform.parent.LookAt(_target);
+    }
+
+    private void OnEnable()
+    {
+        OnWarriorDied += OnWarriorDie;
+    }
+
+    private void OnDisable()
+    {
+        OnWarriorDied -= OnWarriorDie;
+    }
 
     private void Update()
     {
@@ -25,6 +41,12 @@ public class BarracksTower : Tower
 
         StartCoroutine(SpawnWarriorsDelay());
         StopCoroutine(SpawnWarriorsDelay());
+    }
+
+    private void OnWarriorDie()
+    {
+        Debug.Log("Я умер");
+        _currentWarriors--;
     }
 
     private IEnumerator SpawnWarriorsDelay()
@@ -44,6 +66,6 @@ public class BarracksTower : Tower
 
     private void SpawnWarriors(int index)
     {
-        _warriorsSpawner.SpawnWarrior(Damages[Level], _pointWarriors[index]);
+        _warriorsSpawner.SpawnWarrior(Damages[Level], _pointWarriors[index], gameObject);
     }
 }

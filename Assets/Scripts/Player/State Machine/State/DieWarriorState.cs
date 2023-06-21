@@ -22,10 +22,8 @@ public class DieWarriorState : State
         {
             StopCoroutine(_coroutine);
         }
-        _coroutine = StartCoroutine(Die());
 
-        //gameObject.SetActive(false);
-        //Destroy(gameObject, 3f);
+        _coroutine = StartCoroutine(Die());
     }
 
     private void OnDisable()
@@ -34,6 +32,7 @@ public class DieWarriorState : State
         {
             StopCoroutine(_coroutine);
         }
+
         _warriorAnimations.DieAnimation(false);
 
         enabled = false;

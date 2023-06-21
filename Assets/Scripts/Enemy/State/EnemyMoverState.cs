@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EnemyMoverState : State
 {
-    [SerializeField] private float _speed = 10f;
     [SerializeField] private Waypoints _waypoints;
 
     private Transform _target;
     private int _wavePointIndex = 0;
+    private Enemy _enemy;
 
     private void Awake()
     {
         _waypoints = FindObjectOfType<Waypoints>();
+        _enemy = gameObject.GetComponent<Enemy>();
     }
 
     private void Start()
@@ -33,7 +34,7 @@ public class EnemyMoverState : State
     private void Update()
     {
         Vector3 direction = _target.position - transform.position;
-        transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
         //Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
         //transform.rotation = rotation;
         transform.forward = direction;
