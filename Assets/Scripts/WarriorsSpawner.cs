@@ -15,11 +15,11 @@ public class WarriorsSpawner : ObjectPool
         Initialize(_warriorPrefab);
     }
 
-    public void SpawnWarrior(int damage, Transform target)
+    public void SpawnWarrior(int damage, Transform target, GameObject barracks)
     {
         if(TryGetObject(out GameObject warrior))
         {
-            warrior.GetComponent<Warrior>().SendData(damage, target);
+            warrior.GetComponent<Warrior>().SendData(damage, target, barracks.GetComponent<BarracksTower>());
             warrior.SetActive(true);
             warrior.transform.position = transform.position;
         }
