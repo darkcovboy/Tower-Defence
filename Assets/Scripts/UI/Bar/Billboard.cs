@@ -8,7 +8,7 @@ public class Billboard : MonoBehaviour
 
     private void Start()
     {
-        _camera = FindObjectOfType<Camera>().transform;
+        //_camera = FindObjectOfType<Camera>().transform;
     }
 
     private void LateUpdate()
