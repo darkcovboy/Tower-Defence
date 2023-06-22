@@ -27,9 +27,8 @@ public class TestSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (_currentWave == null)
+        if (_currentWave == null||_currentWave.wavesSettings==null)
         {
-            //Debug.Log("вышли");
             return;
         }
 
@@ -40,7 +39,7 @@ public class TestSpawner : MonoBehaviour
             InstantiateEnemy();
             _spawned++;
             _timeAfterlastSpawn = 0;
-            EnemyCountChanged?.Invoke(_spawned, _waves[_currentWaveNumber].wavesSettings[_currentEnemyIndex].Count);
+            EnemyCountChanged?.Invoke(_spawned, _waves[_currentWaveNumber].wavesSettings.Length);
             _currentEnemyIndex++;
         }
 
@@ -55,7 +54,6 @@ public class TestSpawner : MonoBehaviour
             {
                 _currentWave = null;
                 _currentEnemyIndex = 0;
-                Debug.Log(_currentWave);
             }
         }
     }
@@ -63,8 +61,7 @@ public class TestSpawner : MonoBehaviour
     private void InstantiateEnemy()
     {
         int indexArray = Random.Range(0, _spawnPoint.Length);
-        //int indexEnemy = Random.Range(0, _waves[);
-        Enemy enemy = Instantiate(/*_currentWave.Template[indexEnemy]*/_waves[_currentWaveNumber].wavesSettings[_currentEnemyIndex].Template, _spawnPoint[indexArray].position, _spawnPoint[indexArray].rotation, _container).GetComponent<Enemy>();
+        Enemy enemy = Instantiate(_waves[_currentWaveNumber].wavesSettings[_currentEnemyIndex].Template, _spawnPoint[indexArray].position, _spawnPoint[indexArray].rotation, _container).GetComponent<Enemy>();
         enemy.Init(_player, _warrior);
         enemy.Dying += OnEnemyDying;
         enemy.GetIndexToArray(indexArray);

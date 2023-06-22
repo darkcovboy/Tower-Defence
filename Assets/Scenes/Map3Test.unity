@@ -8237,7 +8237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &282556784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8252,24 +8252,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - _wavesssSettings:
-    - Template:
-      - {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
+    - Template: {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
       Delay: 1
       Count: 1
   - _wavesssSettings:
-    - Template:
-      - {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
-      Delay: 3
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 1
       Count: 1
   - _wavesssSettings:
-    - Template:
-      - {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
-      Delay: 5
+    - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
+      Delay: 1
       Count: 1
-  _spawnPoint: []
-  _player: {fileID: 0}
+  _spawnPoint:
+  - {fileID: 1304126746}
+  _player: {fileID: 1601179342}
   _warrior: {fileID: 0}
-  _container: {fileID: 0}
+  _container: {fileID: 282556785}
 --- !u!4 &282556785
 Transform:
   m_ObjectHideFlags: 0
@@ -27734,16 +27732,6 @@ MonoBehaviour:
       - {fileID: 1304126745}
       - {fileID: 2070312004}
       _spawnDelay: 1
-    - _enemy: {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
-      _nedeedSpawner:
-      - {fileID: 1304126745}
-      - {fileID: 2070312004}
-      _spawnDelay: 3
-    - _enemy: {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
-      _nedeedSpawner:
-      - {fileID: 1304126745}
-      - {fileID: 2070312004}
-      _spawnDelay: 6
   _target: {fileID: 1601179342}
   _warrior: {fileID: 0}
 --- !u!4 &1061924404
@@ -37848,28 +37836,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
-  - Template:
-    - {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
+  - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
     Delay: 1
-    Count: 3
-  - Template:
-    - {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
-    - {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
-    - {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
-    Delay: 0.5
-    Count: 5
-  - Template:
-    - {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
-    - {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
-    - {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
-    - {fileID: 1443565199736616551, guid: 057276415c13e8342bbe46903739e055, type: 3}
-    - {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
-    - {fileID: 566493062515035319, guid: 6649243db2c858c46bfe100e1efc87bf, type: 3}
-    Delay: 0.5
-    Count: 5
-  _spawnPoint:
-  - {fileID: 1304126746}
-  - {fileID: 2070312008}
+    Count: 1
+  - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+    Delay: 1
+    Count: 1
+  - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+    Delay: 1
+    Count: 1
+  _spawnPoint: {fileID: 1304126746}
   _player: {fileID: 1601179342}
   _warrior: {fileID: 0}
   _container: {fileID: 1538457986}

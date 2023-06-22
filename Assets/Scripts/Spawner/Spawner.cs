@@ -26,8 +26,12 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (_currentWave == null)
+        if (_currentWave == null||_currentWave.Template == null)
+        {
+            Debug.Log("до");
             return;
+            Debug.Log("после");
+        }
 
         _timeAfterlastSpawn += Time.deltaTime;
 
@@ -54,7 +58,8 @@ public class Spawner : MonoBehaviour
         //int indexArray = Random.Range(0, _spawnPoint.Length);
         //int indexEnemy = Random.Range(0, _currentWave.Template.Length);
         Enemy enemy = Instantiate(_currentWave.Template/*[indexEnemy]*/, _spawnPoint/*[indexArray]*/.position, _spawnPoint/*[indexArray]*/.rotation, _container).GetComponent<Enemy>();
-        enemy.Dying += OnEnemyDying;
+        enemy.Init(_player, _warrior);
+            enemy.Dying += OnEnemyDying;
             //enemy.GetIndexToArray(indexArray);
 
     }
