@@ -8237,7 +8237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &282556784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8252,19 +8252,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - _wavesssSettings:
+    - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      Delay: 1
+      Count: 1
     - Template: {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
       Delay: 1
       Count: 1
-  - _wavesssSettings:
     - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
       Delay: 1
       Count: 1
   - _wavesssSettings:
+    - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      Delay: 1.5
+      Count: 1
+    - Template: {fileID: 1443565199736616551, guid: 057276415c13e8342bbe46903739e055, type: 3}
+      Delay: 1
+      Count: 1
     - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
       Delay: 1
       Count: 1
+    - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      Delay: 1
+      Count: 1
+    - Template: {fileID: 7453216736695616550, guid: 2b9614977965cf44eb9d9375adf20d81, type: 3}
+      Delay: 1
+      Count: 1
+  - _wavesssSettings:
+    - Template: {fileID: 566493062515035319, guid: 6649243db2c858c46bfe100e1efc87bf, type: 3}
+      Delay: 6
+      Count: 1
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 6
+      Count: 1
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 6
+      Count: 1
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 6
+      Count: 1
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 6
+      Count: 1
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 6
+      Count: 1
   _spawnPoint:
   - {fileID: 1304126746}
+  - {fileID: 2070312008}
   _player: {fileID: 1601179342}
   _warrior: {fileID: 0}
   _container: {fileID: 282556785}
@@ -37807,7 +37841,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1538457986
 Transform:
   m_ObjectHideFlags: 0
@@ -47436,6 +47470,7 @@ MonoBehaviour:
   Slider: {fileID: 2073167367}
   _waveSpawner: {fileID: 1061924403}
   _spawner: {fileID: 1538457987}
+  _testSpawner: {fileID: 282556784}
 --- !u!1001 &1932324273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54906,7 +54941,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
 --- !u!1001 &4532109675526356945
 PrefabInstance:

@@ -28,33 +28,8 @@ public class EnemyTriggerTransition : Transitions
             }
             else
             {
-                Debug.Log("таргет есть щас");
                 return;
             }
         }
     }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    Enemy enemy = other.GetComponent<Enemy>();
-
-    //    if (_warrior.HaveEnemy)
-    //    {
-    //        if (enemy.CurrentHealth > 0 && _warrior.Enemy == null)
-    //        {
-    //            Debug.Log("переключаюсь");
-    //            _warrior.Init(enemy);
-    //            NeedTransit = true;
-    //        }
-    //        else
-    //        {
-    //            return;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("стоит враг тут ");
-    //        return;
-    //    }
-    //}
 }
