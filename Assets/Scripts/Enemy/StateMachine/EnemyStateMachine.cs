@@ -8,7 +8,6 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] private State _firstState;
 
     private Player _target;
-    //private Warrior _warrior;
     private State _currentState;
 
     public State Current => _currentState;
@@ -16,7 +15,6 @@ public class EnemyStateMachine : MonoBehaviour
     private void Start()
     {
         _target = GetComponent<Enemy>().Target;
-        //_warrior = GetComponent<Enemy>().Warrior;
         Reset(_firstState);
     }
 

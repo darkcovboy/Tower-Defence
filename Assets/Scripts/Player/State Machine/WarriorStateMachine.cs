@@ -16,17 +16,11 @@ public class WarriorStateMachine : MonoBehaviour
 
     private void Start()
     {
-        //_target = GetComponent<Enemy>().Target;
         Reset(_firstState);
     }
 
     private void Update()
     {
-        //if (_target == null)
-        //{
-        //    return;
-        //}
-
         if (_currentState == null)
         {
             return;

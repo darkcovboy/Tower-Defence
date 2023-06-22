@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class WaveSpawner : MonoBehaviour
     private int _enemiesLeftToSpawn;
 
     public int EnemiesLeftToSpawn => _enemiesLeftToSpawn;
+
+    public event UnityAction <int,int> EnemyCountChanged;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class WaveSpawner : MonoBehaviour
             enemy.GetIndexToArray(indexArray);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
+            EnemyCountChanged?.Invoke(_currentEnemyIndex, _waves[_currentWaveIndex].wavesSettings.Length);
             StartCoroutine(SpawnEnemyInWave());
         }
         else
