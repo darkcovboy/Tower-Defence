@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictoryScreen : MonoBehaviour
 {
@@ -27,14 +28,28 @@ public class VictoryScreen : MonoBehaviour
 
     public void OnScreenVictory()
     {
+        WinLevel();
         Time.timeScale = 0;
         OnOrOffScreen(true, 1);
     }
 
-    private void OnOrOffScreen(bool flag,int numberAlphaCanvas)
+    private void OnOrOffScreen(bool flag, int numberAlphaCanvas)
     {
         _victoryCanvasGroup.interactable = flag;
         _victoryCanvasGroup.alpha = numberAlphaCanvas;
         _victoryCanvasGroup.blocksRaycasts = flag;
+    }
+
+    private void WinLevel()
+    {
+        var currentLevel = SceneManager.GetActiveScene().buildIndex;
+        var numberCompliteLevels = PlayerPrefs.GetInt("levelReached");
+
+        if (currentLevel < numberCompliteLevels)
+        {
+            return;
+        }
+        else
+            PlayerPrefs.SetInt("levelReached", ++currentLevel);
     }
 }
