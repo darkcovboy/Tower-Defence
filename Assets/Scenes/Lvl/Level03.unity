@@ -2444,10 +2444,10 @@ RectTransform:
   m_Father: {fileID: 4255979}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 802.95685, y: 264.2408}
-  m_SizeDelta: {x: 268.5037, y: 42.2322}
+  m_AnchorMin: {x: 0.85, y: 0.7244545}
+  m_AnchorMax: {x: 0.99100006, y: 0.76400006}
+  m_AnchoredPosition: {x: -0.54315186, y: -0.2592163}
+  m_SizeDelta: {x: -2.496338, y: -0.76782227}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74918671
 MonoBehaviour:
@@ -37511,52 +37511,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45a98ed1bf9ec114d9cf77f501ca74b4, type: 3}
---- !u!1 &1519251265
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1519251267}
-  - component: {fileID: 1519251266}
-  m_Layer: 0
-  m_Name: CheckEnemyDying
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1519251266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519251265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f79e3a45b107c40a0ca53ac672f84f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _victoryScreen: {fileID: 1914872191}
-  _testSpawner: {fileID: 282556784}
---- !u!4 &1519251267
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519251265}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 892.98505, y: 401.74268, z: 12.253395}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1520345883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47710,6 +47664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61f4028a9108234eb4c836b3e7a3917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _testSpawner: {fileID: 282556784}
 --- !u!225 &1914872192
 CanvasGroup:
   m_ObjectHideFlags: 0
