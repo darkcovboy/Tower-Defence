@@ -17,11 +17,6 @@ public class BarracksTower : Tower
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
 
-    private void Start()
-    {
-        transform.parent.LookAt(_target);
-    }
-
     private void OnEnable()
     {
         OnWarriorDied += OnWarriorDie;
@@ -45,7 +40,6 @@ public class BarracksTower : Tower
 
     private void OnWarriorDie()
     {
-        Debug.Log("Я умер");
         _currentWarriors--;
     }
 

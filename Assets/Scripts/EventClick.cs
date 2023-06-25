@@ -13,31 +13,30 @@ public class EventClick : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("SomethingDown");
+        //Debug.Log("SomethingDown");
         //_placeTower.OpenPanel();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("SomethingUp");
+        //Debug.Log("SomethingUp");
         //_placeTower.ClosePanel();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("SomethingClick");
         _placeTower.OpenPanel();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("SomethingEnter");
+        //Debug.Log("SomethingEnter");
         //_placeTower.OpenPanel();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("SomethingExit");
+        //Debug.Log("SomethingExit");
         //_placeTower.ClosePanel();
     }
 }
