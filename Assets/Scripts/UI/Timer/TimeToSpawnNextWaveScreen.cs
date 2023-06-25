@@ -5,7 +5,7 @@ using TMPro;
 
 public class TimeToSpawnNextWaveScreen : MonoBehaviour
 {
-    [SerializeField] private TestSpawner _testSpawner;
+    [SerializeField] private Spawner _spawner;
     [SerializeField] private GameObject _timerWaveScreen;
     [SerializeField] private TMP_Text _timerTxt;
 
@@ -14,13 +14,13 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _testSpawner.AllEnemysSpawned += OnScreenTimer;
+        _spawner.AllEnemysSpawned += OnScreenTimer;
         _timer = _timeLeftBeforeTheWave;
     }
 
     private void OnDisable()
     {
-        _testSpawner.AllEnemysSpawned -= OnScreenTimer;
+        _spawner.AllEnemysSpawned -= OnScreenTimer;
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
             if (_timer <= 0)
             {
                 _timer = _timeLeftBeforeTheWave;
-                _testSpawner.NextWaves();
+                _spawner.NextWaves();
                 _timerTxt.gameObject.SetActive(false);
             }
         }

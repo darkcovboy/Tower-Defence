@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class VictoryScreen : MonoBehaviour
 {
+    [SerializeField] private Spawner _spawner;
+
     private CanvasGroup _victoryCanvasGroup;
-    [SerializeField] private TestSpawner _testSpawner;
+
 
     private void OnEnable()
     {
-        _testSpawner.AllEnemysDied += OnScreenVictory;
+        _spawner.AllEnemysDied += OnScreenVictory;
     }
 
     private void OnDisable()
     {
-        _testSpawner.AllEnemysDied -= OnScreenVictory;
+        _spawner.AllEnemysDied -= OnScreenVictory;
     }
 
 

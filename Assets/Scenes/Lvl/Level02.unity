@@ -19364,39 +19364,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 718806477}
-  - component: {fileID: 718806476}
+  - component: {fileID: 718806478}
   m_Layer: 0
-  m_Name: TestSpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &718806476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718806475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c001953bfaab5e547ae572b79bf0f7d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waves:
-  - _wavesssSettings:
-    - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
-      Delay: 1
-    - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
-      Delay: 1
-    - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
-      Delay: 1
-  _spawnPoint:
-  - {fileID: 1304126746}
-  _player: {fileID: 1601179342}
-  _warrior: {fileID: 0}
-  _container: {fileID: 718806477}
 --- !u!4 &718806477
 Transform:
   m_ObjectHideFlags: 0
@@ -19412,6 +19387,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718806478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718806475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3478883f641b704c9ce4faa64c83a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waves:
+  - _wavesssSettings:
+    - Template: {fileID: 7144700659727964650, guid: 5a9cddc13c4970448a80b5d530652ad0, type: 3}
+      Delay: 1
+  - _wavesssSettings:
+    - Template: {fileID: 7479647732073877667, guid: 64e6558145a61694fafaa2eccd12748a, type: 3}
+      Delay: 1
+  - _wavesssSettings:
+    - Template: {fileID: 3630749962739648729, guid: 6d3ff4a5b99d29142abe6ca35d309337, type: 3}
+      Delay: 1
+  _spawnPoint:
+  - {fileID: 1304126746}
+  _player: {fileID: 1601179342}
+  _warrior: {fileID: 0}
+  _container: {fileID: 718806477}
 --- !u!1001 &719331978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34331,7 +34333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Slider: {fileID: 326385254}
-  _testSpawner: {fileID: 718806476}
+  _spawner: {fileID: 718806478}
 --- !u!1001 &1385687989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42274,7 +42276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad245bef10d969c4ab321a80d5a59e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testSpawner: {fileID: 718806476}
+  _spawner: {fileID: 718806478}
   _timerWaveScreen: {fileID: 1687136314}
   _timerTxt: {fileID: 2087230616}
 --- !u!4 &1687330337 stripped
@@ -43026,7 +43028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61f4028a9108234eb4c836b3e7a3917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testSpawner: {fileID: 718806476}
+  _spawner: {fileID: 718806478}
 --- !u!225 &1736261972
 CanvasGroup:
   m_ObjectHideFlags: 0
