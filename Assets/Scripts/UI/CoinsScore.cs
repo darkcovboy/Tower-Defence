@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class CoinsScore : MonoBehaviour
 {
     [SerializeField] private TMP_Text _moneyText;

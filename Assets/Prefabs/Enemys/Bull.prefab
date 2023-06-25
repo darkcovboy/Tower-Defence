@@ -323,6 +323,37 @@ Transform:
   m_Father: {fileID: 1563055211294068485}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &910572716861340102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3999700690185067734}
+  m_Layer: 0
+  m_Name: ParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3999700690185067734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910572716861340102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4693721050501158661}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178775201128052560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +3055,6 @@ GameObject:
   - component: {fileID: 449513326742235729}
   - component: {fileID: 8006494185550323226}
   - component: {fileID: 4667924716442497639}
-  - component: {fileID: 5226426058698079243}
   - component: {fileID: -7312043286275011571}
   - component: {fileID: -3240753897832702962}
   - component: {fileID: -2357218494725786587}
@@ -3052,6 +3082,7 @@ Transform:
   - {fileID: 1784445165733184283}
   - {fileID: 3353077100115649965}
   - {fileID: 7860888738470052255}
+  - {fileID: 3999700690185067734}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 362.854, z: 0}
@@ -3105,7 +3136,6 @@ MonoBehaviour:
   - {fileID: 5817177605413838185}
   - {fileID: 480293248452217266}
   - {fileID: -7312043286275011571}
-  _speed: 5
   _waypoints: {fileID: 0}
 --- !u!114 &4034829458369389427
 MonoBehaviour:
@@ -3122,6 +3152,13 @@ MonoBehaviour:
   _health: 50
   _reward: 15
   _damage: 15
+  _speed: 3
+  _burnRates: 0
+  _burnDamage: 0
+  _fireEffect: {fileID: 0}
+  _iceRates: 0
+  _iceSpeedPercentage: 0
+  _iceEffect: {fileID: 0}
 --- !u!114 &6195168554443569373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,6 +3244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
+  _dieEffect: {fileID: 8264584843294437403, guid: d608ede4bc823c34ea45c6dd5c4a66ba, type: 3}
+  _praticle: {fileID: 910572716861340102}
 --- !u!114 &4667924716442497639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3220,18 +3259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 4104975434237207082}
---- !u!114 &5226426058698079243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7453216736695616550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd528ee8146d65a44b654c9e82e78201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7312043286275011571
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,9 @@ public class Enemy : MonoBehaviour
     private bool _dieCheck = false;
     private Coroutine _fireCoroutine;
     private Coroutine _iceCoroutine;
+    private int _index;
 
+    public int Index => _index;
     public bool HaveEnemy => _warrior == null;
     public int Damage => _damage;
     public bool DieCheck => _dieCheck;
@@ -121,6 +123,11 @@ public class Enemy : MonoBehaviour
     public void TargetNull()
     {
         _warrior = null;
+    }
+
+    public void GetIndexToArray(int index)
+    {
+        _index = index;
     }
 
     private IEnumerator OnBurned()

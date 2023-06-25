@@ -6,6 +6,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class DieState : State
 {
+    [SerializeField] private ParticleSystem _dieEffect;
+    [SerializeField] private GameObject _praticle;
+
     private EnemyAnimations _enemyAnimations;
     private Coroutine _coroutine;
 
@@ -17,13 +20,13 @@ public class DieState : State
     private void OnEnable()
     {
         _enemyAnimations.DeathAnimation(true);
+        Instantiate(_dieEffect, _praticle.transform.position,Quaternion.identity,gameObject.transform);
 
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }
         _coroutine = StartCoroutine(Die());
-        //Destroy(gameObject,3f);
     }
 
     private void OnDisable()
@@ -40,6 +43,7 @@ public class DieState : State
         var WaitForSeconds = new WaitForSeconds(3f);
         yield return WaitForSeconds;
         gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WaveSpawner : MonoBehaviour
 
     public int EnemiesLeftToSpawn => _enemiesLeftToSpawn;
 
+    public event UnityAction <int,int> EnemyCountChanged;
+
     private void Start()
     {
         _enemiesLeftToSpawn = _waves[0].wavesSettings.Length;
@@ -24,12 +27,15 @@ public class WaveSpawner : MonoBehaviour
     {
         if (_enemiesLeftToSpawn > 0)
         {
+            int indexArray = Random.Range(0, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.Length);
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
-            Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.transform.position, Quaternion.identity).GetComponent<Enemy>();
+            Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner[indexArray].transform.position, Quaternion.identity).GetComponent<Enemy>();
             enemy.Init(_target,_warrior);
             enemy.Dying += OnEnemyDying;
+            enemy.GetIndexToArray(indexArray);
             _enemiesLeftToSpawn--;
             _currentEnemyIndex++;
+            EnemyCountChanged?.Invoke(_currentEnemyIndex, _waves[_currentWaveIndex].wavesSettings.Length);
             StartCoroutine(SpawnEnemyInWave());
         }
         else
@@ -67,10 +73,10 @@ public class Waves
 public class WavesSettings
 {
     [SerializeField] private GameObject _enemy;
-    [SerializeField] private GameObject _nedeedSpawner;
+    [SerializeField] private GameObject[] _nedeedSpawner;
     [SerializeField] private float _spawnDelay;
 
     public GameObject Enemy { get => _enemy; }
-    public GameObject NedeedSpawner { get => _nedeedSpawner; }
+    public GameObject[] NedeedSpawner { get => _nedeedSpawner; }
     public float SpawnDelay { get => _spawnDelay; }
 }
