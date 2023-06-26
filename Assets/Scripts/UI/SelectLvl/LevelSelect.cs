@@ -11,7 +11,6 @@ public class LevelSelect : MonoBehaviour
     private void Start()
     {
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
-        Debug.Log(levelReached);
 
         for (int i = 0; i < _levelButtons.Length; i++)
         {

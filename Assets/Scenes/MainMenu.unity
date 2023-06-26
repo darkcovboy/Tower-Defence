@@ -193,8 +193,9 @@ GameObject:
   - component: {fileID: 181471540}
   - component: {fileID: 181471539}
   - component: {fileID: 181471542}
+  - component: {fileID: 181471543}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PlayGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,6 +324,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &181471543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181471537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b14a23adec4974fb51f8b404000999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307028771
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +997,7 @@ GameObject:
   - component: {fileID: 1138377422}
   - component: {fileID: 1138377425}
   - component: {fileID: 1138377424}
+  - component: {fileID: 1138377426}
   m_Layer: 5
   m_Name: MenuScreen
   m_TagString: Untagged
@@ -1082,6 +1096,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1138377426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138377420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ddc8b5a829a8e4dbd5f749aafc6a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playButton: {fileID: 181471539}
 --- !u!1 &1502619990
 GameObject:
   m_ObjectHideFlags: 0
