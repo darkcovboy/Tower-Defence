@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VictoryScreen : MonoBehaviour
 {
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private Button[] _buttonsVictoryScreen;
 
     private CanvasGroup _victoryCanvasGroup;
-
 
     private void OnEnable()
     {
@@ -25,14 +26,16 @@ public class VictoryScreen : MonoBehaviour
     {
         _victoryCanvasGroup = GetComponent<CanvasGroup>();
         OnOrOffScreen(false, 0);
+        InteractableButton(false);
         Time.timeScale = 1;
     }
 
     public void OnScreenVictory()
     {
         WinLevel();
-        Time.timeScale = 0;
+        InteractableButton(true);
         OnOrOffScreen(true, 1);
+        Time.timeScale = 0;
     }
 
     private void OnOrOffScreen(bool flag, int numberAlphaCanvas)
@@ -53,5 +56,13 @@ public class VictoryScreen : MonoBehaviour
         }
         else
             PlayerPrefs.SetInt("levelReached", ++currentLevel);
+    }
+
+    private void InteractableButton(bool flag)
+    {
+        foreach (var button in _buttonsVictoryScreen)
+        {
+            button.interactable = flag;
+        }
     }
 }

@@ -11,6 +11,8 @@ public class SceneFader : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
         StartCoroutine(FadeIn());
     }
 

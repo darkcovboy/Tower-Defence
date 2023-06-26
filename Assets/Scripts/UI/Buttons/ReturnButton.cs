@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : AbstractButton
+public class ReturnButton : AbstractButton
 {
     [SerializeField] private SceneFader _sceneFader;
 
-    private string _levelSelect = "LevelSelectScene";
+    private string _currentScene;
+
+    private void Start()
+    {
+        _currentScene = SceneManager.GetActiveScene().name;
+    }
 
     protected override void OnButtonClick()
     {
-        SceneManager.LoadScene(_levelSelect);
+        _sceneFader.FadeTo(_currentScene);
     }
 }

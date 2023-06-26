@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : AbstractButton
+public class SelectMenuButton : AbstractButton
 {
-    [SerializeField] private SceneFader _sceneFader;
-
     private string _levelSelect = "LevelSelectScene";
 
     protected override void OnButtonClick()
