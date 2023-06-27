@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverScreen : MonoBehaviour
+public class GameOverScreen : Screen
 {
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Player _player;
 
     private void OnEnable()
@@ -19,35 +17,8 @@ public class GameOverScreen : MonoBehaviour
         _player.Dying -= OpenScreen;
     }
 
-    private void Start()
+    public override void OpenScreen()
     {
-        CloseScreen();
-    }
-
-    public void OpenScreen()
-    {
-        InteractableScreen(true, 1);
-        InteractableButtons(true);
-    }
-
-    public void CloseScreen()
-    {
-        InteractableScreen(false, 0);
-        InteractableButtons(false);
-    }
-
-    private void InteractableButtons(bool flag)
-    {
-        foreach (var button in _buttons)
-        {
-            button.interactable = flag;
-        }
-    }
-
-    private void InteractableScreen(bool flag,int alpha)
-    {
-        _canvasGroup.interactable = flag;
-        _canvasGroup.blocksRaycasts = flag;
-        _canvasGroup.alpha = alpha;
+        base.OpenScreen();
     }
 }

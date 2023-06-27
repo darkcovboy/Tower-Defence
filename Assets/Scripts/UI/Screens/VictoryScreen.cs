@@ -4,65 +4,39 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class VictoryScreen : MonoBehaviour
+public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
-    [SerializeField] private Button[] _buttonsVictoryScreen;
-
-    private CanvasGroup _victoryCanvasGroup;
 
     private void OnEnable()
     {
-        _spawner.AllEnemysDied += OnScreenVictory;
+        _spawner.AllEnemysDied += OpenScreen;
     }
 
     private void OnDisable()
     {
-        _spawner.AllEnemysDied -= OnScreenVictory;
+        _spawner.AllEnemysDied -= OpenScreen;
     }
 
-
-    private void Start()
+    public override void OpenScreen()
     {
-        _victoryCanvasGroup = GetComponent<CanvasGroup>();
-        OnOrOffScreen(false, 0);
-        InteractableButton(false);
-        Time.timeScale = 1;
-    }
-
-    public void OnScreenVictory()
-    {
-        WinLevel();
-        InteractableButton(true);
-        OnOrOffScreen(true, 1);
         Time.timeScale = 0;
-    }
-
-    private void OnOrOffScreen(bool flag, int numberAlphaCanvas)
-    {
-        _victoryCanvasGroup.interactable = flag;
-        _victoryCanvasGroup.alpha = numberAlphaCanvas;
-        _victoryCanvasGroup.blocksRaycasts = flag;
+        WinLevel();
+        base.OpenScreen();
     }
 
     private void WinLevel()
     {
         var currentLevel = SceneManager.GetActiveScene().buildIndex;
         var numberCompliteLevels = PlayerPrefs.GetInt("levelReached");
-
+        Debug.Log(currentLevel);
+        //Debug.Log(numberCompliteLevels);
         if (currentLevel < numberCompliteLevels)
         {
             return;
         }
         else
             PlayerPrefs.SetInt("levelReached", ++currentLevel);
-    }
-
-    private void InteractableButton(bool flag)
-    {
-        foreach (var button in _buttonsVictoryScreen)
-        {
-            button.interactable = flag;
-        }
+        //Debug.Log(++currentLevel);
     }
 }

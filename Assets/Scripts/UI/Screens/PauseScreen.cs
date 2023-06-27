@@ -3,42 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseScreen : MonoBehaviour
+public class PauseScreen : Screen
 {
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private CanvasGroup _canvasGroup;
-
-    private void Start()
+    public override void OpenScreen()
     {
-        CloseScreen();
-    }
-
-    public void OpenScreen()
-    {
-        InteractableScreen(true, 1);
         Time.timeScale = 0;
-        InteractableButtons(true);
+        base.OpenScreen();
     }
 
-    public void CloseScreen()
+    public override void CloseScreen()
     {
         Time.timeScale = 1;
-        InteractableScreen(false, 0);
-        InteractableButtons(false);
-    }
-
-    private void InteractableScreen(bool flag, int alpha)
-    {
-        _canvasGroup.interactable = flag;
-        _canvasGroup.blocksRaycasts = flag;
-        _canvasGroup.alpha = alpha;
-    }
-    
-    private void InteractableButtons(bool flag)
-    {
-        foreach (var button in _buttons)
-        {
-            button.interactable = flag;
-        }
+        base.CloseScreen();
     }
 }
