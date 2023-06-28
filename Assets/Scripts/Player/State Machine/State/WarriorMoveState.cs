@@ -5,7 +5,7 @@ using UnityEngine;
 public class WarriorMoveState : State
 {
     [SerializeField] private float _speed;
-    [SerializeField]private Transform _targetPosition;
+    [SerializeField] private Transform _targetPosition;
 
     public Transform TargetPosition => _targetPosition;
 
@@ -13,5 +13,6 @@ public class WarriorMoveState : State
     {
         Vector3 direction = _targetPosition.position - transform.position;
         transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
+        transform.forward = direction;
     }
 }

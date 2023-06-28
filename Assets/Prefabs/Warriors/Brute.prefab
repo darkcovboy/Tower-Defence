@@ -1934,6 +1934,7 @@ GameObject:
   - component: {fileID: 2564354212383960292}
   - component: {fileID: 5345800963813695843}
   - component: {fileID: 5790583559914083570}
+  - component: {fileID: -1453228487350842561}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Untagged
@@ -2154,6 +2155,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 60
   _damage: 15
+--- !u!114 &-1453228487350842561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4487335220544845258}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d8d46c9b45604c9826daab15a9a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2564354212383960292}
+  _warriorMoveState: {fileID: 2564354212383960292}
 --- !u!1 &4563260390840229870
 GameObject:
   m_ObjectHideFlags: 0

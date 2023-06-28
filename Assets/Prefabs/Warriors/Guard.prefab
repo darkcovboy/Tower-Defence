@@ -1138,6 +1138,7 @@ GameObject:
   - component: {fileID: 5046522183961001076}
   - component: {fileID: 5046522183961001077}
   - component: {fileID: 5046522183961001078}
+  - component: {fileID: 5281021635712081219}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -1358,6 +1359,20 @@ MonoBehaviour:
   - {fileID: 5046522183961001080}
   _delay: 1
   _warrior: {fileID: 5046522183961001079}
+--- !u!114 &5281021635712081219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046522183961001074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d8d46c9b45604c9826daab15a9a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 5046522183961001087}
+  _warriorMoveState: {fileID: 5046522183961001087}
 --- !u!1 &5248543606046442341
 GameObject:
   m_ObjectHideFlags: 0

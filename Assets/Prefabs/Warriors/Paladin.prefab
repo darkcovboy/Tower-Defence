@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 2021296473463822783}
   - component: {fileID: 2021296473463822776}
   - component: {fileID: 2021296473463822779}
+  - component: {fileID: -7969868829531547632}
   m_Layer: 0
   m_Name: Paladin
   m_TagString: Untagged
@@ -623,6 +624,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 50
   _damage: 15
+--- !u!114 &-7969868829531547632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210482858938434097}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d8d46c9b45604c9826daab15a9a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2021296473463822783}
+  _warriorMoveState: {fileID: 2021296473463822783}
 --- !u!1 &1325035306986804757
 GameObject:
   m_ObjectHideFlags: 0

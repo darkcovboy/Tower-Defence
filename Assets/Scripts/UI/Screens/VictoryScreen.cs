@@ -29,14 +29,12 @@ public class VictoryScreen : Screen
     {
         var currentLevel = SceneManager.GetActiveScene().buildIndex;
         var numberCompliteLevels = PlayerPrefs.GetInt("levelReached");
-        Debug.Log(currentLevel);
-        //Debug.Log(numberCompliteLevels);
+
         if (currentLevel < numberCompliteLevels)
         {
             return;
         }
         else
             PlayerPrefs.SetInt("levelReached", ++currentLevel);
-        //Debug.Log(++currentLevel);
     }
 }
