@@ -10,6 +10,7 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _costText;
     [SerializeField, Range(0, 1)] private float _sellPercent;
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
+    [SerializeField] private ChooseWarriorTarget _flagButton;
 
     private MoneyCounter _moneyCounter;
     private Tower _tower;
@@ -19,12 +20,37 @@ public class UpgradePanel : MonoBehaviour
         _moneyCounter = FindObjectOfType<MoneyCounter>();
     }
 
+    private void OnEnable()
+    {
+        if(_tower.TowerType == TowerType.Barracks)
+        {
+            _flagButton.Activate();
+            BarracksTower barracksTower = (BarracksTower)_tower;
+            _flagButton.Init(ref barracksTower);
+        }
+        else
+        {
+            _flagButton.Deactivate();
+        }
+    }
+
     private void Update()
     {
         if (_tower.Cost >= _moneyCounter.Money || _tower.IsMaxLevel == true)
             _upgradeButton.interactable = false;
         else
             _upgradeButton.interactable = true;
+    }
+
+    public void CloseRangeField()
+    {
+        if(_tower != null)
+        {
+            if (_tower.TowerType == TowerType.Barracks)
+            {
+                _flagButton.Close();
+            }
+        }
     }
 
     public void TowerChoice(ref Tower tower)
@@ -54,6 +80,5 @@ public class UpgradePanel : MonoBehaviour
         {
             _costText.text = _tower.Cost.ToString();
         }
-        
     }
 }

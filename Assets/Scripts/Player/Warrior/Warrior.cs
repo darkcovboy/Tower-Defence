@@ -11,6 +11,7 @@ public class Warrior : MonoBehaviour
     private Enemy _enemy; 
     private int _currentHealth;
     private bool _die = false;
+    private BarracksTower _barracksTower;
 
     public bool Battle { get; private set; } = false;
     public int Damage => _damage;
@@ -34,16 +35,27 @@ public class Warrior : MonoBehaviour
         }
     }
 
-    public void SendData(int damage, Transform _target)
+    public void SendData(int damage, Transform target, BarracksTower barracks)
     {
         _damage = damage;
-        //GetComponent<WarriorMoveState>().TargetPosition = _target;
+        GetComponent<WarriorMoveState>().TargetPosition = target;
+        _barracksTower = barracks;
+    }
+
+    public void SendData(Transform target)
+    {
+        GetComponent<WarriorMoveState>().TargetPosition = target;
     }
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
         ChangeHealth?.Invoke(_currentHealth,_health);
+
+        if(_currentHealth <= 0)
+        {
+            _barracksTower.OnWarriorDied?.Invoke();
+        }
     }
 
     public void Init(Enemy enemy)

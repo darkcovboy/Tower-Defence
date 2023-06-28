@@ -15,14 +15,10 @@ public class SelectButton : MonoBehaviour
     private Tower _tower;
     private MoneyCounter _moneyCounter;
 
-    private void Awake()
-    {
-        _tower = _spawnPlaceTower.GetTower(_indexLevel);
-    }
-
     private void Start()
     {
-        _textMeshPro.text = _tower.Cost.ToString();
+        _tower = _spawnPlaceTower.GetTower(_indexLevel);
+        _textMeshPro.text = _tower.BuyCost.ToString();
         _moneyCounter = FindObjectOfType<MoneyCounter>();
     }
 
@@ -36,7 +32,7 @@ public class SelectButton : MonoBehaviour
 
     public void PlaceTower()
     {
-        _moneyCounter.TakeMoney(_tower.Cost);
+        _moneyCounter.TakeMoney(_tower.BuyCost);
         _spawnPlaceTower.PlaceTower(_indexLevel);
     }
 
