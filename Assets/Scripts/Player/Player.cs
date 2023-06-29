@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     public event UnityAction<int,int> HealthChanged;
     public event UnityAction<int> MoneyChanged;
+    public event UnityAction Dying;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
 
         if (_currentHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Die();
         }
     }
 
@@ -34,5 +35,11 @@ public class Player : MonoBehaviour
     {
         Money += money;
         MoneyChanged?.Invoke(Money);
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
+        Dying.Invoke();
     }
 }

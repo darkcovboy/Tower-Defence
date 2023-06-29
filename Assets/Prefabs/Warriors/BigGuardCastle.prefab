@@ -1132,6 +1132,7 @@ GameObject:
   - component: {fileID: 6644576929016578498}
   - component: {fileID: 6644576929016578499}
   - component: {fileID: 6644576929016578508}
+  - component: {fileID: 572977481026447755}
   m_Layer: 0
   m_Name: BigGuardCastle
   m_TagString: Untagged
@@ -1352,6 +1353,20 @@ MonoBehaviour:
   - {fileID: 6644576929016578502}
   _delay: 1
   _warrior: {fileID: 6644576929016578552}
+--- !u!114 &572977481026447755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644576929016578509}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d8d46c9b45604c9826daab15a9a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 6644576929016578501}
+  _warriorMoveState: {fileID: 6644576929016578501}
 --- !u!1 &6644576930320335917
 GameObject:
   m_ObjectHideFlags: 0

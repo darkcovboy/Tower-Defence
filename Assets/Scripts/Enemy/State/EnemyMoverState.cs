@@ -18,8 +18,6 @@ public class EnemyMoverState : State
 
     private void Start()
     {
-        var numberArrayWaypoints = Random.Range(0, 2);
-
         if (_enemy.Index == 0)
         {
             _target = _waypoints.Points[0];

@@ -11,6 +11,7 @@ public class WarriorAnimations : MonoBehaviour
     const string Death = "Death";
     const string Celebration = "Celebration";
     const string Idle = "Idle";
+    const string Walk = "Walk";
 
     private void Start()
     {
@@ -35,5 +36,10 @@ public class WarriorAnimations : MonoBehaviour
     public void IdleAnimation(bool flag)
     {
         _animator.SetBool(Idle, flag);
+    }
+
+    public void WalkAnimation(bool flag)
+    {
+        _animator.SetBool(Walk, flag);
     }
 }
