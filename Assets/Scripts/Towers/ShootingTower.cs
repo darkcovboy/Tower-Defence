@@ -15,46 +15,10 @@ public class ShootingTower : Tower
 
     private Enemy _enemy;
     private Coroutine _shootCoroutine;
-    public ConfigData _configData;
-    /*
-    private void Awake()
-    {
-        Debug.Log(_configData.ArcherRadius);
-        switch(_towerType)
-        {
-            case ShootingTowerType.Canon:
-                Costs = _configData.CanonTowerCost;
-                Delay = _configData.CanonTowerDelays;
-                Damages = _configData.CanonTowerDamages;
-                Radius = _configData.CanonTowerRadius;
-                break;
-            case ShootingTowerType.Archer:
-                Costs = _configData.ArcherCost;
-                Delay = _configData.ArcherDelays;
-                Damages = _configData.ArcherDamages;
-                Radius = _configData.ArcherRadius;
-                break;
-            case ShootingTowerType.FireMage:
-                Costs = _configData.FireMageCost;
-                Delay = _configData.FireMageDelays;
-                Damages = _configData.FireMageDamages;
-                Radius = _configData.FireMageRadius;
-                break;
-            case ShootingTowerType.IceMage:
-                Costs = _configData.IceMageCost;
-                Delay = _configData.IceMageDelays;
-                Damages = _configData.IceMageDamages;
-                Radius = _configData.IceMageRadius;
-                break;
-            default:
-                throw new ArgumentNullException();
-        }
-    }
-    */
 
     private void Update()
     {
-        if (_target == null && _watchers[Level] == null)
+        if (_target == null || _watchers[Level] == null)
             return;
 
         _watchers[Level].transform.LookAt(_target);
@@ -113,7 +77,7 @@ public class ShootingTower : Tower
             if (_particleSystems.Length > 0)
                 _particleSystems[Level].Play();
 
-            yield return new WaitForSeconds(Delay[Level]);
+            yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
         }
 
         Stop();
@@ -129,6 +93,6 @@ public class ShootingTower : Tower
 
     private void Shoot()
     {
-        MissleSpawners.PushMissle(_target, _enemy, Damages[Level], StartPositions[Level]);
+        MissleSpawners.PushMissle(_target, _enemy, TowerDataConfig.Damages[Level], StartPositions[Level]);
     }
 }

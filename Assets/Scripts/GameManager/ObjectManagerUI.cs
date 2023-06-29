@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class ObjectManagerUI : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class ObjectManagerUI : MonoBehaviour
     [SerializeField] private InputAction _mouseClick;
     [SerializeField] private string _tag;
 
+    public UnityAction<bool> _event;
+
     private Camera _mainCamera;
+    private bool _needToClose;
 
     private void Awake()
     {
@@ -21,25 +25,14 @@ public class ObjectManagerUI : MonoBehaviour
     {
         _mouseClick.Enable();
         _mouseClick.performed += Check;
+        _event += IsObjectOpened;
     }
 
     private void OnDisable()
     {
         _mouseClick.performed -= Check;
         _mouseClick.Disable();
-    }
-
-    private void Check(InputAction.CallbackContext callbackContext)
-    {
-        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
-        {
-            if (raycastHit.transform != null)
-            {
-                CurrentClickedGameObject(raycastHit.transform.gameObject);
-            }
-        }
+        _event -= IsObjectOpened;
     }
 
     public void CurrentClickedGameObject(GameObject clickedObject)
@@ -57,5 +50,26 @@ public class ObjectManagerUI : MonoBehaviour
         {
             spawnPlaceTower.ClosePanel();
         }
+    }
+
+    private void Check(InputAction.CallbackContext callbackContext)
+    {
+        if(_needToClose == false)
+        { return; }
+
+        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            if (raycastHit.transform != null)
+            {
+                CurrentClickedGameObject(raycastHit.transform.gameObject);
+            }
+        }
+    }
+
+    private void IsObjectOpened(bool isObjectOpened)
+    {
+        _needToClose = isObjectOpened;
     }
 }

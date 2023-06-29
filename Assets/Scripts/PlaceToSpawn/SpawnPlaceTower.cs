@@ -19,7 +19,6 @@ public class SpawnPlaceTower : MonoBehaviour
         _objectManager = FindObjectOfType<ObjectManagerUI>();
         _currentPanel = _firstPanelUI;
         _spawnPlaceTowerBeaty = GetComponent<SpawnPlaceTowerBeaty>();
-
     }
 
     public void PlaceTower(int index)
@@ -46,14 +45,15 @@ public class SpawnPlaceTower : MonoBehaviour
     {
         _objectManager.CloseUI();
         _currentPanel.Activate();
+        _objectManager._event?.Invoke(true);
     }
 
     public void ClosePanel()
     {
+        _objectManager._event?.Invoke(false);
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _upgradePanelUI.CloseRangeField();
         _currentPanel.Deactivate();
-        
     }
 
     public Tower GetTower(int index)

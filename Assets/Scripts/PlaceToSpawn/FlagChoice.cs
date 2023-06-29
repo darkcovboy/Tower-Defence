@@ -25,12 +25,12 @@ public class FlagChoice : MonoBehaviour
     private void OnEnable()
     {
         _flagAction.Enable();
-        _flagAction.started += Check;
+        _flagAction.performed += Check;
     }
 
     private void OnDisable()
     {
-        _flagAction.started -= Check;
+        _flagAction.performed -= Check;
         _flagAction.Disable();
     }
 

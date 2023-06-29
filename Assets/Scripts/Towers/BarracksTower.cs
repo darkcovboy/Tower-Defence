@@ -10,27 +10,15 @@ public class BarracksTower : Tower
     [SerializeField] private List<GameObject> _warriorPrefabs;
     [SerializeField] private Transform _target;
     [SerializeField] private Transform _points;
+    [SerializeField] private List<Transform> _pointWarriors;
 
     public GameObject WarriorPrefab => _warriorPrefabs[Level];
     public UnityAction OnWarriorDied;
-    public ConfigData _configData;
 
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
     
-    [SerializeField] private List<Transform> _pointWarriors;
-
-    private void Start()
-    {
-        /*
-        for (int i = 0; i < _points.childCount; i++)
-        {
-            Debug.Log(_points.GetChild(i).transform);
-            _pointWarriors.Add(_points.GetChild(i).transform);
-            Debug.Log(_pointWarriors[i]);
-        }
-        */
-    }
+    
 
     private void OnEnable()
     {
@@ -78,13 +66,13 @@ public class BarracksTower : Tower
             _currentWarriors++;
         }
 
-        yield return new WaitForSeconds(Delay[Level]);
+        yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
 
         _canSpawnWarriors = true;
     }
 
     private void SpawnWarriors(int index)
     {
-        _warriorsSpawner.SpawnWarrior(Damages[Level], _pointWarriors[index], gameObject);
+        _warriorsSpawner.SpawnWarrior(TowerDataConfig.Damages[Level], _pointWarriors[index], gameObject);
     }
 }
