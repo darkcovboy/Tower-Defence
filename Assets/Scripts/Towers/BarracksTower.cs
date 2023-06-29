@@ -17,8 +17,6 @@ public class BarracksTower : Tower
 
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
-    
-    
 
     private void OnEnable()
     {
@@ -47,7 +45,7 @@ public class BarracksTower : Tower
 
         for (int i = 0; i < _maxWarriors[Level]; i++)
         {
-            _warriorsSpawner.ChangeTarget(_pointWarriors[i]);
+            _warriorsSpawner.ChangeTarget(_pointWarriors[i], i);
         }
     }
 
