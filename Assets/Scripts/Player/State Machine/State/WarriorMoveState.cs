@@ -5,7 +5,6 @@ using UnityEngine;
 public class WarriorMoveState : State
 {
     [SerializeField] private float _speed;
-    
 
     public Transform TargetPosition { get; set; }
 
