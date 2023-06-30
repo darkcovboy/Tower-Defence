@@ -158,6 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131447096929709936}
+  - component: {fileID: 6791687286822042853}
   m_Layer: 0
   m_Name: BarracksFree
   m_TagString: Untagged
@@ -182,6 +183,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6791687286822042853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131447096929709937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f93a13cc5aef048b46286f7a1ba42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 0
+  Costs: 05000000370000000500000005000000
+  Delay:
+  - 20
+  - 15
+  - 15
+  - 12
+  Damages: 05000000050000000500000005000000
+  LevelsTower:
+  - {fileID: 132361830864986008}
+  - {fileID: 132562026921233749}
+  - {fileID: 132613860449674609}
+  - {fileID: 6803982747619931264}
+  StartPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _warriorPrefabs:
+  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
+  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
+  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
+  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
+  _maxWarriors: 02000000020000000200000002000000
+  _warriorsSpawner: {fileID: 131447097967597749}
+  _pointWarriors:
+  - {fileID: 131447097753444415}
+  - {fileID: 131447096397539758}
+  _target: {fileID: 0}
 --- !u!1 &131447097753444408
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131447097893444275}
-  - component: {fileID: 131447097893444284}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Untagged
@@ -247,44 +288,6 @@ Transform:
   m_Father: {fileID: 131447096929709936}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &131447097893444284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131447097893444285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f93a13cc5aef048b46286f7a1ba42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Level: 0
-  Costs: 01000000010000000100000001000000
-  Delay:
-  - 40
-  - 5
-  - 5
-  - 5
-  Damages: 05000000050000000500000005000000
-  LevelsTower:
-  - {fileID: 132361830864986008}
-  - {fileID: 132562026921233749}
-  - {fileID: 132613860449674609}
-  - {fileID: 6803982747619931264}
-  StartPositions:
-  - {fileID: 0}
-  _warriorPrefabs:
-  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
-  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
-  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
-  - {fileID: 4101065501098759869, guid: 124a3f3a17860724ba9462dd7cb77a71, type: 3}
-  _maxWarriors: 01000000020000000200000002000000
-  _warriorsSpawner: {fileID: 131447097967597749}
-  _pointWarriors:
-  - {fileID: 131447097753444415}
-  - {fileID: 131447096397539758}
-  _target: {fileID: 0}
 --- !u!1 &131447097967597751
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 131447097967597751}
   _capacity: 2
-  _barracksTower: {fileID: 131447097893444284}
+  _barracksTower: {fileID: 0}
   _target: {fileID: 0}
 --- !u!1 &131447098230338350
 GameObject:

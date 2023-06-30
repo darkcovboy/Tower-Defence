@@ -36,7 +36,6 @@ public class WarriorStateMachine : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Something");
         Reset(_firstState);
     }
 

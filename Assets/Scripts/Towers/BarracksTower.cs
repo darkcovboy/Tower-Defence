@@ -5,21 +5,31 @@ using UnityEngine.Events;
 
 public class BarracksTower : Tower
 {
-    [SerializeField] private GameObject[] _warriorPrefabs;
     [SerializeField] private int[] _maxWarriors;
     [SerializeField] private WarriorsSpawner _warriorsSpawner;
-    [SerializeField] private Transform[] _pointWarriors;
+    [SerializeField] private List<GameObject> _warriorPrefabs;
     [SerializeField] private Transform _target;
+    [SerializeField] private Transform _points;
 
     public GameObject WarriorPrefab => _warriorPrefabs[Level];
     public UnityAction OnWarriorDied;
+    public ConfigData _configData;
 
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
+    
+    [SerializeField] private List<Transform> _pointWarriors;
 
     private void Start()
     {
-        transform.parent.LookAt(_target);
+        /*
+        for (int i = 0; i < _points.childCount; i++)
+        {
+            Debug.Log(_points.GetChild(i).transform);
+            _pointWarriors.Add(_points.GetChild(i).transform);
+            Debug.Log(_pointWarriors[i]);
+        }
+        */
     }
 
     private void OnEnable()
@@ -43,9 +53,18 @@ public class BarracksTower : Tower
         StopCoroutine(SpawnWarriorsDelay());
     }
 
+    public void ChangePoint(Transform newPosition)
+    {
+        _points.position = newPosition.position;
+
+        for (int i = 0; i < _maxWarriors[Level]; i++)
+        {
+            _warriorsSpawner.ChangeTarget(_pointWarriors[i]);
+        }
+    }
+
     private void OnWarriorDie()
     {
-        Debug.Log("Я умер");
         _currentWarriors--;
     }
 
