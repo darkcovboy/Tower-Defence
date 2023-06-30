@@ -3,41 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TowerType
-{
-    Archer,
-    Canon,
-    IceMage,
-    FireMage,
-    Barracks
-}
-
 public class Tower : MonoBehaviour
 {
+    [SerializeField] protected int Level;
+    [SerializeField] protected TowerData TowerDataConfig;
     [SerializeField] protected List<GameObject> LevelsTower;
     [SerializeField] protected List<Transform> StartPositions;
     [SerializeField] protected Transform LookAtTarget;
-    [SerializeField] private TowerType _towerType;
 
-    [SerializeField] protected int Level;
-    [SerializeField] protected List<int> Costs;
-    [SerializeField] protected List<float> Delay;
-    [SerializeField] protected List<int> Damages;
-    [SerializeField] protected int Radius;
-    [SerializeField] private int _buyCost;
-
-    public int Cost => Costs[Level];
+    public int Cost => TowerDataConfig.Costs[Level];
     public bool IsMaxLevel => Level == _maxLevel;
 
-    public int BuyCost => _buyCost;
+    public int BuyCost => TowerDataConfig.BuyCost;
 
-    public TowerType TowerType => _towerType;
+    public TowerType TowerType => TowerDataConfig.TowerType;
 
     private readonly int _maxLevel = 3;
 
     private void Start()
     {
-        Debug.Log(Costs[0].ToString());
         Level = 0;
         ChooseTower();
         transform.LookAt(LookAtTarget);

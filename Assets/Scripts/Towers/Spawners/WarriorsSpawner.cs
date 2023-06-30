@@ -28,11 +28,8 @@ public class WarriorsSpawner : ObjectPool
         }
     }
 
-    public void ChangeTarget(Transform target)
+    public void ChangeTarget(Transform target, int index)
     {
-        foreach (var item in _pool)
-        {
-            item.GetComponent<Warrior>().SendData(target);
-        }
+        _pool[index].GetComponent<Warrior>().SendData(target);
     }
 }
