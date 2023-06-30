@@ -7,12 +7,12 @@ public class BarracksTower : Tower
 {
     [SerializeField] private int[] _maxWarriors;
     [SerializeField] private WarriorsSpawner _warriorsSpawner;
-    [SerializeField] private List<GameObject> _warriorPrefabs;
+    [SerializeField] private WarriorChanger _warriorChanger;
     [SerializeField] private Transform _target;
     [SerializeField] private Transform _points;
     [SerializeField] private List<Transform> _pointWarriors;
 
-    public GameObject WarriorPrefab => _warriorPrefabs[Level];
+    public GameObject WarriorPrefab => _warriorChanger.gameObject;
     public UnityAction OnWarriorDied;
 
     private int _currentWarriors = 0;
@@ -47,6 +47,11 @@ public class BarracksTower : Tower
         {
             _warriorsSpawner.ChangeTarget(_pointWarriors[i], i);
         }
+    }
+
+    public void ChangeWarrior()
+    {
+        _warriorsSpawner.UpgradeWarriors();
     }
 
     private void OnWarriorDie()

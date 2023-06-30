@@ -8,11 +8,12 @@ public class ObjectManagerUI : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private InputAction _mouseClick;
     [SerializeField] private string _tag;
+    [SerializeField] private float _layerDistance;
 
     public UnityAction<bool> _event;
 
     private Camera _mainCamera;
-    private bool _needToClose;
+    private bool _needToClose = true;
 
     private void Awake()
     {
@@ -35,20 +36,22 @@ public class ObjectManagerUI : MonoBehaviour
         _event -= IsObjectOpened;
     }
 
-    public void CurrentClickedGameObject(GameObject clickedObject)
-    {
-        if (clickedObject.layer != _layerMask & clickedObject.CompareTag(_tag) == false)
-        {
-            Debug.Log("Start Close");
-            CloseUI();
-        }
-    }
-
     public void CloseUI()
     {
         foreach (SpawnPlaceTower spawnPlaceTower in _spawnPlaceTowers)
         {
             spawnPlaceTower.ClosePanel();
+        }
+    }
+
+    private void CurrentClickedGameObject(GameObject clickedObject)
+    {
+        Debug.Log(clickedObject.layer);
+
+        if ((clickedObject.layer == 6 | clickedObject.layer == 0) & clickedObject.CompareTag(_tag) == false)
+        {
+            Debug.Log("Start Close");
+            CloseUI();
         }
     }
 
@@ -59,7 +62,7 @@ public class ObjectManagerUI : MonoBehaviour
 
         Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, _layerDistance))
         {
             if (raycastHit.transform != null)
             {

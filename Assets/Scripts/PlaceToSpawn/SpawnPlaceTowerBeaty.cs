@@ -8,7 +8,7 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
     [SerializeField] private GameObject[] _blankTowers;
     [SerializeField] private ParticleSystem _buildingParticles;
 
-    public void ShowBlankTower(int index)
+    public void ShowBlankTower(int index, float radius)
     {
         if (index >= _blankTowers.Length)
         {
@@ -17,6 +17,8 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
         }
 
         _blankTowers[index].Activate();
+        float diametr = radius * 2f;
+        _range.transform.localScale = new Vector3(diametr, _range.transform.localScale.y, diametr);
         _range.Activate();
     }
 

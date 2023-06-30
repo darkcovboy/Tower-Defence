@@ -72,6 +72,9 @@ public class UpgradePanel : MonoBehaviour
         _moneyCounter.TakeMoney(_tower.Cost);
         _tower.Upgrade();
 
+        if(_tower.TryGetComponent( out BarracksTower barracksTower))
+            barracksTower.ChangeWarrior();
+
         if(_tower.IsMaxLevel == true)
         {
             _costText.text = "Max";

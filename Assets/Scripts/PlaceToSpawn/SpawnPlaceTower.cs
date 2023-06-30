@@ -33,7 +33,7 @@ public class SpawnPlaceTower : MonoBehaviour
 
     public void ShowBlankTower(int index)
     {
-        _spawnPlaceTowerBeaty.ShowBlankTower(index);
+        _spawnPlaceTowerBeaty.ShowBlankTower(index, _towers[index].Radius);
     }
 
     public void CloseBlankTower(int index)

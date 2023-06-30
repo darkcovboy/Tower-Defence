@@ -12,6 +12,7 @@ public class Warrior : MonoBehaviour
     private int _currentHealth;
     private bool _die = false;
     private BarracksTower _barracksTower;
+    private Transform _target;
 
     public bool Battle { get; private set; } = false;
     public int Damage => _damage;
@@ -19,6 +20,8 @@ public class Warrior : MonoBehaviour
     public int CurrentHealth => _currentHealth;
     public Enemy Enemy => _enemy;
     public bool HaveEnemy => _enemy == null;
+
+    public Transform Target => _target;
             
     public event UnityAction<int,int> ChangeHealth;
 
@@ -38,12 +41,14 @@ public class Warrior : MonoBehaviour
     public void SendData(int damage, Transform target, BarracksTower barracks)
     {
         _damage = damage;
+        _target = target;
         GetComponent<WarriorMoveState>().TargetPosition = target;
         _barracksTower = barracks;
     }
 
     public void SendData(Transform target)
     {
+        _target = target;
         GetComponent<WarriorMoveState>().TargetPosition = target;
     }
 

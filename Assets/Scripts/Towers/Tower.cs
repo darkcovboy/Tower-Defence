@@ -18,6 +18,8 @@ public class Tower : MonoBehaviour
 
     public TowerType TowerType => TowerDataConfig.TowerType;
 
+    public float Radius => TowerDataConfig.Radius;
+
     private readonly int _maxLevel = 3;
 
     private void Start()
@@ -25,6 +27,12 @@ public class Tower : MonoBehaviour
         Level = 0;
         ChooseTower();
         transform.LookAt(LookAtTarget);
+
+        if(gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
+        {
+            capsuleCollider.radius = TowerDataConfig.Radius;
+        }
+
         transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, 0);
     }
 
@@ -38,7 +46,7 @@ public class Tower : MonoBehaviour
         {
             Level++;
         }
-        
+
         ChooseTower();
     }
 
