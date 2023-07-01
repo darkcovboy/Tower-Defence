@@ -11,7 +11,6 @@ public class EnemyTriggerTransition : Transitions
         if (other.GetComponent<Enemy>())
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            Debug.Log("коснулся");
 
             //if (_warrior.Battle == false)
             //{
@@ -19,7 +18,6 @@ public class EnemyTriggerTransition : Transitions
 
                 if (enemy.CurrentHealth > 0 && _warrior.Enemy == null)
                 {
-                    Debug.Log("стадия");
                     _warrior.Init(enemy);
                     transform.forward = enemy.transform.position;
                     NeedTransit = true;
