@@ -20,7 +20,7 @@ public class WarriorChanger : MonoBehaviour
         _warriors[_level].gameObject.Activate();
     }
 
-    public void Upgrade()
+    public void Upgrade(BarracksTower barracksTower)
     {
         Transform target = _warriors[_level].Target;
         _level++;
@@ -31,6 +31,6 @@ public class WarriorChanger : MonoBehaviour
         }
 
         _warriors[_level].gameObject.Activate();
-        _warriors[_level].SendData(target);
+        _warriors[_level].SendData(target, barracksTower);
     }
 }

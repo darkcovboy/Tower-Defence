@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageType
-{
-    Fire,
-    Ice,
-    Physical
-}
+
 
 public class Missle : MonoBehaviour
 {
-    [SerializeField] protected float Speed;
-    [SerializeField] protected float DistanceBetweenTarget;
+    [SerializeField] protected MissleData MissleData;
 
-    public DamageType Type;
+    public DamageType Type => MissleData.DamageType;
 
     protected int Damage;
     protected Transform Target;
@@ -27,10 +21,10 @@ public class Missle : MonoBehaviour
 
     protected virtual IEnumerator MoveToTarget()
     {
-        while(Vector3.Distance(transform.position, Target.position) > DistanceBetweenTarget)
+        while(Vector3.Distance(transform.position, Target.position) > MissleData.DistanceBetweenTarget)
         {
             transform.LookAt(Target);
-            transform.position = Vector3.MoveTowards(transform.position, Target.position, Time.deltaTime * Speed);
+            transform.position = Vector3.MoveTowards(transform.position, Target.position, Time.deltaTime * MissleData.Speed);
             yield return null;
         }
 

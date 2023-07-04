@@ -8,10 +8,8 @@ public class SearchWarriorTransition : Transitions
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Warrior>())
+        if (other.TryGetComponent<Warrior>(out Warrior warrior))
         {
-            Warrior warrior = other.GetComponent<Warrior>();
-
             if (_enemy.HaveEnemy && warrior.Battle == false)
             {
                 warrior.CallToFight(true);

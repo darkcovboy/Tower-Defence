@@ -8,13 +8,11 @@ public class EnemyTriggerTransition : Transitions
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Enemy>())
+        if (other.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-
+            Debug.Log("Something" + _warrior.Battle);
             if (_warrior.Battle == false)
             {
-
                 if (enemy.CurrentHealth > 0 && _warrior.Enemy == null)
                 {
                     _warrior.Init(enemy);

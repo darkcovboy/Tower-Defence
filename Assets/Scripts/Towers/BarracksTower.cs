@@ -76,6 +76,6 @@ public class BarracksTower : Tower
 
     private void SpawnWarriors(int index)
     {
-        _warriorsSpawner.SpawnWarrior(TowerDataConfig.Damages[Level], _pointWarriors[index], gameObject);
+        _warriorsSpawner.SpawnWarrior(_pointWarriors[index], gameObject);
     }
 }

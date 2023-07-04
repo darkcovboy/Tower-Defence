@@ -7,9 +7,10 @@ public enum TowerType
     Canon,
     IceMage,
     FireMage,
-    Barracks
+    Barracks,
+    LightningMage
 }
-[CreateAssetMenu(fileName = "New Tower", menuName = "Tower Data")]
+
 public class TowerData : ScriptableObject
 {
     public List<int> Costs;
