@@ -13,6 +13,7 @@ public class SearchWarriorTransition : Transitions
             if (_enemy.HaveEnemy && warrior.Battle == false)
             {
                 warrior.CallToFight(true);
+                //if(warrior.Battle == )
                 _enemy.Init(warrior);
                 NeedTransit = true;
             }
