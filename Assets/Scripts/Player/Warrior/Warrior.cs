@@ -7,7 +7,6 @@ public class Warrior : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
-    [SerializeField] private Transform _tempTarget;
 
     private Enemy _enemy; 
     private int _currentHealth;
@@ -29,7 +28,6 @@ public class Warrior : MonoBehaviour
     private void OnEnable()
     {
         _currentHealth = _health;
-        SendData(_tempTarget);
     }
 
     public void SendData(Transform target, BarracksTower barracks)
