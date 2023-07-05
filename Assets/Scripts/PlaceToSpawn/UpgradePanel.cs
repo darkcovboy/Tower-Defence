@@ -9,7 +9,9 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private TextMeshProUGUI _costText;
     [SerializeField, Range(0, 1)] private float _sellPercent;
+    [SerializeField] private TextMeshProUGUI _sellText;
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
+    [SerializeField] private SpawnPlaceTowerBeaty _spawnPlaceTowerBeaty;
     [SerializeField] private ChooseWarriorTarget _flagButton;
 
     private MoneyCounter _moneyCounter;
@@ -56,7 +58,7 @@ public class UpgradePanel : MonoBehaviour
     public void TowerChoice(ref Tower tower)
     {
         _tower = tower;
-        _costText.text = _tower.Cost.ToString();
+        ChangeText();
     }
 
     public void Sell()
@@ -64,6 +66,7 @@ public class UpgradePanel : MonoBehaviour
         _moneyCounter.AddMoney(_sellPercent * _tower.Cost);
         _tower.ResetSettings();
         _tower.Deactivate();
+        _spawnPlaceTowerBeaty.PlayParticles();
         _spawnPlaceTower.ResetSettings();
     }
 
@@ -71,11 +74,19 @@ public class UpgradePanel : MonoBehaviour
     {
         _moneyCounter.TakeMoney(_tower.Cost);
         _tower.Upgrade();
+        ChangeText();
+        _spawnPlaceTowerBeaty.PlayParticles();
 
-        if(_tower.TryGetComponent( out BarracksTower barracksTower))
+        if (_tower.TryGetComponent( out BarracksTower barracksTower))
             barracksTower.ChangeWarrior();
+    }
 
-        if(_tower.IsMaxLevel == true)
+    private void ChangeText()
+    {
+        _costText.text = _tower.Cost.ToString();
+        _sellText.text = ((int)(_tower.Cost * _sellPercent)).ToString();
+
+        if (_tower.IsMaxLevel == true)
         {
             _costText.text = "Max";
         }

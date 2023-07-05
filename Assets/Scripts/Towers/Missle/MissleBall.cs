@@ -24,6 +24,7 @@ public class MissleBall : Missle
 
         while (Vector3.Distance(transform.position, Target.transform.position) > MissleData.DistanceBetweenTarget)
         {
+            Debug.Log(Vector3.Distance(transform.position, Target.transform.position));
             if (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > _maxDistance)
                 break;
             yield return null;
@@ -52,12 +53,13 @@ public class MissleBall : Missle
 
     private void ExploseDamage()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius,1,QueryTriggerInteraction.Collide);
 
         foreach(var hitCollider in hitColliders)
         {
             if(hitCollider.TryGetComponent<Enemy>(out Enemy enemy))
             {
+                Debug.Log("Why?");
                 enemy.TakeDamage(Damage, Type);
             }
         }
