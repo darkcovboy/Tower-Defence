@@ -22,7 +22,7 @@ public class MissleBall : Missle
     {
         BallPhysics();
 
-        while (Vector3.Distance(transform.position, Target.transform.position) > DistanceBetweenTarget)
+        while (Vector3.Distance(transform.position, Target.transform.position) > MissleData.DistanceBetweenTarget)
         {
             if (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > _maxDistance)
                 break;
@@ -78,6 +78,6 @@ public class MissleBall : Missle
         float v2 = (g * x * x) / (2 * (y - Mathf.Tan(angleInRadians) * x) * Mathf.Pow(Mathf.Cos(angleInRadians), 2));
         float v = Mathf.Sqrt(Mathf.Abs(v2));
 
-        gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.parent.transform.forward * v * Speed;
+        gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.parent.transform.forward * v * MissleData.Speed;
     }
 }

@@ -8,8 +8,6 @@ public class WarriorsSpawner : ObjectPool
     [SerializeField] private Transform _target;
 
     private GameObject _warriorPrefab;
-    private List<Warrior> _warriors;
-
 
     private void Start()
     {
@@ -18,18 +16,26 @@ public class WarriorsSpawner : ObjectPool
         Initialize(_warriorPrefab);
     }
 
-    public void SpawnWarrior(int damage, Transform target, GameObject barracks)
+    public void SpawnWarrior(Transform target, GameObject barracks)
     {
         if (TryGetObject(out GameObject warrior))
         {
-            warrior.GetComponent<Warrior>().SendData(damage, target, barracks.GetComponent<BarracksTower>());
+            warrior.GetComponent<WarriorChanger>().Warrior.SendData(target, barracks.GetComponent<BarracksTower>());
             warrior.SetActive(true);
             warrior.transform.position = transform.position;
         }
     }
 
+    public void UpgradeWarriors()
+    {
+        foreach (var warrior in _pool)
+        {
+            warrior.GetComponent<WarriorChanger>().Upgrade(_barracksTower);
+        }
+    }
+
     public void ChangeTarget(Transform target, int index)
     {
-        _pool[index].GetComponent<Warrior>().SendData(target);
+        _pool[index].GetComponent<WarriorChanger>().Warrior.SendData(target);
     }
 }

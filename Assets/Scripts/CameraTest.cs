@@ -13,6 +13,6 @@ public class CameraTest : MonoBehaviour
     private void Update()
     {
         Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * 25, Color.red);
     }
 }
