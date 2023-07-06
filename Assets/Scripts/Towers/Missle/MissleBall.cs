@@ -24,7 +24,6 @@ public class MissleBall : Missle
 
         while (Vector3.Distance(transform.position, Target.transform.position) > MissleData.DistanceBetweenTarget)
         {
-            Debug.Log(Vector3.Distance(transform.position, Target.transform.position));
             if (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > _maxDistance)
                 break;
             yield return null;
@@ -59,7 +58,6 @@ public class MissleBall : Missle
         {
             if(hitCollider.TryGetComponent<Enemy>(out Enemy enemy))
             {
-                Debug.Log("Why?");
                 enemy.TakeDamage(Damage, Type);
             }
         }
