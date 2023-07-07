@@ -12,24 +12,24 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform _container;
 
     private Wavesss _currentWave;
-    private int _currentWaveNumber = 0;
     private float _timeAfterlastSpawn;
     private int _spawned;
     private int _currentEnemyIndex;
     private List<Enemy> _enemyLiev = new List<Enemy>();
     private bool _checkTimerWaveSpawn = false;
-    private MoneyCounter _moneyCounter;
+    private int _maxWaveCount;
 
     public int EnemySpawnCount { get; private set; }
+    public int CurrentWaveNumber { get; private set; } = 0;
 
     public event UnityAction AllEnemysSpawned;
     public event UnityAction AllEnemysDied;
     public event UnityAction<int, int> EnemyCountChanged;
+    public event UnityAction<int, int> WaveChanged;
 
     private void Start()
     {
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
-        SetWave(_currentWaveNumber);
+        SetWave(CurrentWaveNumber);
     }
 
     private void Update()
@@ -56,22 +56,21 @@ public class Spawner : MonoBehaviour
 
         if (_checkTimerWaveSpawn == false)
         {
-            if (_timeAfterlastSpawn >= _waves[_currentWaveNumber].wavesSettings[_currentEnemyIndex].Delay)
+            if (_timeAfterlastSpawn >= _waves[CurrentWaveNumber].wavesSettings[_currentEnemyIndex].Delay)
             {
                 InstantiateEnemy();
                 _spawned++;
                 _timeAfterlastSpawn = 0;
-                EnemyCountChanged?.Invoke(_spawned, _waves[_currentWaveNumber].wavesSettings.Length);
+                EnemyCountChanged?.Invoke(_spawned, _waves[CurrentWaveNumber].wavesSettings.Length);
                 _currentEnemyIndex++;
                 EnemySpawnCount++;
             }
         }
 
-        if (_waves[_currentWaveNumber].wavesSettings.Length <= _spawned)
+        if (_waves[CurrentWaveNumber].wavesSettings.Length <= _spawned)
         {
-            if (_waves.Length > _currentWaveNumber + 1)
+            if (_waves.Length > CurrentWaveNumber + 1)
             {
-                //NextWaves();
                 AllEnemysSpawned?.Invoke();
                 _checkTimerWaveSpawn = true;
             }
@@ -87,7 +86,7 @@ public class Spawner : MonoBehaviour
     private void InstantiateEnemy()
     {
         int indexArray = Random.Range(0, _spawnPoint.Length);
-        Enemy enemy = Instantiate(_waves[_currentWaveNumber].wavesSettings[_currentEnemyIndex].Template, _spawnPoint[indexArray].position, _spawnPoint[indexArray].rotation, _container).GetComponent<Enemy>();
+        Enemy enemy = Instantiate(_waves[CurrentWaveNumber].wavesSettings[_currentEnemyIndex].Template, _spawnPoint[indexArray].position, _spawnPoint[indexArray].rotation, _container).GetComponent<Enemy>();
         enemy.Init(_player, _warrior);
         enemy.Dying += OnEnemyDying;
         enemy.GetIndexToArray(indexArray);
@@ -97,17 +96,19 @@ public class Spawner : MonoBehaviour
     private void SetWave(int index)
     {
         _currentWave = _waves[index];
+        _maxWaveCount = _waves.Length;
+        WaveChanged?.Invoke(++index, _maxWaveCount);
     }
 
     private void OnEnemyDying(Enemy enemy)
     {
         enemy.Dying -= OnEnemyDying;
-        _moneyCounter.AddMoney(enemy.Reward);
+        _player.AddMoney(enemy.Reward);
     }
 
     public void NextWaves()
     {
-        SetWave(++_currentWaveNumber);
+        SetWave(++CurrentWaveNumber);
         _spawned = 0;
         _currentEnemyIndex = 0;
         _checkTimerWaveSpawn = false;
@@ -127,6 +128,5 @@ public class WavesssSettings
 {
     public GameObject Template;
     public float Delay;
-    //public int Count;
 }
 
