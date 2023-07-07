@@ -26,9 +26,10 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
-        transform.LookAt(LookAtTarget);
+        if(LookAtTarget != null)
+            transform.LookAt(LookAtTarget);
 
-        if(gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
+        if (gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
         {
             capsuleCollider.radius = TowerDataConfig.Radius;
         }

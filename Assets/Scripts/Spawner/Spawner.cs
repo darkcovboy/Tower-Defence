@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     private List<Enemy> _enemyLiev = new List<Enemy>();
     private bool _checkTimerWaveSpawn = false;
     private int _maxWaveCount;
+    private MoneyCounter _moneyCounter;
 
     public int EnemySpawnCount { get; private set; }
     public int CurrentWaveNumber { get; private set; } = 0;
@@ -30,6 +31,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         SetWave(CurrentWaveNumber);
+        _moneyCounter = FindObjectOfType<MoneyCounter>();
     }
 
     private void Update()
@@ -103,7 +105,7 @@ public class Spawner : MonoBehaviour
     private void OnEnemyDying(Enemy enemy)
     {
         enemy.Dying -= OnEnemyDying;
-        _player.AddMoney(enemy.Reward);
+        _moneyCounter.AddMoney(enemy.Reward);
     }
 
     public void NextWaves()

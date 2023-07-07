@@ -4,8 +4,6 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-
-
 public class ShootingTower : Tower
 {
     [SerializeField] protected MissleSpawners MissleSpawners;
@@ -15,6 +13,18 @@ public class ShootingTower : Tower
 
     private Enemy _enemy;
     private Coroutine _shootCoroutine;
+
+    private bool _canShoot = true;
+
+    private void OnEnable()
+    {
+        StartCoroutine(ShootDelay());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(ShootDelay());
+    }
 
     private void Update()
     {
@@ -30,15 +40,17 @@ public class ShootingTower : Tower
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            if (_target == null)
+            if (_target == null && enemy.CurrentHealth > 0)
             {
                 _target = enemy.transform;
                 _enemy = enemy;
 
+                /*
                 if(_shootCoroutine == null)
                 {
                     _shootCoroutine = StartCoroutine(ShootDownDelay());
                 }
+                */
             }
         }
     }
@@ -52,10 +64,12 @@ public class ShootingTower : Tower
                 _target = enemy.transform;
                 _enemy = enemy;
 
+                /*
                 if (_shootCoroutine == null)
                 {
                     _shootCoroutine = StartCoroutine(ShootDownDelay());
                 }
+                */
             }
         }
     }
@@ -64,7 +78,8 @@ public class ShootingTower : Tower
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            Stop();
+            if (enemy == _enemy)
+                Stop();
         }
     }
 
@@ -83,12 +98,41 @@ public class ShootingTower : Tower
         Stop();
     }
 
+    private IEnumerator ShootDelay()
+    {
+        while(true)
+        {
+            if(_target != null)
+            {
+                if(_enemy.CurrentHealth > 0)
+                {
+                    Shoot();
+
+                    if (_particleSystems.Length > 0)
+                        _particleSystems[Level].Play();
+
+                    yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
+                }
+                else
+                {
+                    Stop();
+                }
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+    }
+
     private void Stop()
     {
         _target = null;
         _enemy = null;
+        /*
         StopCoroutine(_shootCoroutine);
         _shootCoroutine = null;
+        */
     }
 
     private void Shoot()

@@ -6,8 +6,7 @@ using TMPro;
 public class CountWave : MonoBehaviour
 {
     [SerializeField] private Spawner _spawner;
-    [SerializeField] private TMP_Text _currentWaveNumber;
-    [SerializeField] private TMP_Text _maxWaveNumber;
+    [SerializeField] private TMP_Text _wavesText;
 
     private void OnEnable()
     {
@@ -21,7 +20,6 @@ public class CountWave : MonoBehaviour
 
     private void OnChangedWaveNumber(int currentWave, int maxWaveCount)
     {
-        _currentWaveNumber.text = currentWave.ToString();
-        _maxWaveNumber.text = maxWaveCount.ToString();
+        _wavesText.text = currentWave.ToString() + "/" + maxWaveCount.ToString();
     }
 }

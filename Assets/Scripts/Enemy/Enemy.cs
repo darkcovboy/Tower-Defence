@@ -10,15 +10,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private float _speed = 10f;
 
-    [Header("Damage Fire Settings")]
-    [SerializeField] private int _burnRates;
-    [SerializeField] private int _burnDamage;
-    [SerializeField] private ParticleSystem _fireEffect;
-    [Header("Damage Ice Settings")]
-    [SerializeField] private int _iceRates;
-    [Range(0,1)]
-    [SerializeField] private float _iceSpeedPercentage;
-    [SerializeField] private ParticleSystem _iceEffect;
+    [Header("Effects")]
+    [SerializeField] private IceEffectData _iceData;
+    [SerializeField] private FireEffectData _fireData;
 
     private Player _target;
     private Warrior _warrior;
@@ -27,6 +21,8 @@ public class Enemy : MonoBehaviour
     private Coroutine _fireCoroutine;
     private Coroutine _iceCoroutine;
     private int _index;
+    private ParticleSystem _fireEffect;
+    private ParticleSystem _iceEffect;
 
     public int Index => _index;
     public bool HaveEnemy => _warrior == null;
@@ -45,6 +41,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _currentHealth = _health;
+        CreateEffects();
     }
 
     public void TakeDamage(int damage)
@@ -130,13 +127,21 @@ public class Enemy : MonoBehaviour
         _index = index;
     }
 
+    private void CreateEffects()
+    {
+        _fireEffect = Instantiate(_fireData.FireEffect, gameObject.transform.position, Quaternion.identity,gameObject.transform).GetComponent<ParticleSystem>();
+        _fireEffect.Deactivate();
+        _iceEffect = Instantiate(_iceData.IceEffect, gameObject.transform.position, Quaternion.identity, gameObject.transform).GetComponent<ParticleSystem>();
+        _iceEffect.Deactivate();
+    }
+
     private IEnumerator OnBurned()
     {
-        _fireEffect.gameObject.SetActive(true);
+        _fireEffect.gameObject.Activate();
 
-        for (int i = 0; i < _burnRates; i++)
+        for (int i = 0; i < _fireData.BurnRates; i++)
         {
-            _currentHealth -= _burnDamage;
+            _currentHealth -= _fireData.BurnDamage;
             HealthChanged?.Invoke(_currentHealth, _health);
 
             if (_currentHealth <= 0)
@@ -147,16 +152,16 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        _fireEffect.gameObject.SetActive(false);
+        _fireEffect.gameObject.Deactivate();
     }
 
     private IEnumerator OnIceSlowed()
     {
-        _iceEffect.gameObject.SetActive(true);
+        _iceEffect.gameObject.Activate();
         float startSpeed = _speed;
-        _speed *= _iceSpeedPercentage;
+        _speed *= _iceData.IceSlowDownPercentage;
 
-        for (int i = 0; i < _iceRates; i++)
+        for (int i = 0; i < _iceData.IceRates; i++)
         {
             if (_currentHealth <= 0)
             {
@@ -167,6 +172,6 @@ public class Enemy : MonoBehaviour
         }
 
         _speed = startSpeed;
-        _iceEffect.gameObject.SetActive(false);
+        _iceEffect.gameObject.Deactivate();
     }
 }

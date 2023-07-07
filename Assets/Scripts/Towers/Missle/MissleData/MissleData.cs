@@ -10,7 +10,6 @@ public enum DamageType
     Lightning
 }
 
-[CreateAssetMenu(fileName = "New Tower", menuName = "Tower Data")]
 public class MissleData : ScriptableObject
 {
     public float Speed;

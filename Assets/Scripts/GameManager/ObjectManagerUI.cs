@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class ObjectManagerUI : MonoBehaviour
 {
@@ -8,7 +10,6 @@ public class ObjectManagerUI : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private InputAction _mouseClick;
     [SerializeField] private string _tag;
-    [SerializeField] private float _layerDistance;
 
     public UnityAction<bool> _event;
 
@@ -45,11 +46,8 @@ public class ObjectManagerUI : MonoBehaviour
 
     private void CurrentClickedGameObject(GameObject clickedObject)
     {
-        Debug.Log(clickedObject.layer);
-
         if ((clickedObject.layer == 6 | clickedObject.layer == 0) & clickedObject.CompareTag(_tag) == false)
         {
-            Debug.Log("Start Close");
             CloseUI();
         }
     }
@@ -61,7 +59,7 @@ public class ObjectManagerUI : MonoBehaviour
 
         Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, _layerDistance))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit) & !IsPointerOverUIObject())
         {
             if (raycastHit.transform != null)
             {
@@ -69,6 +67,26 @@ public class ObjectManagerUI : MonoBehaviour
             }
         }
     }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+        bool isPointerUI = false;
+
+        foreach (var item in results)
+        {
+            if (item.gameObject.layer == 5)
+                isPointerUI = true;
+        }
+
+        return isPointerUI;
+    }
+
 
     private void IsObjectOpened(bool isObjectOpened)
     {
