@@ -26,6 +26,7 @@ public class SpawnPlaceTower : MonoBehaviour
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _spawnPlaceTowerBeaty.PlayParticles();
         _towers[index].gameObject.Activate();
+        _magePanelUI.Deactivate();
         _currentPanel.Deactivate();
         _upgradePanelUI.TowerChoice(ref _towers[index]);
         _currentPanel = _upgradePanelUI.gameObject;
@@ -53,6 +54,7 @@ public class SpawnPlaceTower : MonoBehaviour
         _objectManager._event?.Invoke(false);
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _upgradePanelUI.CloseRangeField();
+        _magePanelUI.Deactivate();
         _currentPanel.Deactivate();
     }
 

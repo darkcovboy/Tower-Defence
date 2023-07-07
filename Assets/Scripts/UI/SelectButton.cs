@@ -6,9 +6,10 @@ using TMPro;
 
 public class SelectButton : MonoBehaviour
 {
-    [SerializeField] private Button _button;
+    [SerializeField] private Button _showButton;
+    [SerializeField] private Button _buyButton;
     [SerializeField] private int _indexLevel;
-    [SerializeField] private TextMeshProUGUI _textMeshPro;
+    [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
     [SerializeField] private GameObject _infoObject;
 
@@ -18,16 +19,26 @@ public class SelectButton : MonoBehaviour
     private void Start()
     {
         _tower = _spawnPlaceTower.GetTower(_indexLevel);
-        _textMeshPro.text = _tower.BuyCost.ToString();
+        _priceText.text = _tower.BuyCost.ToString();
         _moneyCounter = FindObjectOfType<MoneyCounter>();
+    }
+
+    private void OnEnable()
+    {
+        ChangeButtons();
+    }
+
+    private void OnDisable()
+    {
+        ChangeButtons();
     }
 
     private void Update()
     {
         if (_tower.Cost >= _moneyCounter.Money)
-            _button.interactable = false;
+            _showButton.interactable = false;
         else
-            _button.interactable = true;
+            _showButton.interactable = true;
     }
 
     public void PlaceTower()
@@ -46,5 +57,14 @@ public class SelectButton : MonoBehaviour
     {
         _infoObject.SetActive(false);
         _spawnPlaceTower.CloseBlankTower(_indexLevel);
+    }
+
+    public void ChangeButtons()
+    {
+        if (_buyButton != null)
+        {
+            _showButton.Activate();
+            _buyButton.Deactivate();
+        }
     }
 }
