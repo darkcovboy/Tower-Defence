@@ -8,6 +8,8 @@ public class Healtbar : Bar
     [SerializeField] private Player _player;
     [SerializeField] private Gradient _gradient;
 
+    /*
+
     private void OnEnable()
     {
         _player.HealthChanged += OnPlayerHealtChanged;
@@ -24,4 +26,6 @@ public class Healtbar : Bar
         OnValueChanged(health, maxHealth);
         Slider.fillRect.GetComponent<Image>().color = _gradient.Evaluate(Slider.value);
     }
+
+    */
 }

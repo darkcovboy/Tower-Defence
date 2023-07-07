@@ -1,27 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class MoneyCounter : MonoBehaviour
 {
-    [SerializeField] private float _money;
+    [SerializeField] private int _money;
 
     public float Money => _money;
+    public event UnityAction<int> MoneyChanged;
 
-    public void AddMoney(float money)
+    private void Start()
+    {
+        MoneyChanged?.Invoke(_money);
+    }
+
+    public void AddMoney(int money)
     {
         if (money <= 0)
             throw new ArgumentException();
 
         _money += money;
+        MoneyChanged?.Invoke(_money);
     }
 
-    public void TakeMoney(float money)
+    public void TakeMoney(int money)
     {
         if (money <= 0)
             throw new ArgumentException();
 
         _money -= money;
+        MoneyChanged?.Invoke(_money);
     }
 }

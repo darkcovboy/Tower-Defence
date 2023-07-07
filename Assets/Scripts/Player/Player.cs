@@ -11,19 +11,19 @@ public class Player : MonoBehaviour
 
     public int Money { get; private set; }
 
-    public event UnityAction<int,int> HealthChanged;
-    public event UnityAction<int> MoneyChanged;
+    public event UnityAction<int> HealthChanged;
     public event UnityAction Dying;
 
     private void Start()
     {
         _currentHealth = _health;
+        HealthChanged?.Invoke(_currentHealth);
     }
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth,_health);
+        HealthChanged?.Invoke(_currentHealth);
 
         if (_currentHealth <= 0)
         {
@@ -31,15 +31,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddMoney(int money)
-    {
-        Money += money;
-        MoneyChanged?.Invoke(Money);
-    }
-
     public void Die()
     {
-        gameObject.SetActive(false);
+        gameObject.Deactivate();
         Dying.Invoke();
     }
 }

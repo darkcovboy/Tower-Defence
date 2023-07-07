@@ -63,7 +63,7 @@ public class UpgradePanel : MonoBehaviour
 
     public void Sell()
     {
-        _moneyCounter.AddMoney(_sellPercent * _tower.Cost);
+        _moneyCounter.AddMoney((int)_sellPercent * _tower.Cost);
         _tower.ResetSettings();
         _tower.Deactivate();
         _spawnPlaceTowerBeaty.PlayParticles();

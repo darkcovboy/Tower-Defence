@@ -6,16 +6,22 @@ using UnityEngine.Events;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] protected Waves[] _waves;
-    [SerializeField] private Player _target;
+    [SerializeField] private Player _player;
     [SerializeField] private Warrior _warrior;
 
     private int _currentEnemyIndex;
     private int _currentWaveIndex;
     private int _enemiesLeftToSpawn;
+    private MoneyCounter _moneyCounter;
 
     public int EnemiesLeftToSpawn => _enemiesLeftToSpawn;
 
     public event UnityAction <int,int> EnemyCountChanged;
+
+    private void Awake()
+    {
+        _moneyCounter = FindObjectOfType<MoneyCounter>();
+    }
 
     private void Start()
     {
@@ -30,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
             int indexArray = Random.Range(0, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner.Length);
             yield return new WaitForSeconds(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].SpawnDelay);
             Enemy enemy = Instantiate(_waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].Enemy, _waves[_currentWaveIndex].wavesSettings[_currentEnemyIndex].NedeedSpawner[indexArray].transform.position, Quaternion.identity).GetComponent<Enemy>();
-            enemy.Init(_target,_warrior);
+            enemy.Init(_player,_warrior);
             enemy.Dying += OnEnemyDying;
             enemy.GetIndexToArray(indexArray);
             _enemiesLeftToSpawn--;
@@ -52,7 +58,7 @@ public class WaveSpawner : MonoBehaviour
     private void OnEnemyDying(Enemy enemy)
     {
         enemy.Dying -= OnEnemyDying;
-        _target.AddMoney(enemy.Reward);
+        _moneyCounter.AddMoney(enemy.Reward);
     }
 
     public void LaunchWave()

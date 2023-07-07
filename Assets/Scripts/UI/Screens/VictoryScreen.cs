@@ -8,8 +8,16 @@ public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
 
+    private ObjectManagerUI _objectManager;
+
+    private void Awake()
+    {
+        _objectManager = FindObjectOfType<ObjectManagerUI>();
+    }
+
     private void OnEnable()
     {
+        _objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 

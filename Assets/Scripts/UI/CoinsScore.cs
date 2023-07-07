@@ -8,6 +8,7 @@ public class CoinsScore : MonoBehaviour
 {
     [SerializeField] private TMP_Text _moneyText;
     [SerializeField] private Player _player;
+    /*
 
     private void OnEnable()
     {
@@ -23,4 +24,5 @@ public class CoinsScore : MonoBehaviour
     {
         _moneyText.text = _player.Money.ToString();
     }
+    */
 }

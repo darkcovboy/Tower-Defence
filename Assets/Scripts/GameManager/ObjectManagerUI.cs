@@ -19,7 +19,6 @@ public class ObjectManagerUI : MonoBehaviour
     {
         _mainCamera = Camera.main;
         _spawnPlaceTowers = FindObjectsOfType<SpawnPlaceTower>();
-        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
