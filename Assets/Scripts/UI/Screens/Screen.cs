@@ -3,32 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup))]
 public abstract class Screen : MonoBehaviour
 {
     [SerializeField] protected Button[] _buttons;
+    [SerializeField] protected CanvasGroup _canvasGroup;
 
-    protected CanvasGroup _canvasGroup;
-
-    private void Start()
-    {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        //CloseScreen();
-    }
+    //private void Start()
+    //{
+    //    _canvasGroup = GetComponent<CanvasGroup>();
+    //    //CloseScreen();
+    //}
 
     public virtual void OpenScreen()
     {
         gameObject.SetActive(true);
+        InteractableButtons(true);
     }
     //    InteractableScreen(true, 1);
-    //    InteractableButtons(true);
     //}
 
     public virtual void CloseScreen()
     {
         gameObject.SetActive(false);
         //InteractableScreen(false, 0);
-        //InteractableButtons(false);
+        InteractableButtons(false);
     }
 
     public virtual void InteractableButtons(bool flag)
