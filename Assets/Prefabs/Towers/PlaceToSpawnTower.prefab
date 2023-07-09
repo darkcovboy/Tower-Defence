@@ -146,6 +146,8 @@ GameObject:
   - component: {fileID: 870973868961151009}
   - component: {fileID: 870973868961151011}
   - component: {fileID: 870973868961151010}
+  - component: {fileID: 3427669758157512494}
+  - component: {fileID: 4273541249292122450}
   m_Layer: 7
   m_Name: Range
   m_TagString: RangeField
@@ -218,6 +220,124 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3427669758157512494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870973868961151008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6212cedefce630645b2a9099ddd52c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bbox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  recalcnorms: 1
+  NormalMethod: 0
+  recalcbounds: 0
+  recalcCollider: 0
+  recalcTangents: 0
+  dynamicMesh: 0
+  Enabled: 1
+  UpdateMode: 0
+  DrawGizmos: 1
+  verts: []
+  sverts: []
+  uvs: []
+  suvs: []
+  mesh: {fileID: 0}
+  mods:
+  - {fileID: 4273541249292122450}
+  UpdateMesh: 0
+  dirtyChannels: 0
+  sourceObj: {fileID: 0}
+  cols: []
+  selection: []
+  group: []
+  UseThreading: 1
+  mapping: []
+  tris: 
+  facenorms: []
+  norms: []
+  cachedMesh: {fileID: 0}
+  InvisibleUpdate: 0
+  readable: 0
+--- !u!114 &4273541249292122450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870973868961151008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccf30c5ec9ea1f4d98a04055bf8804d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModEnabled: 1
+  DisplayGizmo: 1
+  Order: 0
+  Offset: {x: 0, y: 0, z: 0}
+  gizmoPos: {x: 0, y: 0, z: 0}
+  gizmoRot: {x: 0, y: 0, z: 0}
+  gizmoScale: {x: 1, y: 1, z: 1}
+  gizCol1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizCol2: {r: 0, g: 1, b: 0, a: 1}
+  bbox:
+    center: {x: 0, y: 0, z: 0}
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    radius: 0
+    verts:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+  corners:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  steps: 50
+  verts: []
+  sverts: []
+  valid: 0
+  selection: []
+  instance: {fileID: 0}
+  limitchandisplay: 0
+  startchannel: 0
+  displaychans: 10
+  useUndo: 0
+  Label: 
+  MaxLOD: 0
+  target: {fileID: 0}
+  offsets: []
+  conformCollider: {fileID: 0}
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  last: []
+  last1: []
+  conformedVerts: []
+  conformAmount: 1
+  raystartoff: 0
+  offset: 0
+  raydist: 100
+  axis: 1
+  useLocalDown: 0
+  flipDown: 1
+  downAxis: 1
 --- !u!1 &870973868965578013
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +632,8 @@ GameObject:
   - component: {fileID: 870973869026625011}
   - component: {fileID: 870973869026625022}
   - component: {fileID: 870973869026625023}
+  - component: {fileID: 7471158373892580964}
+  - component: {fileID: 20426108300863365}
   m_Layer: 7
   m_Name: FlagRange
   m_TagString: RangeField
@@ -637,6 +759,124 @@ MonoBehaviour:
     m_Flags: 0
   _speed: 30
   _target: {fileID: 870973869761972649}
+--- !u!114 &7471158373892580964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870973869026625010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6212cedefce630645b2a9099ddd52c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bbox:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  recalcnorms: 1
+  NormalMethod: 1
+  recalcbounds: 0
+  recalcCollider: 0
+  recalcTangents: 0
+  dynamicMesh: 0
+  Enabled: 1
+  UpdateMode: 0
+  DrawGizmos: 1
+  verts: []
+  sverts: []
+  uvs: []
+  suvs: []
+  mesh: {fileID: 0}
+  mods:
+  - {fileID: 20426108300863365}
+  UpdateMesh: 0
+  dirtyChannels: 0
+  sourceObj: {fileID: 0}
+  cols: []
+  selection: []
+  group: []
+  UseThreading: 1
+  mapping: []
+  tris: 
+  facenorms: []
+  norms: []
+  cachedMesh: {fileID: 0}
+  InvisibleUpdate: 0
+  readable: 0
+--- !u!114 &20426108300863365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870973869026625010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccf30c5ec9ea1f4d98a04055bf8804d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModEnabled: 1
+  DisplayGizmo: 1
+  Order: 0
+  Offset: {x: 0, y: 0, z: 0}
+  gizmoPos: {x: 0, y: 0, z: 0}
+  gizmoRot: {x: 0, y: 0, z: 0}
+  gizmoScale: {x: 1, y: 1, z: 1}
+  gizCol1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  gizCol2: {r: 0, g: 1, b: 0, a: 1}
+  bbox:
+    center: {x: 0, y: 0, z: 0}
+    min: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 0, z: 0}
+    radius: 0
+    verts:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+  corners:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  steps: 50
+  verts: []
+  sverts: []
+  valid: 0
+  selection: []
+  instance: {fileID: 0}
+  limitchandisplay: 0
+  startchannel: 0
+  displaychans: 10
+  useUndo: 0
+  Label: 
+  MaxLOD: 0
+  target: {fileID: 0}
+  offsets: []
+  conformCollider: {fileID: 0}
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  last: []
+  last1: []
+  conformedVerts: []
+  conformAmount: 1
+  raystartoff: 0
+  offset: 0
+  raydist: 100
+  axis: 1
+  useLocalDown: 0
+  flipDown: 1
+  downAxis: 1
 --- !u!1 &870973869038392535
 GameObject:
   m_ObjectHideFlags: 0

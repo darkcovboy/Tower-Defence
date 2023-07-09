@@ -68,4 +68,10 @@ public class SpawnPlaceTower : MonoBehaviour
         _currentPanel.SetActive(false);
         _currentPanel = _firstPanelUI;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(gameObject.transform.position, 5f);
+    }
 }
