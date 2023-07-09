@@ -7,17 +7,18 @@ using UnityEngine.UI;
 public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private GameObject _screen;
 
     private ObjectManagerUI _objectManager;
 
     private void Awake()
     {
-        _objectManager = FindObjectOfType<ObjectManagerUI>();
+        //_objectManager = FindObjectOfType<ObjectManagerUI>();
     }
 
     private void OnEnable()
     {
-        _objectManager.CloseUI();
+        //_objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
@@ -28,9 +29,9 @@ public class VictoryScreen : Screen
 
     public override void OpenScreen()
     {
-        Time.timeScale = 0;
         WinLevel();
-        base.OpenScreen();
+        _screen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void WinLevel()

@@ -13,19 +13,22 @@ public abstract class Screen : MonoBehaviour
     private void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        CloseScreen();
+        //CloseScreen();
     }
 
     public virtual void OpenScreen()
     {
-        InteractableScreen(true, 1);
-        InteractableButtons(true);
+        gameObject.SetActive(true);
     }
+    //    InteractableScreen(true, 1);
+    //    InteractableButtons(true);
+    //}
 
     public virtual void CloseScreen()
     {
-        InteractableScreen(false, 0);
-        InteractableButtons(false);
+        gameObject.SetActive(false);
+        //InteractableScreen(false, 0);
+        //InteractableButtons(false);
     }
 
     public virtual void InteractableButtons(bool flag)

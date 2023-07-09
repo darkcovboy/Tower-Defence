@@ -14,6 +14,7 @@ public class ReturnAgainSceneButton : AbstractButton
 
     protected override void OnButtonClick()
     {
+        Time.timeScale = 1;
         _sceneFader.FadeTo(_currentScene);
     }
 }
