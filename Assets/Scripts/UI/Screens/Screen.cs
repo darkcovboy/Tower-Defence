@@ -17,30 +17,28 @@ public abstract class Screen : MonoBehaviour
     public virtual void OpenScreen()
     {
         gameObject.SetActive(true);
-        InteractableButtons(true);
+        //InteractableButtons(true);
     }
-    //    InteractableScreen(true, 1);
-    //}
 
     public virtual void CloseScreen()
     {
         gameObject.SetActive(false);
         //InteractableScreen(false, 0);
-        InteractableButtons(false);
+        //InteractableButtons(false);
     }
 
-    public virtual void InteractableButtons(bool flag)
-    {
-        foreach (var button in _buttons)
-        {
-            button.interactable = flag;
-        }
-    }
+    //public virtual void InteractableButtons(bool flag)
+    //{
+    //    foreach (var button in _buttons)
+    //    {
+    //        button.interactable = flag;
+    //    }
+    //}
 
-    public virtual void InteractableScreen(bool flag, int alpha)
-    {
-        _canvasGroup.interactable = flag;
-        _canvasGroup.blocksRaycasts = flag;
-        _canvasGroup.alpha = alpha;
-    }
+    //public virtual void InteractableScreen(bool flag, int alpha)
+    //{
+    //    _canvasGroup.interactable = flag;
+    //    _canvasGroup.blocksRaycasts = flag;
+    //    _canvasGroup.alpha = alpha;
+    //}
 }
