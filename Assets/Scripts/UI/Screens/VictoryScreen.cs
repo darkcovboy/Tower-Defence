@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private TextMeshProUGUI _pointsText;
 
     private ObjectManagerUI _objectManager;
 
@@ -31,6 +33,11 @@ public class VictoryScreen : Screen
         Time.timeScale = 0;
         WinLevel();
         base.OpenScreen();
+    }
+
+    public void SetScore(float points)
+    {
+        _pointsText.text = points.ToString();
     }
 
     private void WinLevel()
