@@ -7,21 +7,17 @@ public class MoneyBalance : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _moneyText;
 
-    private MoneyCounter _moneyCounter;
-
-    private void Awake()
-    {
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
-    }
-
-    private void OnEnable()
-    {
-        _moneyCounter.MoneyChanged += OnMoneyChanged;
-    }
+    [SerializeField] private MoneyCounter _moneyCounter;
 
     private void OnDisable()
     {
         _moneyCounter.MoneyChanged -= OnMoneyChanged;
+    }
+
+    public void Init(MoneyCounter moneyCounter)
+    {
+        _moneyCounter = moneyCounter;
+        _moneyCounter.MoneyChanged += OnMoneyChanged;
     }
 
     private void OnMoneyChanged(int money)

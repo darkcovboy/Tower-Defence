@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Effect", menuName = "Fire data")]
+
 public class FireEffectData : ScriptableObject
 {
     [SerializeField] private int _burnRates;

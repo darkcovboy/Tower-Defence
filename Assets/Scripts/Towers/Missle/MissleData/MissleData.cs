@@ -12,7 +12,11 @@ public enum DamageType
 
 public class MissleData : ScriptableObject
 {
-    public float Speed;
-    public float DistanceBetweenTarget;
-    public DamageType DamageType;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _distanceBetweenTarget;
+    [SerializeField] private DamageType _damageType;
+
+    public float Speed => _speed;
+    public float DistanceBetweenTarget => _distanceBetweenTarget;
+    public DamageType DamageType => _damageType;
 }

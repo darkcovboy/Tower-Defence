@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "New Effect", menuName = "Ice data")]
 public class IceEffectData : ScriptableObject
 {
     [SerializeField] private int _iceRates;

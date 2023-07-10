@@ -31,7 +31,6 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         SetWave(CurrentWaveNumber);
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
     }
 
     private void Update()
@@ -83,6 +82,11 @@ public class Spawner : MonoBehaviour
                 _currentEnemyIndex = 0;
             }
         }
+    }
+
+    public void Init(MoneyCounter moneyCounter)
+    {
+        _moneyCounter = moneyCounter;
     }
 
     private void InstantiateEnemy()

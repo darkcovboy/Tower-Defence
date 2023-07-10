@@ -20,7 +20,6 @@ public class SelectButton : MonoBehaviour
     {
         _tower = _spawnPlaceTower.GetTower(_indexLevel);
         _priceText.text = _tower.BuyCost.ToString();
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
 
         if (_tower.TryGetComponent<BarracksTower>(out BarracksTower barracks))
         {
@@ -49,6 +48,8 @@ public class SelectButton : MonoBehaviour
         else
             _showButton.interactable = true;
     }
+
+    public void Init(MoneyCounter moneyCounter) => _moneyCounter = moneyCounter;
 
     public void PlaceTower()
     {
