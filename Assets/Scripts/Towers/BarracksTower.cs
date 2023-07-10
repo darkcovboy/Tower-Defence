@@ -13,6 +13,7 @@ public class BarracksTower : Tower
     [SerializeField] private List<Transform> _pointWarriors;
 
     public GameObject WarriorPrefab => _warriorChanger.gameObject;
+    public int WarriorHealth => _warriorChanger.Warrior.MaxHealth;
     public UnityAction OnWarriorDied;
 
     private int _currentWarriors = 0;

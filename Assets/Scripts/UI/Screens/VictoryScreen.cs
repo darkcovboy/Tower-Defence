@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
-    [SerializeField] private GameObject _screen;
+    [SerializeField] private TextMeshProUGUI _pointsText;
 
     private ObjectManagerUI _objectManager;
 
     private void Awake()
     {
-        //_objectManager = FindObjectOfType<ObjectManagerUI>();
+        _objectManager = FindObjectOfType<ObjectManagerUI>();
     }
 
     private void OnEnable()
     {
-        //_objectManager.CloseUI();
+        _objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
@@ -29,9 +30,14 @@ public class VictoryScreen : Screen
 
     public override void OpenScreen()
     {
-        WinLevel();
-        _screen.SetActive(true);
         Time.timeScale = 0;
+        WinLevel();
+        base.OpenScreen();
+    }
+
+    public void SetScore(float points)
+    {
+        _pointsText.text = points.ToString();
     }
 
     private void WinLevel()

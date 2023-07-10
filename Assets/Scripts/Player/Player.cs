@@ -5,18 +5,19 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _health;
+    [SerializeField] private int _maxHealth;
+
+    public int MaxHealth => _maxHealth;
+    public int CurrentHealth => _currentHealth;
 
     private int _currentHealth;
-
-    public int Money { get; private set; }
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction Dying;
 
     private void Start()
     {
-        _currentHealth = _health;
+        _currentHealth = _maxHealth;
         HealthChanged?.Invoke(_currentHealth);
     }
 
