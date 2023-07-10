@@ -8,18 +8,19 @@ using TMPro;
 public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private GameObject _screen;
     [SerializeField] private TextMeshProUGUI _pointsText;
 
-    private ObjectManagerUI _objectManager;
+    //private ObjectManagerUI _objectManager;
 
     private void Awake()
     {
-        _objectManager = FindObjectOfType<ObjectManagerUI>();
+        //_objectManager = FindObjectOfType<ObjectManagerUI>();
     }
 
     private void OnEnable()
     {
-        _objectManager.CloseUI();
+        //_objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
@@ -32,7 +33,7 @@ public class VictoryScreen : Screen
     {
         Time.timeScale = 0;
         WinLevel();
-        base.OpenScreen();
+        _screen.SetActive(true);
     }
 
     public void SetScore(float points)

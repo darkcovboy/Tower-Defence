@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameOverScreen : Screen
 {
     [SerializeField] private Player _player;
+    [SerializeField] private GameObject _gameOverScreen;
 
     private void OnEnable()
     {
@@ -19,6 +20,6 @@ public class GameOverScreen : Screen
 
     public override void OpenScreen()
     {
-        base.OpenScreen();
+        _gameOverScreen.SetActive(true);
     }
 }
