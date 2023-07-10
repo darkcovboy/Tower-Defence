@@ -14,6 +14,9 @@ public class Tower : MonoBehaviour
     public int Cost => TowerDataConfig.Costs[Level];
     public bool IsMaxLevel => Level == _maxLevel;
 
+    public int Damage => TowerDataConfig.Damages[Level];
+    public float Delay => TowerDataConfig.Delays[Level];
+
     public int BuyCost => TowerDataConfig.BuyCost;
 
     public TowerType TowerType => TowerDataConfig.TowerType;

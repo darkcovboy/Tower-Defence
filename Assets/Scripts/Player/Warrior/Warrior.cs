@@ -18,6 +18,8 @@ public class Warrior : MonoBehaviour
     public int Damage => _damage;
     public bool DieWarrior => _die;
     public int CurrentHealth => _currentHealth;
+
+    public int MaxHealth => _health;
     public Enemy Enemy => _enemy;
     public bool HaveEnemy => _enemy == null;
 

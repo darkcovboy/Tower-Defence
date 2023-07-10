@@ -11,7 +11,7 @@ public class SelectButton : MonoBehaviour
     [SerializeField] private int _indexLevel;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
-    [SerializeField] private GameObject _infoObject;
+    [SerializeField] private InfoTowerPanel _infoObject;
 
     private Tower _tower;
     private MoneyCounter _moneyCounter;
@@ -21,6 +21,15 @@ public class SelectButton : MonoBehaviour
         _tower = _spawnPlaceTower.GetTower(_indexLevel);
         _priceText.text = _tower.BuyCost.ToString();
         _moneyCounter = FindObjectOfType<MoneyCounter>();
+
+        if (_tower.TryGetComponent<BarracksTower>(out BarracksTower barracks))
+        {
+            _infoObject.SendData(_tower.Damage, _tower.Delay, barracks.WarriorHealth);
+        }
+        else
+        {
+            _infoObject.SendData(_tower.Damage, _tower.Delay);
+        }
     }
 
     private void OnEnable()
@@ -49,13 +58,13 @@ public class SelectButton : MonoBehaviour
 
     public void ShowInfo()
     {
-        _infoObject.SetActive(true);
+        _infoObject.gameObject.Activate();
         _spawnPlaceTower.ShowBlankTower(_indexLevel);
     }
 
     public void CloseInfo()
     {
-        _infoObject.SetActive(false);
+        _infoObject.gameObject.Deactivate();
         _spawnPlaceTower.CloseBlankTower(_indexLevel);
     }
 
