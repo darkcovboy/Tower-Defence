@@ -9,7 +9,7 @@ public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
     [SerializeField] private GameObject _screen;
-    [SerializeField] private TextMeshProUGUI _pointsText;
+    //[SerializeField] private TextMeshProUGUI _pointsText;
 
     //private ObjectManagerUI _objectManager;
 
@@ -38,7 +38,7 @@ public class VictoryScreen : Screen
 
     public void SetScore(float points)
     {
-        _pointsText.text = points.ToString();
+        //_pointsText.text = points.ToString();
     }
 
     private void WinLevel()

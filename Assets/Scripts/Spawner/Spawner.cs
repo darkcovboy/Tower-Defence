@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
     private bool _checkTimerWaveSpawn = false;
     private int _maxWaveCount;
     private MoneyCounter _moneyCounter;
+    private bool _allEnemySpawn = false;
 
     public int EnemySpawnCount { get; private set; }
     public int CurrentWaveNumber { get; private set; } = 0;
@@ -35,51 +36,56 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        if (_currentWave == null || _currentWave.wavesSettings == null)
+        if (_allEnemySpawn == false)
         {
-            for (int i = 0; i < _enemyLiev.Count; i++)
+
+            if (_currentWave == null || _currentWave.wavesSettings == null)
             {
-                if (_enemyLiev[i].gameObject.activeSelf == false)
+                for (int i = 0; i < _enemyLiev.Count; i++)
                 {
-                    _enemyLiev.Remove(_enemyLiev[i]);
+                    if (_enemyLiev[i].gameObject.activeSelf == false)
+                    {
+                        _enemyLiev.Remove(_enemyLiev[i]);
+                    }
+                }
+
+                if (_enemyLiev.Count == 0)
+                {
+                    _allEnemySpawn = true;
+                    AllEnemysDied?.Invoke();
+                }
+                else
+                    return;
+            }
+
+            _timeAfterlastSpawn += Time.deltaTime;
+
+            if (_checkTimerWaveSpawn == false)
+            {
+                if (_timeAfterlastSpawn >= _waves[CurrentWaveNumber].wavesSettings[_currentEnemyIndex].Delay)
+                {
+                    InstantiateEnemy();
+                    _spawned++;
+                    _timeAfterlastSpawn = 0;
+                    EnemyCountChanged?.Invoke(_spawned, _waves[CurrentWaveNumber].wavesSettings.Length);
+                    _currentEnemyIndex++;
+                    EnemySpawnCount++;
                 }
             }
 
-            if (_enemyLiev.Count == 0)
+            if (_waves[CurrentWaveNumber].wavesSettings.Length <= _spawned)
             {
-                AllEnemysDied?.Invoke();
-            }
-            else
-                return;
-        }
+                if (_waves.Length > CurrentWaveNumber + 1)
+                {
+                    AllEnemysSpawned?.Invoke();
+                    _checkTimerWaveSpawn = true;
+                }
 
-        _timeAfterlastSpawn += Time.deltaTime;
-
-        if (_checkTimerWaveSpawn == false)
-        {
-            if (_timeAfterlastSpawn >= _waves[CurrentWaveNumber].wavesSettings[_currentEnemyIndex].Delay)
-            {
-                InstantiateEnemy();
-                _spawned++;
-                _timeAfterlastSpawn = 0;
-                EnemyCountChanged?.Invoke(_spawned, _waves[CurrentWaveNumber].wavesSettings.Length);
-                _currentEnemyIndex++;
-                EnemySpawnCount++;
-            }
-        }
-
-        if (_waves[CurrentWaveNumber].wavesSettings.Length <= _spawned)
-        {
-            if (_waves.Length > CurrentWaveNumber + 1)
-            {
-                AllEnemysSpawned?.Invoke();
-                _checkTimerWaveSpawn = true;
-            }
-
-            else
-            {
-                _currentWave = null;
-                _currentEnemyIndex = 0;
+                else
+                {
+                    _currentWave = null;
+                    _currentEnemyIndex = 0;
+                }
             }
         }
     }
