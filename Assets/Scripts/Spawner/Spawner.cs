@@ -51,8 +51,8 @@ public class Spawner : MonoBehaviour
 
                 if (_enemyLiev.Count == 0)
                 {
-                    _allEnemySpawn = true;
-                    AllEnemysDied?.Invoke();
+                _allEnemySpawn = true;
+                AllEnemysDied?.Invoke();
                 }
                 else
                     return;
