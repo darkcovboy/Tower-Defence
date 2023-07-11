@@ -19,9 +19,20 @@ public class BarracksTower : Tower
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
 
+    private void Awake()
+    {
+        _points.position = LookAtTarget.position;
+    }
+
+    private void Start()
+    {
+        _points.position = LookAtTarget.position;
+    }
+
     private void OnEnable()
     {
         OnWarriorDied += OnWarriorDie;
+        _points.position = LookAtTarget.position;
     }
 
     private void OnDisable()
@@ -42,7 +53,9 @@ public class BarracksTower : Tower
 
     public void ChangePoint(Transform newPosition)
     {
+        Debug.Log(_points.position + " " + newPosition.position);
         _points.position = newPosition.position;
+        Debug.Log(_points.position + " " + newPosition.position);
 
         for (int i = 0; i < _maxWarriors[Level]; i++)
         {
