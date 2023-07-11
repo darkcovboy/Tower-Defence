@@ -191,8 +191,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907271763939743245}
-  - component: {fileID: 801077378059737590}
   - component: {fileID: 7208889873229005917}
+  - component: {fileID: 801077378059737590}
   - component: {fileID: 8118929545100763107}
   - component: {fileID: 8712568024412645913}
   - component: {fileID: 1291581383764656949}
@@ -233,6 +233,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7208889873229005917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566493062515035319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _reward: 16
+  _damage: 15
+  _speed: 3
+  _iceData: {fileID: 11400000, guid: b3be9d618c837914cb644ba941cdb156, type: 2}
+  _fireData: {fileID: 11400000, guid: 31ac1509d67ff144c820b0c33fecded4, type: 2}
 --- !u!95 &801077378059737590
 Animator:
   serializedVersion: 4
@@ -253,28 +271,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7208889873229005917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566493062515035319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 100
-  _reward: 16
-  _damage: 15
-  _speed: 3
-  _burnRates: 0
-  _burnDamage: 0
-  _fireEffect: {fileID: 0}
-  _iceRates: 0
-  _iceSpeedPercentage: 0
-  _iceEffect: {fileID: 0}
 --- !u!65 &8118929545100763107
 BoxCollider:
   m_ObjectHideFlags: 0

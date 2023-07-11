@@ -11,16 +11,10 @@ public class VictoryScreen : Screen
     [SerializeField] private GameObject _screen;
     [SerializeField] private TextMeshProUGUI _pointsText;
 
-    //private ObjectManagerUI _objectManager;
-
-    private void Awake()
-    {
-        //_objectManager = FindObjectOfType<ObjectManagerUI>();
-    }
+    private ObjectManagerUI _objectManager;
 
     private void OnEnable()
     {
-        //_objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
@@ -29,11 +23,18 @@ public class VictoryScreen : Screen
         _spawner.AllEnemysDied -= OpenScreen;
     }
 
+    public void Init(ObjectManagerUI objectManagerUI)
+    {
+        _objectManager = objectManagerUI;
+    }
+
     public override void OpenScreen()
     {
         Time.timeScale = 0;
+       //_objectManager.CloseUI();
         WinLevel();
         _screen.SetActive(true);
+        Debug.Log("Screen");
     }
 
     public void SetScore(float points)

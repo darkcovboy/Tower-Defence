@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelConfig : ScriptableObject
 {
     [SerializeField] private float _time;
+    [SerializeField] private int _startMoney;
     [Header("Points coefficients")]
     [SerializeField, Range(0,1)] private float _healthCoefficient;
     [SerializeField, Range(0, 1)] private float _timeCoefficient;
@@ -15,5 +16,7 @@ public class LevelConfig : ScriptableObject
     public float HealthCoefficient => _healthCoefficient;
     public float TimeCoefficient => _timeCoefficient;
     public float MoneyCoefficient => _moneyCoefficient;
+
+    public float StartMoney => _startMoney;
         
 }

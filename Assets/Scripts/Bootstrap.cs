@@ -19,10 +19,9 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
-        _spawner.Init(_moneyCounter);
-        _moneyBalance.Init(_moneyCounter);
         InitMoneyCounter();
-        _timer = new Timer(this);
+        InitTimer();
+        _victoryScreen.Init(gameObject.GetComponent<ObjectManagerUI>());
         _countPoints = new CountPoints(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
     }
 
@@ -39,12 +38,13 @@ public class Bootstrap : MonoBehaviour
     private void EndLevel()
     {
         _timer.StopTimer();
-        _victoryScreen.SetScore(_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money));
+        _victoryScreen.SetScore((int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money));
     }
 
     private void InitMoneyCounter()
     {
-        
+        _spawner.Init(_moneyCounter);
+        _moneyBalance.Init(_moneyCounter);
 
         foreach (var spawnPlaceTower in _spawnPlaceTower)
         {
@@ -55,5 +55,12 @@ public class Bootstrap : MonoBehaviour
                 selectButton.Init(_moneyCounter);
             }
         }
+    }
+
+    private void InitTimer()
+    {
+        _timer = new Timer(this);
+        _timer.Set(_levelConfig.Time);
+        _timer.StartTimer();
     }
 }

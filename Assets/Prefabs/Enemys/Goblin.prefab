@@ -1619,6 +1619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4229022808158081149}
+  - component: {fileID: 8611977804776116672}
   - component: {fileID: 2895279417499164524}
   - component: {fileID: 7748753473843017038}
   - component: {fileID: 882708559566704345}
@@ -1627,7 +1628,6 @@ GameObject:
   - component: {fileID: 8388807135281873671}
   - component: {fileID: 3048408684504270417}
   - component: {fileID: 1075713319977565297}
-  - component: {fileID: 8611977804776116672}
   - component: {fileID: 623992659246379988}
   - component: {fileID: 1485839319692604735}
   - component: {fileID: -1368229511642806990}
@@ -1662,6 +1662,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8611977804776116672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144700659727964650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 30
+  _reward: 5
+  _damage: 5
+  _speed: 3
+  _iceData: {fileID: 11400000, guid: b3be9d618c837914cb644ba941cdb156, type: 2}
+  _fireData: {fileID: 11400000, guid: 31ac1509d67ff144c820b0c33fecded4, type: 2}
 --- !u!95 &2895279417499164524
 Animator:
   serializedVersion: 4
@@ -1784,24 +1802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstState: {fileID: 882708559566704345}
---- !u!114 &8611977804776116672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144700659727964650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 30
-  _reward: 5
-  _damage: 5
-  _speed: 3
-  _iceData: {fileID: 11400000, guid: b3be9d618c837914cb644ba941cdb156, type: 2}
-  _fireData: {fileID: 11400000, guid: 31ac1509d67ff144c820b0c33fecded4, type: 2}
 --- !u!114 &623992659246379988
 MonoBehaviour:
   m_ObjectHideFlags: 0
