@@ -43,7 +43,7 @@ public class SelectButton : MonoBehaviour
 
     private void Update()
     {
-        if (_tower.Cost >= _moneyCounter.Money)
+        if (_tower.BuyCost > _moneyCounter.Money)
             _showButton.interactable = false;
         else
             _showButton.interactable = true;

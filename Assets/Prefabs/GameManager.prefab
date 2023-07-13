@@ -320,6 +320,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Cesur sava\u015F\xE7\u0131lar\u0131 e\u011Fitir ve sava\u015Fa g\xF6nderir.\r"
     Object: {fileID: 0}
+--- !u!1 &1956201410197956880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8448236508650453113}
+  - component: {fileID: 4151844286036431211}
+  m_Layer: 0
+  m_Name: YouEarned
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8448236508650453113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956201410197956880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2706814918728005542}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4151844286036431211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956201410197956880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u044B \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043B\u0438:"
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'You earned:'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: 
+    Object: {fileID: 0}
 --- !u!1 &2929855933109318979
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +632,11 @@ MonoBehaviour:
   _spawner: {fileID: 0}
   _player: {fileID: 0}
   _moneyCounter: {fileID: 0}
+  _spawnPlaceTower: []
   _victoryScreen: {fileID: 0}
+  _moneyBalance: {fileID: 0}
+  _adButton: {fileID: 0}
+  _objectManagerUI: {fileID: 0}
 --- !u!1 &4561221041985162537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1633,7 @@ Transform:
   - {fileID: 2508581773361298125}
   - {fileID: 7048352582225163068}
   - {fileID: 2652969026342758806}
+  - {fileID: 8448236508650453113}
   m_Father: {fileID: 1002491463568232250}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

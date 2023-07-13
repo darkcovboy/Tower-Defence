@@ -53,9 +53,7 @@ public class BarracksTower : Tower
 
     public void ChangePoint(Transform newPosition)
     {
-        Debug.Log(_points.position + " " + newPosition.position);
         _points.position = newPosition.position;
-        Debug.Log(_points.position + " " + newPosition.position);
 
         for (int i = 0; i < _maxWarriors[Level]; i++)
         {
