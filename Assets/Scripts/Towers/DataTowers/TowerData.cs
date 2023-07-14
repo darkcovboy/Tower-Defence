@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Localization;
 public enum TowerType
 {
     Archer,
@@ -19,4 +20,11 @@ public class TowerData : ScriptableObject
     public List<float> Delays;
     public TowerType TowerType;
     [Range(10, 30)] public int Radius;
+
+    [Header("Information")]
+    [SerializeField] private LeanPhrase _titleLocalized;
+    [SerializeField] private LeanPhrase _descriptionLocalized;
+
+    public LeanPhrase Title => _titleLocalized;
+    public LeanPhrase Description => _descriptionLocalized;
 }

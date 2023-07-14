@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Localization;
 
 public class Tower : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class Tower : MonoBehaviour
     public TowerType TowerType => TowerDataConfig.TowerType;
 
     public float Radius => TowerDataConfig.Radius;
+
+    public LeanPhrase Title => TowerDataConfig.Title;
+    public LeanPhrase Description => TowerDataConfig.Description;
 
     private readonly int _maxLevel = 3;
 

@@ -13,6 +13,8 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
     [SerializeField] private SpawnPlaceTowerBeaty _spawnPlaceTowerBeaty;
     [SerializeField] private ChooseWarriorTarget _flagButton;
+    [SerializeField] private InfoTowerPanel _shootingTowerInfo;
+    [SerializeField] private InfoTowerPanel _barracksInfo;
 
     private MoneyCounter _moneyCounter;
     private Tower _tower;
@@ -53,6 +55,29 @@ public class UpgradePanel : MonoBehaviour
                 _flagButton.Close();
             }
         }
+    }
+
+    public void ShowInfo()
+    {
+        _spawnPlaceTowerBeaty.ShowRange(_tower.Radius);
+
+        if (_tower.TryGetComponent<BarracksTower>(out BarracksTower barracks))
+        {
+            _barracksInfo.SendData(_tower.Damage, _tower.Delay, barracks.WarriorHealth, barracks.Title, barracks.Description);
+            _barracksInfo.Activate();
+        }
+        else
+        {
+            _shootingTowerInfo.SendData(_tower.Damage, _tower.Delay, _tower.Title, _tower.Description);
+            _shootingTowerInfo.Deactivate();
+        }
+    }
+
+    public void CloseInfo()
+    {
+        _spawnPlaceTowerBeaty.CloseRange();
+        _barracksInfo.Deactivate();
+        _shootingTowerInfo.Deactivate();
     }
 
     public void TowerChoice(ref Tower tower)
