@@ -95,7 +95,7 @@ public class VictoryScreen : Screen
         {
             yield return new WaitForSeconds(1);
             _stars[i].gameObject.SetActive(true);
-            _stars[i].PlayAnimation();
+            _stars[i].PlayAnimation(); 
         }
     }
 }

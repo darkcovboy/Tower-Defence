@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : AbstractButton
 {
-    private string _levelSelect = "LevelSelectScene";
+    //private string _levelSelect = "LevelSelectScene";
+    [SerializeField] private Canvas _canvas;
 
     protected override void OnButtonClick()
     {
-        _sceneFader.FadeTo(_levelSelect);
+        _canvas.gameObject.SetActive(true);
     }
 }
