@@ -7,6 +7,7 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] private SceneFader _sceneFader;
     [SerializeField] private Button[] _levelButtons;
+    [SerializeField] private Sprite _star;
 
     private void Start()
     {
@@ -16,6 +17,28 @@ public class LevelSelect : MonoBehaviour
         {
             if (i + 1 > levelReached)
                 _levelButtons[i].interactable = false;
+        }
+
+        for (int i = 1; i < 3; i++)
+        {
+            if (PlayerPrefs.HasKey("stars" + i))
+            {
+                if (PlayerPrefs.GetInt("stars" + i) == 1)
+                {
+                    _levelButtons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                else if (PlayerPrefs.GetInt("stars" + i) == 2)
+                {
+                    _levelButtons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    _levelButtons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
+                }
+                else
+                {
+                    _levelButtons[i - 1].transform.GetChild(1).gameObject.SetActive(true);
+                    _levelButtons[i - 1].transform.GetChild(2).gameObject.SetActive(true);
+                    _levelButtons[i - 1].transform.GetChild(3).gameObject.SetActive(true);
+                }
+            }
         }
     }
 
