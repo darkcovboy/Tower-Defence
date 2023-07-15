@@ -63,7 +63,7 @@ public class VictoryScreen : Screen
             PlayerPrefs.SetInt("levelReached", ++currentLevel);
     }
 
-    private void SetStars()
+    public void SetStars()
     {
         if (_player.CurrentHealth <= 50 && !PlayerPrefs.HasKey("stars" + SceneManager.GetActiveScene().buildIndex))
         {

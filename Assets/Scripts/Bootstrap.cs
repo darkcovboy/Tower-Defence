@@ -14,7 +14,7 @@ public class Bootstrap : MonoBehaviour
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
-    [SerializeField] private AdButton _adButton;
+    //[SerializeField] private AdButton _adButton;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
 
@@ -26,8 +26,8 @@ public class Bootstrap : MonoBehaviour
         InitMoneyCounter();
         InitTimer();
         _moneyCounter.Init(_levelConfig.StartMoney);
-        _victoryScreen.Init(_objectManagerUI);
-        _adButton.Init(_levelConfig.AdStartMoney, _moneyCounter);
+        //_victoryScreen.Init(_objectManagerUI);
+        //_adButton.Init(_levelConfig.AdStartMoney, _moneyCounter);
         _countPoints = new CountPoints(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
     }
 
@@ -58,7 +58,7 @@ public class Bootstrap : MonoBehaviour
     {
         _timer.StopTimer();
         _victoryScreen.SetScore((int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money));
-        _victoryScreen.SetStars(CountStars());
+        //_victoryScreen.SetStars(CountStars());
     }
 
     private void InitMoneyCounter()

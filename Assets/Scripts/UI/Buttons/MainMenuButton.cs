@@ -7,8 +7,14 @@ public class MainMenuButton : AbstractButton
 {
     private string _mainMenu = "MainMenu";
 
+    private void Start()
+    {
+        _sceneFader = FindObjectOfType<SceneFader>();
+    }
+
     protected override void OnButtonClick()
     {
-        SceneManager.LoadScene(_mainMenu);
+        Time.timeScale = 1;
+        _sceneFader.FadeTo(_mainMenu);
     }
 }

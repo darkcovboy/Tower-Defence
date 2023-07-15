@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public abstract class AbstractButton : MonoBehaviour
 {
-    [SerializeField] protected SceneFader _sceneFader;
-
+    protected SceneFader _sceneFader;
     protected Button ButtonComponent;
 
     private void Awake()
     {
         ButtonComponent = GetComponent<Button>();
+        _sceneFader = FindObjectOfType<SceneFader>();
     }
 
     private void OnEnable()
