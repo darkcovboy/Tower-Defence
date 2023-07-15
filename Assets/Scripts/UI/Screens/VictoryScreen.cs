@@ -9,14 +9,23 @@ public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
     [SerializeField] private GameObject _screen;
-    [SerializeField] private List<GameObject> _stars;
-    [SerializeField] private TextMeshProUGUI _pointsText;
+    [SerializeField] private Star[] _stars;
 
-    private ObjectManagerUI _objectManager;
-    private readonly int _maxAlpha = 255;
+    private Player _player;
+    private int _countStars;
+    //[SerializeField] private TextMeshProUGUI _pointsText;
+
+    //private ObjectManagerUI _objectManager;
+
+    private void Awake()
+    {
+        //_objectManager = FindObjectOfType<ObjectManagerUI>();
+        _player = FindObjectOfType<Player>();
+    }
 
     private void OnEnable()
     {
+        //_objectManager.CloseUI();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
@@ -25,44 +34,18 @@ public class VictoryScreen : Screen
         _spawner.AllEnemysDied -= OpenScreen;
     }
 
-    public void Init(ObjectManagerUI objectManagerUI)
-    {
-        _objectManager = objectManagerUI;
-    }
-
     public override void OpenScreen()
     {
-        Time.timeScale = 0;
-       _objectManager.CloseUI();
         WinLevel();
-        _screen.Activate();
+        GetStarsCount();
+        SetStars();
+        _screen.SetActive(true);
+        StartCoroutine(ShowStars());
     }
 
     public void SetScore(float points)
     {
-       _pointsText.text = points.ToString();
-    }
-
-    public void SetStars(int index)
-    {
-        for (int i = 0; i < index; i++)
-        {
-            StartCoroutine(StarsFill(i));
-        }
-    }
-
-    private IEnumerator StarsFill(int index)
-    {
-        _stars[index].Activate();
-        var image = _stars[index].gameObject.GetComponent<Image>();
-        Color color = image.color;
-
-        for (int i = 0; i < _maxAlpha; i++)
-        {
-            color.a = i;
-            image.color = color;
-            yield return null;
-        }
+        //_pointsText.text = points.ToString();
     }
 
     private void WinLevel()
@@ -76,5 +59,41 @@ public class VictoryScreen : Screen
         }
         else
             PlayerPrefs.SetInt("levelReached", ++currentLevel);
+    }
+
+    public void SetStars()
+    {
+        if (_player.CurrentHealth <= 50 && !PlayerPrefs.HasKey("stars" + SceneManager.GetActiveScene().buildIndex))
+        {
+            PlayerPrefs.SetInt("stars" + SceneManager.GetActiveScene().buildIndex, 1);
+        }
+        else if (_player.CurrentHealth <= 80 && _player.CurrentHealth > 50 && (!PlayerPrefs.HasKey("stars" + SceneManager.GetActiveScene().buildIndex) || PlayerPrefs.GetInt("stars" + SceneManager.GetActiveScene().buildIndex) < 2))
+        {
+            PlayerPrefs.SetInt("stars" + SceneManager.GetActiveScene().buildIndex, 2);
+        }
+        else if (_player.CurrentHealth >= 81 && (!PlayerPrefs.HasKey("stars" + SceneManager.GetActiveScene().buildIndex) || PlayerPrefs.GetInt("stars" + SceneManager.GetActiveScene().buildIndex) < 3))
+        {
+            PlayerPrefs.SetInt("stars" + SceneManager.GetActiveScene().buildIndex, 3);
+        }
+    }
+
+    private void GetStarsCount()
+    {
+        if (_player.CurrentHealth >= 81)
+            _countStars = 3;
+        else if (_player.CurrentHealth <= 80 && _player.CurrentHealth > 50)
+            _countStars = 2;
+        else
+            _countStars = 1;
+    }
+
+    IEnumerator ShowStars()
+    {
+        for (int i = 0; i < _countStars; i++)
+        {
+            yield return new WaitForSeconds(1);
+            _stars[i].gameObject.SetActive(true);
+            _stars[i].PlayAnimation(); 
+        }
     }
 }
