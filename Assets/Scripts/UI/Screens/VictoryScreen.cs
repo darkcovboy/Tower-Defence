@@ -9,7 +9,6 @@ public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
     [SerializeField] private GameObject _screen;
-    //[SerializeField] private GameObject[] _stars;
     [SerializeField] private Star[] _stars;
 
     private Player _player;
@@ -37,7 +36,6 @@ public class VictoryScreen : Screen
 
     public override void OpenScreen()
     {
-        //Time.timeScale = 0;
         WinLevel();
         GetStarsCount();
         SetStars();

@@ -7,7 +7,7 @@ public class PlayButton : AbstractButton
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Transform _direction;
 
-    private float _speedRotation = 30;
+    private float _speedRotation = 36;
 
     private void Start()
     {
