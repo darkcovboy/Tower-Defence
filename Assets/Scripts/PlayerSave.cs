@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 using Agava.YandexGames;
 using Newtonsoft.Json;
+using UnityEngine;
 
 public class PlayerSave
 {
@@ -24,22 +25,36 @@ public class PlayerSave
 
     public SaveDataWrapper LoadData()
     {
-        SaveDataWrapper saveDataWrapper = new SaveDataWrapper();
-        saveDataWrapper.levelDataList = InitLevelData();
-        saveDataWrapper.settingsData = InitVolumeData();
+        SaveDataWrapper saveDataWrapper = new()
+        {
+            levelDataList = InitLevelData(),
+            settingsData = InitVolumeData()
+        };
+        return saveDataWrapper;
+    }
+
+    public SaveDataWrapper LoadRandomData()
+    {
+        SaveDataWrapper saveDataWrapper = new()
+        {
+            levelDataList = InitRandomLevelData(),
+            settingsData = InitRandomVolumeData()
+        };
         return saveDataWrapper;
     }
 
     private List<LevelData> InitLevelData()
     {
-        List<LevelData> levelDataList = new List<LevelData>();
+        List<LevelData> levelDataList = new();
 
         for (int i = 1; i <= _maxLevel; i++)
         {
-            LevelData levelData = new LevelData();
-            levelData.LevelId = i;
-            levelData.Stars = 0;
-            levelData.Score = 0;
+            LevelData levelData = new()
+            {
+                LevelId = i,
+                Stars = 0,
+                Score = 0
+            };
 
             if (levelData.LevelId == firstLevelId)
             {
@@ -53,12 +68,50 @@ public class PlayerSave
     }
     private VolumeData InitVolumeData()
     {
-        VolumeData volumeData = new VolumeData();
-        volumeData.Volume = volumeStart;
+        VolumeData volumeData = new()
+        {
+            Volume = volumeStart
+        };
         return volumeData;
+    }
+
+    private VolumeData InitRandomVolumeData()
+    {
+        VolumeData volumeData = new()
+        {
+            Volume = 0.5f
+        };
+        return volumeData;
+    }
+
+    private List<LevelData> InitRandomLevelData()
+    {
+        List<LevelData> levelDataList = new();
+
+        System.Random random = new System.Random();
+
+        for (int i = 1; i <= _maxLevel; i++)
+        {
+            LevelData levelData = new()
+            {
+                LevelId = i,
+                Stars = random.Next(0, 3),
+                Score = random.Next(100, 1000)
+            };
+
+            if (levelData.LevelId == firstLevelId)
+            {
+                levelData.IsUnblock = true;
+            }
+
+            levelDataList.Add(levelData);
+        }
+
+        return levelDataList;
     }
 }
 
+[System.Serializable]
 public class LevelData
 {
     public int LevelId;
@@ -67,6 +120,7 @@ public class LevelData
     public int Score;
 }
 
+[System.Serializable]
 public class VolumeData
 {
     public float Volume;
