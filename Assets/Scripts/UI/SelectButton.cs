@@ -45,6 +45,7 @@ public class SelectButton : MonoBehaviour
     public void PlaceTower()
     {
         _moneyCounter.TakeMoney(_tower.BuyCost);
+        CloseInfo();
         _spawnPlaceTower.PlaceTower(_indexLevel);
     }
 

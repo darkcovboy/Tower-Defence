@@ -9,22 +9,32 @@ using TMPro;
 
 public class SaveManager : MonoBehaviour
 {
+    [SerializeField] private LevelSelect _levelSelect;
     [SerializeField] private int _maxLevel;
-    [SerializeField] private TextMeshProUGUI _text;
-    private SaveDataWrapper _saveDataWrapper;
 
+    private SaveDataWrapper _saveDataWrapper;
     private PlayerSave _playerSave;
     private string _jsonData;
-    private string _path;
 
+    //Старт делаем корутиной, потому что нам обязательно нужно, чтобы сдк загрузилось, проверяем авторизацию, если она есть то создаем стандартный экземпляр класса SaveDataWrapper
     private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();
 
-        if(PlayerAccount.IsAuthorized == true)
+        if (PlayerAccount.IsAuthorized == true)
         {
             _playerSave = new PlayerSave(_maxLevel);
-            GenerateNewData();
+            PlayerAccount.GetCloudSaveData((data) => _jsonData = data);
+
+            if (_jsonData == null || _jsonData == "{}")
+            {
+                GenerateNewData();
+                _levelSelect.UpdateLevels(_saveDataWrapper.levelDataList);
+            }
+            else
+            {
+                LoadData();
+            }
         }
         else
         {
@@ -32,7 +42,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    /*
+    //Пока не используется, задает новые значения текущему уровню, открываем следующий, сохраняем
     public void SaveEndLevel(int stars, int score)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
@@ -41,27 +51,25 @@ public class SaveManager : MonoBehaviour
 
         if(index + 1 < _maxLevel)
         {
-            _saveDataWrapper.levelDataList[index].IsUnblock = true;
+            _saveDataWrapper.levelDataList[index + 1].IsUnblock = true;
         }
 
-        string json = JsonUtility.ToJson(_saveDataWrapper);
-        PlayerAccount.SetCloudSaveData(json);
+        SaveData();
     }
-    */
 
+
+    //Создаем новую дату, сохраняем, здесь JsonUnitility преобразует наш класс в формат JSON
     public void GenerateNewData()
     {
-        _saveDataWrapper = _playerSave.LoadRandomData();
-        _jsonData = JsonUtility.ToJson(_saveDataWrapper, true);
-        _text.text = _jsonData;
+        _saveDataWrapper = _playerSave.LoadData();
+        _jsonData = JsonUtility.ToJson(_saveDataWrapper);
+        SaveData();
     }
 
+    //Загружем данные и преобразуем из JSON в класс
     public void LoadData()
     {
-        PlayerAccount.GetCloudSaveData((data) => _jsonData = data);
-        _text.text = _jsonData;
         _saveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
-        Debug.Log(_saveDataWrapper.levelDataList[0].Score);
     }
 
     public void SaveData()

@@ -10,17 +10,14 @@ public class PlayerSave
     private int _maxLevel;
     private readonly float volumeStart = 0.5f;
     private readonly int firstLevelId = 1;
+   /*
+    * Статический класс для работы с данными, в теории посмотрю что сюда ещё можно перетаскать, его присутствие на сцене не нужно, поэтому он и статический
+    * У нас два класса здесь создаются LevelData - для работы с уровнями и VolumeData - для сохранения настроек звука, LoadData нам возвращает стандартный значения для этих классов, ну Init понятно что делают + Важное уточнение - классы нужно было сделать сериализируемыми, иначе они бы не работали с JSON форматом
+   */
 
     public PlayerSave(int maxLevel)
     {
         _maxLevel = maxLevel;
-    }
-
-    public SaveDataWrapper LoadData(string data)
-    {
-        string json = data;
-        SaveDataWrapper dataWrapper = JsonUtility.FromJson<SaveDataWrapper>(json);
-        return dataWrapper;
     }
 
     public SaveDataWrapper LoadData()
@@ -29,16 +26,6 @@ public class PlayerSave
         {
             levelDataList = InitLevelData(),
             settingsData = InitVolumeData()
-        };
-        return saveDataWrapper;
-    }
-
-    public SaveDataWrapper LoadRandomData()
-    {
-        SaveDataWrapper saveDataWrapper = new()
-        {
-            levelDataList = InitRandomLevelData(),
-            settingsData = InitRandomVolumeData()
         };
         return saveDataWrapper;
     }
@@ -73,41 +60,6 @@ public class PlayerSave
             Volume = volumeStart
         };
         return volumeData;
-    }
-
-    private VolumeData InitRandomVolumeData()
-    {
-        VolumeData volumeData = new()
-        {
-            Volume = 0.5f
-        };
-        return volumeData;
-    }
-
-    private List<LevelData> InitRandomLevelData()
-    {
-        List<LevelData> levelDataList = new();
-
-        System.Random random = new System.Random();
-
-        for (int i = 1; i <= _maxLevel; i++)
-        {
-            LevelData levelData = new()
-            {
-                LevelId = i,
-                Stars = random.Next(0, 3),
-                Score = random.Next(100, 1000)
-            };
-
-            if (levelData.LevelId == firstLevelId)
-            {
-                levelData.IsUnblock = true;
-            }
-
-            levelDataList.Add(levelData);
-        }
-
-        return levelDataList;
     }
 }
 

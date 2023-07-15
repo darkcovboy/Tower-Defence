@@ -7,6 +7,7 @@ using TMPro;
 public class UpgradePanel : MonoBehaviour
 {
     [SerializeField] private Button _upgradeButton;
+    [SerializeField] private Button _showButton;
     [SerializeField] private TextMeshProUGUI _costText;
     [SerializeField, Range(0, 1)] private float _sellPercent;
     [SerializeField] private TextMeshProUGUI _sellText;
@@ -26,6 +27,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void OnEnable()
     {
+        _showButton.Activate();
         if(_tower.TowerType == TowerType.Barracks)
         {
             _flagButton.Activate();
