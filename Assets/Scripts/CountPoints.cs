@@ -5,6 +5,7 @@ using UnityEngine;
 public class CountPoints
 {
     public float Points => _points;
+    public float Time => _timer.SpentTime;
 
     private Timer _timer;
     private float _points;
@@ -22,7 +23,7 @@ public class CountPoints
 
     public float Count(float maxHealth, float currentHealth, float remainMoney)
     {
-        float points = (maxHealth - currentHealth) * _coefficientHealth + remainMoney * _coefficientRemainMoney + (_timer.SpentTime) * _coefficientRemainTime;
+        float points = (maxHealth - currentHealth) * _coefficientHealth + remainMoney * _coefficientRemainMoney + (_timer.RemainTime) * _coefficientRemainTime;
         return points;
     }
 }

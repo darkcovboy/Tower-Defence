@@ -16,10 +16,8 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
             index--;
         }
 
+        ShowRange(radius);
         _blankTowers[index].Activate();
-        float diametr = radius * 2f;
-        _range.transform.localScale = new Vector3(diametr, _range.transform.localScale.y, diametr);
-        _range.Activate();
     }
 
     public void CloseBlankTower(int index)
@@ -31,7 +29,7 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
         }
 
         _blankTowers[index].Deactivate();
-        _range.Deactivate();
+        CloseRange();
     }
 
     public void CloseBlankTower()
@@ -41,8 +39,17 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
             blank.Deactivate();
         }
 
-        _range.Deactivate();
+        CloseRange();
     }
+
+    public void ShowRange(float radius)
+    {
+        float diametr = radius * 2f;
+        _range.transform.localScale = new Vector3(diametr, _range.transform.localScale.y, diametr);
+        _range.Activate();
+    }
+
+    public void CloseRange() => _range.Deactivate();
 
     public void PlayParticles()
     {

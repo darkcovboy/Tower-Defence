@@ -9,8 +9,9 @@ public class MoneyCounter : MonoBehaviour
     public float Money => _money;
     public event UnityAction<int> MoneyChanged;
 
-    private void Start()
+    public void Init(int startMoney)
     {
+        _money = startMoney;
         MoneyChanged?.Invoke(_money);
     }
 

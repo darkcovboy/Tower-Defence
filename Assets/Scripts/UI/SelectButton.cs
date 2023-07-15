@@ -20,15 +20,6 @@ public class SelectButton : MonoBehaviour
     {
         _tower = _spawnPlaceTower.GetTower(_indexLevel);
         _priceText.text = _tower.BuyCost.ToString();
-
-        if (_tower.TryGetComponent<BarracksTower>(out BarracksTower barracks))
-        {
-            _infoObject.SendData(_tower.Damage, _tower.Delay, barracks.WarriorHealth);
-        }
-        else
-        {
-            _infoObject.SendData(_tower.Damage, _tower.Delay);
-        }
     }
 
     private void OnEnable()
@@ -43,7 +34,7 @@ public class SelectButton : MonoBehaviour
 
     private void Update()
     {
-        if (_tower.Cost >= _moneyCounter.Money)
+        if (_tower.BuyCost > _moneyCounter.Money)
             _showButton.interactable = false;
         else
             _showButton.interactable = true;
@@ -59,6 +50,7 @@ public class SelectButton : MonoBehaviour
 
     public void ShowInfo()
     {
+        ChangeInfo();
         _infoObject.gameObject.Activate();
         _spawnPlaceTower.ShowBlankTower(_indexLevel);
     }
@@ -75,6 +67,18 @@ public class SelectButton : MonoBehaviour
         {
             _showButton.Activate();
             _buyButton.Deactivate();
+        }
+    }
+
+    private void ChangeInfo()
+    {
+        if (_tower.TryGetComponent<BarracksTower>(out BarracksTower barracks))
+        {
+            _infoObject.SendData(_tower.Damage, _tower.Delay, barracks.WarriorHealth, barracks.Title, barracks.Description);
+        }
+        else
+        {
+            _infoObject.SendData(_tower.Damage, _tower.Delay, _tower.Title, _tower.Description);
         }
     }
 }

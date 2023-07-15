@@ -13,6 +13,7 @@ public class SpawnPlaceTower : MonoBehaviour
     private GameObject _currentPanel;
     private ObjectManagerUI _objectManager;
     private SpawnPlaceTowerBeaty _spawnPlaceTowerBeaty;
+    private float _radius = 5f;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class SpawnPlaceTower : MonoBehaviour
     public void ShowBlankTower(int index)
     {
         _spawnPlaceTowerBeaty.ShowBlankTower(index, _towers[index].Radius);
+        _radius = _towers[index].Radius;
     }
 
     public void CloseBlankTower(int index)
@@ -72,6 +74,6 @@ public class SpawnPlaceTower : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(gameObject.transform.position, 5f);
+        Gizmos.DrawWireSphere(gameObject.transform.position, _radius);
     }
 }

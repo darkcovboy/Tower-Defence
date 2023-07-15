@@ -35,7 +35,6 @@ public class ShootingTower : Tower
         _watchers[Level].transform.rotation = Quaternion.Euler(0f, _watchers[Level].transform.localEulerAngles.y, 0f);
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
@@ -44,13 +43,6 @@ public class ShootingTower : Tower
             {
                 _target = enemy.transform;
                 _enemy = enemy;
-
-                /*
-                if(_shootCoroutine == null)
-                {
-                    _shootCoroutine = StartCoroutine(ShootDownDelay());
-                }
-                */
             }
         }
     }
@@ -63,13 +55,6 @@ public class ShootingTower : Tower
             {
                 _target = enemy.transform;
                 _enemy = enemy;
-
-                /*
-                if (_shootCoroutine == null)
-                {
-                    _shootCoroutine = StartCoroutine(ShootDownDelay());
-                }
-                */
             }
         }
     }
@@ -81,21 +66,6 @@ public class ShootingTower : Tower
             if (enemy == _enemy)
                 Stop();
         }
-    }
-
-    private IEnumerator ShootDownDelay()
-    {
-        while (_enemy.CurrentHealth > 0)
-        {
-            Shoot();
-
-            if (_particleSystems.Length > 0)
-                _particleSystems[Level].Play();
-
-            yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
-        }
-
-        Stop();
     }
 
     private IEnumerator ShootDelay()
@@ -129,10 +99,6 @@ public class ShootingTower : Tower
     {
         _target = null;
         _enemy = null;
-        /*
-        StopCoroutine(_shootCoroutine);
-        _shootCoroutine = null;
-        */
     }
 
     private void Shoot()

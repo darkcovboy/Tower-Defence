@@ -1722,9 +1722,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1152642736568812903}
+  - component: {fileID: 1311135158026822090}
   - component: {fileID: 5549292413687302599}
   - component: {fileID: 8575213300735021546}
-  - component: {fileID: 1311135158026822090}
   - component: {fileID: 4571724591916796430}
   - component: {fileID: 6529382392829838489}
   - component: {fileID: 51534553085604421}
@@ -1765,6 +1765,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1311135158026822090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479647732073877667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 15
+  _reward: 6
+  _damage: 6
+  _speed: 3
+  _iceData: {fileID: 11400000, guid: b3be9d618c837914cb644ba941cdb156, type: 2}
+  _fireData: {fileID: 11400000, guid: 31ac1509d67ff144c820b0c33fecded4, type: 2}
 --- !u!95 &5549292413687302599
 Animator:
   serializedVersion: 4
@@ -1798,27 +1816,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.73007697, y: 1.1642966, z: 0.8993427}
   m_Center: {x: 0.0129352175, y: 0.6048159, z: -0.02297628}
---- !u!114 &1311135158026822090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7479647732073877667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 15
-  _reward: 6
-  _damage: 6
-  _speed: 3
-  _iceData: {fileID: 11400000, guid: b3be9d618c837914cb644ba941cdb156, type: 2}
-  _fireData: {fileID: 11400000, guid: 31ac1509d67ff144c820b0c33fecded4, type: 2}
-  _materialsSkin:
-  - {fileID: 694164570993949818}
-  - {fileID: 2557319657649664350}
 --- !u!114 &4571724591916796430
 MonoBehaviour:
   m_ObjectHideFlags: 0

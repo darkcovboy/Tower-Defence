@@ -11,6 +11,7 @@ public class Timer
     private IEnumerator _countdown;
 
     public float SpentTime => _time - _remainingTime;
+    public float RemainTime => _remainingTime;
 
     public Timer(MonoBehaviour context) => _context = context;
 
@@ -37,7 +38,6 @@ public class Timer
         while(_remainingTime >= 0)
         {
             _remainingTime -= Time.deltaTime;
-
             yield return null;
         }
     }
