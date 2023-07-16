@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth);
     }
 
+    public void SetStartHealth(int health)
+    {
+        _maxHealth = health;
+    }
+
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;

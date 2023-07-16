@@ -48,6 +48,8 @@ public class UpgradePanel : MonoBehaviour
             _upgradeButton.interactable = true;
     }
 
+    public void Init(MoneyCounter moneyCounter) => _moneyCounter = moneyCounter;
+
     public void CloseRangeField()
     {
         if(_tower != null)

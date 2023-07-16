@@ -14,9 +14,10 @@ public class Bootstrap : MonoBehaviour
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
-    //[SerializeField] private AdButton _adButton;
+    [SerializeField] private AdButton _adButton;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
+    [SerializeField] private SaveManager _saveManager;
 
     private Timer _timer;
     private CountPoints _countPoints;
@@ -26,8 +27,8 @@ public class Bootstrap : MonoBehaviour
         InitMoneyCounter();
         InitTimer();
         _moneyCounter.Init(_levelConfig.StartMoney);
-        //_victoryScreen.Init(_objectManagerUI);
-        //_adButton.Init(_levelConfig.AdStartMoney, _moneyCounter);
+        _adButton.Init(_levelConfig.AdStartMoney, _moneyCounter);
+        _player.SetStartHealth(_levelConfig.StartHealth);
         _countPoints = new CountPoints(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
     }
 
@@ -57,8 +58,12 @@ public class Bootstrap : MonoBehaviour
     private void EndLevel()
     {
         _timer.StopTimer();
-        _victoryScreen.SetScore((int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money));
-        //_victoryScreen.SetStars(CountStars());
+        _objectManagerUI.CloseUI();
+        var stars = CountStars();
+        var points = (int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money);
+        _victoryScreen.SetScore(points);
+        _victoryScreen.SetStars(stars);
+        //_saveManager.SaveEndLevel(stars, points);
     }
 
     private void InitMoneyCounter()
@@ -68,7 +73,10 @@ public class Bootstrap : MonoBehaviour
 
         foreach (var spawnPlaceTower in _spawnPlaceTower)
         {
+            spawnPlaceTower.Init(_objectManagerUI);
             var selectButtons = spawnPlaceTower.gameObject.GetComponentsInChildren<SelectButton>(true);
+            var upgradePanel = spawnPlaceTower.gameObject.GetComponentInChildren<UpgradePanel>(true);
+            upgradePanel.Init(_moneyCounter);
 
             foreach (var selectButton in selectButtons)
             {

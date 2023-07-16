@@ -17,9 +17,13 @@ public class SpawnPlaceTower : MonoBehaviour
 
     private void Start()
     {
-        _objectManager = FindObjectOfType<ObjectManagerUI>();
         _currentPanel = _firstPanelUI;
         _spawnPlaceTowerBeaty = GetComponent<SpawnPlaceTowerBeaty>();
+    }
+
+    public void Init(ObjectManagerUI objectManagerUI)
+    {
+        _objectManager = objectManagerUI;
     }
 
     public void PlaceTower(int index)

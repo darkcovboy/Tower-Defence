@@ -9,8 +9,9 @@ using TMPro;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private LevelSelect _levelSelect;
     [SerializeField] private int _maxLevel;
+
+    public IReadOnlyList<LevelData> LevelData => _saveDataWrapper.levelDataList;
 
     private SaveDataWrapper _saveDataWrapper;
     private PlayerSave _playerSave;
@@ -29,7 +30,6 @@ public class SaveManager : MonoBehaviour
             if (_jsonData == null || _jsonData == "{}")
             {
                 GenerateNewData();
-                _levelSelect.UpdateLevels(_saveDataWrapper.levelDataList);
             }
             else
             {

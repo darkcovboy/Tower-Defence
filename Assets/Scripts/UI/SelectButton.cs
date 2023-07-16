@@ -29,6 +29,7 @@ public class SelectButton : MonoBehaviour
 
     private void OnDisable()
     {
+        _infoObject.Deactivate();
         ChangeButtons();
     }
 

@@ -414,7 +414,8 @@ MonoBehaviour:
   _victoryScreen: {fileID: 0}
   _moneyBalance: {fileID: 0}
   _adButton: {fileID: 0}
-  _objectManagerUI: {fileID: 0}
+  _objectManagerUI: {fileID: 1451215563870953052}
+  _saveManager: {fileID: 1586900229473215380}
 --- !u!1 &4335626960328891896
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1350547646726258507}
+  - component: {fileID: 1586900229473215380}
   m_Layer: 0
   m_Name: PlayerSave
   m_TagString: Untagged
@@ -446,6 +448,19 @@ Transform:
   m_Father: {fileID: 1451215564562653332}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1586900229473215380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335626960328891896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a967a7f0e8105cc4f8b7b4a80870015f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxLevel: 10
 --- !u!1 &4561221041985162537
 GameObject:
   m_ObjectHideFlags: 0
