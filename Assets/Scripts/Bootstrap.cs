@@ -11,6 +11,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private MoneyCounter _moneyCounter;
     [SerializeField] private SpawnPlaceTower[] _spawnPlaceTower;
+    [SerializeField] private Camera _mainCamera;
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
@@ -24,6 +25,7 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
+        _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
         InitTimer();
         _moneyCounter.Init(_levelConfig.StartMoney);

@@ -16,12 +16,6 @@ public class ObjectManagerUI : MonoBehaviour
     private Camera _mainCamera;
     private bool _needToClose = true;
 
-    private void Awake()
-    {
-        _mainCamera = Camera.main;
-        _spawnPlaceTowers = FindObjectsOfType<SpawnPlaceTower>();
-    }
-
     private void OnEnable()
     {
         _mouseClick.Enable();
@@ -34,6 +28,12 @@ public class ObjectManagerUI : MonoBehaviour
         _mouseClick.performed -= Check;
         _mouseClick.Disable();
         _event -= IsObjectOpened;
+    }
+
+    public void Init(Camera camera, SpawnPlaceTower[] spawnPlaceTowers)
+    {
+        _mainCamera = camera;
+        _spawnPlaceTowers = spawnPlaceTowers;
     }
 
     public void CloseUI()
