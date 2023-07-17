@@ -52,7 +52,7 @@ public class VictoryScreen : Screen
         {
             yield return new WaitForSeconds(1);
             _stars[i].Activate();
-            _stars[i].PlayAnimation(); 
+            _stars[i].PlayAnimation();
         }
     }
 }
