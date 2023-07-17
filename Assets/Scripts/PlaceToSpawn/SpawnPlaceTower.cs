@@ -9,6 +9,7 @@ public class SpawnPlaceTower : MonoBehaviour
     [SerializeField] private GameObject _magePanelUI;
     [SerializeField] private Tower[] _towers;
     [SerializeField] private Transform _target;
+    [SerializeField] private GameObject _flag;
 
     private GameObject _currentPanel;
     private ObjectManagerUI _objectManager;
@@ -17,9 +18,13 @@ public class SpawnPlaceTower : MonoBehaviour
 
     private void Start()
     {
-        _objectManager = FindObjectOfType<ObjectManagerUI>();
         _currentPanel = _firstPanelUI;
         _spawnPlaceTowerBeaty = GetComponent<SpawnPlaceTowerBeaty>();
+    }
+
+    public void Init(ObjectManagerUI objectManagerUI)
+    {
+        _objectManager = objectManagerUI;
     }
 
     public void PlaceTower(int index)
@@ -29,6 +34,7 @@ public class SpawnPlaceTower : MonoBehaviour
         _towers[index].gameObject.Activate();
         _magePanelUI.Deactivate();
         _currentPanel.Deactivate();
+        _flag.Deactivate();
         _upgradePanelUI.TowerChoice(ref _towers[index]);
         _currentPanel = _upgradePanelUI.gameObject;
     }
@@ -69,6 +75,7 @@ public class SpawnPlaceTower : MonoBehaviour
     {
         _currentPanel.SetActive(false);
         _currentPanel = _firstPanelUI;
+        _flag.Activate();
     }
 
     private void OnDrawGizmosSelected()

@@ -33,8 +33,10 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
+        /*
         if(LookAtTarget != null)
             transform.LookAt(LookAtTarget.position);
+        */
 
         if (gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
         {

@@ -9,8 +9,9 @@ using TMPro;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private LevelSelect _levelSelect;
     [SerializeField] private int _maxLevel;
+
+    public IReadOnlyList<LevelData> LevelData => _saveDataWrapper.levelDataList;
 
     private SaveDataWrapper _saveDataWrapper;
     private PlayerSave _playerSave;
@@ -29,7 +30,6 @@ public class SaveManager : MonoBehaviour
             if (_jsonData == null || _jsonData == "{}")
             {
                 GenerateNewData();
-                _levelSelect.UpdateLevels(_saveDataWrapper.levelDataList);
             }
             else
             {
@@ -59,7 +59,7 @@ public class SaveManager : MonoBehaviour
 
 
     //Создаем новую дату, сохраняем, здесь JsonUnitility преобразует наш класс в формат JSON
-    public void GenerateNewData()
+    private void GenerateNewData()
     {
         _saveDataWrapper = _playerSave.LoadData();
         _jsonData = JsonUtility.ToJson(_saveDataWrapper);
@@ -67,12 +67,12 @@ public class SaveManager : MonoBehaviour
     }
 
     //Загружем данные и преобразуем из JSON в класс
-    public void LoadData()
+    private void LoadData()
     {
         _saveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
     }
 
-    public void SaveData()
+    private void SaveData()
     {
         string json = JsonUtility.ToJson(_saveDataWrapper);
         PlayerAccount.SetCloudSaveData(json);

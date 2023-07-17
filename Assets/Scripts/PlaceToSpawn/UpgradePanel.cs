@@ -48,6 +48,8 @@ public class UpgradePanel : MonoBehaviour
             _upgradeButton.interactable = true;
     }
 
+    public void Init(MoneyCounter moneyCounter) => _moneyCounter = moneyCounter;
+
     public void CloseRangeField()
     {
         if(_tower != null)
@@ -71,7 +73,7 @@ public class UpgradePanel : MonoBehaviour
         else
         {
             _shootingTowerInfo.SendData(_tower.Damage, _tower.Delay, _tower.Title, _tower.Description);
-            _shootingTowerInfo.Deactivate();
+            _shootingTowerInfo.Activate();
         }
     }
 
@@ -101,6 +103,7 @@ public class UpgradePanel : MonoBehaviour
     {
         _moneyCounter.TakeMoney(_tower.Cost);
         _tower.Upgrade();
+        CloseInfo();
         ChangeText();
         _spawnPlaceTowerBeaty.PlayParticles();
 
