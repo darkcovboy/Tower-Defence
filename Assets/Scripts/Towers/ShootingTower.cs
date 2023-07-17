@@ -12,9 +12,14 @@ public class ShootingTower : Tower
     [SerializeField] private GameObject[] _watchers;
 
     private Enemy _enemy;
-    private Coroutine _shootCoroutine;
 
-    private bool _canShoot = true;
+    private Quaternion _startRotation;
+
+    private void Start()
+    {
+        if (_watchers[Level] != null)
+            _startRotation = _watchers[Level].transform.rotation;
+    }
 
     private void OnEnable()
     {
@@ -28,8 +33,11 @@ public class ShootingTower : Tower
 
     private void Update()
     {
-        if (_target == null || _watchers[Level] == null)
+        if (_watchers[Level] == null || _target == null)
+        {
+            _watchers[Level].transform.rotation = _startRotation;
             return;
+        }
 
         _watchers[Level].transform.LookAt(_target);
         _watchers[Level].transform.rotation = Quaternion.Euler(0f, _watchers[Level].transform.localEulerAngles.y, 0f);
