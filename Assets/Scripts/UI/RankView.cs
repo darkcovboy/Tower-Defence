@@ -7,7 +7,6 @@ public class RankView : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _ranks;
     [SerializeField] private TMP_Text _userName;
-    [SerializeField] private TMP_Text _rank;
     [SerializeField] private TMP_Text _points;
 
     public void Render(int rank,string userName,int points)
@@ -28,12 +27,12 @@ public class RankView : MonoBehaviour
             case 3:
                 _ranks[2].gameObject.SetActive(true);
                 break;
-            case 4:
+            default:
                 _ranks[3].gameObject.SetActive(true);
+                _ranks[3].GetComponent<TextMeshProUGUI>().text = rank.ToString();
                 break;
         }
 
-        _rank.text = rank.ToString();
         _userName.text = userName;
         _points.text = points.ToString();
     }
