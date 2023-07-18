@@ -32,7 +32,9 @@ public class EnemyMoverState : State
     {
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
-        transform.forward = direction;
+        //transform.forward = direction;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _enemy.Speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
         {

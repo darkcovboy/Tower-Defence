@@ -43,7 +43,6 @@ public class DieState : State
         var WaitForSeconds = new WaitForSeconds(3f);
         yield return WaitForSeconds;
         gameObject.SetActive(false);
-        //Destroy(gameObject);
     }
 }
 
