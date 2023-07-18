@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -35,6 +36,14 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void AddHealth(int health)
+    {
+        if (health <= 0)
+            throw new ArgumentException();
+
+        _currentHealth += health;
     }
 
     public void Die()

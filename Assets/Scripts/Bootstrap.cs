@@ -19,53 +19,37 @@ public class Bootstrap : MonoBehaviour
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
     [SerializeField] private SaveManager _saveManager;
-
-    private Timer _timer;
-    private CountPoints _countPoints;
+    [SerializeField] private EndLevelManager _endLevelManager;
+    [Header("Ads")]
+    [SerializeField] private FullVideo _fullVideoAd;
+    [SerializeField] private RewardedVideo _rewardedAd;
 
     private void Awake()
     {
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
-        InitTimer();
         _moneyCounter.Init(_levelConfig.StartMoney);
-        _adButton.Init(_levelConfig.AdStartMoney, _moneyCounter);
+        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney,_levelConfig.AdHealth);
+        _adButton.Init(_levelConfig.AdStartMoney, _rewardedAd);
         _player.SetStartHealth(_levelConfig.StartHealth);
-        _countPoints = new CountPoints(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
+        _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
     }
 
     private void OnEnable()
     {
         _spawner.AllEnemysDied += EndLevel;
+        _player.Dying += EndLevel;
     }
 
     private void OnDisable()
     {
         _spawner.AllEnemysDied -= EndLevel;
-    }
-
-    private int CountStars()
-    {
-        int index = 0;
-
-        foreach (var healthStar in _levelConfig.HealthStars)
-        {
-            if(_player.CurrentHealth >= healthStar)
-                index++;
-        }
-
-        return index;
+        _player.Dying -= EndLevel;
     }
 
     private void EndLevel()
     {
-        _timer.StopTimer();
         _objectManagerUI.CloseUI();
-        var stars = CountStars();
-        var points = (int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money);
-        _victoryScreen.SetScore(points);
-        _victoryScreen.SetStars(stars);
-        //_saveManager.SaveEndLevel(stars, points);
     }
 
     private void InitMoneyCounter()
@@ -85,12 +69,5 @@ public class Bootstrap : MonoBehaviour
                 selectButton.Init(_moneyCounter);
             }
         }
-    }
-
-    private void InitTimer()
-    {
-        _timer = new Timer(this);
-        _timer.Set(_levelConfig.Time);
-        _timer.StartTimer();
     }
 }
