@@ -28,7 +28,7 @@ public class VictoryScreen : Screen
     public override void OpenScreen()
     {
         _screen.SetActive(true);
-
+        StartCoroutine(ShowStars());
     }
 
     public void SetScore(float points)
@@ -38,21 +38,16 @@ public class VictoryScreen : Screen
 
     public void SetStars(int stars)
     {
-        //for (int i = 0; i < stars; i++)
-        //{
-        //    _stars[i].Activate();
-        //}
-        //_countStars = stars;
-        StartCoroutine(ShowStars(stars));
+        _countStars = stars;
     }
 
-    IEnumerator ShowStars(int stars)
+    IEnumerator ShowStars()
     {
-        for (int i = 0; i < stars; i++)
+        for (int i = 0; i < _countStars; i++)
         {
             yield return new WaitForSeconds(1);
-            _stars[i].Activate();
-            _stars[i].PlayAnimation();
+            _stars[i].gameObject.SetActive(true);
+            _stars[i].PlayAnimation(); 
         }
     }
 }
