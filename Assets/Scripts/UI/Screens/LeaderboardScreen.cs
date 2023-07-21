@@ -8,17 +8,17 @@ using System.Linq;
 public class LeaderboardScreen : MonoBehaviour
 {
     [SerializeField] private Transform _container;
-    [SerializeField] private MoneyCounter _moneyCounter;
     [SerializeField] private RankView _template;
+    [SerializeField] private RankView _user;
 
     private string _leaderBoardName = "TowerDefenceUserLeaderboard";
     private string _anonymous = "Anonymous";
 
     private void OnEnable()
     {
-        //PlayerAccount.Authorize();
         ClearChildren(_container.transform);
 
+        /*
         if (PlayerAccount.IsAuthorized == false)
         {
             PlayerAccount.Authorize();
@@ -31,8 +31,21 @@ public class LeaderboardScreen : MonoBehaviour
         }
         else
             gameObject.SetActive(false);
+        */
+
+        List<User> users = new List<User>
+        {
+            new User(1, "Darkcovboy" ,1000),
+            new User(2, "פûגפûג" ,900),
+            new User(3, "ASdasfas" ,800),
+            new User(4, "dfsdfsdf" ,700),
+            new User(5, "asdasdasda" ,600)
+        };
+        ShowAllUsers(users);
+        ShowCurrentUser(new User(1, "Darkcovboy", 1000));
     }
 
+    /*
     private void ShowAllUsers()
     {
         Leaderboard.GetEntries(_leaderBoardName, (result) =>
@@ -52,6 +65,21 @@ public class LeaderboardScreen : MonoBehaviour
             }
         });
     }
+    */
+
+    private void ShowAllUsers(List<User> users)
+    {
+        foreach (var user in users)
+        {
+            var view = Instantiate(_template, _container.transform);
+            view.Render(user.Rank, user.Name, user.Score);
+        }
+    }
+
+    private void ShowCurrentUser(User user)
+    {
+        _user.Render(user.Rank, user.Name, user.Score);
+    }
 
     private void ClearChildren(Transform transform)
     {
@@ -61,5 +89,20 @@ public class LeaderboardScreen : MonoBehaviour
         {
             Object.DestroyImmediate(child.gameObject);
         }
+    }
+}
+
+[System.Serializable]
+public class User
+{
+    public int Rank;
+    public string Name;
+    public int Score;
+
+    public User(int rank, string name, int score)
+    {
+        Rank = rank;
+        Name = name;
+        Score = score;
     }
 }
