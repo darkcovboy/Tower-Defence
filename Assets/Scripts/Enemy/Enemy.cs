@@ -60,17 +60,17 @@ public class Enemy : MonoBehaviour
     {
         CalculateResistForAttack(damage, type);
 
-        switch(type)
+        switch (type)
         {
             case DamageType.Fire:
                 {
-                    if(_fireCoroutine == null)
+                    if (_fireCoroutine == null)
                     {
                         _fireCoroutine = StartCoroutine(OnBurned());
                     }
                     else
                     {
-                        if(_iceCoroutine != null)
+                        if (_iceCoroutine != null)
                         {
                             StopCoroutine(_iceCoroutine);
                             _iceCoroutine = null;
@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
                 }
             case DamageType.Lightning:
                 {
-                    if(_lightningCoroutine == null)
+                    if (_lightningCoroutine == null)
                     {
                         _lightningCoroutine = StartCoroutine(OnLightningConfused());
                     }
@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
 
     private void CalculateResistForAttack(int damage, DamageType damageType)
     {
-        if(_isLightningConfused)
+        if (_isLightningConfused)
         {
             switch (damageType)
             {
@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
 
             _isLightningConfused = false;
 
-            if(_lightningCoroutine != null)
+            if (_lightningCoroutine != null)
             {
                 StopCoroutine(_lightningCoroutine);
                 _lightningCoroutine = null;
@@ -177,7 +177,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            switch(damageType)
+            switch (damageType)
             {
                 case DamageType.Physical:
                     _currentHealth -= (int)(damage * _enemyConfig.PhysicalResistace);
@@ -208,7 +208,7 @@ public class Enemy : MonoBehaviour
 
     private void CreateEffects()
     {
-        _fireEffect = Instantiate(_fireData.FireEffect, gameObject.transform.position, Quaternion.identity,gameObject.transform).GetComponent<ParticleSystem>();
+        _fireEffect = Instantiate(_fireData.FireEffect, gameObject.transform.position, Quaternion.identity, gameObject.transform).GetComponent<ParticleSystem>();
         _fireEffect.Deactivate();
         _iceEffect = Instantiate(_iceData.IceEffect, gameObject.transform.position, Quaternion.identity, gameObject.transform).GetComponent<ParticleSystem>();
         _iceEffect.Deactivate();
