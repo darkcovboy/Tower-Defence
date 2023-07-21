@@ -11,13 +11,7 @@ public class EndLevelManager : MonoBehaviour
     private LevelConfig _levelConfig;
     private MoneyCounter _moneyCounter;
     private SaveManager _saveManager;
-    private VictoryScreen _victoryScreen;   
-
-    private void OnEnable()
-    {
-        _spawner.AllEnemysDied += WinLevel;
-        _player.Dying += LoseLevel;
-    }
+    private VictoryScreen _victoryScreen;
 
     private void OnDisable()
     {
@@ -35,6 +29,8 @@ public class EndLevelManager : MonoBehaviour
         _victoryScreen = victoryScreen;
         InitTimer(levelConfig.Time);
         _countPoints = new(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
+        _spawner.AllEnemysDied += WinLevel;
+        _player.Dying += LoseLevel;
     }
 
     private int CountStars()
