@@ -9,7 +9,7 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
     [SerializeField] private GameObject _timerWaveScreen;
     [SerializeField] private TMP_Text _timerTxt;
 
-    private float _timeLeftBeforeTheWave = 3f;
+    private float _timeLeftBeforeTheWave = 15f;
     private float _timer;
 
     private void OnEnable()
