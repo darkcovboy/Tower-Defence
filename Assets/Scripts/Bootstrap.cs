@@ -14,6 +14,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Camera _mainCamera;
     [Header("Spels")]
     [SerializeField] private MeteorShoot _meteorShoot;
+    [SerializeField] private WarriorsCreator _warriorsCreator;
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
@@ -65,7 +66,8 @@ public class Bootstrap : MonoBehaviour
                 case SpellType.Meteor:
                     _meteorShoot.Init(_objectManagerUI, _mainCamera, item);
                     break;
-                case SpellType.IceCircle:
+                case SpellType.WarriorCreator:
+                    _warriorsCreator.Init(_objectManagerUI, _mainCamera, item);
                     break;
             }
         }
