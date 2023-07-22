@@ -28,7 +28,7 @@ public class Missle : MonoBehaviour
             yield return null;
         }
 
-        Enemy.TakeDamage(Damage, Type);
+        Enemy.TakeDamage(Damage, MissleData.DamageType);
         gameObject.SetActive(false);
     }
 

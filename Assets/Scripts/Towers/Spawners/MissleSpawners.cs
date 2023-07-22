@@ -20,4 +20,14 @@ public class MissleSpawners : ObjectPool
             missle.GetComponent<Missle>().Create(target, enemy, damage);
         }
     }
+
+    public void PushMissle(Transform target, Enemy enemy, int damage, Transform startPosition, LightningEffect lightningEffect)
+    {
+        if (TryGetObject(out GameObject missle) && target != null)
+        {
+            missle.SetActive(true);
+            missle.transform.position = startPosition.position;
+            missle.GetComponent<MissleLightning>().Create(target, enemy, damage, lightningEffect);
+        }
+    }
 }

@@ -7,11 +7,11 @@ using UnityEngine.Events;
 public class ShootingTower : Tower
 {
     [SerializeField] protected MissleSpawners MissleSpawners;
-    [SerializeField] private Transform _target;
+    [SerializeField] protected Transform Target;
     [SerializeField] private ParticleSystem[] _particleSystems;
     [SerializeField] private GameObject[] _watchers;
 
-    private Enemy _enemy;
+    protected Enemy Enemy;
 
     private Quaternion _startRotation;
 
@@ -33,13 +33,13 @@ public class ShootingTower : Tower
 
     private void Update()
     {
-        if (_watchers[Level] == null || _target == null)
+        if (_watchers[Level] == null || Target == null)
         {
             _watchers[Level].transform.rotation = _startRotation;
             return;
         }
 
-        _watchers[Level].transform.LookAt(_target);
+        _watchers[Level].transform.LookAt(Target);
         _watchers[Level].transform.rotation = Quaternion.Euler(0f, _watchers[Level].transform.localEulerAngles.y, 0f);
     }
 
@@ -47,10 +47,10 @@ public class ShootingTower : Tower
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            if (_target == null && enemy.CurrentHealth > 0)
+            if (Target == null && enemy.CurrentHealth > 0)
             {
-                _target = enemy.transform;
-                _enemy = enemy;
+                Target = enemy.transform;
+                Enemy = enemy;
             }
         }
     }
@@ -59,10 +59,10 @@ public class ShootingTower : Tower
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            if (_target == null && enemy.CurrentHealth > 0)
+            if (Target == null && enemy.CurrentHealth > 0)
             {
-                _target = enemy.transform;
-                _enemy = enemy;
+                Target = enemy.transform;
+                Enemy = enemy;
             }
         }
     }
@@ -71,7 +71,7 @@ public class ShootingTower : Tower
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            if (enemy == _enemy)
+            if (enemy == Enemy)
                 Stop();
         }
     }
@@ -80,9 +80,9 @@ public class ShootingTower : Tower
     {
         while(true)
         {
-            if(_target != null)
+            if(Target != null)
             {
-                if(_enemy.CurrentHealth > 0)
+                if(Enemy.CurrentHealth > 0)
                 {
                     Shoot();
 
@@ -105,12 +105,12 @@ public class ShootingTower : Tower
 
     private void Stop()
     {
-        _target = null;
-        _enemy = null;
+        Target = null;
+        Enemy = null;
     }
 
-    private void Shoot()
+    protected virtual void Shoot()
     {
-        MissleSpawners.PushMissle(_target, _enemy, TowerDataConfig.Damages[Level], StartPositions[Level]);
+        MissleSpawners.PushMissle(Target, Enemy, TowerDataConfig.Damages[Level], StartPositions[Level]);
     }
 }
