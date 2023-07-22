@@ -18,6 +18,16 @@ public class MissleBall : Missle
         StopCoroutine(DisableObject());
     }
 
+    public override void Create(Transform target, Enemy enemy, int damage)
+    {
+        Target = target;
+        Damage = damage;
+        Enemy = enemy;
+        _startTransform = transform;
+        _firstEnemyMeet = Target.transform;
+        StartCoroutine(MoveToTarget());
+    }
+
     protected override IEnumerator MoveToTarget()
     {
         BallPhysics();
@@ -37,17 +47,7 @@ public class MissleBall : Missle
     {
         _afterExploseParticle.Play();
         yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false);
-    }
-
-    public override void Create(Transform target, Enemy enemy, int damage)
-    {
-        Target = target;
-        Damage = damage;
-        Enemy = enemy;
-        _startTransform = transform;
-        _firstEnemyMeet = Target.transform;
-        StartCoroutine(MoveToTarget());
+        gameObject.Deactivate();
     }
 
     private void ExploseDamage()

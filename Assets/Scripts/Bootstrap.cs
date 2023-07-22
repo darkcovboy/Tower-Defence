@@ -12,10 +12,13 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private MoneyCounter _moneyCounter;
     [SerializeField] private SpawnPlaceTower[] _spawnPlaceTower;
     [SerializeField] private Camera _mainCamera;
+    [Header("Spels")]
+    [SerializeField] private MeteorShoot _meteorShoot;
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
     [SerializeField] private AdButton _adButton;
+    [SerializeField] private SpellButton[] _spellButtons;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
     [SerializeField] private SaveManager _saveManager;
@@ -33,6 +36,7 @@ public class Bootstrap : MonoBehaviour
         _adButton.Init(_levelConfig.AdStartMoney, _rewardedAd);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
+        InitSpels();
     }
 
     private void OnEnable()
@@ -50,6 +54,21 @@ public class Bootstrap : MonoBehaviour
     private void EndLevel()
     {
         _objectManagerUI.CloseUI();
+    }
+
+    private void InitSpels()
+    {
+        foreach (var item in _spellButtons)
+        {
+            switch(item.Type)
+            {
+                case SpellType.Meteor:
+                    _meteorShoot.Init(_objectManagerUI, _mainCamera, item);
+                    break;
+                case SpellType.IceCircle:
+                    break;
+            }
+        }
     }
 
     private void InitMoneyCounter()
