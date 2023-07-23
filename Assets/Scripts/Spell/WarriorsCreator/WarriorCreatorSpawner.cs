@@ -11,12 +11,14 @@ public class WarriorCreatorSpawner : ObjectPool
         Initialize(_warriorPrefab.gameObject);
     }
 
-    public void PushMissle(Vector3 endPosition)
+    public void PushWarrior(Transform endPosition, int lifeTime)
     {
         if (TryGetObject(out GameObject warrior))
         {
+            Debug.Log("Yes");
             warrior.SetActive(true);
-            warrior.transform.position = endPosition;
+            warrior.transform.position = endPosition.position;
+            warrior.GetComponent<Warrior>().SetWarriorLifeTime(lifeTime, endPosition);
         }
     }
 }

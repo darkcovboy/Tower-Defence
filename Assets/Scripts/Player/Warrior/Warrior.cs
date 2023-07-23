@@ -50,10 +50,18 @@ public class Warrior : MonoBehaviour
         _currentHealth -= damage;
         ChangeHealth?.Invoke(_currentHealth,_health);
 
-        if(_currentHealth <= 0)
+        if(_barracksTower != null & _currentHealth <= 0)
         {
             _barracksTower.OnWarriorDied?.Invoke();
         }
+    }
+
+    public void SetWarriorLifeTime(int secondsToLife, Transform target)
+    {
+        _currentHealth = _health;
+        ChangeHealth?.Invoke(_currentHealth, _health);
+        GetComponent<WarriorMoveState>().TargetPosition = target;
+        StartCoroutine(StartLifeTime(secondsToLife));
     }
 
     public void Init(Enemy enemy)
@@ -74,5 +82,17 @@ public class Warrior : MonoBehaviour
     public void CallToFight(bool flag)
     {
         Battle = flag;
+    }
+
+    private IEnumerator StartLifeTime(int secondsToLife)
+    {
+        for (int i = 0; i < secondsToLife; i++)
+        {
+            if(_currentHealth <= 0)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

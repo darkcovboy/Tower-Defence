@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public enum SpellType
 {
     Meteor,
-    IceCircle
+    WarriorCreator
 }
 
 public class Spell : MonoBehaviour
