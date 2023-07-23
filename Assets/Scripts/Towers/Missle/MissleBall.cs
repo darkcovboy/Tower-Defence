@@ -18,7 +18,7 @@ public class MissleBall : Missle
         StopCoroutine(DisableObject());
     }
 
-    public override void Create(Transform target, Enemy enemy, int damage)
+    public override void Create(Transform target, Enemy enemy, int damage, int level)
     {
         Target = target;
         Damage = damage;

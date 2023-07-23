@@ -6,26 +6,23 @@ using System;
 public class WarriorsCreator : Spell
 {
     [SerializeField] private WarriorCreatorSpawner _spawner;
-    [SerializeField] private Transform _points;
+    [SerializeField] private GameObject _pointsPrefab;
     [SerializeField] private int _warriorsNumber;
     [SerializeField] private int _secondsToLive;
 
-    private List<GameObject> _warriors;
-
     private void Start()
     {
-        if (_points.childCount != _warriorsNumber)
+        if (_pointsPrefab.transform.childCount != _warriorsNumber)
             throw new Exception();
     }
 
     protected override IEnumerator MakeAction(Vector3 endPosition)
     {
-        var newPoints = Instantiate(_points);
-        newPoints.position = endPosition;
+        var newPoints = Instantiate(_pointsPrefab, endPosition, Quaternion.identity);
 
         for (int i = 0; i < _warriorsNumber; i++)
         {
-            _spawner.PushWarrior(newPoints.GetChild(i).transform, _secondsToLive);
+            _spawner.PushWarrior(newPoints.transform.GetChild(i).transform.position, _secondsToLive);
             yield return null;
         }
     }

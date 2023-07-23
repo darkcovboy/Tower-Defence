@@ -5,6 +5,7 @@ using UnityEngine;
 public class MissleLightning : Missle
 {
     [SerializeField] private float _radius;
+    [SerializeField] private LightningData _lightningData;
 
     private LightningEffect _lightningEffect;
 
@@ -24,14 +25,14 @@ public class MissleLightning : Missle
 
         Enemy.TakeDamage(Damage, Type);
         _lightningEffect.Activate();
-        _lightningEffect.TakeEnemies(FindEnemies(), MissleData.DamageType);
+        _lightningEffect.TakeEnemies(FindEnemies(), MissleData.DamageType, _lightningData.MaxEnemies[Level], _lightningData.LightningRates[Level], _lightningData.LightningDamages[Level]);
         gameObject.SetActive(false);
     }
 
-    public void Create(Transform target, Enemy enemy, int damage, LightningEffect lightningEffect)
+    public void Create(Transform target, Enemy enemy, int damage, int level, LightningEffect lightningEffect)
     {
         _lightningEffect = lightningEffect;
-        base.Create(target, enemy, damage);
+        base.Create(target, enemy, damage, level);
     }
 
     private List<Enemy> FindEnemies()

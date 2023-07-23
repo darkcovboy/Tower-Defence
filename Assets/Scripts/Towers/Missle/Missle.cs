@@ -13,6 +13,7 @@ public class Missle : MonoBehaviour
     protected int Damage;
     protected Transform Target;
     protected Enemy Enemy;
+    protected int Level = 0;
 
     private void OnDisable()
     {
@@ -28,11 +29,11 @@ public class Missle : MonoBehaviour
             yield return null;
         }
 
-        Enemy.TakeDamage(Damage, MissleData.DamageType);
+        Enemy.TakeDamage(Damage, Type);
         gameObject.SetActive(false);
     }
 
-    public virtual void Create(Transform target,Enemy enemy, int damage)
+    public virtual void Create(Transform target,Enemy enemy, int damage, int level)
     {
         Target = target;
         Damage = damage;

@@ -12,7 +12,6 @@ public class EnemyConfig : ScriptableObject
     [Header("Effects")]
     [SerializeField] private IceEffectData _iceData;
     [SerializeField] private FireEffectData _fireData;
-    [SerializeField] private LightningData _lightningData;
 
     [Header("Resistance")]
     [SerializeField, Range(0, 1)] private float _physicalResistace;
@@ -26,7 +25,6 @@ public class EnemyConfig : ScriptableObject
     public float Speed => _speed;
     public IceEffectData IceEffectData => _iceData;
     public FireEffectData FireEffectData => _fireData;
-    public LightningData LightningData => _lightningData;
     public float PhysicalResistace => _physicalResistace;
     public float FireResistace => _fireResistace;
     public float IceResisnace => _iceResistace;

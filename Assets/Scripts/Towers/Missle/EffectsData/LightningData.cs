@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Lightning", menuName = "Config")]
+[CreateAssetMenu(fileName = "Lightning", menuName = "Lightning")]
 public class LightningData : ScriptableObject
 {
-    [SerializeField, Min(1)] private int _lightningRate;
-    [SerializeField] private float _lightningDamageMultiplier;
-    [SerializeField] private GameObject _lightningEffect;
+    [SerializeField, Min(1)] int[] _maxEnemies;
+    [SerializeField] int[] _lightningRates;
+    [SerializeField] int[] _lightningDamages;
 
-    public int LightningRate => _lightningRate;
-    public GameObject LightningEffect => _lightningEffect;
-
-    public float LightningDamageMultiplier => _lightningDamageMultiplier;
+    public int[] MaxEnemies => _maxEnemies;
+    public int[] LightningRates => _lightningRates;
+    public int[] LightningDamages => _lightningDamages;
 }

@@ -64,8 +64,6 @@ public class Spell : MonoBehaviour
             {
                 if (raycastHit.transform != null)
                 {
-                    Vector3 newPosition = new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z);
-                    transform.position = newPosition;
                     StartCoroutine(MakeAction(raycastHit.point));
                     StartCoroutine(Reload());
                 }

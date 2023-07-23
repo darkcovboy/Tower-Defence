@@ -56,11 +56,10 @@ public class Warrior : MonoBehaviour
         }
     }
 
-    public void SetWarriorLifeTime(int secondsToLife, Transform target)
+    public void SetWarriorLifeTime(int secondsToLife)
     {
         _currentHealth = _health;
         ChangeHealth?.Invoke(_currentHealth, _health);
-        GetComponent<WarriorMoveState>().TargetPosition = target;
         StartCoroutine(StartLifeTime(secondsToLife));
     }
 

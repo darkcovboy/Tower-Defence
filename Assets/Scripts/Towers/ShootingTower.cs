@@ -111,6 +111,6 @@ public class ShootingTower : Tower
 
     protected virtual void Shoot()
     {
-        MissleSpawners.PushMissle(Target, Enemy, TowerDataConfig.Damages[Level], StartPositions[Level]);
+        MissleSpawners.PushMissle(Target, Enemy, TowerDataConfig.Damages[Level], Level, StartPositions[Level]);
     }
 }

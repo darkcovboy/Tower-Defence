@@ -15,6 +15,9 @@ public class MeteorShoot : Spell
 
     protected override IEnumerator MakeAction(Vector3 endPosition)
     {
+        var newPosition = new Vector3(endPosition.x, transform.position.y, endPosition.z);
+        transform.position = newPosition;
+
         for (int i = 0; i < _meteorsCount; i++)
         {
             _meteorSpawner.PushMissle(gameObject.transform, endPosition, _damage);

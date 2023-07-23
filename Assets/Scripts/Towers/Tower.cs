@@ -22,7 +22,7 @@ public class Tower : MonoBehaviour
 
     public TowerType TowerType => TowerDataConfig.TowerType;
 
-    public float Radius => TowerDataConfig.Radius;
+    public float Radius => TowerDataConfig.Radiuses[Level];
 
     public LeanPhrase Title => TowerDataConfig.Title;
     public LeanPhrase Description => TowerDataConfig.Description;
@@ -33,14 +33,10 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
-        /*
-        if(LookAtTarget != null)
-            transform.LookAt(LookAtTarget.position);
-        */
 
         if (gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
         {
-            capsuleCollider.radius = TowerDataConfig.Radius;
+            capsuleCollider.radius = TowerDataConfig.Radiuses[Level];
         }
 
         transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, 0);

@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class FireEffectData : ScriptableObject
 {
-    [SerializeField] private int _burnRates;
-    [SerializeField] private int _burnDamage;
-    [SerializeField] private GameObject _fireEffect;
+    [SerializeField] private int[] _burnRates;
+    [SerializeField] private int[] _burnDamage;
 
-    public int BurnRates => _burnRates;
-    public int BurnDamage => _burnDamage;
-
-    public GameObject FireEffect => _fireEffect;
+    public int[] BurnRates => _burnRates;
+    public int[] BurnDamage => _burnDamage;
 }

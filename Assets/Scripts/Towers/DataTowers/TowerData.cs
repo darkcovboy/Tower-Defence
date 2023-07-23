@@ -14,17 +14,24 @@ public enum TowerType
 
 public class TowerData : ScriptableObject
 {
-    public List<int> Costs;
-    public int BuyCost;
-    public List<int> Damages;
-    public List<float> Delays;
-    public TowerType TowerType;
-    [Range(10, 30)] public int Radius;
+    [Header("Base information")]
+    [SerializeField] private List<int> _costs;
+    [SerializeField] private int _buyCost;
+    [SerializeField] private List<int> _damages;
+    [SerializeField] private List<float> _delays;
+    [SerializeField] private TowerType _towerType;
+    [SerializeField, Range(10, 50)] private List<int> _radius;
 
-    [Header("Information")]
+    [Header("UI Information")]
     [SerializeField] private LeanPhrase _titleLocalized;
     [SerializeField] private LeanPhrase _descriptionLocalized;
 
+    public List<int> Costs => _costs;
+    public int BuyCost => _buyCost;
+    public List<int> Damages => _damages;
+    public List<float> Delays => _delays;
+    public TowerType TowerType => _towerType;
+    public List<int> Radiuses => _radius;
     public LeanPhrase Title => _titleLocalized;
     public LeanPhrase Description => _descriptionLocalized;
 }

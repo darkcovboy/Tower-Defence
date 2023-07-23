@@ -11,14 +11,13 @@ public class LightningEffect : MonoBehaviour
 
     [SerializeField] private float _deviation = 1.0f;
 
-    [SerializeField] private int _seconds;
-    [SerializeField] private int _damage;
+    private int _lightningRate;
+    private int _damage;
+    private int _maxEnemies;
 
     private DamageType _damageType;
 
     private LineRenderer _lineRenderer;
-
-    private LightningTower lightninTower;
 
     private List<Enemy> _enemies;
 
@@ -37,36 +36,53 @@ public class LightningEffect : MonoBehaviour
         DrawLightning();
     }
 
-    public void TakeEnemies(List<Enemy> enemies, DamageType damageType)
+    public void TakeEnemies(List<Enemy> enemies, DamageType damageType, int maxEnemies, int lightningRate, int lightningDamage)
     {
-        
         _damageType = damageType;
         _enemies = enemies;
+        _maxEnemies = maxEnemies;
+        _lightningRate = lightningRate;
+        _damage = lightningDamage;
 
-        foreach (var enemy in enemies)
+        if(_enemies.Count >0)
         {
-            _lightningPoints.Add(enemy.transform);
-        }
+            if (enemies.Count >= _maxEnemies)
+            {
+                for (int i = 0; i < _maxEnemies; i++)
+                {
+                    _lightningPoints.Add(_enemies[i].transform);
+                }
+            }
+            else
+            {
+                foreach (var enemy in enemies)
+                {
+                    _lightningPoints.Add(enemy.transform);
+                }
+            }
 
-        StartCoroutine(MoveLightning());
+            StartCoroutine(MoveLightning());
+        }
+        
     }
 
     private IEnumerator MoveLightning()
     {
         _canLightning = true;
 
-        for (int i = 0; i < _seconds; i++)
+        for (int i = 0; i < _lightningRate; i++)
         {
-            foreach (var enemy in _enemies)
+            for (int j = 0; j < _maxEnemies; j++)
             {
-                if(enemy.CurrentHealth >= 0)
-                   enemy.TakeDamage(_damage, _damageType);
+                if (_enemies[j].CurrentHealth > 0)
+                    _enemies[j].TakeDamage(_damage, _damageType);
             }
 
             yield return new WaitForSeconds(1f);
         }
 
         _enemies.Clear();
+        _lightningPoints.Clear();
         _canLightning = false;
         gameObject.Deactivate();
     }

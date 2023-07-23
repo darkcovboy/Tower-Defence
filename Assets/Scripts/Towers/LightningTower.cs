@@ -8,6 +8,6 @@ public class LightningTower : ShootingTower
 
     protected override void Shoot()
     {
-        MissleSpawners.PushMissle(Target, Enemy, TowerDataConfig.Damages[Level], StartPositions[Level], _lightningEffect);
+        MissleSpawners.PushMissle(Target, Enemy, TowerDataConfig.Damages[Level], StartPositions[Level], Level, _lightningEffect);
     }
 }
