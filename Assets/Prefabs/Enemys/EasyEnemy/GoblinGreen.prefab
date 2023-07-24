@@ -1778,10 +1778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyConfig: {fileID: 11400000, guid: 21358ade5eceb9c43831f873d87c4293, type: 2}
-  _health: 30
-  _reward: 4
-  _damage: 6
-  _speed: 3
+  _fireEffect: {fileID: 0}
+  _iceEffect: {fileID: 0}
 --- !u!95 &5549292413687302599
 Animator:
   serializedVersion: 4
@@ -1810,7 +1808,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7479647732073877667}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.73007697, y: 1.1642966, z: 0.8993427}
