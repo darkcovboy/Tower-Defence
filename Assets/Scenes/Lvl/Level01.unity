@@ -3929,39 +3929,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9132052951372507544, guid: c18cebbe1bf61f84e93fb06660532b32, type: 3}
   m_PrefabInstance: {fileID: 102625922}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &242983813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 242983814}
-  m_Layer: 0
-  m_Name: Spells
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &242983814
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242983813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1145937441}
-  - {fileID: 580834438}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &243942553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6246,7 +6213,7 @@ PrefabInstance:
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _meteorShoot
       value: 
-      objectReference: {fileID: 1145937442}
+      objectReference: {fileID: 0}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _meteorButton
       value: 
@@ -6270,7 +6237,7 @@ PrefabInstance:
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _warriorsCreator
       value: 
-      objectReference: {fileID: 580834439}
+      objectReference: {fileID: 0}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _spellButtons.Array.size
       value: 2
@@ -8680,53 +8647,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
---- !u!1 &543755730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 543755731}
-  - component: {fileID: 543755732}
-  m_Layer: 0
-  m_Name: MeteorSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &543755731
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543755730}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1145937441}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &543755732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543755730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a975ba00efcf8546a9c25b4d531430d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 543755730}
-  _capacity: 5
-  _misslePrefab: {fileID: 2835113275647561728, guid: 07934eebca0e54e43b10ca8cd0637cbe, type: 3}
 --- !u!4 &544449061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
@@ -9449,81 +9369,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 250491175}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &580834437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 580834438}
-  - component: {fileID: 580834439}
-  m_Layer: 0
-  m_Name: WarriorCreatorSpell
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &580834438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580834437}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1779447308}
-  m_Father: {fileID: 242983814}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &580834439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580834437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a592b0fe71bc1148b85ddfed949756b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mouseClick:
-    m_Name: Mouse Click
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ea83cdb4-37d5-4bea-af08-4ac3b0923a5b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 8955565a-cf3c-4e52-84bc-55f081e2f720
-      m_Path: <Pointer>/press
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 847bdbc7-5cfe-423b-85ae-cab8e61bac0e
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
-    m_Flags: 0
-  _rechargeSeconds: 2
-  _spawner: {fileID: 1779447309}
-  _pointsPrefab: {fileID: 6327255629182350834, guid: 3104d94a92bd97a4bb7b9462b8c85053, type: 3}
-  _warriorsNumber: 2
-  _secondsToLive: 30
 --- !u!4 &589513280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
@@ -12960,7 +12805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.38860273
+      value: -0.39852476
       objectReference: {fileID: 0}
     - target: {fileID: 5835252915647265099, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_Layer
@@ -14790,7 +14635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.4069624
+      value: -0.41688442
       objectReference: {fileID: 0}
     - target: {fileID: 5835252915647265099, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_Layer
@@ -20949,81 +20794,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
---- !u!1 &1145937440
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1145937441}
-  - component: {fileID: 1145937442}
-  m_Layer: 0
-  m_Name: MeteorSpell
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1145937441
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145937440}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 543755731}
-  m_Father: {fileID: 242983814}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1145937442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145937440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332f11469e7111740b8588f0b560c3f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mouseClick:
-    m_Name: Mouse Click
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e822161c-8ce7-4cc3-bcd7-68d0031465a0
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: e37fe068-806b-4ce5-8065-37b0d48b1676
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 55de80ef-65c9-4713-8ffb-ea6f2661a80d
-      m_Path: <Pointer>/press
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
-    m_Flags: 0
-  _rechargeSeconds: 20
-  _meteorSpawner: {fileID: 543755732}
-  _damage: 10
-  _meteorsCount: 3
-  _meteorsDelay: 0.5
 --- !u!1001 &1147781029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25076,7 +24846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.3863945
+      value: -0.39631653
       objectReference: {fileID: 0}
     - target: {fileID: 6162785095815428785, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_CastShadows
@@ -30905,53 +30675,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
---- !u!1 &1779447307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1779447308}
-  - component: {fileID: 1779447309}
-  m_Layer: 0
-  m_Name: WarriorCreatorSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1779447308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779447307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 580834438}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1779447309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779447307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dae892c1ec768949ae1ba7bf99c37e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _container: {fileID: 1779447307}
-  _capacity: 8
-  _warriorPrefab: {fileID: 4873665015855634635, guid: b28a9bdc2caf35749856af4edd19d69e, type: 3}
 --- !u!4 &1788566187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3368841143436198283, guid: 803c35c186c131148b2417291d5cc0af, type: 3}
@@ -34441,7 +34164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.38859987
+      value: -0.3985219
       objectReference: {fileID: 0}
     - target: {fileID: 5835252915647265099, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_Layer

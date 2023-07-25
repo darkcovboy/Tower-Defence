@@ -8,10 +8,16 @@ using UnityEngine.EventSystems;
 
 public class MeteorShoot : Spell
 {
+    [SerializeField] private float _yPosition;
     [SerializeField] MeteorSpawner _meteorSpawner;
     [SerializeField] private int _damage;
     [SerializeField] private int _meteorsCount;
     [SerializeField] private float _meteorsDelay;
+
+    private void Start()
+    {
+        transform.position = new Vector3(transform.position.x, _yPosition, transform.position.z);
+    }
 
     protected override IEnumerator MakeAction(Vector3 endPosition)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Agava.YandexGames;
 
 public class Bootstrap : MonoBehaviour
@@ -13,8 +14,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private SpawnPlaceTower[] _spawnPlaceTower;
     [SerializeField] private Camera _mainCamera;
     [Header("Spels")]
-    [SerializeField] private MeteorShoot _meteorShoot;
-    [SerializeField] private WarriorsCreator _warriorsCreator;
+    [SerializeField] private SpellsCreator _spellsCreator;
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
@@ -28,6 +28,9 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private FullVideo _fullVideoAd;
     [SerializeField] private RewardedVideo _rewardedAd;
 
+    private MeteorShoot _meteorShoot;
+    private WarriorsCreator _warriorsCreator;
+
     private void Awake()
     {
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
@@ -37,6 +40,7 @@ public class Bootstrap : MonoBehaviour
         _adButton.Init(_levelConfig.AdStartMoney, _rewardedAd);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
+        MaxLevel.Set(_levelConfig.MaxLevel, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();
     }
 
@@ -59,15 +63,25 @@ public class Bootstrap : MonoBehaviour
 
     private void InitSpels()
     {
+        _warriorsCreator = _spellsCreator.CreateWarrior(_levelConfig.IsOpenedWarriorCreator);
+        _meteorShoot = _spellsCreator.CreateMeteor(_levelConfig.IsOpenedMeteor);
+
         foreach (var item in _spellButtons)
         {
             switch(item.Type)
             {
                 case SpellType.Meteor:
-                    _meteorShoot.Init(_objectManagerUI, _mainCamera, item);
+                    if(_meteorShoot == null)
+                        item.GetComponent<Button>().interactable = false;
+                    else
+                        _meteorShoot.Init(_objectManagerUI, _mainCamera, item);
+
                     break;
                 case SpellType.WarriorCreator:
-                    _warriorsCreator.Init(_objectManagerUI, _mainCamera, item);
+                    if (_warriorsCreator == null)
+                        item.GetComponent<Button>().interactable = false;
+                    else
+                        _warriorsCreator.Init(_objectManagerUI, _mainCamera, item);
                     break;
             }
         }

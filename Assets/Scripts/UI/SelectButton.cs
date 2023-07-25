@@ -12,6 +12,7 @@ public class SelectButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private SpawnPlaceTower _spawnPlaceTower;
     [SerializeField] private InfoTowerPanel _infoObject;
+    [SerializeField] private Image _lockImage;
 
     private Tower _tower;
     private MoneyCounter _moneyCounter;
@@ -20,6 +21,21 @@ public class SelectButton : MonoBehaviour
     {
         _tower = _spawnPlaceTower.GetTower(_indexLevel);
         _priceText.text = _tower.BuyCost.ToString();
+
+        switch (_tower.TowerType)
+        {
+            case TowerType.IceMage:
+                _lockImage.gameObject.SetActive(!MaxLevel.IsIceOpened);
+                break;
+            case TowerType.FireMage:
+                _lockImage.gameObject.SetActive(!MaxLevel.IsFireOpened);
+                break;
+            case TowerType.LightningMage:
+                _lockImage.gameObject.SetActive(!MaxLevel.IsLightningOpened);
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnEnable()
