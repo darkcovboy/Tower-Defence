@@ -366,6 +366,7 @@ Transform:
   - {fileID: 1350547646726258507}
   - {fileID: 3389930877446660454}
   - {fileID: 6039749755435145829}
+  - {fileID: 7090910423405994208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -648,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -750,9 +751,11 @@ MonoBehaviour:
   _moneyCounter: {fileID: 0}
   _spawnPlaceTower: []
   _mainCamera: {fileID: 0}
+  _spellsCreator: {fileID: 5468758873089655730}
   _victoryScreen: {fileID: 0}
   _moneyBalance: {fileID: 0}
   _adButton: {fileID: 0}
+  _spellButtons: []
   _objectManagerUI: {fileID: 1451215563870953052}
   _saveManager: {fileID: 1586900229473215380}
   _endLevelManager: {fileID: 1349476653386360185}
@@ -1940,6 +1943,52 @@ MonoBehaviour:
     Text: "D\xFC\u015Fmanlar\u0131n s\u0131zmas\u0131n\u0131 \xF6nlemek i\xE7in kuleleri
       stratejik noktalarda in\u015Fa edin!"
     Object: {fileID: 0}
+--- !u!1 &7736855662627865922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7090910423405994208}
+  - component: {fileID: 5468758873089655730}
+  m_Layer: 0
+  m_Name: Spells
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7090910423405994208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736855662627865922}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1451215564562653332}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5468758873089655730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736855662627865922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b395578bf73ef143811ffbdde59953e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meteorShootPrefab: {fileID: 1014223492348960975, guid: 2b97bc8820b10204b9bdd0ac09567337, type: 3}
+  _warriorCreatorPrefab: {fileID: 6987625448464444935, guid: 86d961b157e438a458bde31786d68d66, type: 3}
 --- !u!1 &7761589434392259613
 GameObject:
   m_ObjectHideFlags: 0

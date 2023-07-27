@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     [SerializeField] protected Transform LookAtTarget;
 
     public int Cost => TowerDataConfig.Costs[Level];
+    public int LevelCurrent => Level;
     public bool IsMaxLevel => Level == _maxLevel;
 
     public int Damage => TowerDataConfig.Damages[Level];
@@ -27,12 +28,14 @@ public class Tower : MonoBehaviour
     public LeanPhrase Title => TowerDataConfig.Title;
     public LeanPhrase Description => TowerDataConfig.Description;
 
-    private readonly int _maxLevel = 3;
+    private int _maxLevel;
 
-    private void Start()
+    private void Awake()
     {
         Level = 0;
         ChooseTower();
+        _maxLevel = MaxLevel.MaxLevelTower; 
+
 
         if (gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
         {
@@ -44,7 +47,9 @@ public class Tower : MonoBehaviour
 
     public void Upgrade()
     {
-        if(Level + 1 > _maxLevel)
+        Debug.Log((Level + 1) + " " + _maxLevel);
+
+        if (Level + 1 > _maxLevel)
         {
             Level = _maxLevel;  
         }

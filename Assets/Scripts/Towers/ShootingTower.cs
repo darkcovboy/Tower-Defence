@@ -89,6 +89,11 @@ public class ShootingTower : Tower
                     if (_particleSystems.Length > 0)
                         _particleSystems[Level].Play();
 
+                    if (_watchers[Level].TryGetComponent<Animator>(out Animator animator))
+                    {
+                        animator.Play("Shoot");
+                    }
+
                     yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
                 }
                 else

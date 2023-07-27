@@ -20,11 +20,6 @@ public class UpgradePanel : MonoBehaviour
     private MoneyCounter _moneyCounter;
     private Tower _tower;
 
-    private void Awake()
-    {
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
-    }
-
     private void OnEnable()
     {
         _showButton.Activate();
