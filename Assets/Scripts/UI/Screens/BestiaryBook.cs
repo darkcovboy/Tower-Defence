@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BestiaryBook : MonoBehaviour
 {
     [SerializeField] private GameObject[] _bookPage;
-
-    private void Start()
-    {
-        
-    }
+    [Header("UI Enemy")]
+    [SerializeField] private Image _enemyDefaultSprite;
+    [SerializeField] private TMP_Text _enemyDefaultName;
 
     public void OpenPage(int indexPage)
     {
@@ -24,8 +24,9 @@ public class BestiaryBook : MonoBehaviour
         }
     }
 
-    public void ClosePages()
+    public void ChoosEnemy(Sprite enemySprite,TMP_Text enemyName)
     {
-
+        _enemyDefaultSprite.sprite = enemySprite;
+        _enemyDefaultName.text = enemyName.text;
     }
 }
