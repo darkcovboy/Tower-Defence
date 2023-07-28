@@ -2491,7 +2491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5189019144623354287}
   - component: {fileID: 5280308751140532199}
-  - component: {fileID: 6414544015372939212}
   - component: {fileID: 6804253282609573958}
   - component: {fileID: 531691824721983512}
   - component: {fileID: 6716332283339150610}
@@ -2506,6 +2505,7 @@ GameObject:
   - component: {fileID: 61380113544028326}
   - component: {fileID: 83507790310711737}
   - component: {fileID: 7538944079082274629}
+  - component: {fileID: 207660486073822319}
   m_Layer: 0
   m_Name: Dragon Blue
   m_TagString: Untagged
@@ -2595,19 +2595,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &6414544015372939212
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5194463078789369619}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6804253282609573958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2639,6 +2626,7 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: bd251aaab4c030a41b3c016b34edb1ec, type: 2}
   _fireEffect: {fileID: 0}
   _iceEffect: {fileID: 0}
+  _boss: 0
 --- !u!114 &6716332283339150610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,7 +2741,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1792500462508407841}
   - {fileID: 406791617589544372}
-  _delay: 1
+  _delay: 1.16
   _enemy: {fileID: 531691824721983512}
 --- !u!114 &7747147332120111808
 MonoBehaviour:
@@ -2771,7 +2759,7 @@ MonoBehaviour:
   - {fileID: 1792500462508407841}
   - {fileID: 406791617589544372}
   - {fileID: 61380113544028326}
-  _delay: 1
+  _delay: 1.16
   _enemy: {fileID: 531691824721983512}
 --- !u!114 &61380113544028326
 MonoBehaviour:
@@ -2816,6 +2804,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
+--- !u!65 &207660486073822319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194463078789369619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.5, z: 5}
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!1 &5194463521004814109
 GameObject:
   m_ObjectHideFlags: 0

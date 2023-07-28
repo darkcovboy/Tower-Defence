@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class BestiaryBook : MonoBehaviour
 {
+    [SerializeField] private AudioClip _audioClip;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private GameObject[] _bookPage;
     [Header("UI Enemy Parametrs")]
     [SerializeField] private Image _enemyDefaultSprite;
@@ -19,6 +21,11 @@ public class BestiaryBook : MonoBehaviour
     [SerializeField] private TMP_Text _towerDefaultName;
     [SerializeField] private TMP_Text _towerDamageText;
     [SerializeField] private TMP_Text _towerDelayText;
+
+    private void OnEnable()
+    {
+        _audioSource.PlayOneShot(_audioClip);
+    }
 
     public void OpenPage(int indexPage)
     {

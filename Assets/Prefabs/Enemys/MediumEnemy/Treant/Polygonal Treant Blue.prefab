@@ -34434,9 +34434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 0}
+  _enemyConfig: {fileID: 11400000, guid: 8afdc1fefc6ccd94d803a135777aee71, type: 2}
   _fireEffect: {fileID: 1633246356072841736}
   _iceEffect: {fileID: 799999704587755942}
+  _boss: 0
 --- !u!114 &9171871475151089929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34551,7 +34552,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 9171871475151089933}
   - {fileID: 9171871475151089934}
-  _delay: 1
+  _delay: 1.16
   _enemy: {fileID: 9171871475151089928}
 --- !u!114 &4712563747762085973
 MonoBehaviour:
@@ -34597,7 +34598,7 @@ MonoBehaviour:
   - {fileID: 9171871475151089933}
   - {fileID: 9171871475151089934}
   - {fileID: 9076305894428756794}
-  _delay: 1
+  _delay: 1.16
   _enemy: {fileID: 9171871475151089928}
 --- !u!114 &9076305894428756794
 MonoBehaviour:
