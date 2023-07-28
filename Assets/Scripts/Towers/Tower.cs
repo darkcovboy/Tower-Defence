@@ -27,6 +27,7 @@ public class Tower : MonoBehaviour
 
     public LeanPhrase Title => TowerDataConfig.Title;
     public LeanPhrase Description => TowerDataConfig.Description;
+    public int CurrentLevel => Level;
 
     private int _maxLevel;
 
@@ -34,6 +35,7 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
+        Debug.Log(MaxLevel.MaxLevelBarracks);
 
         switch(TowerDataConfig.TowerType)
         {
