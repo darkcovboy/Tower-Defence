@@ -9,7 +9,13 @@ public class LevelConfig : ScriptableObject
     [SerializeField] private float _time;
     [SerializeField] private int _startMoney;
     [SerializeField] private int _startHealth;
-    [SerializeField, Range(0,3)] private int _maxLevel;
+    [Header("Towers Settings")]
+    [SerializeField, Range(0,3)] private int _maxLevelArcher;
+    [SerializeField, Range(0, 3)] private int _maxLevelBarracks;
+    [SerializeField, Range(0, 3)] private int _maxLevelCanon;
+    [SerializeField, Range(0, 3)] private int _maxLevelFireMage;
+    [SerializeField, Range(0, 3)] private int _maxLevelIceMage;
+    [SerializeField, Range(0, 3)] private int _maxLevelLightningMage;
     [SerializeField] private bool _isFireOpened;
     [SerializeField] private bool _isIceOpened;
     [SerializeField] private bool _isLightningOpened;
@@ -38,7 +44,12 @@ public class LevelConfig : ScriptableObject
 
     public bool IsOpenedMeteor => _isOpenedMeteor;
     public bool IsOpenedWarriorCreator => _isOpenedWarriorCreator;
-    public int MaxLevel => _maxLevel;
+    public int MaxLevelArcher => _maxLevelArcher;
+    public int MaxLevelBarracks => _maxLevelBarracks;
+    public int MaxLevelCanon => _maxLevelCanon;
+    public int MaxLevelFireMage => _maxLevelFireMage;
+    public int MaxLevelIceMage => _maxLevelIceMage;
+    public int MaxLevelLightningMage => _maxLevelLightningMage;
 
     public bool IsIceOpened => _isIceOpened;
     public bool IsFireOpened => _isFireOpened;

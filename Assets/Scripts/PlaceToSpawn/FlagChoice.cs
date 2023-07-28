@@ -51,7 +51,6 @@ public class FlagChoice : MonoBehaviour
                 if(raycastHit.transform.CompareTag(_tag))
                 {
                     _flag.transform.position = raycastHit.point;
-                    Debug.Log("FlagChoice");
                     _flag.Deactivate();
                     _barracksTower.ChangePoint(_flag.transform);
                     gameObject.Deactivate();

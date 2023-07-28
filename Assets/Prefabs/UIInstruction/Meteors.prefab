@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 4730492384992372844}
   - component: {fileID: 7219090593566173338}
   - component: {fileID: 5233313286216399062}
+  - component: {fileID: 2662538102290727433}
   m_Layer: 5
   m_Name: DescriptionText
   m_TagString: Untagged
@@ -656,13 +657,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u0440\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
-    \u043C\u0435\u0442\u0435\u043E\u0440\u0438\u0442\u044B, \u043F\u043E\u0440\u0430\u0436\u0430\u044E\u0449\u0438\u0435
-    \u043E\u0431\u043B\u0430\u0441\u0442\u044C \u0432\u043E\u043A\u0440\u0443\u0433
-    \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0439 \u0442\u043E\u0447\u043A\u0438,
-    \u043D\u0430\u043D\u043E\u0441\u044F\u0449\u0438\u0435 \u0443\u0440\u043E\u043D
-    \u043F\u043E \u0432\u0441\u0435\u043C \u0432\u0440\u0430\u0433\u0430\u043C \u0432
-    \u0440\u0430\u0434\u0438\u0443\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F."
+  m_text: Summons destructive meteors, striking the area around the specified point
+    and dealing damage to all enemies within the range.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -689,7 +685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.7
+  m_fontSize: 38.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -731,6 +727,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2662538102290727433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3051365872358899503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Meteors
+  FallbackText: "\u041F\u0440\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u0440\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0435
+    \u043C\u0435\u0442\u0435\u043E\u0440\u0438\u0442\u044B, \u043F\u043E\u0440\u0430\u0436\u0430\u044E\u0449\u0438\u0435
+    \u043E\u0431\u043B\u0430\u0441\u0442\u044C \u0432\u043E\u043A\u0440\u0443\u0433
+    \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0439 \u0442\u043E\u0447\u043A\u0438,
+    \u043D\u0430\u043D\u043E\u0441\u044F\u0449\u0438\u0435 \u0443\u0440\u043E\u043D
+    \u043F\u043E \u0432\u0441\u0435\u043C \u0432\u0440\u0430\u0433\u0430\u043C \u0432
+    \u0440\u0430\u0434\u0438\u0443\u0441\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F."
 --- !u!1 &3277751684559612231
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2867938458533320319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -770,10 +786,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1504375, y: 0.08088889}
-  m_AnchorMax: {x: 0.85424995, y: 0.91655576}
-  m_AnchoredPosition: {x: 0.5, y: 1.619812}
-  m_SizeDelta: {x: -1, y: -3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.5, y: 1.119812}
+  m_SizeDelta: {x: 1200, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5714656058032075653
 CanvasRenderer:
@@ -824,6 +840,7 @@ GameObject:
   - component: {fileID: 798386625816821276}
   - component: {fileID: 839385427915627213}
   - component: {fileID: 1984494546912441447}
+  - component: {fileID: 4598052522719429364}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -879,7 +896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -948,6 +965,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4598052522719429364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3490478978503449630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Continue
+  FallbackText: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
 --- !u!1 &7050309945729628660
 GameObject:
   m_ObjectHideFlags: 0

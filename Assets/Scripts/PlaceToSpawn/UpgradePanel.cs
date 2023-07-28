@@ -35,6 +35,11 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        CloseInfo();
+    }
+
     private void Update()
     {
         if (_tower.Cost >= _moneyCounter.Money || _tower.IsMaxLevel == true)
