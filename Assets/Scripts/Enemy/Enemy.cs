@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyConfig _enemyConfig;
     [SerializeField] private ParticleSystem _fireEffect;
     [SerializeField] private ParticleSystem _iceEffect;
+    [SerializeField] private bool _boss = false;
 
     private int _health;
     private int _reward;
@@ -26,8 +27,9 @@ public class Enemy : MonoBehaviour
     private bool _dieCheck = false;
     private Coroutine _fireCoroutine;
     private Coroutine _iceCoroutine;
-    
-
+    private EnemyMoverState _enemyMoverState;
+     
+    public bool Boss => _boss;
     public int Index => _index;
     public bool HaveEnemy => _warrior == null;
     public int Damage => _damage;
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         SetBasicStats();
         _currentHealth = _health;
+        _enemyMoverState = GetComponent<EnemyMoverState>();
     }
 
     public void TakeDamage(int damage)
@@ -202,5 +205,15 @@ public class Enemy : MonoBehaviour
 
         _speed = startSpeed;
         _iceEffect.gameObject.Deactivate();
+    }
+
+    public void RollBack()
+    {
+        if (_boss == true)
+        {
+            _enemyMoverState.ResetWaypoint();
+        }
+        else
+            _currentHealth = 0;
     }
 }

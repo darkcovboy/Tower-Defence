@@ -9,6 +9,7 @@ public class EnemyMoverState : State
     private Transform _target;
     private int _wavePointIndex = 0;
     private Enemy _enemy;
+    private Vector3 _startPosition;
 
     private void Awake()
     {
@@ -18,14 +19,8 @@ public class EnemyMoverState : State
 
     private void Start()
     {
-        if (_enemy.Index == 0)
-        {
-            _target = _waypoints.Points[0];
-        }
-        else
-        {
-            _target = _waypoints.Points1[0];
-        }
+        _startPosition = transform.position;
+        ChooseWaypoint();
     }
 
     private void Update()
@@ -73,6 +68,25 @@ public class EnemyMoverState : State
             }
             else
                 _target = _waypoints.Points3[_wavePointIndex];
+        }
+    }
+
+    public void ResetWaypoint()
+    {
+        transform.position = _startPosition;
+        _wavePointIndex = 0;
+        ChooseWaypoint();
+    }
+
+    private void ChooseWaypoint()
+    {
+        if (_enemy.Index == 0)
+        {
+            _target = _waypoints.Points[0];
+        }
+        else
+        {
+            _target = _waypoints.Points1[0];
         }
     }
 }
