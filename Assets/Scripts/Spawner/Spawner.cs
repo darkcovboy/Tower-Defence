@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
     private MoneyCounter _moneyCounter;
     private bool _allEnemySpawn = false;
 
+    public List<Enemy> EnemyLiev => _enemyLiev;
     public int EnemySpawnCount { get; private set; }
     public int CurrentWaveNumber { get; private set; } = 0;
 
