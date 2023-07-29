@@ -4819,7 +4819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3064924742565294895
 Transform:
   m_ObjectHideFlags: 0
@@ -19440,6 +19440,7 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: bc280adef8d220445a11404f7e1a32f0, type: 2}
   _fireEffect: {fileID: 2901812345983143351}
   _iceEffect: {fileID: 6237953111155049720}
+  _boss: 0
 --- !u!114 &5422272698175031397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19554,7 +19555,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 948269633582157927}
   - {fileID: 3852339220533645137}
-  _delay: 1
+  _delay: 1.15
   _enemy: {fileID: 8503775547859378894}
 --- !u!114 &123094774151842155
 MonoBehaviour:
@@ -19572,7 +19573,7 @@ MonoBehaviour:
   - {fileID: 3852339220533645137}
   - {fileID: 948269633582157927}
   - {fileID: 6933107881526259553}
-  _delay: 1
+  _delay: 1.15
   _enemy: {fileID: 8503775547859378894}
 --- !u!114 &6036461044761641535
 MonoBehaviour:
@@ -20374,7 +20375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6237953111136792340
 Transform:
   m_ObjectHideFlags: 0
@@ -20383,7 +20384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6237953111137029468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -0.046}
   m_LocalScale: {x: 1.2702446, y: 1.2702446, z: 1.2702446}
   m_ConstrainProportionsScale: 1
   m_Children:

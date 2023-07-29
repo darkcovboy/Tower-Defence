@@ -10121,9 +10121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae29e9b8130ecc4b88b340994c6803b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 0}
+  _enemyConfig: {fileID: 11400000, guid: f036f070e396c794eb29dfbc62bce452, type: 2}
   _fireEffect: {fileID: 6857657605234974622}
   _iceEffect: {fileID: 2719064755851653110}
+  _boss: 0
 --- !u!114 &2803841923738301615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15074,7 +15075,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 29f2c844cf434d64d8960f76fefcb6a0, type: 2}
   - {fileID: 2100000, guid: 29f2c844cf434d64d8960f76fefcb6a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
