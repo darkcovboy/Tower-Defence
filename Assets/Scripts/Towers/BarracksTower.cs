@@ -19,11 +19,6 @@ public class BarracksTower : Tower
     private int _currentWarriors = 0;
     private bool _canSpawnWarriors = true;
 
-    private void Awake()
-    {
-        _points.position = LookAtTarget.position;
-    }
-
     private void Start()
     {
         _points.position = LookAtTarget.position;

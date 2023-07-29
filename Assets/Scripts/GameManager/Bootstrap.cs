@@ -17,8 +17,10 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private SpellsCreator _spellsCreator;
     [Header("UI")]
     [SerializeField] private VictoryScreen _victoryScreen;
+    [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
-    [SerializeField] private AdButton _adButton;
+    [SerializeField] private AdButton _adButtonMoney;
+    [SerializeField] private AdButton _adButtonHealth;
     [SerializeField] private SpellButton[] _spellButtons;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
@@ -36,11 +38,12 @@ public class Bootstrap : MonoBehaviour
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
         _moneyCounter.Init(_levelConfig.StartMoney);
-        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney,_levelConfig.AdHealth);
-        _adButton.Init(_levelConfig.AdStartMoney, _rewardedAd);
+        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney,_levelConfig.AdHealth, _spawner);
+        _adButtonMoney.Init(_levelConfig.AdStartMoney, _rewardedAd);
+        _adButtonHealth.Init(_rewardedAd, _gameOverScreen);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
-        MaxLevel.Set(_levelConfig.MaxLevel, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
+        MaxLevel.Set(_levelConfig.MaxLevelArcher,_levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage,_levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();
     }
 

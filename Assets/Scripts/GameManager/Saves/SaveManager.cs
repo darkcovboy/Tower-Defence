@@ -9,13 +9,12 @@ using TMPro;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private int _maxLevel;
+   public IReadOnlyList<LevelData> LevelData => SaveDataWrapper.levelDataList;
 
-    public IReadOnlyList<LevelData> LevelData => _saveDataWrapper.levelDataList;
-
-    private SaveDataWrapper _saveDataWrapper;
+    protected SaveDataWrapper SaveDataWrapper;
     private PlayerSave _playerSave;
     private string _jsonData;
+    private readonly int _maxLevel = 10;
 
     //—тарт делаем корутиной, потому что нам об€зательно нужно, чтобы сдк загрузилось, провер€ем авторизацию, если она есть то создаем стандартный экземпл€р класса SaveDataWrapper
     private IEnumerator Start()
@@ -35,6 +34,8 @@ public class SaveManager : MonoBehaviour
             {
                 LoadData();
             }
+
+            UpdateLevels();
         }
         else
         {
@@ -46,35 +47,40 @@ public class SaveManager : MonoBehaviour
     public void SaveEndLevel(int stars, int score)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
-        _saveDataWrapper.levelDataList[index].Score = score;
-        _saveDataWrapper.levelDataList[index].Stars = stars;
+        SaveDataWrapper.Score += score;
+        SaveDataWrapper.levelDataList[index].Stars = stars;
 
         if(index + 1 < _maxLevel)
         {
-            _saveDataWrapper.levelDataList[index + 1].IsUnblock = true;
+            SaveDataWrapper.levelDataList[index + 1].IsUnblock = true;
         }
 
         SaveData();
+    }
+
+    protected virtual void UpdateLevels()
+    {
+
     }
 
 
     //—оздаем новую дату, сохран€ем, здесь JsonUnitility преобразует наш класс в формат JSON
     private void GenerateNewData()
     {
-        _saveDataWrapper = _playerSave.LoadData();
-        _jsonData = JsonUtility.ToJson(_saveDataWrapper);
+        SaveDataWrapper = _playerSave.LoadData();
+        _jsonData = JsonUtility.ToJson(SaveDataWrapper);
         SaveData();
     }
 
     //«агружем данные и преобразуем из JSON в класс
     private void LoadData()
     {
-        _saveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
+        SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
     }
 
     private void SaveData()
     {
-        string json = JsonUtility.ToJson(_saveDataWrapper);
+        string json = JsonUtility.ToJson(SaveDataWrapper);
         PlayerAccount.SetCloudSaveData(json);
     }
 }
@@ -84,5 +90,6 @@ public class SaveDataWrapper
 {
     public List<LevelData> levelDataList;
     public VolumeData settingsData;
+    public int Score;
 }
 

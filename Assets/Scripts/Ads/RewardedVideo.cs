@@ -11,19 +11,23 @@ public enum ShowType
 
 public class RewardedVideo : MonoBehaviour
 {
+    [SerializeField] private float _radius;
+
     private MoneyCounter _moneyCounter;
     private int _money;
-    private int _adHelath;
+    private int _adHealth;
     private Player _player;
+    private Spawner _spawner;
 
     private bool _isAudioOff;
 
-    public void Init(MoneyCounter moneyCounter, Player player, int adMoney, int adHealth)
+    public void Init(MoneyCounter moneyCounter, Player player, int adMoney, int adHealth, Spawner spawner)
     {
         _moneyCounter = moneyCounter;
         _money = adMoney;
         _player = player;
-        _adHelath = adMoney;
+        _adHealth = adMoney;
+        _spawner = spawner;
     }
 
     public void Show(ShowType showType)
@@ -59,7 +63,30 @@ public class RewardedVideo : MonoBehaviour
 
     private void OnRewardedHealth()
     {
-        _player.AddHealth(_adHelath);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, 1, QueryTriggerInteraction.Collide);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                switch(enemy.EnemyType)
+                {
+                    case (EnemyType.Common):
+                        {
+                            enemy.TakeDamage(enemy.CurrentHealth);
+                            break;
+                        }
+                    case (EnemyType.Boss):
+                        {
+                            enemy.transform.position = _spawner.transform.position;
+                            break;
+                        }
+                }
+                
+            }
+        }
+
+        _player.AddHealth(_adHealth);
     }
 
     private void OnClose()

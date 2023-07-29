@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8102377392712827120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -115,10 +115,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1504375, y: 0.08088889}
-  m_AnchorMax: {x: 0.85424995, y: 0.91655576}
-  m_AnchoredPosition: {x: 0.5, y: 1.619812}
-  m_SizeDelta: {x: -1, y: -3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.5, y: 1.119812}
+  m_SizeDelta: {x: 1200, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7678014860938077847
 CanvasRenderer:
@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 731466865849752632}
   - component: {fileID: 810298357217544073}
   - component: {fileID: 8631092665840078453}
+  - component: {fileID: 3896810510901713164}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -370,7 +371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -439,6 +440,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3896810510901713164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045503331595346481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Continue
+  FallbackText: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
 --- !u!1 &6394915861951135793
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +618,7 @@ GameObject:
   - component: {fileID: 1504518524596797432}
   - component: {fileID: 4965617379314723105}
   - component: {fileID: 6075503711262792647}
+  - component: {fileID: 270922276018565231}
   m_Layer: 5
   m_Name: DescriptionText
   m_TagString: Untagged
@@ -658,12 +674,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0410\u0442\u0430\u043A\u0443\u0435\u0442 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
-    \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u0432 \u0441\u0440\u0430\u0437\u0443
-    \u043C\u043E\u0449\u043D\u043E\u0439 \u043C\u043E\u043B\u043D\u0438\u0435\u0439,
-    \u043F\u043E\u0440\u0430\u0436\u0430\u044F \u0433\u0440\u0443\u043F\u043F\u044B
-    \u0432\u0440\u0430\u0433\u043E\u0432 \u0432 \u0441\u0432\u043E\u0435\u043C \u0440\u0430\u0434\u0438\u0443\u0441\u0435
-    \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F."
+  m_text: Attacks multiple enemies at once with a powerful lightning, striking groups
+    of enemies within its range.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -690,7 +702,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.3
+  m_fontSize: 46.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -732,6 +744,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &270922276018565231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197291124616000081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: PowerfulLightning
+  FallbackText: "\u0410\u0442\u0430\u043A\u0443\u0435\u0442 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u0432 \u0441\u0440\u0430\u0437\u0443
+    \u043C\u043E\u0449\u043D\u043E\u0439 \u043C\u043E\u043B\u043D\u0438\u0435\u0439,
+    \u043F\u043E\u0440\u0430\u0436\u0430\u044F \u0433\u0440\u0443\u043F\u043F\u044B
+    \u0432\u0440\u0430\u0433\u043E\u0432 \u0432 \u0441\u0432\u043E\u0435\u043C \u0440\u0430\u0434\u0438\u0443\u0441\u0435
+    \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F."
 --- !u!1 &8605260251351773781
 GameObject:
   m_ObjectHideFlags: 0

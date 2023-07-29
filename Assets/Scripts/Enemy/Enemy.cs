@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public Warrior Warrior => _warrior;
     public int CurrentHealth => _currentHealth;
+    public EnemyType EnemyType => _enemyConfig.EnemyType;
 
     public float Speed => _speed;
 

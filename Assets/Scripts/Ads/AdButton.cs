@@ -19,4 +19,12 @@ public class AdButton : MonoBehaviour
         button.onClick.AddListener(() => rewardedVideo.Show(adType));
         button.onClick.AddListener(gameObject.Deactivate);
     }
+
+    public void Init(RewardedVideo rewardedVideo, GameOverScreen gameOverScreen)
+    {
+        var button = gameObject.GetComponent<Button>();
+        button.onClick.AddListener(() => rewardedVideo.Show(adType));
+        button.onClick.AddListener(gameOverScreen.Deactivate);
+        button.onClick.AddListener(gameObject.Deactivate);
+    }
 }

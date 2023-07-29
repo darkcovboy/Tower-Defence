@@ -9,6 +9,7 @@ public class EnemyConfig : ScriptableObject
     [SerializeField] private int _reward;
     [SerializeField] private int _damage;
     [SerializeField, Min(1)] private float _speed;
+    [SerializeField] private EnemyType _enemyType;
     [Header("Effects")]
     [SerializeField] private IceEffectData _iceData;
     [SerializeField] private FireEffectData _fireData;
@@ -25,9 +26,16 @@ public class EnemyConfig : ScriptableObject
     public float Speed => _speed;
     public IceEffectData IceEffectData => _iceData;
     public FireEffectData FireEffectData => _fireData;
+    public EnemyType EnemyType => _enemyType;
     public float PhysicalResistace => _physicalResistace;
     public float FireResistace => _fireResistace;
     public float IceResisnace => _iceResistace;
     public float LightningResistace => _lightningResistace;
 
+}
+
+public enum EnemyType
+{
+    Common,
+    Boss
 }

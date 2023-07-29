@@ -27,6 +27,7 @@ public class Tower : MonoBehaviour
 
     public LeanPhrase Title => TowerDataConfig.Title;
     public LeanPhrase Description => TowerDataConfig.Description;
+    public int CurrentLevel => Level;
 
     private int _maxLevel;
 
@@ -34,7 +35,41 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
-        _maxLevel = MaxLevel.MaxLevelTower; 
+        Debug.Log(MaxLevel.MaxLevelBarracks);
+
+        switch(TowerDataConfig.TowerType)
+        {
+            case (TowerType.Archer):
+            {
+                _maxLevel = MaxLevel.MaxLevelArcher;
+                break;
+            }
+            case (TowerType.Barracks):
+            {
+                _maxLevel = MaxLevel.MaxLevelBarracks;
+                break;
+            }
+            case (TowerType.Canon):
+            {
+                _maxLevel = MaxLevel.MaxLevelCanon;
+                break;
+            }
+            case (TowerType.FireMage):
+            {
+                _maxLevel = MaxLevel.MaxLevelFireMage;
+                break;
+            }
+            case (TowerType.IceMage):
+            {
+                _maxLevel = MaxLevel.MaxLevelIceMage;
+                break;
+            }
+            case (TowerType.LightningMage):
+            {
+                _maxLevel = MaxLevel.MaxLevelLightningMage;
+                break;
+            }
+        }
 
 
         if (gameObject.TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))
