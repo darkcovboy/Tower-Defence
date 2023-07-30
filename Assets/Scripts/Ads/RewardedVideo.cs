@@ -78,7 +78,7 @@ public class RewardedVideo : MonoBehaviour
                         }
                     case (EnemyType.Boss):
                         {
-                            enemy.transform.position = _spawner.transform.position;
+                            enemy.RollBack();
                             break;
                         }
                 }

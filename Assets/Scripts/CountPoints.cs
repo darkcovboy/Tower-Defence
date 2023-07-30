@@ -23,7 +23,7 @@ public class CountPoints
 
     public float Count(float maxHealth, float currentHealth, float remainMoney)
     {
-        float points = (maxHealth - currentHealth) * _coefficientHealth + remainMoney * _coefficientRemainMoney + (_timer.RemainTime) * _coefficientRemainTime;
+        float points = (maxHealth - currentHealth) * _coefficientHealth + remainMoney * _coefficientRemainMoney + (_timer.SpentTime) * _coefficientRemainTime;
         return points;
     }
 }
