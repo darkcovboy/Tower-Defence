@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChooseTowerButton : AbstractButton
 {
     [SerializeField] private BestiaryBook _bestiaryBook;
-    [SerializeField] private Sprite _towerImage;
-    [SerializeField] private TMP_Text _towerName;
-    [SerializeField] private int _towerDamage;
-    [SerializeField] private float _towerDelay;
-
+    [SerializeField] private TowerPanelManager _panelManager;
+    [SerializeField] private int _selectedTowerIndex;
+     
     protected override void OnButtonClick()
     {
-        _bestiaryBook.ChooseTower(_towerImage, _towerName, _towerDamage, _towerDelay);
+        _panelManager.OpenPanel(_selectedTowerIndex);
     }
 }
