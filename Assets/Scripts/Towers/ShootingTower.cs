@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class ShootingTower : Tower
 {
     [SerializeField] protected MissleSpawners MissleSpawners;
@@ -15,10 +16,14 @@ public class ShootingTower : Tower
 
     private Quaternion _startRotation;
 
+    private AudioSource _audioSource;
+
     private void Start()
     {
         if (_watchers[Level] != null)
             _startRotation = _watchers[Level].transform.rotation;
+
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -98,6 +103,8 @@ public class ShootingTower : Tower
                     {
                         animator.Play("Shoot");
                     }
+
+                    _audioSource.Play();
 
                     yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
                 }

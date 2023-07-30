@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
+[RequireComponent(typeof(AudioSource))]
 public class VictoryScreen : Screen
 {
     [SerializeField] private Spawner _spawner;
@@ -28,6 +28,7 @@ public class VictoryScreen : Screen
     public override void OpenScreen()
     {
         _screen.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Play();
         StartCoroutine(ShowStars());
     }
 

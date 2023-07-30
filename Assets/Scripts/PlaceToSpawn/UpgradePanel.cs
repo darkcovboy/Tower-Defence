@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class UpgradePanel : MonoBehaviour
 {
     [SerializeField] private Button _upgradeButton;
@@ -19,6 +20,12 @@ public class UpgradePanel : MonoBehaviour
 
     private MoneyCounter _moneyCounter;
     private Tower _tower;
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = gameObject.GetComponent<AudioSource>();
+    }
 
     private void OnEnable()
     {
@@ -106,6 +113,7 @@ public class UpgradePanel : MonoBehaviour
         CloseInfo();
         ChangeText();
         _spawnPlaceTowerBeaty.PlayParticles();
+        _audioSource.Play();
 
         if (_tower.TryGetComponent( out BarracksTower barracksTower))
             barracksTower.ChangeWarrior();

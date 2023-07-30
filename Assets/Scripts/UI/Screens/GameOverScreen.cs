@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameOverScreen : Screen
 {
     [SerializeField] private Player _player;
@@ -21,5 +22,6 @@ public class GameOverScreen : Screen
     public override void OpenScreen()
     {
         _gameOverScreen.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }
