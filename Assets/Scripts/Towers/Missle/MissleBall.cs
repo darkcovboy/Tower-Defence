@@ -34,7 +34,7 @@ public class MissleBall : Missle
 
         while (Vector3.Distance(transform.position, Target.transform.position) > MissleData.DistanceBetweenTarget)
         {
-            if (Vector3.Distance(transform.position, _firstEnemyMeet.transform.position) > _maxDistance)
+            if (gameObject.GetComponent<Rigidbody>().velocity == Vector3.zero)
                 break;
             yield return null;
         }

@@ -7,6 +7,8 @@ public class CountPoints
     public float Points => _points;
     public float Time => _timer.SpentTime;
 
+    public float RemainTime => _timer.RemainTime;
+
     private Timer _timer;
     private float _points;
     private float _coefficientRemainMoney;

@@ -62,6 +62,7 @@ public class EndLevelManager : MonoBehaviour
     {
         _timer.StopTimer();
         var stars = CountStars();
+        Debug.Log(_countPoints.Time + " " + _countPoints.RemainTime);
         var points = (int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money);
         _victoryScreen.SetScore(points);
         _victoryScreen.SetStars(stars);

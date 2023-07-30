@@ -35,10 +35,15 @@ public class ShootingTower : Tower
     {
         if (_watchers[Level] == null || Target == null)
         {
-            _watchers[Level].transform.rotation = _startRotation;
+            if (_watchers[Level] != null)
+            {
+                _watchers[Level].transform.rotation = _startRotation;
+            }
+            
             return;
         }
 
+        Debug.Log(_watchers[Level]);
         _watchers[Level].transform.LookAt(Target);
         _watchers[Level].transform.rotation = Quaternion.Euler(0f, _watchers[Level].transform.localEulerAngles.y, 0f);
     }
@@ -89,7 +94,7 @@ public class ShootingTower : Tower
                     if (_particleSystems.Length > 0)
                         _particleSystems[Level].Play();
 
-                    if (_watchers[Level].TryGetComponent<Animator>(out Animator animator))
+                    if (_watchers[Level] != null && _watchers[Level].TryGetComponent<Animator>(out Animator animator))
                     {
                         animator.Play("Shoot");
                     }
