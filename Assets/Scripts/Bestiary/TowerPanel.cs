@@ -9,20 +9,15 @@ public class TowerPanel : MonoBehaviour
 {
     [SerializeField] private GameObject[] _levelPanels;
     [SerializeField] private TowerData _data;
-    [SerializeField] private Image[] _icons;
     [SerializeField] private TextMeshProUGUI[] _fireRate;
     [SerializeField] private TextMeshProUGUI[] _damages;
 
-    private readonly int _maxItems; 
+    protected readonly int MaxItems = 4;
+    private readonly int _firstIndex = 0;
 
     private void Awake()
     {
-        for (int i = 0; i < _maxItems; i++)
-        {
-            _fireRate[i].text = _data.Delays[i].ToString();
-            _damages[i].text = _data.Damages[i].ToString();
-            _levelPanels[i].Deactivate();
-        }
+        EnterValues();
     }
 
     public void SwapPanel(int index)
@@ -33,5 +28,17 @@ public class TowerPanel : MonoBehaviour
         }
 
         _levelPanels[index].Activate();
+    }
+
+    protected virtual void EnterValues()
+    {
+        for (int i = 0; i < MaxItems; i++)
+        {
+            _fireRate[i].text = _data.Delays[i].ToString();
+            _damages[i].text = _data.Damages[i].ToString();
+            _levelPanels[i].Deactivate();
+        }
+
+        _levelPanels[_firstIndex].Activate();
     }
 }
