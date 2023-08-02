@@ -23,6 +23,7 @@ public class WarriorsSpawner : ObjectPool
             warrior.Warrior.SendData(target, barracks.GetComponent<BarracksTower>());
             warrior.Activate();
             warrior.Warrior.gameObject.Activate();
+            warrior.Warrior.UpdateHealthBar();
             warrior.Warrior.transform.position = transform.position;
         }
     }

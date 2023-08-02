@@ -30,10 +30,6 @@ public class Warrior : MonoBehaviour
     private void OnEnable()
     {
         _currentHealth = _health;
-        ChangeHealth?.Invoke(_currentHealth, _health);
-        Debug.Log(_currentHealth + " " + _health);
-        _currentHealth = _health;
-        ChangeHealth?.Invoke(_currentHealth, _health);
     }
 
     private void OnDisable()
@@ -41,8 +37,6 @@ public class Warrior : MonoBehaviour
         if (_barracksTower != null)
             _barracksTower.OnWarriorDied?.Invoke();
 
-        _currentHealth = _health;
-        ChangeHealth?.Invoke(_currentHealth, _health);
         _die = false;
         _enemy = null;
         Battle = false;
@@ -64,13 +58,13 @@ public class Warrior : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        ChangeHealth?.Invoke(_currentHealth,_health);
+        UpdateHealthBar();
     }
 
     public void SetWarriorLifeTime(int secondsToLife)
     {
         _currentHealth = _health;
-        ChangeHealth?.Invoke(_currentHealth, _health);
+        UpdateHealthBar();
         StartCoroutine(StartLifeTime(secondsToLife));
     }
 
@@ -93,6 +87,9 @@ public class Warrior : MonoBehaviour
     {
         Battle = flag;
     }
+
+    public void UpdateHealthBar() => ChangeHealth?.Invoke(_currentHealth, _health);
+
 
     private IEnumerator StartLifeTime(int secondsToLife)
     {

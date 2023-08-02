@@ -21,6 +21,7 @@ public class WarriorHealthbar : Bar
     private void OnWarriorHealthChanged(int health, int maxHealth)
     {
         OnValueChanged(health, maxHealth);
+        Debug.Log(health + " " + maxHealth);
         Slider.fillRect.GetComponent<Image>().color = _gradient.Evaluate(Slider.value);
     }
 }
