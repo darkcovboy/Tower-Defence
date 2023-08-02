@@ -8,6 +8,8 @@ public class WarriorChanger : MonoBehaviour
 
     public Warrior Warrior => _warriors[_level];
 
+    public bool IsWarriorActive => _warriors[_level].gameObject.activeSelf;
+
     private int _level = 0;
 
     private void Start()

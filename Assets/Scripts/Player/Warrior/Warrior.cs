@@ -9,7 +9,7 @@ public class Warrior : MonoBehaviour
     [SerializeField] private int _damage;
 
     private Enemy _enemy; 
-    private int _currentHealth;
+    [SerializeField]private int _currentHealth;
     private bool _die = false;
     private BarracksTower _barracksTower;
     private Transform _target;
@@ -30,6 +30,22 @@ public class Warrior : MonoBehaviour
     private void OnEnable()
     {
         _currentHealth = _health;
+        ChangeHealth?.Invoke(_currentHealth, _health);
+        Debug.Log(_currentHealth + " " + _health);
+        _currentHealth = _health;
+        ChangeHealth?.Invoke(_currentHealth, _health);
+    }
+
+    private void OnDisable()
+    {
+        if (_barracksTower != null)
+            _barracksTower.OnWarriorDied?.Invoke();
+
+        _currentHealth = _health;
+        ChangeHealth?.Invoke(_currentHealth, _health);
+        _die = false;
+        _enemy = null;
+        Battle = false;
     }
 
     public void SendData(Transform target, BarracksTower barracks)
@@ -49,11 +65,6 @@ public class Warrior : MonoBehaviour
     {
         _currentHealth -= damage;
         ChangeHealth?.Invoke(_currentHealth,_health);
-
-        if(_barracksTower != null & _currentHealth <= 0)
-        {
-            _barracksTower.OnWarriorDied?.Invoke();
-        }
     }
 
     public void SetWarriorLifeTime(int secondsToLife)

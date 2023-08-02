@@ -7,6 +7,7 @@ public class LevelSelect : MonoBehaviour
 {
     // Мне очень не нравилось, что мы ищем дочерние объекты кнопок в виде звезд, я решил это сделать более нормально и повесил на них компонент, где задал звезды.
     [SerializeField] private SceneFader _sceneFader;
+    [SerializeField] private LoadingScene _loadingScene;
     [SerializeField] private Button[] _levelButtons;
 
     public void UpdateLevels(List<LevelData> levelDatas)
@@ -20,6 +21,7 @@ public class LevelSelect : MonoBehaviour
 
     public void Select(string levelName)
     {
-        _sceneFader.FadeTo(levelName);
+        //_sceneFader.FadeTo(levelName);
+        _loadingScene.LoadScene(levelName);
     }
 }

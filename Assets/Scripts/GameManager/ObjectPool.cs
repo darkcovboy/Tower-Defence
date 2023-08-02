@@ -26,5 +26,22 @@ public class ObjectPool : MonoBehaviour
 
         return result != null;
     }
+    protected bool TryGetObject(out WarriorChanger result)
+    {
+        result = null;
+        foreach (var item in _pool)
+        {
+            if(item.TryGetComponent(out WarriorChanger warrior))
+            {
+                if(warrior.IsWarriorActive == false)
+                {
+                    result = warrior;
+                    break;
+                }
+            }
+        }
+        //result = _pool.FirstOrDefault(p => p.GetComponent<WarriorChanger>().IsWarriorActive == false).GetComponent<WarriorChanger>();
 
+        return result != null;
+    }
 }

@@ -35,7 +35,6 @@ public class Tower : MonoBehaviour
     {
         Level = 0;
         ChooseTower();
-        Debug.Log(MaxLevel.MaxLevelBarracks);
 
         switch(TowerDataConfig.TowerType)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WarriorsSpawner : ObjectPool
 {
     [SerializeField] private BarracksTower _barracksTower;
-    [SerializeField] private Transform _target;
+    private Transform _target;
 
     private GameObject _warriorPrefab;
 
@@ -18,11 +18,12 @@ public class WarriorsSpawner : ObjectPool
 
     public void SpawnWarrior(Transform target, GameObject barracks)
     {
-        if (TryGetObject(out GameObject warrior))
+        if (TryGetObject(out WarriorChanger warrior))
         {
-            warrior.GetComponent<WarriorChanger>().Warrior.SendData(target, barracks.GetComponent<BarracksTower>());
-            warrior.SetActive(true);
-            warrior.transform.position = transform.position;
+            warrior.Warrior.SendData(target, barracks.GetComponent<BarracksTower>());
+            warrior.Activate();
+            warrior.Warrior.gameObject.Activate();
+            warrior.Warrior.transform.position = transform.position;
         }
     }
 
