@@ -25,6 +25,7 @@ public class BestiaryBook : MonoBehaviour
     private void OnEnable()
     {
         _audioSource.PlayOneShot(_audioClip);
+        OpenPage(0);
     }
 
     public void OpenPage(int indexPage)
