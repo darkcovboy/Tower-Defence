@@ -56,11 +56,22 @@ public class Spell : MonoBehaviour
         if (_canShoot == false)
             return;
 
-        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Vector2 clickPosition;
+
+        if (DeviceDefinder.isDesktop)
+        {
+            clickPosition = Mouse.current.position.ReadValue();
+        }
+        else
+        {
+            clickPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+
+        Ray ray = _mainCamera.ScreenPointToRay(clickPosition);
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
-            if (!IsPointerOverUIObject())
+            if (!IsPointerOverUIObject(clickPosition))
             {
                 if (raycastHit.transform != null)
                 {
@@ -75,10 +86,10 @@ public class Spell : MonoBehaviour
         }
     }
 
-    private bool IsPointerOverUIObject()
+    private bool IsPointerOverUIObject(Vector2 position)
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y);
+        eventDataCurrentPosition.position = position;
 
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);

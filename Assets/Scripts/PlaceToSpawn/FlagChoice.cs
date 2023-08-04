@@ -42,7 +42,19 @@ public class FlagChoice : MonoBehaviour
     private void Check(InputAction.CallbackContext callbackContext)
     {
         RaycastHit raycastHit;
-        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        Vector2 clickPosition;
+
+        if (DeviceDefinder.isDesktop)
+        {
+            clickPosition = Mouse.current.position.ReadValue();
+        }
+        else
+        {
+            clickPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+
+        Ray ray = _mainCamera.ScreenPointToRay(clickPosition);
 
         if (Physics.Raycast(ray, out raycastHit))
         {

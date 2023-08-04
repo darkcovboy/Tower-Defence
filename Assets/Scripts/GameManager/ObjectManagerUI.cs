@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using Agava.YandexGames;
+using Agava.YandexGames.Samples;
 
 public class ObjectManagerUI : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class ObjectManagerUI : MonoBehaviour
 
     private Camera _mainCamera;
     private bool _needToClose = true;
+    private bool _isDesktop;
 
     private void OnEnable()
     {
@@ -57,9 +60,20 @@ public class ObjectManagerUI : MonoBehaviour
         if(_needToClose == false)
         { return; }
 
-        Ray ray = _mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Vector2 clickPosition;
+        
+        if(DeviceDefinder.isDesktop)
+        {
+            clickPosition = Mouse.current.position.ReadValue();
+        }
+        else
+        {
+            clickPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
 
-        if (Physics.Raycast(ray, out RaycastHit raycastHit) & !IsPointerOverUIObject())
+        Ray ray = _mainCamera.ScreenPointToRay(clickPosition);
+
+        if (Physics.Raycast(ray, out RaycastHit raycastHit) & !IsPointerOverUIObject(clickPosition))
         {
             if (raycastHit.transform != null)
             {
@@ -68,10 +82,10 @@ public class ObjectManagerUI : MonoBehaviour
         }
     }
 
-    private bool IsPointerOverUIObject()
+    private bool IsPointerOverUIObject(Vector2 vector)
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y);
+        eventDataCurrentPosition.position = vector;
 
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
