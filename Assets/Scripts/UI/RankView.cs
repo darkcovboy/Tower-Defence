@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RankView : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _ranks;
+    [SerializeField] private Image _profilePucture;
     [SerializeField] private TMP_Text _userName;
     [SerializeField] private TMP_Text _points;
 

@@ -9,7 +9,11 @@ using TMPro;
 
 public class SaveManager : MonoBehaviour
 {
-   public IReadOnlyList<LevelData> LevelData => SaveDataWrapper.levelDataList;
+    [SerializeField] private AudioManager _audioManager;
+    public IReadOnlyList<LevelData> LevelData => SaveDataWrapper.levelDataList;
+
+    public int Score => SaveDataWrapper.Score; 
+
 
     protected SaveDataWrapper SaveDataWrapper;
     private PlayerSave _playerSave;
@@ -43,14 +47,21 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public void Init(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+
     //Пока не используется, задает новые значения текущему уровню, открываем следующий, сохраняем
     public void SaveEndLevel(int stars, int score)
     {
         int index = SceneManager.GetActiveScene().buildIndex;
         SaveDataWrapper.Score += score;
         SaveDataWrapper.levelDataList[index].Stars = stars;
+        SaveDataWrapper.settingsData.SoundEnabled = AudioListener.pause;
+        SaveDataWrapper.settingsData.Volume = AudioListener.volume;
 
-        if(index + 1 < _maxLevel)
+        if (index + 1 < _maxLevel)
         {
             SaveDataWrapper.levelDataList[index + 1].IsUnblock = true;
         }
@@ -60,7 +71,8 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void UpdateLevels()
     {
-
+        _audioManager.OnSliderChanged(SaveDataWrapper.settingsData.Volume);
+        _audioManager.AudioChange(SaveDataWrapper.settingsData.SoundEnabled);
     }
 
 

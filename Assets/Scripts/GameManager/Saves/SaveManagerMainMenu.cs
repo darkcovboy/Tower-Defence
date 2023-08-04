@@ -8,6 +8,7 @@ public class SaveManagerMainMenu : SaveManager
 
     protected override void UpdateLevels()
     {
+        base.UpdateLevels();
         _levelSelect.UpdateLevels(SaveDataWrapper.levelDataList);
     }
 }

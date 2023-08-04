@@ -21,6 +21,14 @@ public class AudioManager : MonoBehaviour
         AudioListener.volume = volume;
     }
 
+    public void AudioChange(bool flag)
+    {
+        if (flag)
+            PlayAudio();
+        else
+            MuteAudio();
+    }
+
     private void MuteAudio()
     {
         _audioOff.Deactivate();

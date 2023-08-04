@@ -11,14 +11,14 @@ public class LeaderboardScreen : MonoBehaviour
     [SerializeField] private RankView _template;
     [SerializeField] private RankView _user;
 
-    private string _leaderBoardName = "TowerDefenceUserLeaderboard";
-    private string _anonymous = "Anonymous";
+    private SaveManager _saveManager;
+    private readonly string _leaderBoardName = "TowerDefenceUserLeaderboard";
+    private readonly string _anonymous = "Anonymous";
 
     private void OnEnable()
     {
         ClearChildren(_container.transform);
 
-        /*
         if (PlayerAccount.IsAuthorized == false)
         {
             PlayerAccount.Authorize();
@@ -26,26 +26,21 @@ public class LeaderboardScreen : MonoBehaviour
 
         if (PlayerAccount.IsAuthorized == true)
         {
-            Leaderboard.SetScore(_leaderBoardName, (int)_moneyCounter.Money);
+            Leaderboard.SetScore(_leaderBoardName, _saveManager.Score);
+            ShowCurrentUser();
             ShowAllUsers();
         }
         else
-            gameObject.SetActive(false);
-        */
-
-        List<User> users = new List<User>
         {
-            new User(1, "Darkcovboy" ,1000),
-            new User(2, "פûגפûג" ,900),
-            new User(3, "ASdasfas" ,800),
-            new User(4, "dfsdfsdf" ,700),
-            new User(5, "asdasdasda" ,600)
-        };
-        ShowAllUsers(users);
-        ShowCurrentUser(new User(1, "Darkcovboy", 1000));
+            gameObject.Deactivate();
+        }
     }
 
-    /*
+    public void Init(SaveManager saveManager)
+    {
+        _saveManager = saveManager;
+    }
+
     private void ShowAllUsers()
     {
         Leaderboard.GetEntries(_leaderBoardName, (result) =>
@@ -65,20 +60,27 @@ public class LeaderboardScreen : MonoBehaviour
             }
         });
     }
-    */
 
-    private void ShowAllUsers(List<User> users)
+    private void ShowCurrentUser()
     {
-        foreach (var user in users)
+        Leaderboard.GetPlayerEntry(_leaderBoardName, (result) =>
         {
-            var view = Instantiate(_template, _container.transform);
-            view.Render(user.Rank, user.Name, user.Score);
-        }
-    }
+            if (result != null)
+            {
+                var view = Instantiate(_template, _container.transform);
+                string name = result.player.publicName;
 
-    private void ShowCurrentUser(User user)
-    {
-        _user.Render(user.Rank, user.Name, user.Score);
+                if (string.IsNullOrEmpty(name))
+                    name = _anonymous;
+
+                if(result.score >0)
+                {
+                    view.Render(result.rank, name, result.score);
+                }
+                
+                _user.Render(result.rank, name, result.score);
+            }
+        });
     }
 
     private void ClearChildren(Transform transform)
