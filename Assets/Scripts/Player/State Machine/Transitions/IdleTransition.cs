@@ -8,9 +8,16 @@ public class IdleTransition : Transitions
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _warriorMoveState.TargetPosition.position) <= 0.4f)
+        if (_warriorMoveState == null)
         {
             NeedTransit = true;
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, _warriorMoveState.TargetPosition.position) <= 0.4f)
+            {
+                NeedTransit = true;
+            }
         }
     }
 }
