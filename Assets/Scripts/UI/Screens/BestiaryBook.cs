@@ -12,6 +12,7 @@ public class BestiaryBook : MonoBehaviour
     [Header("UI Enemy Parametrs")]
     [SerializeField] private Image _enemyDefaultSprite;
     [SerializeField] private TMP_Text _enemyDefaultName;
+    [SerializeField] private TMP_Text _enemyDescription;
     [SerializeField] private TMP_Text _enemyHealthText;
     [SerializeField] private TMP_Text _enemyDamageText;
     [SerializeField] private TMP_Text _enemyRewardText;
@@ -41,10 +42,11 @@ public class BestiaryBook : MonoBehaviour
         }
     }
 
-    public void ChoosEnemy(Sprite enemySprite,TMP_Text enemyName, int health, int damage, float speed, int reward)
+    public void ChoosEnemy(Sprite enemySprite,TMP_Text enemyName, TMP_Text description, int health, int damage, float speed, int reward)
     {
         _enemyDefaultSprite.sprite = enemySprite;
         _enemyDefaultName.text = enemyName.text;
+        _enemyDescription.text = description.text;
         _enemyHealthText.text = health.ToString();
         _enemyDamageText.text = damage.ToString();
         _enemyRewardText.text = reward.ToString();
