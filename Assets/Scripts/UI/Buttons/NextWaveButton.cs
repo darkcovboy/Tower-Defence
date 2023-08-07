@@ -10,6 +10,7 @@ public class NextWaveButton : AbstractButton
     protected override void OnButtonClick()
     {
         _moneyCounter.AddMoney(15);
+        AudioSource.Play();
         _timerToSpawnNextWave.ResetTimer();
     }
 }

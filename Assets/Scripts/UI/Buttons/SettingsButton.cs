@@ -18,6 +18,7 @@ public class SettingsButton : AbstractButton
     {
         _cameraRotate.ChangeDirection();
         AudioSource.Play();
+
         foreach (var screen in _screenPanels)
         {
             screen.gameObject.SetActive(false);

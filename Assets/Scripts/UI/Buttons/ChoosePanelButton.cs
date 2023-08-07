@@ -12,6 +12,7 @@ public class ChoosePanelButton : AbstractButton
     {
         _cameraRotate = FindObjectOfType<CameraRotate>();
     }
+
     protected override void OnButtonClick()
     {
         _cameraRotate.ChangeDirection();

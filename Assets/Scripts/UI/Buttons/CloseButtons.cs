@@ -19,8 +19,9 @@ public class CloseButtons : AbstractButton
 
     IEnumerator CloseScreen()
     {
+        var waitForSeconds = new WaitForSeconds(0.3f);
         AudioSource.Play();
-        yield return new WaitForSeconds(0.3f);
+        yield return waitForSeconds;
         _leaderboardScreen.gameObject.SetActive(false);
     }
 }

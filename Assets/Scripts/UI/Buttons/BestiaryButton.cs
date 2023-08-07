@@ -12,6 +12,7 @@ public class BestiaryButton : AbstractButton
     {
         _cameraRotate.ChangeDirection();
         AudioSource.Play();
+
         foreach (var screen in _screenPanels)
         {
             screen.gameObject.SetActive(false);
