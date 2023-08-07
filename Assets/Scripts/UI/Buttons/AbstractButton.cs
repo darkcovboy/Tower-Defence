@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public abstract class AbstractButton : MonoBehaviour
 {
+    [SerializeField] protected AudioSource AudioSource;
+
     protected SceneFader _sceneFader;
     protected Button ButtonComponent;
 

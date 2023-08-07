@@ -31,6 +31,5 @@ public class AttackState : State
     {
         _enemyAnimations.AttackAnimation(true);
         target.ApplyDamage(_enemy.Damage);
-        _enemy.TakeDamage(10);
     }
 }
