@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChoosePanelButton : AbstractButton
 {
-    //[SerializeField] private LevelSelectPanel _levelSelectPanel;
     [SerializeField] private GameObject[] _screenPanels;
     [SerializeField] private int _numberButton;
     private CameraRotate _cameraRotate;

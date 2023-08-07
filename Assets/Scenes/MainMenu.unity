@@ -14309,6 +14309,7 @@ GameObject:
   - component: {fileID: 9062055410713943127}
   - component: {fileID: 9062055410713943128}
   - component: {fileID: 9062055410713943129}
+  - component: {fileID: 9062055410713943130}
   m_Layer: 5
   m_Name: BestiaryButton
   m_TagString: Untagged
@@ -14426,7 +14427,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9062055410713943120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8447190bce6a8b744a9a05245a9de9e7, type: 3}
   m_Name: 
@@ -14555,6 +14556,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9062055410713943130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062055410713943120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b14a23adec4974fb51f8b404000999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource: {fileID: 9062055410713943129}
+  _screenPanels:
+  - {fileID: 590486205}
+  - {fileID: 1304784844}
+  - {fileID: 1653544408}
+  - {fileID: 9062055411016056299}
+  _numberButton: 3
 --- !u!224 &9062055411016056298 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 642367728597751240, guid: 4e3b1df24d992d544aa891ef848bb772, type: 3}
