@@ -8,6 +8,7 @@ public class LeaderboardButton : AbstractButton
 
     protected override void OnButtonClick()
     {
+        AudioSource.Play();
         _leaderboardScreen.gameObject.SetActive(true);
     }
 }

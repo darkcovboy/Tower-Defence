@@ -44,9 +44,11 @@ public class VictoryScreen : Screen
 
     IEnumerator ShowStars()
     {
+        var waitForSeconds = new WaitForSeconds(1f);
+
         for (int i = 0; i < _countStars; i++)
         {
-            yield return new WaitForSeconds(1);
+            yield return waitForSeconds;
             _stars[i].gameObject.SetActive(true);
             _stars[i].PlayAnimation(); 
         }

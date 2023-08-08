@@ -23,5 +23,6 @@ public class LevelSelect : MonoBehaviour
     {
         //_sceneFader.FadeTo(levelName);
         _loadingScene.LoadScene(levelName);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }

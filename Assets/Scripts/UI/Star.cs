@@ -5,8 +5,6 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
    [SerializeField] private Animator _animator;
-    //[SerializeField] private AudioSource _audioSource;
-    //[SerializeField] private AudioClip _audioClip;
 
     private void Start()
     {
@@ -16,10 +14,6 @@ public class Star : MonoBehaviour
     public void PlayAnimation()
     {
         _animator.SetBool("Star", true);
+        gameObject.GetComponent<AudioSource>().Play();
     }
-
-    //public void PlayAudio()
-    //{
-    //    _audioSource.PlayOneShot(_audioClip);
-    //}
 }

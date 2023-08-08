@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class TargetDieTransition : Transitions
 {
-    private void Update()
+    [SerializeField] private Player _player;
+
+    private void Awake()
     {
-        if (Target.gameObject.activeSelf == false)
-        {
-            NeedTransit = true;
-        }
+        _player = FindObjectOfType<Player>();
     }
+
+    private void OnEnable()
+    {
+        _player.Dying += TargetDie;
+    }
+
+    private void OnDisable()
+    {
+        _player.Dying -= TargetDie;
+    }
+
+    private void TargetDie()
+    {
+        NeedTransit = true;
+    }
+
+    //private void Update()
+    //{
+    //    if (Target.gameObject.activeSelf == false)
+    //    {
+    //        NeedTransit = true;
+    //    }
+    //}
 }

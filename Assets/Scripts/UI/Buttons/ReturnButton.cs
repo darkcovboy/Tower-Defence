@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ReturnButton : AbstractButton
 {
-    [SerializeField] private GameObject[] _screens;
-
     private CameraRotate _cameraRotate;
 
     private void Start()
@@ -15,11 +13,7 @@ public class ReturnButton : AbstractButton
 
     protected override void OnButtonClick()
     {
+        AudioSource.Play();
         _cameraRotate.ReturnCameraDefault();
-
-        foreach (var screen in _screens)
-        {
-            screen.SetActive(false);
-        }
     }
 }

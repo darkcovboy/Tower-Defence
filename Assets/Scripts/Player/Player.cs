@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        gameObject.Deactivate();
+        //gameObject.Deactivate();
         Dying.Invoke();
     }
 }
