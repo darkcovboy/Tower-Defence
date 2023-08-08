@@ -40,6 +40,7 @@ public class DieState : State
 
     IEnumerator Die()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         var WaitForSeconds = new WaitForSeconds(3f);
         yield return WaitForSeconds;
         gameObject.SetActive(false);
