@@ -24,6 +24,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private SpellButton[] _spellButtons;
     [SerializeField] private LeaderboardScreen _leaderboardScreen;
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private PauseScreen _pauseScreen;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
     [SerializeField] private SaveManager _saveManager;
@@ -46,6 +47,7 @@ public class Bootstrap : MonoBehaviour
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
         _saveManager.Init(_audioManager);
+        _pauseScreen.Init(_objectManagerUI);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
         MaxLevel.Set(_levelConfig.MaxLevelArcher,_levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage,_levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();

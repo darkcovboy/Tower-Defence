@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class PauseScreen : Screen
 {
+    private ObjectManagerUI _objectManagerUI;
+
+    public void Init(ObjectManagerUI objectManagerUI)
+    {
+        _objectManagerUI = objectManagerUI;
+    }
+
     public override void OpenScreen()
     {
         Time.timeScale = 0;
+        _objectManagerUI.CloseUI();
         base.OpenScreen();
     }
 
