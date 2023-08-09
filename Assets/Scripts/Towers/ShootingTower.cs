@@ -48,7 +48,6 @@ public class ShootingTower : Tower
             return;
         }
 
-        Debug.Log(_watchers[Level]);
         _watchers[Level].transform.LookAt(Target);
         _watchers[Level].transform.rotation = Quaternion.Euler(0f, _watchers[Level].transform.localEulerAngles.y, 0f);
     }

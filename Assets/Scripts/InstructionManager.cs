@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class InstructionManager : MonoBehaviour
 {
+    [SerializeField] private SceneFader _sceneFader;
+
     private readonly float _offTime = 0f;
     private readonly float _standartTime = 1f;
 
     private void OnEnable()
     {
-        Time.timeScale = _offTime;
+        _sceneFader.FadeInCompleted += StopGame;
+    }
+
+    private void OnDisable()
+    {
+        _sceneFader.FadeInCompleted -= StopGame;
     }
 
     public void StartGame()
     {
         Time.timeScale = _standartTime;
+    }
+
+    private void StopGame()
+    {
+        Time.timeScale = _offTime;
     }
 }

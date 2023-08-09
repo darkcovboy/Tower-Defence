@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SceneFader : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] private AnimationCurve _curve;
+
+    public event UnityAction FadeInCompleted;
 
     private void Start()
     {
@@ -31,6 +34,8 @@ public class SceneFader : MonoBehaviour
             _image.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
+
+        FadeInCompleted?.Invoke();
     }
 
     IEnumerator FadeOut(string scene)
