@@ -21,6 +21,6 @@ public class RestartSceneButton : AbstractButton
     {
         Time.timeScale = 1;
         AudioSource.Play();
-        _sceneFader.FadeTo(_currentScene);
+        SceneFader.FadeTo(_currentScene);
     }
 }

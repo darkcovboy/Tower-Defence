@@ -9,7 +9,7 @@ public class Warrior : MonoBehaviour
     [SerializeField] private int _damage;
 
     private Enemy _enemy; 
-    [SerializeField]private int _currentHealth;
+    private int _currentHealth;
     private bool _die = false;
     private BarracksTower _barracksTower;
     private Transform _target;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38407657, g: 0.49610692, b: 0.56370986, a: 1}
+  m_IndirectSpecularColor: {r: 0.38407698, g: 0.49610758, b: 0.563711, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -36617,6 +36617,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 710168059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1990336983 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6412156777604637157, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
+  m_PrefabInstance: {fileID: 400888927}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb1189fccabdfd448d9f957a0eea0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1990526065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39631,7 +39642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1865530468012405239, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1878501489987823052, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_text
@@ -39692,6 +39703,34 @@ PrefabInstance:
     - target: {fileID: 3790603645501400322, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_text
       value: There are 4 basic types of towers.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1990336983}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InstructionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4012366649899398430, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_IsActive
@@ -39887,7 +39926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9048315949344829343, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d3318602d1e3344a80094cc217306a, type: 3}

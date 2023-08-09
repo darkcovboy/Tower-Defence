@@ -7,13 +7,13 @@ public abstract class AbstractButton : MonoBehaviour
 {
     [SerializeField] protected AudioSource AudioSource;
 
-    protected SceneFader _sceneFader;
+    protected SceneFader SceneFader;
     protected Button ButtonComponent;
 
     private void Awake()
     {
         ButtonComponent = GetComponent<Button>();
-        _sceneFader = FindObjectOfType<SceneFader>();
+        SceneFader = FindObjectOfType<SceneFader>();
     }
 
     private void OnEnable()

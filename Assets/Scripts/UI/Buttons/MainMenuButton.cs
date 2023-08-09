@@ -9,13 +9,13 @@ public class MainMenuButton : AbstractButton
 
     private void Start()
     {
-        _sceneFader = FindObjectOfType<SceneFader>();
+        SceneFader = FindObjectOfType<SceneFader>();
     }
 
     protected override void OnButtonClick()
     {
         Time.timeScale = 1;
         AudioSource.Play();
-        _sceneFader.FadeTo(_mainMenu);
+        SceneFader.FadeTo(_mainMenu);
     }
 }

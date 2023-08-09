@@ -12,6 +12,8 @@ public class DieState : State
     private EnemyAnimations _enemyAnimations;
     private Coroutine _coroutine;
 
+    private readonly WaitForSeconds _waitSeconds = new WaitForSeconds(3f);
+
     private void Awake()
     {
         _enemyAnimations = GetComponent<EnemyAnimations>();
@@ -26,6 +28,7 @@ public class DieState : State
         {
             StopCoroutine(_coroutine);
         }
+
         _coroutine = StartCoroutine(Die());
     }
 
@@ -35,15 +38,19 @@ public class DieState : State
         {
             StopCoroutine(_coroutine);
         }
+
         _enemyAnimations.DeathAnimation(false);
     }
 
     IEnumerator Die()
     {
-        gameObject.GetComponent<AudioSource>().Play();
-        var WaitForSeconds = new WaitForSeconds(3f);
-        yield return WaitForSeconds;
-        gameObject.SetActive(false);
+        if(TryGetComponent<AudioSource>(out AudioSource audioSource))
+        {
+            audioSource.Play();
+        }
+
+        yield return _waitSeconds;
+        gameObject.Deactivate();
     }
 }
 

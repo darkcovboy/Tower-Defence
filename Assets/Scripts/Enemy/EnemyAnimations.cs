@@ -7,9 +7,9 @@ public class EnemyAnimations : MonoBehaviour
 {
     private Animator _animator;
 
-    const string Attack = "Attack";
-    const string Death = "Death";
-    const string Celebration = "Celebration";
+    private const string _attack = "Attack";
+    private const string _death = "Death";
+    private const string _celebration = "Celebration";
 
     private void Start()
     {
@@ -18,16 +18,16 @@ public class EnemyAnimations : MonoBehaviour
 
     public void AttackAnimation(bool flag)
     {
-        _animator.SetBool(Attack, flag);
+        _animator.SetBool(_attack, flag);
     }
 
     public void DeathAnimation(bool flag)
     {
-        _animator.SetBool(Death, flag);
+        _animator.SetBool(_death, flag);
     }
 
     public void CelebrationAnimation(bool flag)
     {
-        _animator.SetBool(Celebration, flag);
+        _animator.SetBool(_celebration, flag);
     }
 }
