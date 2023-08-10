@@ -39,7 +39,6 @@ public class Spawner : MonoBehaviour
     {
         if (_allEnemySpawn == false)
         {
-
             if (_currentWave == null || _currentWave.wavesSettings == null)
             {
                 for (int i = 0; i < _enemyLiev.Count; i++)
