@@ -15,13 +15,14 @@ public class Spawner : MonoBehaviour
     private float _timeAfterlastSpawn;
     private int _spawned;
     private int _currentEnemyIndex;
-    private List<Enemy> _enemyLiev = new List<Enemy>();
     private bool _checkTimerWaveSpawn = false;
     private int _maxWaveCount;
     private MoneyCounter _moneyCounter;
     private bool _allEnemySpawn = false;
+    private WaitForSeconds _waitForSeconds = new WaitForSeconds(3f);
+    private Coroutine _coroutine;
 
-    public List<Enemy> EnemyLiev => _enemyLiev;
+    private int _enemyCount = 0;
     public int EnemySpawnCount { get; private set; }
     public int CurrentWaveNumber { get; private set; } = 0;
 
@@ -39,24 +40,9 @@ public class Spawner : MonoBehaviour
     {
         if (_allEnemySpawn == false)
         {
-
             if (_currentWave == null || _currentWave.wavesSettings == null)
             {
-                for (int i = 0; i < _enemyLiev.Count; i++)
-                {
-                    if (_enemyLiev[i].gameObject.activeSelf == false)
-                    {
-                        _enemyLiev.Remove(_enemyLiev[i]);
-                    }
-                }
-
-                if (_enemyLiev.Count == 0)
-                {
-                _allEnemySpawn = true;
-                AllEnemysDied?.Invoke();
-                }
-                else
-                    return;
+                return;
             }
 
             _timeAfterlastSpawn += Time.deltaTime;
@@ -81,7 +67,6 @@ public class Spawner : MonoBehaviour
                     AllEnemysSpawned?.Invoke();
                     _checkTimerWaveSpawn = true;
                 }
-
                 else
                 {
                     _currentWave = null;
@@ -103,7 +88,7 @@ public class Spawner : MonoBehaviour
         enemy.Init(_player, _warrior);
         enemy.Dying += OnEnemyDying;
         enemy.GetIndexToArray(indexArray);
-        _enemyLiev.Add(enemy);
+        _enemyCount++;
     }
 
     private void SetWave(int index)
@@ -117,6 +102,21 @@ public class Spawner : MonoBehaviour
     {
         enemy.Dying -= OnEnemyDying;
         _moneyCounter.AddMoney(enemy.Reward);
+        _enemyCount--;
+
+        if (CurrentWaveNumber == _waves.Length - 1)
+        {
+            if (_enemyCount <= 0)
+            {
+                if (_coroutine != null)
+                {
+                    StopCoroutine(_coroutine);
+                }
+                _coroutine = StartCoroutine(AllEnemysDying());
+            }
+            else
+                return;
+        }
     }
 
     public void NextWaves()
@@ -125,6 +125,18 @@ public class Spawner : MonoBehaviour
         _spawned = 0;
         _currentEnemyIndex = 0;
         _checkTimerWaveSpawn = false;
+    }
+
+    public void DecrementEnemy()
+    {
+        _enemyCount--;
+    }
+
+    IEnumerator AllEnemysDying()
+    {
+        yield return _waitForSeconds;
+        _allEnemySpawn = true;
+        AllEnemysDied?.Invoke();
     }
 }
 
