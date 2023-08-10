@@ -6,19 +6,14 @@ using UnityEngine.UI;
 
 public class EnemyChooseButton : AbstractButton
 {
-    [SerializeField] private BestiaryBook _bestiaryBook; 
+    [SerializeField] private EnemyConfig _enemyConfig;
+    [SerializeField] private EnemyPanelInfo _enemyInfo;
     [SerializeField] private Sprite _enemySprite;
-    [SerializeField]private TMP_Text _enemyName;
-    [SerializeField]private TMP_Text _description;
-    [SerializeField] private int _enemyHealth;
-    [SerializeField] private int _enemyDamage;
-    [SerializeField] private int _enemyReward;
-    [SerializeField] private float _enemySpeed;
-    //[SerializeField] private Image _imageFrame;
+    [SerializeField] private TMP_Text _enemyName;
+    [SerializeField] private TMP_Text _description;
 
     protected override void OnButtonClick()
     {
-        _bestiaryBook.ChoosEnemy(_enemySprite, _enemyName,_description, _enemyHealth, _enemyDamage,_enemySpeed,_enemyReward);
-        //_imageFrame.color = Color.green;
+        _enemyInfo.ChoosEnemy(_enemySprite,_enemyName,_description,_enemyConfig.Health,_enemyConfig.Damage,_enemyConfig.Speed,_enemyConfig.Reward);
     }
 }

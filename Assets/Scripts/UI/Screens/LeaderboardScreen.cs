@@ -73,11 +73,11 @@ public class LeaderboardScreen : MonoBehaviour
                 if (string.IsNullOrEmpty(name))
                     name = _anonymous;
 
-                if(result.score >0)
+                if (result.score > 0)
                 {
                     view.Render(result.rank, name, result.score);
                 }
-                
+
                 _user.Render(result.rank, name, result.score);
             }
         });
