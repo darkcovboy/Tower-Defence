@@ -5665,6 +5665,7 @@ GameObject:
   - component: {fileID: 7315305967021803854}
   - component: {fileID: 7315305967021803844}
   - component: {fileID: 2650674523239690701}
+  - component: {fileID: 5896311374310293311}
   m_Layer: 0
   m_Name: CanonTower
   m_TagString: Untagged
@@ -5738,6 +5739,9 @@ MonoBehaviour:
   - {fileID: 7315305967044582051}
   - {fileID: 7315305967553096266}
   _watchers: []
+  _audioData:
+    _id: 8db10b46-1eaa-4ebc-8b28-b99da3a81ecf
+    _key: Canon
 --- !u!82 &2650674523239690701
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5834,6 +5838,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5896311374310293311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315305967021803851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &7315305967044582060
 GameObject:
   m_ObjectHideFlags: 0

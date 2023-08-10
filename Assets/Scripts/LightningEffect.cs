@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(LineRenderer))]
 public class LightningEffect : MonoBehaviour
@@ -76,6 +77,8 @@ public class LightningEffect : MonoBehaviour
             {
                 if (_enemies[j].CurrentHealth > 0)
                     _enemies[j].TakeDamage(_damage, _damageType);
+                else
+                    _lightningPoints.Remove(_lightningPoints.Single(point => point.GetComponent<Enemy>().CurrentHealth < 0));
             }
 
             yield return new WaitForSeconds(1f);

@@ -15293,6 +15293,7 @@ GameObject:
   - component: {fileID: 1478090191294688957}
   - component: {fileID: 3855794694228090086}
   - component: {fileID: 5978948543903301293}
+  - component: {fileID: 7025000813417118917}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Untagged
@@ -15476,6 +15477,9 @@ MonoBehaviour:
   _transitions: []
   _dieEffect: {fileID: 7712607128273136674, guid: 3260716cac071f244b9bfd50f4da7341, type: 3}
   _praticle: {fileID: 6766896628977295392}
+  _key:
+    _id: be74447b-57f9-410b-9758-921cc761e702
+    _key: OgreDying
 --- !u!114 &6594144060778193682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15660,6 +15664,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7025000813417118917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574629410957671925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &3715828687278289454
 GameObject:
   m_ObjectHideFlags: 0

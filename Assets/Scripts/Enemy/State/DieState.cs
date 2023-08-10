@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Plugins.Audio.Core;
+using Plugins.Audio.Utils;
 
 [RequireComponent(typeof(Animator))]
 public class DieState : State
 {
     [SerializeField] private ParticleSystem _dieEffect;
     [SerializeField] private GameObject _praticle;
+    [SerializeField] private AudioDataProperty _key;
 
     private EnemyAnimations _enemyAnimations;
     private Coroutine _coroutine;
@@ -44,9 +47,9 @@ public class DieState : State
 
     IEnumerator Die()
     {
-        if(TryGetComponent<AudioSource>(out AudioSource audioSource))
+        if(TryGetComponent<SourceAudio>(out SourceAudio audioSource))
         {
-            audioSource.Play();
+            audioSource.Play(_key.Key);
         }
 
         yield return _waitSeconds;

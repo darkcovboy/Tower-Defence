@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 5963125146244094708}
   - component: {fileID: 5963125146244094709}
   - component: {fileID: 6257376671571146944}
+  - component: {fileID: 3002200253644238561}
   m_Layer: 0
   m_Name: FireMageTower
   m_TagString: Untagged
@@ -325,6 +326,9 @@ MonoBehaviour:
   - {fileID: 5964407954219345587}
   - {fileID: 5964381097395642277}
   - {fileID: 5964784879205716964}
+  _audioData:
+    _id: 304c6915-3128-4a57-9211-3ef4913e36e7
+    _key: FireMage
 --- !u!82 &6257376671571146944
 AudioSource:
   m_ObjectHideFlags: 0
@@ -421,6 +425,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3002200253644238561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963125146244094707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &5963485570757367943
 GameObject:
   m_ObjectHideFlags: 0

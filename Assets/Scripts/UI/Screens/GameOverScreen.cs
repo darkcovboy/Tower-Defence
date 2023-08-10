@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Plugins.Audio.Core;
+using Plugins.Audio.Utils;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameOverScreen : Screen
 {
     [SerializeField] private Player _player;
     [SerializeField] private GameObject _gameOverScreen;
+    [SerializeField] private AudioDataProperty _audioData;
 
     private void OnEnable()
     {
@@ -22,6 +25,6 @@ public class GameOverScreen : Screen
     public override void OpenScreen()
     {
         _gameOverScreen.SetActive(true);
-        gameObject.GetComponent<AudioSource>().Play();
+        gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
     }
 }
