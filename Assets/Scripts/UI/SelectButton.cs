@@ -25,13 +25,13 @@ public class SelectButton : MonoBehaviour
         switch (_tower.TowerType)
         {
             case TowerType.IceMage:
-                _lockImage.gameObject.SetActive(!MaxLevel.IsIceOpened);
+                _lockImage.gameObject.SetActive(!TowerUnlockSettings.IsIceOpened);
                 break;
             case TowerType.FireMage:
-                _lockImage.gameObject.SetActive(!MaxLevel.IsFireOpened);
+                _lockImage.gameObject.SetActive(!TowerUnlockSettings.IsFireOpened);
                 break;
             case TowerType.LightningMage:
-                _lockImage.gameObject.SetActive(!MaxLevel.IsLightningOpened);
+                _lockImage.gameObject.SetActive(!TowerUnlockSettings.IsLightningOpened);
                 break;
             default:
                 break;

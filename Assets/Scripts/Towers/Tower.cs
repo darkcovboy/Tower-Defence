@@ -40,32 +40,32 @@ public class Tower : MonoBehaviour
         {
             case (TowerType.Archer):
             {
-                _maxLevel = MaxLevel.MaxLevelArcher;
+                _maxLevel = TowerUnlockSettings.MaxLevelArcher;
                 break;
             }
             case (TowerType.Barracks):
             {
-                _maxLevel = MaxLevel.MaxLevelBarracks;
+                _maxLevel = TowerUnlockSettings.MaxLevelBarracks;
                 break;
             }
             case (TowerType.Canon):
             {
-                _maxLevel = MaxLevel.MaxLevelCanon;
+                _maxLevel = TowerUnlockSettings.MaxLevelCanon;
                 break;
             }
             case (TowerType.FireMage):
             {
-                _maxLevel = MaxLevel.MaxLevelFireMage;
+                _maxLevel = TowerUnlockSettings.MaxLevelFireMage;
                 break;
             }
             case (TowerType.IceMage):
             {
-                _maxLevel = MaxLevel.MaxLevelIceMage;
+                _maxLevel = TowerUnlockSettings.MaxLevelIceMage;
                 break;
             }
             case (TowerType.LightningMage):
             {
-                _maxLevel = MaxLevel.MaxLevelLightningMage;
+                _maxLevel = TowerUnlockSettings.MaxLevelLightningMage;
                 break;
             }
         }
