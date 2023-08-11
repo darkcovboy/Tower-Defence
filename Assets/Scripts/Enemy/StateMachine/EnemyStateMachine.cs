@@ -34,6 +34,7 @@ public class EnemyStateMachine : MonoBehaviour
 
         if (nextState != null)
         {
+            Debug.Log("переход "+ nextState.name);
             Transit(nextState);
         }
 
@@ -52,6 +53,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (_currentState != null)
         {
             _currentState.Exit();
+            Debug.Log("Exit");
         }
 
             _currentState = nextState;
@@ -59,6 +61,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (_currentState != null)
         {
             _currentState.Enter(_target);
+            Debug.Log("Enter");
         }
     }
 }
