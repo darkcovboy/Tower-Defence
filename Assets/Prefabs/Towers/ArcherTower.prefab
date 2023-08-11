@@ -1691,6 +1691,7 @@ GameObject:
   - component: {fileID: 2471598225845079193}
   - component: {fileID: 2471598225845079192}
   - component: {fileID: 1086236686890512787}
+  - component: {fileID: 1714073673826707536}
   m_Layer: 0
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -1765,6 +1766,9 @@ MonoBehaviour:
   - {fileID: 8680302606215552273}
   - {fileID: 414153028057336271}
   - {fileID: 0}
+  _audioData:
+    _id: 74a06e56-f843-403d-90c4-fe21be31ab73
+    _key: ArcherTower
 --- !u!82 &1086236686890512787
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1861,6 +1865,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1714073673826707536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471598225845079271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1001 &1272316705722049088
 PrefabInstance:
   m_ObjectHideFlags: 0

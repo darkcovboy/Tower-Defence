@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 4607974447257785926}
   - component: {fileID: 7885695700878053100}
   - component: {fileID: 1832158028140532926}
+  - component: {fileID: 4409342440622352165}
   m_Layer: 0
   m_Name: LightningTower
   m_TagString: Untagged
@@ -410,6 +411,9 @@ MonoBehaviour:
   - {fileID: 4608945552220400129}
   - {fileID: 4608919511421604631}
   - {fileID: 7169271954053004920}
+  _audioData:
+    _id: 90faccaa-408f-47c3-a203-b7cc301fa7b0
+    _key: LightningMage
   _lightningEffect: {fileID: 3675109174795182893}
 --- !u!82 &1832158028140532926
 AudioSource:
@@ -507,6 +511,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4409342440622352165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607974447257785921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &4608828861643673053
 GameObject:
   m_ObjectHideFlags: 0
