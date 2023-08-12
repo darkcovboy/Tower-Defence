@@ -46,6 +46,8 @@ public class Bootstrap : MonoBehaviour
         _adButtonHealth.Init(_rewardedAd, _gameOverScreen);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
+        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>());
+        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>());
         _saveManager.Init(_audioManager);
         _pauseScreen.Init(_objectManagerUI);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);

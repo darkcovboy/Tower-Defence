@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Plugins.Audio.Core;
+using Plugins.Audio.Utils;
 
 public abstract class Screen : MonoBehaviour
 {
@@ -10,11 +12,11 @@ public abstract class Screen : MonoBehaviour
 
     public virtual void OpenScreen()
     {
-        gameObject.SetActive(true);
+        gameObject.Activate();
     }
 
     public virtual void CloseScreen()
     {
-        gameObject.SetActive(false);
+        gameObject.Deactivate();
     }
 }

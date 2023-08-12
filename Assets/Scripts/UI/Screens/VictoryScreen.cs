@@ -10,22 +10,26 @@ using Plugins.Audio.Utils;
 [RequireComponent(typeof(AudioSource))]
 public class VictoryScreen : Screen
 {
-    [SerializeField] private Spawner _spawner;
     [SerializeField] private GameObject _screen;
     [SerializeField] private Star[] _stars;
     [SerializeField] private TextMeshProUGUI _pointsText;
     [SerializeField] private AudioDataProperty _audioData;
 
     private int _countStars;
-
-    private void OnEnable()
-    {
-        _spawner.AllEnemysDied += OpenScreen;
-    }
+    private AudioSource _music;
+    private Spawner _spawner;
 
     private void OnDisable()
     {
         _spawner.AllEnemysDied -= OpenScreen;
+    }
+
+    public void Init(Spawner spawner, AudioSource music)
+    {
+        _spawner = spawner;
+        _music = music;
+        _music.GetComponent<SourceAudio>().Stop();
+        _spawner.AllEnemysDied += OpenScreen;
     }
 
     public override void OpenScreen()
