@@ -28,12 +28,18 @@ public class StopCelebrationTransition : Transitions
         //        //_celebration.enabled = false;
         //        //this.enabled = false;
         //    }
+
+        if(_player != null & _player.CurrentHealth > 0)
+        {
+            Debug.Log("Go");
+            NeedTransit = true;
+        }
     }
 
     public void PlayExtraLive()
     {
         //_enemy.GetComponent<EnemyMoverState>().ResetWaypoint();
         //_enemy.GetComponent<EnemyMoverState>().enabled = true;
-        NeedTransit = true;
+        //NeedTransit = true;
     }
 }

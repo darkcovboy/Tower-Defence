@@ -110,7 +110,7 @@ namespace Plugins.Audio.Core
 
             _loadClip = false;
             
-            Debug.Log("Start play audio: " + key);
+            //Debug.Log("Start play audio: " + key);
         }
 
         public void Play()
