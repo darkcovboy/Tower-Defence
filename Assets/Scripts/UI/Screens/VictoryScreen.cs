@@ -28,13 +28,13 @@ public class VictoryScreen : Screen
     {
         _spawner = spawner;
         _music = music;
-        _music.GetComponent<SourceAudio>().Stop();
         _spawner.AllEnemysDied += OpenScreen;
     }
 
     public override void OpenScreen()
     {
         _screen.SetActive(true);
+        _music.GetComponent<SourceAudio>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
         StartCoroutine(ShowStars());
     }

@@ -1644,6 +1644,7 @@ GameObject:
   - component: {fileID: 51602632}
   - component: {fileID: 51602633}
   - component: {fileID: 51602634}
+  - component: {fileID: 51602635}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1841,6 +1842,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &51602635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51602628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!4 &54759997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5633096736992858280, guid: 7feb492b198d1a348a11d5b7c2a12f38, type: 3}
@@ -36270,17 +36284,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8903058273634951509, guid: f1fc5bb90ac285e4486771552d63bcb8, type: 3}
   m_PrefabInstance: {fileID: 710168059}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1990336983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6412156777604637157, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
-  m_PrefabInstance: {fileID: 400888927}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb1189fccabdfd448d9f957a0eea0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1990526065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39295,7 +39298,7 @@ PrefabInstance:
     - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1990336983}
+      objectReference: {fileID: 0}
     - target: {fileID: 3809893427381873114, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2

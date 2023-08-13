@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TargetDieTransition : Transitions
 {
-    [SerializeField] private Player _player;
+    private Player _player;
     protected override void OnEnable()
     {
         base.OnEnable();
-        _player = Target.GetComponent<Player>();
+        _player = FindObjectOfType<Player>();
     }
 
     private void Update()
