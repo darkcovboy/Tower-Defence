@@ -29,7 +29,6 @@ public class EnemyMoverState : State
     {
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
-        //transform.forward = direction;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _enemy.Speed * Time.deltaTime);
 
@@ -76,12 +75,8 @@ public class EnemyMoverState : State
     private void ChooseWaypoint()
     {
         if (_enemy.Index == 0)
-        {
             _target = _waypoints.Points[0];
-        }
         else
-        {
             _target = _waypoints.Points1[0];
-        }
     }
 }
