@@ -110,7 +110,7 @@ namespace Plugins.Audio.Core
 
             _loadClip = false;
             
-            Debug.Log("Start play audio: " + key);
+            //Debug.Log("Start play audio: " + key);
         }
 
         public void Play()
@@ -127,7 +127,7 @@ namespace Plugins.Audio.Core
                 _isPlaying = true;
                 _lastTime = 0;
 
-                Debug.Log("Start play audio: " + _key);
+                //Debug.Log("Start play audio: " + _key);
             }
             else
             {
@@ -155,7 +155,7 @@ namespace Plugins.Audio.Core
             
             if (_audioSource.time <= 0 && _isPlaying)
             {
-                Debug.Log("Audio Loop: " + _key);
+                //Debug.Log("Audio Loop: " + _key);
 
                 _audioSource.time = 0;
                 _audioSource.Play();
@@ -178,7 +178,7 @@ namespace Plugins.Audio.Core
             if (_isFocus && _isPlaying)
             {
                 _lastTime = _audioSource.time;
-                Debug.Log(_key + "Set Last Time: " + _lastTime);
+                //Debug.Log(_key + "Set Last Time: " + _lastTime);
             }
             
             _isFocus = false;

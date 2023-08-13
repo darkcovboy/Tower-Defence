@@ -11,6 +11,8 @@ public class EnemyMoverState : State
     private Enemy _enemy;
     private Vector3 _startPosition;
 
+    private readonly float _distanceBetweenTarget = 0.4f;
+
     private void Awake()
     {
         _waypoints = FindObjectOfType<Waypoints>();
@@ -31,7 +33,7 @@ public class EnemyMoverState : State
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _enemy.Speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
+        if (Vector3.Distance(transform.position, _target.position) <= _distanceBetweenTarget)
         {
             GetNextWaypoint();
         }
@@ -39,33 +41,26 @@ public class EnemyMoverState : State
 
     private void GetNextWaypoint()
     {
-        var indexArray = Random.Range(0, 2);
-
         if (_wavePointIndex >= _waypoints.Points.Length - 1 || _wavePointIndex >= _waypoints.Points1.Length - 1)
         {
             return;
         }
 
+        bool indexArray = Random.value > 0.5f;
+
         _wavePointIndex++;
 
         if (_enemy.Index == 0)
         {
-            if (indexArray == 0)
-            {
+            if (indexArray)
                 _target = _waypoints.Points[_wavePointIndex];
-
-            }
             else
-            {
                 _target = _waypoints.Points2[_wavePointIndex];
-            }
         }
         else
         {
-            if (indexArray == 0)
-            {
+            if (indexArray)
                 _target = _waypoints.Points1[_wavePointIndex];
-            }
             else
                 _target = _waypoints.Points3[_wavePointIndex];
         }
