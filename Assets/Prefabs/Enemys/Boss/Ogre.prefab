@@ -15294,6 +15294,7 @@ GameObject:
   - component: {fileID: 3855794694228090086}
   - component: {fileID: 5978948543903301293}
   - component: {fileID: 7025000813417118917}
+  - component: {fileID: 2127886227247521000}
   m_Layer: 0
   m_Name: Ogre
   m_TagString: Untagged
@@ -15444,7 +15445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 6594144060778193682}
-  _player: {fileID: 0}
 --- !u!114 &473417760533288069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15492,7 +15492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 2127886227247521000}
 --- !u!54 &5617612418075316329
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15677,6 +15678,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Loop: 0
+--- !u!114 &2127886227247521000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574629410957671925}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1355052223041869972}
+  _enemy: {fileID: 5494646361043477474}
 --- !u!1 &3715828687278289454
 GameObject:
   m_ObjectHideFlags: 0

@@ -10630,6 +10630,7 @@ GameObject:
   - component: {fileID: 1981381198580653550}
   - component: {fileID: -1279369368027893864}
   - component: {fileID: -321503794044557156}
+  - component: {fileID: -5046928133165350498}
   m_Layer: 0
   m_Name: Maw J Laygo
   m_TagString: Untagged
@@ -10793,7 +10794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 8168855150827950009}
-  _player: {fileID: 0}
 --- !u!114 &2317200765126700308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10853,7 +10853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: -5046928133165350498}
 --- !u!114 &6494271100138845664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11013,6 +11014,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Loop: 0
+--- !u!114 &-5046928133165350498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935498950839592760}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2219728496434066859}
+  _enemy: {fileID: 2578987249664074710}
 --- !u!1 &3032043597511160604
 GameObject:
   m_ObjectHideFlags: 0
