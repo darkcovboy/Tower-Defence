@@ -32,4 +32,9 @@ public class AttackState : State
         _enemyAnimations.AttackAnimation(true);
         target.ApplyDamage(_enemy.Damage);
     }
+
+    public void ResetAttackTime()
+    {
+        _lastAttackTime = 0f;
+    }
 }

@@ -10,6 +10,7 @@ public class EnemyAnimations : MonoBehaviour
     private const string _attack = "Attack";
     private const string _death = "Death";
     private const string _celebration = "Celebration";
+    private const string _run = "Run";
 
     private void Start()
     {
@@ -18,7 +19,7 @@ public class EnemyAnimations : MonoBehaviour
 
     public void RunAnimation(bool flag)
     {
-        _animator.SetBool("Run", flag);
+        _animator.SetBool(_run, flag);
     }
 
     public void AttackAnimation(bool flag)

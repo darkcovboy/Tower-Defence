@@ -12,7 +12,6 @@ public class StopCelebrationTransition : Transitions
     {
         base.OnEnable();
         _player = _enemy.Target;
-        //_player = FindObjectOfType<Player>();
     }
 
     private void Update()
@@ -22,6 +21,8 @@ public class StopCelebrationTransition : Transitions
             if (_enemy.Boss == true)
             {
                 _enemy.GetComponent<EnemyMoverState>().ResetWaypoint();
+                _enemy.GetComponent<EnemyAnimations>().AttackAnimation(false);
+                _enemy.GetComponent<AttackState>().ResetAttackTime();
             }
             NeedTransit = true;
         }
