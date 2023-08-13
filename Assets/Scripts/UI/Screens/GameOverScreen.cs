@@ -10,6 +10,7 @@ public class GameOverScreen : Screen
 {
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private AudioDataProperty _audioData;
+    [SerializeField] private AudioDataProperty _musicData;
 
     private Player _player;
     private AudioSource _music;
@@ -25,12 +26,12 @@ public class GameOverScreen : Screen
         _player = player;
         _music = music; 
         _player.Dying += OpenScreen;
-        _music.GetComponent<SourceAudio>().Stop();
     }
 
     public override void OpenScreen()
     {
         _gameOverScreen.SetActive(true);
+        _music.GetComponent<SourceAudio>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
     }
 }
