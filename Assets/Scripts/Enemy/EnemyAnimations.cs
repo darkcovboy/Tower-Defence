@@ -16,6 +16,11 @@ public class EnemyAnimations : MonoBehaviour
         _animator = GetComponent<Animator>();   
     }
 
+    public void RunAnimation(bool flag)
+    {
+        _animator.SetBool("Run", flag);
+    }
+
     public void AttackAnimation(bool flag)
     {
         _animator.SetBool(_attack, flag);

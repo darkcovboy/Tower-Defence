@@ -54,11 +54,6 @@ public class Player : MonoBehaviour
         if (health <= 0)
             throw new ArgumentException();
 
-        Enemy enemy = FindObjectOfType<Enemy>();
-        if (enemy.Boss == true)
-        {
-            enemy.GetComponent<EnemyMoverState>().ResetWaypoint();
-        }
         _currentHealth = health;
         ExtraLive?.Invoke();
         HealthChanged?.Invoke(_currentHealth);

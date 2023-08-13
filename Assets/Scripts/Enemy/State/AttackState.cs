@@ -29,6 +29,7 @@ public class AttackState : State
 
     private void Attack(Player target)
     {
+        Debug.Log("бить");
         _enemyAnimations.AttackAnimation(true);
         target.ApplyDamage(_enemy.Damage);
     }

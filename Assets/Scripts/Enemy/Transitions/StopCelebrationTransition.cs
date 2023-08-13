@@ -11,13 +11,18 @@ public class StopCelebrationTransition : Transitions
     protected override void OnEnable()
     {
         base.OnEnable();
-        _player = FindObjectOfType<Player>();
+        _player = _enemy.Target;
+        //_player = FindObjectOfType<Player>();
     }
 
     private void Update()
     {
         if(_player.CurrentHealth > 0)
         {
+            if (_enemy.Boss == true)
+            {
+                _enemy.GetComponent<EnemyMoverState>().ResetWaypoint();
+            }
             NeedTransit = true;
         }
     }
