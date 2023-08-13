@@ -17,8 +17,7 @@ public abstract class Transitions : MonoBehaviour
     {
         Target = target;
     }
-
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         NeedTransit = false;
     }

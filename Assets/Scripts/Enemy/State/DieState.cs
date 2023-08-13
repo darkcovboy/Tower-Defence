@@ -51,7 +51,6 @@ public class DieState : State
         {
             audioSource.Play(_key.Key);
         }
-
         yield return _waitSeconds;
         gameObject.Deactivate();
     }

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction Dying;
+    public event UnityAction ExtraLive;
 
     private void Start()
     {
@@ -43,7 +44,19 @@ public class Player : MonoBehaviour
         if (health <= 0)
             throw new ArgumentException();
 
+        _currentHealth = 0;
         _currentHealth += health;
+        HealthChanged?.Invoke(_currentHealth);
+    }
+
+    public void AddExtraLive(int health)
+    {
+        if (health <= 0)
+            throw new ArgumentException();
+
+        _currentHealth += health;
+        ExtraLive?.Invoke();
+        HealthChanged?.Invoke(_currentHealth);
     }
 
     public void Die()
