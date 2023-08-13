@@ -19341,6 +19341,7 @@ GameObject:
   - component: {fileID: 6933107881526259553}
   - component: {fileID: -2953612256788890889}
   - component: {fileID: -3385577177556042154}
+  - component: {fileID: 2432172201557844734}
   m_Layer: 0
   m_Name: One Eyed Bat Red
   m_TagString: Untagged
@@ -19482,6 +19483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 3852339220533645137}
+  - {fileID: 2816418020667470381}
+  - {fileID: 6176833538539605015}
+  - {fileID: 948269633582157927}
   _waypoints: {fileID: 0}
 --- !u!114 &2816418020667470381
 MonoBehaviour:
@@ -19539,7 +19543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 6525261822382404965}
-  _player: {fileID: 0}
 --- !u!114 &46612026039244415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19731,8 +19734,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 908236130096399524}
-  _player: {fileID: 0}
   _enemy: {fileID: 8503775547859378894}
+--- !u!114 &2432172201557844734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366748930622090358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &3366873992500103090
 GameObject:
   m_ObjectHideFlags: 0

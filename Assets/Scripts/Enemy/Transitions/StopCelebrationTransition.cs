@@ -7,6 +7,7 @@ public class StopCelebrationTransition : Transitions
     [SerializeField] private Enemy _enemy;
 
     private Player _player;
+
     protected override void OnEnable()
     {
         base.OnEnable();

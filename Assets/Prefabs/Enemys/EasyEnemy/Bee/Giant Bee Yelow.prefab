@@ -22222,6 +22222,8 @@ GameObject:
   - component: {fileID: 3530942416452637625}
   - component: {fileID: 5245923453774851245}
   - component: {fileID: 5941343829429644960}
+  - component: {fileID: 534229851386923995}
+  - component: {fileID: 4622048390613898089}
   m_Layer: 0
   m_Name: Giant Bee Yelow
   m_TagString: Untagged
@@ -22467,7 +22469,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3530942416452637625}
-  _player: {fileID: 0}
 --- !u!114 &3170360162808719737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22533,7 +22534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 4622048390613898089}
 --- !u!114 &5245923453774851245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22645,6 +22647,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &534229851386923995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526150571148466209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &4622048390613898089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526150571148466209}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 7570914306033912807}
+  _enemy: {fileID: 2537228256462622390}
 --- !u!1 &2526156035987039157
 GameObject:
   m_ObjectHideFlags: 0

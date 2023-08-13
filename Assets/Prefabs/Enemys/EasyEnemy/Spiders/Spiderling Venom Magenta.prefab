@@ -21434,6 +21434,8 @@ GameObject:
   - component: {fileID: 8192824530203181560}
   - component: {fileID: 1778985390687584076}
   - component: {fileID: -3950259703342986887}
+  - component: {fileID: 4961890374259468156}
+  - component: {fileID: -3279700222642514364}
   m_Layer: 0
   m_Name: Spiderling Venom Magenta
   m_TagString: Untagged
@@ -21601,7 +21603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 4961890374259468156}
 --- !u!114 &5883517596113427187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21662,7 +21665,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 714695509668652048}
-  _player: {fileID: 0}
 --- !u!114 &4260692428019019195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21820,6 +21822,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4961890374259468156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542439040295632887}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 5759072475233732468}
+  _enemy: {fileID: 1778985390687584076}
+--- !u!114 &-3279700222642514364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542439040295632887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
 --- !u!1 &7634703433756527199
 GameObject:
   m_ObjectHideFlags: 0

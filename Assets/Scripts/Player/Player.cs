@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        //gameObject.Deactivate();
         Dying.Invoke();
     }
 }
