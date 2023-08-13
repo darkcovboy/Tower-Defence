@@ -15,10 +15,10 @@ public class Buttonnn : AbstractButton
 
     protected override void OnButtonClick()
     {
-        for (int i = 0; i < _spawner.EnemyLiev.Count; i++)
-        {
-            Enemy enemy = _spawner.EnemyLiev[i].GetComponent<Enemy>();
-            enemy.RollBack();
-        }
+        //for (int i = 0; i < _spawner.EnemyLiev.Count; i++)
+        //{
+        //    Enemy enemy = _spawner.EnemyLiev[i].GetComponent<Enemy>();
+        //    enemy.RollBack();
+        //}
     }
 }

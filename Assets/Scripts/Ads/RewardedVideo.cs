@@ -26,23 +26,21 @@ public class RewardedVideo : MonoBehaviour
         _moneyCounter = moneyCounter;
         _money = adMoney;
         _player = player;
-        _adHealth = adMoney;
+        _adHealth = adHealth;
         _spawner = spawner;
+        transform.position = _player.transform.position;
     }
 
     public void Show(ShowType showType)
     {
-        if(YandexGamesSdk.IsInitialized)
+        switch (showType)
         {
-            switch(showType)
-            {
-                case ShowType.Money:
-                    VideoAd.Show(OnOpen, OnRewardedMoney, OnClose);
-                    break;
-                case ShowType.Health:
-                    VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
-                    break;
-            }
+            case ShowType.Money:
+                VideoAd.Show(OnOpen, OnRewardedMoney, OnClose);
+                break;
+            case ShowType.Health:
+                VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
+                break;
         }
     }
 
@@ -82,7 +80,6 @@ public class RewardedVideo : MonoBehaviour
                             break;
                         }
                 }
-                
             }
         }
 

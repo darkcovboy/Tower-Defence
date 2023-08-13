@@ -54,7 +54,7 @@ public class EnemyStateMachine : MonoBehaviour
             _currentState.Exit();
         }
 
-            _currentState = nextState;
+        _currentState = nextState;
 
         if (_currentState != null)
         {
