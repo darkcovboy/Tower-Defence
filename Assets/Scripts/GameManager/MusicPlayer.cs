@@ -13,4 +13,14 @@ public class MusicPlayer : MonoBehaviour
     {
         _sourceAudio.Play(dataProperty.Key);
     }
+
+    public void Play()
+    {
+        _sourceAudio.Play(dataProperty.Key);
+    }
+
+    public void Stop()
+    {
+        _sourceAudio.Stop();
+    }
 }
