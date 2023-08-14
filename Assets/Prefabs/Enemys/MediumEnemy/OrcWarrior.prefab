@@ -24264,6 +24264,8 @@ GameObject:
   - component: {fileID: 2295191402623920994}
   - component: {fileID: 1966763751156025126}
   - component: {fileID: 6019213747909212646}
+  - component: {fileID: 5020545786866948570}
+  - component: {fileID: 2367395284696013566}
   m_Layer: 0
   m_Name: OrcWarrior
   m_TagString: Enemy
@@ -24415,7 +24417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 9159825250054241761}
-  _player: {fileID: 0}
 --- !u!114 &2459727896097378093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24463,7 +24464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 2367395284696013566}
 --- !u!54 &1746305296535139449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24635,6 +24637,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5020545786866948570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630749962739648729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &2367395284696013566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630749962739648729}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 8907584093646019762}
+  _enemy: {fileID: 4523420827666391610}
 --- !u!1 &3649478592217874556
 GameObject:
   m_ObjectHideFlags: 0

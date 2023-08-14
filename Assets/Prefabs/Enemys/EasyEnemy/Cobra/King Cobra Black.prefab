@@ -11500,6 +11500,8 @@ GameObject:
   - component: {fileID: 5931664578199124705}
   - component: {fileID: 8753156755327986525}
   - component: {fileID: -2380787424827699317}
+  - component: {fileID: 3683992207919466613}
+  - component: {fileID: -7795506531424282122}
   m_Layer: 0
   m_Name: King Cobra Black
   m_TagString: Untagged
@@ -11696,7 +11698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 4828580070146800504}
-  _player: {fileID: 0}
 --- !u!114 &6365900650197344347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11776,7 +11777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: -7795506531424282122}
 --- !u!114 &5931664578199124705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11900,6 +11902,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3683992207919466613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513745125302125146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &-7795506531424282122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513745125302125146}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 5660394719132757705}
+  _enemy: {fileID: 1635437605916938771}
 --- !u!1 &3513754640496261752
 GameObject:
   m_ObjectHideFlags: 0

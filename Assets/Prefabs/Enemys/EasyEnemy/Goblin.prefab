@@ -30202,7 +30202,8 @@ GameObject:
   - component: {fileID: 2390752372337972317}
   - component: {fileID: -4865391496013709823}
   - component: {fileID: 6001497027060558234}
-  - component: {fileID: -870054673012263158}
+  - component: {fileID: 4995227191982153075}
+  - component: {fileID: -8702838450803425867}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Enemy
@@ -30312,7 +30313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 1485839319692604735}
+  - {fileID: -8702838450803425867}
 --- !u!114 &823402180877305113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30574,7 +30575,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-870054673012263158
+--- !u!114 &4995227191982153075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30587,6 +30588,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Loop: 0
+--- !u!114 &-8702838450803425867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144700659727964650}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 882708559566704345}
+  _enemy: {fileID: 8611977804776116672}
 --- !u!1 &7390106110567221264
 GameObject:
   m_ObjectHideFlags: 0

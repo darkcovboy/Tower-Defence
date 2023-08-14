@@ -26321,6 +26321,8 @@ GameObject:
   - component: {fileID: 7538944079082274629}
   - component: {fileID: 207660486073822319}
   - component: {fileID: -7363519791226087846}
+  - component: {fileID: -2486137164266732181}
+  - component: {fileID: -3499635247522954449}
   m_Layer: 0
   m_Name: Dragon Blue
   m_TagString: Untagged
@@ -26543,7 +26545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 7538944079082274629}
-  _player: {fileID: 0}
 --- !u!114 &1764289049261809154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26624,7 +26625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: -3499635247522954449}
 --- !u!65 &207660486073822319
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26734,6 +26736,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2486137164266732181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194463078789369619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &-3499635247522954449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5194463078789369619}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2799537483261129756}
+  _enemy: {fileID: 531691824721983512}
 --- !u!1 &5194463521004814109
 GameObject:
   m_ObjectHideFlags: 0

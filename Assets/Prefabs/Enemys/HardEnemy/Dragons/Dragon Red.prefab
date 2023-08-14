@@ -16174,6 +16174,8 @@ GameObject:
   - component: {fileID: 7263424529497617701}
   - component: {fileID: -6318457348122271359}
   - component: {fileID: 4004201327556128892}
+  - component: {fileID: -6166106629863006187}
+  - component: {fileID: -4549694583212198814}
   m_Layer: 0
   m_Name: Dragon Red
   m_TagString: Untagged
@@ -16396,7 +16398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 7263424529497617701}
-  _player: {fileID: 0}
 --- !u!114 &1454495660659659874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16477,7 +16478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: -4549694583212198814}
 --- !u!65 &-6318457348122271359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16587,6 +16589,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6166106629863006187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919368078673085811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &-4549694583212198814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919368078673085811}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 3065437387908742780}
+  _enemy: {fileID: 807157498705588856}
 --- !u!1 &4919378709623080775
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,14 +54,13 @@ public class Player : MonoBehaviour
         if (health <= 0)
             throw new ArgumentException();
 
-        _currentHealth += health;
+        _currentHealth = health;
         ExtraLive?.Invoke();
         HealthChanged?.Invoke(_currentHealth);
     }
 
     public void Die()
     {
-        //gameObject.Deactivate();
         Dying.Invoke();
     }
 }

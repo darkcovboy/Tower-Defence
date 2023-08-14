@@ -10212,6 +10212,8 @@ GameObject:
   - component: {fileID: 7801650399462187663}
   - component: {fileID: 7174367532409922633}
   - component: {fileID: -3220244720759893921}
+  - component: {fileID: -5767382137242822771}
+  - component: {fileID: 5421445527308391783}
   m_Layer: 0
   m_Name: Polygonal Wolf Black
   m_TagString: Untagged
@@ -10389,7 +10391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1868810315494579138}
-  _player: {fileID: 0}
 --- !u!114 &6078401415633002764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10449,7 +10450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 5421445527308391783}
 --- !u!114 &5898130394020057538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10596,6 +10598,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5767382137242822771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395802803901480350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &5421445527308391783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395802803901480350}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 758982204677554655}
+  _enemy: {fileID: 2092584598306123483}
 --- !u!1 &4395810512428821668
 GameObject:
   m_ObjectHideFlags: 0

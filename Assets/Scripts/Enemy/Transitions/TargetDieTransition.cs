@@ -5,10 +5,11 @@ using UnityEngine;
 public class TargetDieTransition : Transitions
 {
     private Player _player;
+
     protected override void OnEnable()
     {
         base.OnEnable();
-        _player = FindObjectOfType<Player>();
+        _player = GetComponent<Enemy>().Target;
     }
 
     private void Update()

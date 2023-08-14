@@ -35831,6 +35831,8 @@ GameObject:
   - component: {fileID: 3311514061534398882}
   - component: {fileID: 6753588157041409141}
   - component: {fileID: 8881811607931554883}
+  - component: {fileID: -1074488119695668491}
+  - component: {fileID: -3859109558217877083}
   m_Layer: 0
   m_Name: Golem Red
   m_TagString: Untagged
@@ -36006,7 +36008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 8972950295427327014}
-  _player: {fileID: 0}
 --- !u!114 &5607214852818244232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36066,7 +36067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: -3859109558217877083}
 --- !u!114 &6797369318730597268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36213,6 +36215,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1074488119695668491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9143409413175449100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &-3859109558217877083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9143409413175449100}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 8011529187269835890}
+  _enemy: {fileID: 7710788740648498365}
 --- !u!1 &9143416240828349550
 GameObject:
   m_ObjectHideFlags: 0

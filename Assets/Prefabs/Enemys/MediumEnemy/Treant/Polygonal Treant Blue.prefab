@@ -34334,6 +34334,8 @@ GameObject:
   - component: {fileID: 3581241587016702153}
   - component: {fileID: 9076305894428756794}
   - component: {fileID: -6514046638218819733}
+  - component: {fileID: -8498343497559214964}
+  - component: {fileID: 8831817254178867281}
   m_Layer: 0
   m_Name: Polygonal Treant Blue
   m_TagString: Untagged
@@ -34524,7 +34526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 5002715804816241565}
-  _player: {fileID: 0}
 --- !u!114 &9171871475151089935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34586,7 +34587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ad0c2d8e9e9fe498487736254302ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitions: []
+  _transitions:
+  - {fileID: 8831817254178867281}
 --- !u!114 &3581241587016702153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34716,6 +34718,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8498343497559214964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172931120238198925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Loop: 0
+--- !u!114 &8831817254178867281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172931120238198925}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb30b2778ad60a4d8e09f43ca6b9706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 9171871475151089931}
+  _enemy: {fileID: 9171871475151089928}
 --- !u!1 &9172964776611030893
 GameObject:
   m_ObjectHideFlags: 0

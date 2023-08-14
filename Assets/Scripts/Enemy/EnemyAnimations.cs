@@ -10,10 +10,16 @@ public class EnemyAnimations : MonoBehaviour
     private const string _attack = "Attack";
     private const string _death = "Death";
     private const string _celebration = "Celebration";
+    private const string _run = "Run";
 
     private void Start()
     {
         _animator = GetComponent<Animator>();   
+    }
+
+    public void RunAnimation(bool flag)
+    {
+        _animator.SetBool(_run, flag);
     }
 
     public void AttackAnimation(bool flag)
