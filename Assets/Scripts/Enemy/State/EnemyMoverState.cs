@@ -33,9 +33,7 @@ public class EnemyMoverState : State
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _enemy.Speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, _target.position) <= _distanceBetweenTarget)
-        {
             GetNextWaypoint();
-        }
     }
 
     private void GetNextWaypoint()

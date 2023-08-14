@@ -34,4 +34,9 @@ public class GameOverScreen : Screen
         _music.GetComponent<MusicPlayer>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
     }
+
+    public override void CloseScreen()
+    {
+        _gameOverScreen.Deactivate();
+    }
 }
