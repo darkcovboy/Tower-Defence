@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,9 +37,8 @@ public class WarriorAnimations : MonoBehaviour
     public void IdleAnimation(bool flag)
     {
         if (_animator == null)
-        {
             return;
-        }
+
         _animator.SetBool(Idle, flag);
     }
 
