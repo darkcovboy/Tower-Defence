@@ -21,7 +21,7 @@ public class ReturnGameButton : AbstractButton
     IEnumerator PlayToClose()
     {
         var waitForSeconds = new WaitForSeconds(0.3f);
-        AudioSource.Play();
+        AudioSource.Play(AudioDataProperty.Key);
         yield return waitForSeconds;
         _pauseScreen.CloseScreen();
     }

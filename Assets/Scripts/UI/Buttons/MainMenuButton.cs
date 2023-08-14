@@ -15,7 +15,7 @@ public class MainMenuButton : AbstractButton
     protected override void OnButtonClick()
     {
         Time.timeScale = 1;
-        AudioSource.Play();
+        AudioSource.Play(AudioDataProperty.Key);
         SceneFader.FadeTo(_mainMenu);
     }
 }

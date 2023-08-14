@@ -6,6 +6,7 @@ public class ChoosePanelButton : AbstractButton
 {
     [SerializeField] private GameObject[] _screenPanels;
     [SerializeField] private int _numberButton;
+
     private CameraRotate _cameraRotate;
 
     private void Start()
