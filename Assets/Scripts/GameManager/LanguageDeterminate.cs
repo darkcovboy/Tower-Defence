@@ -8,13 +8,20 @@ public class LanguageDeterminate : MonoBehaviour
 {
     [SerializeField] private LeanLocalization _leanLocalization;
 
-    
-    private IEnumerator Start()
+#if UNITY_EDITOR
+    private void Start()
+    {
+        ChooseLanguage("tr");
+    }
+#elif UNITY_WEBGL
+
+private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();
 
         ChooseLanguage(YandexGamesSdk.Environment.i18n.lang);
     }
+#endif
 
     private void ChooseLanguage(string lang)
     {
