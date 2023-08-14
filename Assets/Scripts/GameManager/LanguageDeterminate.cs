@@ -11,7 +11,7 @@ public class LanguageDeterminate : MonoBehaviour
 #if UNITY_EDITOR
     private void Start()
     {
-        ChooseLanguage("tr");
+        ChooseLanguage("en");
     }
 #elif UNITY_WEBGL
 

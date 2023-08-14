@@ -18,7 +18,6 @@ public class GameOverScreen : Screen
     private void OnDisable()
     {
         _player.Dying -= OpenScreen;
-        _music.GetComponent<SourceAudio>().Play();
     }
 
     public void Init(Player player, AudioSource music)
@@ -28,9 +27,14 @@ public class GameOverScreen : Screen
         _player.Dying += OpenScreen;
     }
 
+    public void PlayMusic()
+    {
+        _music.GetComponent<SourceAudio>().Play(_musicData.Key);
+    }
+
     public override void OpenScreen()
     {
-        _gameOverScreen.SetActive(true);
+        _gameOverScreen.Activate();
         _music.GetComponent<SourceAudio>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
     }
