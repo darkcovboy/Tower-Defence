@@ -35,6 +35,10 @@ public class WarriorAnimations : MonoBehaviour
 
     public void IdleAnimation(bool flag)
     {
+        if (_animator == null)
+        {
+            return;
+        }
         _animator.SetBool(Idle, flag);
     }
 

@@ -6,7 +6,7 @@ using System.Linq;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private GameObject _container;
-    [SerializeField] private int _capacity;
+    [SerializeField] private int _capacity = 16;
 
     protected List<GameObject> _pool = new List<GameObject>();
 
@@ -31,9 +31,9 @@ public class ObjectPool : MonoBehaviour
         result = null;
         foreach (var item in _pool)
         {
-            if(item.TryGetComponent(out WarriorChanger warrior))
+            if (item.TryGetComponent(out WarriorChanger warrior))
             {
-                if(warrior.IsWarriorActive == false)
+                if (warrior.IsWarriorActive == false)
                 {
                     result = warrior;
                     break;
