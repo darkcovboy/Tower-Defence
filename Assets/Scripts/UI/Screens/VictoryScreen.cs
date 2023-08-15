@@ -34,7 +34,7 @@ public class VictoryScreen : Screen
     public override void OpenScreen()
     {
         _screen.SetActive(true);
-        _music.GetComponent<SourceAudio>().Stop();
+        _music.GetComponent<MusicPlayer>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
         StartCoroutine(ShowStars());
     }
