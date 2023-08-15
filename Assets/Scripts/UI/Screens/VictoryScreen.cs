@@ -24,11 +24,14 @@ public class VictoryScreen : Screen
         _spawner.AllEnemysDied -= OpenScreen;
     }
 
-    public void Init(Spawner spawner, AudioSource music)
+    public void Init(Spawner spawner, AudioSource music, FullVideo fullVideo)
     {
         _spawner = spawner;
         _music = music;
         _spawner.AllEnemysDied += OpenScreen;
+
+        RestartSceneButton.Init(fullVideo);
+        MainMenuButton.Init(fullVideo);
     }
 
     public override void OpenScreen()

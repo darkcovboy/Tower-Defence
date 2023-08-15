@@ -917,7 +917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1862225579584214667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -925,7 +925,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964081998698323319}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -935,8 +935,8 @@ RectTransform:
   - {fileID: 967519585209513331}
   - {fileID: 2848697981085846942}
   - {fileID: 7286681075542983471}
-  m_Father: {fileID: 5396484807237941447}
-  m_RootOrder: 1
+  m_Father: {fileID: 588231950200123752}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17156251, y: 0.15163474}
   m_AnchorMax: {x: 0.830475, y: 0.8581111}
@@ -1005,11 +1005,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f3ae8ffb109db44a2f765be0d5a64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttons:
-  - {fileID: 1167063487202182206}
-  - {fileID: 4578606666638462695}
-  - {fileID: 2463202080165403915}
-  _canvasGroup: {fileID: 3186860560918751422}
+  RestartSceneButton: {fileID: 0}
+  MainMenuButton: {fileID: 0}
+  CanvasGroup: {fileID: 0}
 --- !u!1 &1000605325875678154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2644,7 +2642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.08001709, y: -0.00079345703}
+  m_AnchoredPosition: {x: -0.079956055, y: -0.00079345703}
   m_SizeDelta: {x: 0.16016, y: 0.0024414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3186860560899836039
@@ -2659,10 +2657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61f4028a9108234eb4c836b3e7a3917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttons:
-  - {fileID: 3188995981996613059}
-  - {fileID: 6972622523418863004}
-  _canvasGroup: {fileID: 3186860561369280905}
+  RestartSceneButton: {fileID: 3186860560997867975}
+  MainMenuButton: {fileID: 7387398133711688614}
+  CanvasGroup: {fileID: 3186860561369280905}
   _screen: {fileID: 4032100757795962144}
   _stars:
   - {fileID: 8676241020259338897}
@@ -2805,7 +2802,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.33599854, y: -0.26275635}
+  m_AnchoredPosition: {x: -0.33605957, y: -0.26275635}
   m_SizeDelta: {x: -0.3499756, y: -0.98999023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3186860560967435984
@@ -2820,10 +2817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572384f1e88812b4f958f6f14d11be92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttons:
-  - {fileID: 6851454459850721840}
-  - {fileID: 2109961693894973837}
-  _canvasGroup: {fileID: 3186860562145298690}
+  RestartSceneButton: {fileID: 6851454459850721842}
+  MainMenuButton: {fileID: 2839477415358220880}
+  CanvasGroup: {fileID: 3186860562145298690}
   _gameOverScreen: {fileID: 5557180754356702679}
   _audioData:
     _id: 011f3b35-3b64-4489-98ab-36fd29b0cacb
@@ -4079,7 +4075,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2725609963039983577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6063780333720384119}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3186860562352280729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5670,7 +5678,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.7
+  m_fontSize: 36.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5913,7 +5921,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5396484808122095014}
-  - {fileID: 1862225579584214667}
+  - {fileID: 588231950200123752}
   - {fileID: 3186860560899836036}
   - {fileID: 3186860560967435985}
   - {fileID: 1476521551503824040}
@@ -6082,7 +6090,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.5
+  m_fontSize: 35.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6554,7 +6562,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5396484808560330750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6063780333720384119}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!95 &5396484808560330744
 Animator:
   serializedVersion: 4
@@ -6853,7 +6873,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
+  m_fontSize: 38.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7482,6 +7502,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Loop: 0
+--- !u!1 &6063780333720384119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588231950200123752}
+  - component: {fileID: 8571429297454949803}
+  m_Layer: 5
+  m_Name: Pause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &588231950200123752
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063780333720384119}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1862225579584214667}
+  m_Father: {fileID: 5396484807237941447}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8571429297454949803
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063780333720384119}
+  m_CullTransparentMesh: 1
 --- !u!1 &6313885417312063893
 GameObject:
   m_ObjectHideFlags: 0
@@ -8827,7 +8893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.5027466, y: -0.50097656}
+  m_AnchoredPosition: {x: -0.5028076, y: -0.50097656}
   m_SizeDelta: {x: 1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &3848086631850379684
@@ -12278,11 +12344,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 340574479921057768, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 451187109901412632, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "\u0130yi ate\u015F h\u0131z\u0131"
+      value: Good rate of fire
       objectReference: {fileID: 0}
     - target: {fileID: 479793886830562543, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -12318,7 +12384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 525658486550961107, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Haz\u0131r!"
+      value: Ready!
       objectReference: {fileID: 0}
     - target: {fileID: 848549823130318465, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_Pivot.x
@@ -12404,9 +12470,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 973026832576042187, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 227.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 973026832576042187, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 973026832576042187, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 386.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 973026832576042187, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000024796
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171295196078914350, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171295196078914350, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.000099182
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171295196078914350, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171295196078914350, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 1772149314842509935, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek alt\u0131n kazan\u0131n."
+      value: Earn gold by killing enemies.
       objectReference: {fileID: 0}
     - target: {fileID: 1772149314842509935, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
@@ -12422,8 +12520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1821049892032629333, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "D\xFC\u015Fmanlar\u0131n s\u0131zmas\u0131n\u0131 \xF6nlemek i\xE7in
-        kuleleri stratejik noktalarda in\u015Fa edin!"
+      value: Build towers in strategic points to prevent enemies from breaking through!
       objectReference: {fileID: 0}
     - target: {fileID: 2198328801471436354, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12451,11 +12548,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2289453805619374855, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Askerler d\xFC\u015Fmanlar\u0131 engeller"
+      value: Soldiers block enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369905233927748382, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428560374802725154, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -8.6044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2428560374802725154, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.3022
       objectReference: {fileID: 0}
     - target: {fileID: 2661455106813053183, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "K\u0131\u015Fla"
+      value: Barracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.91637015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.892
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.063850775
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -3.9199982
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.7293015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2682258997812502179, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2991851808126605253, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -12467,7 +12604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3008590722323929885, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "4 temel kule t\xFCr\xFC bulunmaktad\u0131r."
+      value: There are 4 basic types of towers.
       objectReference: {fileID: 0}
     - target: {fileID: 3095255564770249473, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_IsActive
@@ -12475,31 +12612,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282478770316050936, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Ok\xE7ular Kulesi"
+      value: Archer Tower
       objectReference: {fileID: 0}
     - target: {fileID: 3367739617027967641, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "\xDCzerine t\u0131klay\u0131n!"
+      value: Click on it!
       objectReference: {fileID: 0}
     - target: {fileID: 3367739617027967641, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
-      value: 30.3
+      value: 30.75
       objectReference: {fileID: 0}
     - target: {fileID: 3421485244952541409, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Top\xE7u Kulesi"
+      value: Mortir
       objectReference: {fileID: 0}
     - target: {fileID: 3423395617492883557, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Bu stratejik bir nokta.
+      value: This is a strategic point.
       objectReference: {fileID: 0}
     - target: {fileID: 3423395617492883557, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
-      value: 26.25
+      value: 23.1
       objectReference: {fileID: 0}
     - target: {fileID: 3514578078186109063, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Y\xFCksek hasar, element etkileri"
+      value: High damage, elemental effects
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.80100006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.19000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10.578903
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.5150757
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925514483155131568, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 3937394691953016088, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_AnchorMin.x
@@ -12523,11 +12684,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3945794498783246604, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "\u0130n\u015Fa etmek i\xE7in bir kule se\xE7in."
+      value: Choose a tower to construct
       objectReference: {fileID: 0}
     - target: {fileID: 3945794498783246604, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
-      value: 30.05
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -12538,12 +12699,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4447829089466975489}
+    - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 2364710370674468763}
     - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 4293863315427319580, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -12631,15 +12800,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5123749636997554917, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Devam Et
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 5162270649533063311, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "D\xFC\u015Fmanlar\u0131n kaleyi ele ge\xE7irmesine izin vermeyin."
+      value: Don't let the enemies attack the castle.
       objectReference: {fileID: 0}
     - target: {fileID: 5162270649533063311, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 5162270649533063311, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSizeMax
@@ -12655,11 +12824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225372938683947829, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Talimat
+      value: 'Instruction '
       objectReference: {fileID: 0}
     - target: {fileID: 5332575606971634439, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Savunma i\xE7in kuleler in\u015Fa edin."
+      value: Build towers for defense.
       objectReference: {fileID: 0}
     - target: {fileID: 5332575606971634439, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_fontSize
@@ -12675,27 +12844,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5546856891189655764, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Talimat
+      value: 'Instruction '
       objectReference: {fileID: 0}
     - target: {fileID: 5867848947620694018, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Atlamak
+      value: Skip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314579082879589822, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 399.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314579082879589822, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000033677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316987949731121310, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316987949731121310, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316987949731121310, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -127.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316987949731121310, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000020981
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387161700985997178, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 275.4938
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387161700985997178, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387161700985997178, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 135.24681
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387161700985997178, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000024796
       objectReference: {fileID: 0}
     - target: {fileID: 6418316707883539438, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Devam Et
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 6704452532490509908, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Alan hasar\u0131"
+      value: Area damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886199893388125150, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_fontSize
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 6973920602721423744, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7041634791618126710, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: "Kale'nizi savunun, savunma yap\u0131lar\u0131 in\u015Fa ederek."
+      value: Defend your castle by building defensive structures.
       objectReference: {fileID: 0}
     - target: {fileID: 7222767696727895487, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -12769,21 +12982,85 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.96051025
       objectReference: {fileID: 0}
+    - target: {fileID: 7632720327514715057, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691286752299521392, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 196.3668
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691286752299521392, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 87.3943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691286752299521392, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.5417
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691286752299521392, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136
+      objectReference: {fileID: 0}
     - target: {fileID: 7917268759324156078, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Talimat
+      value: 'Instruction '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155129691081663950, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_text
+      value: Guild of mages
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326102464495052258, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 309.3268
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326102464495052258, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326102464495052258, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -388.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326102464495052258, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.49995
       objectReference: {fileID: 0}
     - target: {fileID: 8505869083966150978, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.111083984
       objectReference: {fileID: 0}
+    - target: {fileID: 8540962555282311540, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540962555282311540, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00000077486
+      objectReference: {fileID: 0}
     - target: {fileID: 8791621432315196222, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_text
-      value: Atlamak
+      value: Skip
       objectReference: {fileID: 0}
     - target: {fileID: 8925738209777427586, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153390429958710960, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153390429958710960, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153390429958710960, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.9012
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153390429958710960, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.084
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
@@ -12805,7 +13082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: GuildOfMages
-  FallbackText: 
+  FallbackText: "\u0413\u0438\u043B\u044C\u0434\u0438\u044F \u043C\u0430\u0433\u043E\u0432"
 --- !u!1 &790523148240814977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1703139258020150686, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
@@ -13039,6 +13316,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Loop: 0
+--- !u!1 &4447829089466975489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2369905233927748382, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}
+  m_PrefabInstance: {fileID: 2115078552483151391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5427044738421506657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6200041423577447550, guid: 0ee75cb114cf6cd4cbde1dc5d5768f9e, type: 3}

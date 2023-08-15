@@ -826,6 +826,8 @@ MonoBehaviour:
   _endLevelManager: {fileID: 1349476653386360185}
   _fullVideoAd: {fileID: 2280000619180526179}
   _rewardedAd: {fileID: 6871650419339540294}
+  _nextWaveButton: {fileID: 0}
+  _soundButton: {fileID: 0}
 --- !u!1 &4327229652768796015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,9 +1624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506817ccd25c1fa49a1a77596bb53526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioData:
+  _buttonData:
     _id: c0dd0da5-5432-488e-9655-693903039099
     _key: Button
+  _nextWaveData:
+    _id: 039c844e-050f-426e-bb87-519fe17c0cdb
+    _key: NextWaveButton
 --- !u!1 &6070077664225793370
 GameObject:
   m_ObjectHideFlags: 0

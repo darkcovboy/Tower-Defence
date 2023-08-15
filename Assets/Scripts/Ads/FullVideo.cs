@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agava.YandexGames;
+using UnityEngine.SceneManagement;
 
 public class FullVideo : MonoBehaviour
 {
     private bool _isAudioOff;
+    private string _sceneName;
+    private SceneFader _sceneFader;
 
-    public void Show()
+    public void Init(SceneFader sceneFader)
     {
+        _sceneFader = sceneFader;
+    }
+
+    public void Show(string sceneName)
+    {
+        _sceneName = sceneName;
+
         if(YandexGamesSdk.IsInitialized)
             InterstitialAd.Show(OnOpen, OnClose);
     }
 
     private void OnOpen()
     {
+        Debug.Log("Open");
         _isAudioOff = AudioListener.pause;
 
         if (_isAudioOff == false)
@@ -25,9 +36,15 @@ public class FullVideo : MonoBehaviour
 
     private void OnClose(bool isClosed)
     {
-        if (_isAudioOff == false)
-            AudioListener.pause = false;
+        Debug.Log("Close" + isClosed);
 
-        Time.timeScale = 1f;
+        if(isClosed)
+        {
+            if (_isAudioOff != false)
+                AudioListener.pause = true;
+
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(_sceneName);
+        }
     }
 }

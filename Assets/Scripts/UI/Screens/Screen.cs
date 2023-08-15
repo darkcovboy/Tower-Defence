@@ -7,8 +7,9 @@ using Plugins.Audio.Utils;
 
 public abstract class Screen : MonoBehaviour
 {
-    [SerializeField] protected Button[] _buttons;
-    [SerializeField] protected CanvasGroup _canvasGroup;
+    [SerializeField] protected RestartSceneButton RestartSceneButton;
+    [SerializeField] protected MainMenuButton MainMenuButton;
+    [SerializeField] protected CanvasGroup CanvasGroup;
 
     public virtual void OpenScreen()
     {
