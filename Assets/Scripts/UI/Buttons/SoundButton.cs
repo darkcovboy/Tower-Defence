@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class SoundButton : MonoBehaviour
 {
-    [SerializeField] private AudioDataProperty _audioData;
+    [SerializeField] private AudioDataProperty _buttonData;
+    [SerializeField] private AudioDataProperty _nextWaveData;
 
     private SourceAudio _sourceAudio;
 
@@ -19,6 +20,11 @@ public class SoundButton : MonoBehaviour
 
     public void Play()
     {
-        _sourceAudio.Play(_audioData.Key);
+        _sourceAudio.Play(_buttonData.Key);
+    }
+
+    public void PlayNextWave()
+    {
+        _sourceAudio.Play(_nextWaveData.Key);
     }
 }

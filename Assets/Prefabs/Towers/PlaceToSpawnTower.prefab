@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 870973869026625011}
   - component: {fileID: 7471158373892580964}
   - component: {fileID: 20426108300863365}
+  - component: {fileID: 1111553552786830238}
   m_Layer: 7
   m_Name: FlagRange
   m_TagString: RangeField
@@ -5527,6 +5528,30 @@ MonoBehaviour:
   useLocalDown: 0
   flipDown: 1
   downAxis: 1
+--- !u!114 &1111553552786830238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870973869026625010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6667ce8d33fc343a75b7c293208921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flag: {fileID: 7283687244168059503}
+  _flagAction:
+    m_Name: Flag
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ca7461e-a7e9-49c9-84e5-6a58e910bd44
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _speed: 20
+  _target: {fileID: 870973869761972649}
 --- !u!1 &870973869038392535
 GameObject:
   m_ObjectHideFlags: 0
@@ -16828,7 +16853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10182dfe2d8152f47ac2d4af5bf5b0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _choice: {fileID: 0}
+  _choice: {fileID: 1111553552786830238}
   _flagObject: {fileID: 7283687244168059503}
 --- !u!1 &870973870828808105
 GameObject:
