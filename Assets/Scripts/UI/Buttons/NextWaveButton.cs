@@ -5,12 +5,20 @@ using UnityEngine;
 public class NextWaveButton : AbstractButton
 {
     [SerializeField] private TimeToSpawnNextWaveScreen _timerToSpawnNextWave;
-    [SerializeField] private MoneyCounter _moneyCounter;
+
+    private SoundButton _soundButton;
+    private MoneyCounter _moneyCounter;
+
+    public void Init(MoneyCounter moneyCounter, SoundButton soundButton)
+    {
+        _soundButton = soundButton;
+        _moneyCounter = moneyCounter;
+    }
 
     protected override void OnButtonClick()
     {
         _moneyCounter.AddMoney(15);
-        AudioSource.Play(AudioDataProperty.Key);
+        _soundButton.PlayNextWave();
         _timerToSpawnNextWave.ResetTimer();
     }
 }

@@ -18,14 +18,16 @@ public class GameOverScreen : Screen
     private void OnDisable()
     {
         _player.Dying -= OpenScreen;
-        _music.GetComponent<MusicPlayer>().Play();
     }
 
-    public void Init(Player player, AudioSource music)
+    public void Init(Player player, AudioSource music, FullVideo fullVideo)
     {
         _player = player;
         _music = music; 
         _player.Dying += OpenScreen;
+
+        RestartSceneButton.Init(fullVideo);
+        MainMenuButton.Init(fullVideo);   
     }
 
     public override void OpenScreen()
@@ -38,5 +40,6 @@ public class GameOverScreen : Screen
     public override void CloseScreen()
     {
         _gameOverScreen.Deactivate();
+        _music.GetComponent<MusicPlayer>().Play();
     }
 }

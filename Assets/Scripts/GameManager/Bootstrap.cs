@@ -32,6 +32,9 @@ public class Bootstrap : MonoBehaviour
     [Header("Ads")]
     [SerializeField] private FullVideo _fullVideoAd;
     [SerializeField] private RewardedVideo _rewardedAd;
+    [Header("Sound")]
+    [SerializeField] private NextWaveButton _nextWaveButton;
+    [SerializeField] private SoundButton _soundButton;
 
     private MeteorShoot _meteorShoot;
     private WarriorsCreator _warriorsCreator;
@@ -43,16 +46,17 @@ public class Bootstrap : MonoBehaviour
         _moneyCounter.Init(_levelConfig.StartMoney);
         _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney,_levelConfig.AdHealth, _spawner);
         _adButtonMoney.Init(_levelConfig.AdStartMoney, _rewardedAd);
-        _adButtonHealth.Init(/*_rewardedAd, */_player,_gameOverScreen);
+        _adButtonHealth.Init(_rewardedAd, _gameOverScreen);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
-        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>());
+        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd);
         _saveManager.Init(_audioManager);
         _pauseScreen.Init(_objectManagerUI);
+        _nextWaveButton.Init(_moneyCounter, _soundButton);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
         TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher,_levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage,_levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();
-        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>());
+        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd);
         DeviceDefinder.Define();
     }
 

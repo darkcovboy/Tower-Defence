@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButton : AbstractButton
 {
-    private string _mainMenu = "MainMenu";
-
-    private void Start()
+    private string _mainMenuLevelKey = "MainMenu";
+    private FullVideo _fullVideo;
+    public void Init(FullVideo fullVideo)
     {
-        SceneFader = FindObjectOfType<SceneFader>();
+        _fullVideo = fullVideo;
+
     }
 
     protected override void OnButtonClick()
     {
-        Time.timeScale = 1;
-        AudioSource.Play(AudioDataProperty.Key);
-        SceneFader.FadeTo(_mainMenu);
+        GoMainMenu();
+    }
+
+    private void GoMainMenu()
+    {
+        _fullVideo.Show(_mainMenuLevelKey);
     }
 }
