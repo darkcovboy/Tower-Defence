@@ -19,7 +19,7 @@ public class FullVideo : MonoBehaviour
     {
         _sceneName = sceneName;
 
-        if(YandexGamesSdk.IsInitialized)
+        if (YandexGamesSdk.IsInitialized)
             InterstitialAd.Show(OnOpen, OnClose);
     }
 

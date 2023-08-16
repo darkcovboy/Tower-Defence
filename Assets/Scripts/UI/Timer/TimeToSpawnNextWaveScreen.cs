@@ -11,6 +11,7 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
     [SerializeField] private TMP_Text _timerTxt;
     [SerializeField] private NextWaveScreen _nextWaveScreen;
     [SerializeField] private Player _player;
+    [SerializeField] private AdButton _adButton;
 
     private float _timeLeftBeforeTheWave = 15f;
     private float _timer;
@@ -21,12 +22,14 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
         _spawner.AllEnemysSpawned += OnScreenTimer;
         _timer = _timeLeftBeforeTheWave;
         _player.Dying += CheckPlayerDying;
+        _adButton.PlayerIsAlive += PlayerIsAliveNow;
     }
 
     private void OnDisable()
     {
         _player.Dying -= CheckPlayerDying;
         _spawner.AllEnemysSpawned -= OnScreenTimer;
+        _adButton.PlayerIsAlive -= PlayerIsAliveNow;
     }
 
     private void Update()
@@ -47,7 +50,6 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
                 }
             }
         }
-
     }
 
     private void OnScreenTimer()
@@ -64,5 +66,10 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
     private void CheckPlayerDying()
     {
         _playerDied = true;
+    }
+
+    public void PlayerIsAliveNow()
+    {
+        _playerDied = false;
     }
 }

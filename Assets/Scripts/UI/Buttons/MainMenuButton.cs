@@ -7,10 +7,10 @@ public class MainMenuButton : AbstractButton
 {
     private string _mainMenuLevelKey = "MainMenu";
     private FullVideo _fullVideo;
+
     public void Init(FullVideo fullVideo)
     {
         _fullVideo = fullVideo;
-
     }
 
     protected override void OnButtonClick()

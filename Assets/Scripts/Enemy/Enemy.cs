@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour
 
     public void DyingEnemy()
     {
-        Dying.Invoke(this);
+        Dying?.Invoke(this);
     }
 
     public void OnDie()
