@@ -805,11 +805,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aef754686435974698458ec6d1f166d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelConfig: {fileID: 0}
+  _sceneFader: {fileID: 0}
+  _levelConfig: {fileID: 11400000, guid: f93330ee5d8fc944bb5f12c7911f289c, type: 2}
   _spawner: {fileID: 0}
   _player: {fileID: 0}
   _moneyCounter: {fileID: 0}
-  _spawnPlaceTower: []
+  _spawnPlaceTower:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _mainCamera: {fileID: 0}
   _spellsCreator: {fileID: 5468758873089655730}
   _victoryScreen: {fileID: 0}
@@ -817,7 +824,9 @@ MonoBehaviour:
   _moneyBalance: {fileID: 0}
   _adButtonMoney: {fileID: 0}
   _adButtonHealth: {fileID: 0}
-  _spellButtons: []
+  _spellButtons:
+  - {fileID: 0}
+  - {fileID: 0}
   _leaderboardScreen: {fileID: 0}
   _audioManager: {fileID: 0}
   _pauseScreen: {fileID: 0}
@@ -827,7 +836,7 @@ MonoBehaviour:
   _fullVideoAd: {fileID: 2280000619180526179}
   _rewardedAd: {fileID: 6871650419339540294}
   _nextWaveButton: {fileID: 0}
-  _soundButton: {fileID: 0}
+  _soundButton: {fileID: 253490252466472286}
 --- !u!1 &4327229652768796015
 GameObject:
   m_ObjectHideFlags: 0
