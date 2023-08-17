@@ -66,6 +66,7 @@ public class EndLevelManager : MonoBehaviour
         var points = (int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money);
         _victoryScreen.SetScore(points);
         _victoryScreen.SetStars(stars);
+        _victoryScreen.PlayShowStars();
         //_saveManager.SaveEndLevel(stars, points);
     }
 }

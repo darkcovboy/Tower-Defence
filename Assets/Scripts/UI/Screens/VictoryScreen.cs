@@ -18,6 +18,7 @@ public class VictoryScreen : Screen
     private int _countStars;
     private AudioSource _music;
     private Spawner _spawner;
+    private Coroutine _coroutine;
 
     private void OnDisable()
     {
@@ -39,7 +40,7 @@ public class VictoryScreen : Screen
         _screen.SetActive(true);
         _music.GetComponent<MusicPlayer>().Stop();
         gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
-        StartCoroutine(ShowStars());
+        //StartCoroutine(ShowStars());
     }
 
     public void SetScore(float points)
@@ -52,6 +53,15 @@ public class VictoryScreen : Screen
         _countStars = stars;
     }
 
+    public void PlayShowStars()
+    {
+        if(_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+        _coroutine = StartCoroutine(ShowStars());
+    }
+
     IEnumerator ShowStars()
     {
         var waitForSeconds = new WaitForSeconds(1f);
@@ -60,7 +70,7 @@ public class VictoryScreen : Screen
         {
             yield return waitForSeconds;
             _stars[i].gameObject.SetActive(true);
-            _stars[i].PlayAnimation(); 
+            _stars[i].PlayAnimation();
         }
     }
 }
