@@ -7,9 +7,11 @@ public class PauseScreen : Screen
 {
     private ObjectManagerUI _objectManagerUI;
 
-    public void Init(ObjectManagerUI objectManagerUI)
+    public void Init(ObjectManagerUI objectManagerUI,FullVideo fullVideo,SoundButton soundButton)
     {
         _objectManagerUI = objectManagerUI;
+        MainMenuButton.Init(fullVideo, soundButton);
+        RestartSceneButton.Init(fullVideo, soundButton);
     }
 
     public override void OpenScreen()

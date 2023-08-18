@@ -25,14 +25,14 @@ public class VictoryScreen : Screen
         _spawner.AllEnemysDied -= OpenScreen;
     }
 
-    public void Init(Spawner spawner, AudioSource music, FullVideo fullVideo)
+    public void Init(Spawner spawner, AudioSource music, FullVideo fullVideo, SoundButton soundButton)
     {
         _spawner = spawner;
         _music = music;
         _spawner.AllEnemysDied += OpenScreen;
 
-        RestartSceneButton.Init(fullVideo);
-        MainMenuButton.Init(fullVideo);
+        RestartSceneButton.Init(fullVideo,soundButton);
+        MainMenuButton.Init(fullVideo, soundButton);
     }
 
     public override void OpenScreen()
@@ -55,7 +55,7 @@ public class VictoryScreen : Screen
 
     public void PlayShowStars()
     {
-        if(_coroutine != null)
+        if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
         }

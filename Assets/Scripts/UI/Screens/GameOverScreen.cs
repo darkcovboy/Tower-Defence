@@ -20,14 +20,14 @@ public class GameOverScreen : Screen
         _player.Dying -= OpenScreen;
     }
 
-    public void Init(Player player, AudioSource music, FullVideo fullVideo)
+    public void Init(Player player, AudioSource music, FullVideo fullVideo, SoundButton soundButton)
     {
         _player = player;
-        _music = music; 
+        _music = music;
         _player.Dying += OpenScreen;
 
-        RestartSceneButton.Init(fullVideo);
-        MainMenuButton.Init(fullVideo);   
+        RestartSceneButton.Init(fullVideo,soundButton);
+        MainMenuButton.Init(fullVideo, soundButton);
     }
 
     public override void OpenScreen()
