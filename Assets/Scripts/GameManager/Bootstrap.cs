@@ -42,7 +42,6 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
-        _sceneFader.Init(_fullVideoAd);
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
         _moneyCounter.Init(_levelConfig.StartMoney);

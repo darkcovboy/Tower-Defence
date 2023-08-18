@@ -10,19 +10,12 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private AnimationCurve _curve;
 
-    private FullVideo _fullVideo;
-
     public event UnityAction FadeInCompleted;
 
     private void Start()
     {
         Time.timeScale = 1;
         StartCoroutine(FadeIn());
-    }
-
-    public void Init(FullVideo fullVideo)
-    {
-        _fullVideo = fullVideo;
     }
 
     public void FadeTo(string nameScene)
