@@ -17,7 +17,8 @@ public class AppFocusCheck : MonoBehaviour
     private void AppFocus(bool checkFocus)
     {
         AudioListener.pause = checkFocus;
-        //AudioListener.volume = checkFocus ? 0 : 1;
+        AudioListener.volume = checkFocus ? 0 : 1;
+
         if (checkFocus)
             Time.timeScale = 0f;
         else

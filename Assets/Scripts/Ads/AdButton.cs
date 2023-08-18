@@ -36,6 +36,6 @@ public class AdButton : MonoBehaviour
 
     private void PlayerIsExtraLive()
     {
-        _timeToSpawn.PlayerIsAliveNow();
+        _timeToSpawn.SetPlayerAlive();
     }
 }

@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class PauseScreen : Screen
 {
+    [SerializeField] private ReturnGameButton _closeButton;
     private ObjectManagerUI _objectManagerUI;
 
-    public void Init(ObjectManagerUI objectManagerUI)
+    public void Init(ObjectManagerUI objectManagerUI, FullVideo fullVideo, SoundButton soundButton)
     {
         _objectManagerUI = objectManagerUI;
+        RestartSceneButton.Init(fullVideo);
+        MainMenuButton.Init(fullVideo);
+        _closeButton.GetComponent<Button>().onClick.AddListener(soundButton.Play);
     }
 
     public override void OpenScreen()

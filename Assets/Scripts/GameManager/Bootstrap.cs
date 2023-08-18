@@ -53,7 +53,7 @@ public class Bootstrap : MonoBehaviour
         _leaderboardScreen.Init(_saveManager);
         _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd);
         _saveManager.Init(_audioManager);
-        _pauseScreen.Init(_objectManagerUI);
+        _pauseScreen.Init(_objectManagerUI, _fullVideoAd, _soundButton);
         _nextWaveButton.Init(_moneyCounter, _soundButton);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
         TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher,_levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage,_levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
