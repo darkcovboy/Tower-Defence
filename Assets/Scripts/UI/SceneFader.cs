@@ -10,12 +10,19 @@ public class SceneFader : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private AnimationCurve _curve;
 
+    private FullVideo _fullVideo;
+
     public event UnityAction FadeInCompleted;
 
     private void Start()
     {
         Time.timeScale = 1;
         StartCoroutine(FadeIn());
+    }
+
+    public void Init(FullVideo fullVideo)
+    {
+        _fullVideo = fullVideo;
     }
 
     public void FadeTo(string nameScene)
@@ -29,12 +36,11 @@ public class SceneFader : MonoBehaviour
 
         while (time > 0f)
         {
-            time -= Time.deltaTime;
+            time -= Time.deltaTime * Time.timeScale;
             float a = _curve.Evaluate(time);
             _image.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
-
         FadeInCompleted?.Invoke();
     }
 
@@ -44,12 +50,11 @@ public class SceneFader : MonoBehaviour
 
         while (time < 1f)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * Time.timeScale;
             float alpha = _curve.Evaluate(time);
             _image.color = new Color(0f, 0f, 0f, alpha);
             yield return 0;
         }
-
         SceneManager.LoadScene(scene);
     }
 }
