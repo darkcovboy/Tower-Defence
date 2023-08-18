@@ -25,7 +25,6 @@ public class FullVideo : MonoBehaviour
 
     private void OnOpen()
     {
-        Debug.Log("Open");
         _isAudioOff = AudioListener.pause;
 
         if (_isAudioOff == false)
@@ -36,8 +35,6 @@ public class FullVideo : MonoBehaviour
 
     private void OnClose(bool isClosed)
     {
-        Debug.Log("Close" + isClosed);
-
         if(isClosed)
         {
             if (_isAudioOff != false)

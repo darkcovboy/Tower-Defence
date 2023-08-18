@@ -44,8 +44,7 @@ public class Player : MonoBehaviour
         if (health <= 0)
             throw new ArgumentException();
 
-        _currentHealth = 0;
-        _currentHealth += health;
+        _currentHealth = health;
         HealthChanged?.Invoke(_currentHealth);
     }
 

@@ -21,15 +21,15 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
     {
         _spawner.AllEnemysSpawned += OnScreenTimer;
         _timer = _timeLeftBeforeTheWave;
-        _player.Dying += CheckPlayerDying;
-        _adButton.PlayerIsAlive += PlayerIsAliveNow;
+        _player.Dying += SetPlayerDead;
+        _adButton.PlayerIsAlive += SetPlayerAlive;
     }
 
     private void OnDisable()
     {
-        _player.Dying -= CheckPlayerDying;
+        _player.Dying -= SetPlayerDead;
         _spawner.AllEnemysSpawned -= OnScreenTimer;
-        _adButton.PlayerIsAlive -= PlayerIsAliveNow;
+        _adButton.PlayerIsAlive -= SetPlayerAlive;
     }
 
     private void Update()
@@ -45,8 +45,8 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
                 {
                     _timer = _timeLeftBeforeTheWave;
                     _spawner.NextWaves();
-                    _timerTxt.gameObject.SetActive(false);
-                    _nextWaveScreen.gameObject.SetActive(false);
+                    _timerTxt.gameObject.Deactivate();
+                    _nextWaveScreen.gameObject.Deactivate();
                 }
             }
         }
@@ -54,8 +54,8 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
 
     private void OnScreenTimer()
     {
-        _timerTxt.gameObject.SetActive(true);
-        _nextWaveScreen.gameObject.SetActive(true);
+        _timerTxt.gameObject.Activate();
+        _nextWaveScreen.gameObject.Activate();
     }
 
     public void ResetTimer()
@@ -63,13 +63,7 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
         _timer = 0f;
     }
 
-    private void CheckPlayerDying()
-    {
-        _playerDied = true;
-    }
+    private void SetPlayerDead() => _playerDied = true;
 
-    public void PlayerIsAliveNow()
-    {
-        _playerDied = false;
-    }
+    public void SetPlayerAlive() => _playerDied = false;
 }

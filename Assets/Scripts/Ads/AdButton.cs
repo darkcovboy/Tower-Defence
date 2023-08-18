@@ -37,11 +37,10 @@ public class AdButton : MonoBehaviour
         button.onClick.AddListener(() => rewardedVideo.Show(adType));
         button.onClick.AddListener(() => PlayerIsExtraLive());
         button.onClick.AddListener(gameOverScreen.CloseScreen);
-        button.onClick.AddListener(gameObject.Deactivate);
     }
 
     private void PlayerIsExtraLive()
     {
-        _timeToSpawn.PlayerIsAliveNow();
+        _timeToSpawn.SetPlayerAlive();
     }
 }
