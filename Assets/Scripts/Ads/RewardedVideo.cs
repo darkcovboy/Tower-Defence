@@ -39,7 +39,8 @@ public class RewardedVideo : MonoBehaviour
                 VideoAd.Show(OnOpen, OnRewardedMoney, OnClose);
                 break;
             case ShowType.Health:
-                VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
+                //VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
+                OnRewardedHealth();
                 break;
         }
     }
@@ -62,6 +63,7 @@ public class RewardedVideo : MonoBehaviour
     private void OnRewardedHealth()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius, 1, QueryTriggerInteraction.Collide);
+        _player.AddHealth(_adHealth);
 
         foreach (var hitCollider in hitColliders)
         {
@@ -82,8 +84,6 @@ public class RewardedVideo : MonoBehaviour
                 }
             }
         }
-
-        _player.AddHealth(_adHealth);
     }
 
     private void OnClose()

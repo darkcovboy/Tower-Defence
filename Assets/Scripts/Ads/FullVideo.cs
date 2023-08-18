@@ -31,7 +31,7 @@ public class FullVideo : MonoBehaviour
         if (_isAudioOff == false)
             AudioListener.pause = true;
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     private void OnClose(bool isClosed)
@@ -43,8 +43,8 @@ public class FullVideo : MonoBehaviour
             if (_isAudioOff != false)
                 AudioListener.pause = true;
 
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(_sceneName);
+            //Time.timeScale = 1f;
+            _sceneFader.FadeTo(_sceneName);
         }
     }
 }
