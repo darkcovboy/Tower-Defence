@@ -67,6 +67,6 @@ public class EndLevelManager : MonoBehaviour
         _victoryScreen.SetScore(points);
         _victoryScreen.SetStars(stars);
         _victoryScreen.PlayShowStars();
-        //_saveManager.SaveEndLevel(stars, points);
+        _saveManager.SaveEndLevel(stars, points);
     }
 }

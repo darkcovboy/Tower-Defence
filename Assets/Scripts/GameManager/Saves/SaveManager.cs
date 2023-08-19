@@ -10,40 +10,28 @@ using TMPro;
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
-    public IReadOnlyList<LevelData> LevelData => SaveDataWrapper.levelDataList;
 
     public int Score => SaveDataWrapper.Score; 
-
 
     protected SaveDataWrapper SaveDataWrapper;
     private PlayerSave _playerSave;
     private string _jsonData;
     private readonly int _maxLevel = 10;
+    private readonly string _dataPrefsKey = "GameDataJSON";
 
-    //—тарт делаем корутиной, потому что нам об€зательно нужно, чтобы сдк загрузилось, провер€ем авторизацию, если она есть то создаем стандартный экземпл€р класса SaveDataWrapper
     private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();
 
-        if (PlayerAccount.IsAuthorized == true)
+        if(PlayerPrefs.HasKey(_dataPrefsKey))
         {
-            _playerSave = new PlayerSave(_maxLevel);
-            PlayerAccount.GetCloudSaveData((data) => _jsonData = data);
-
-            if (_jsonData == null || _jsonData == "{}")
-            {
-                GenerateNewData();
-            }
-            else
-            {
-                LoadData();
-            }
-
-            UpdateLevels();
+            _jsonData = PlayerPrefs.GetString(_dataPrefsKey);
+            SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
+            SaveData();
         }
         else
         {
-            PlayerAccount.Authorize();
+            GenerateNewData();
         }
     }
 
@@ -57,13 +45,18 @@ public class SaveManager : MonoBehaviour
     {
         int index = SceneManager.GetActiveScene().buildIndex;
         SaveDataWrapper.Score += score;
-        SaveDataWrapper.levelDataList[index].Stars = stars;
-        SaveDataWrapper.settingsData.SoundEnabled = AudioListener.pause;
-        SaveDataWrapper.settingsData.Volume = AudioListener.volume;
 
-        if (index + 1 < _maxLevel)
+        if (stars > SaveDataWrapper.LevelDataList[index].Stars)
         {
-            SaveDataWrapper.levelDataList[index + 1].IsUnblock = true;
+            SaveDataWrapper.LevelDataList[index].Stars = stars;
+        }
+
+        SaveDataWrapper.SettingsData.SoundEnabled = AudioListener.pause;
+        SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
+
+        if ((index + 1) < _maxLevel)
+        {
+            SaveDataWrapper.LevelDataList[index + 1].IsUnblock = true;
         }
 
         SaveData();
@@ -71,8 +64,8 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void UpdateLevels()
     {
-        _audioManager.OnSliderChanged(SaveDataWrapper.settingsData.Volume);
-        _audioManager.AudioChange(SaveDataWrapper.settingsData.SoundEnabled);
+        _audioManager.OnSliderChanged(SaveDataWrapper.SettingsData.Volume);
+        _audioManager.AudioChange(SaveDataWrapper.SettingsData.SoundEnabled);
     }
 
 
@@ -84,24 +77,18 @@ public class SaveManager : MonoBehaviour
         SaveData();
     }
 
-    //«агружем данные и преобразуем из JSON в класс
-    private void LoadData()
-    {
-        SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
-    }
-
     private void SaveData()
     {
-        string json = JsonUtility.ToJson(SaveDataWrapper);
-        PlayerAccount.SetCloudSaveData(json);
+        Debug.Log(_jsonData);
+        PlayerPrefs.SetString(_dataPrefsKey, _jsonData);
+        PlayerPrefs.Save();
     }
 }
 
 [System.Serializable]
 public class SaveDataWrapper
 {
-    public List<LevelData> levelDataList;
-    public VolumeData settingsData;
+    public List<LevelData> LevelDataList;
+    public VolumeData SettingsData;
     public int Score;
 }
-

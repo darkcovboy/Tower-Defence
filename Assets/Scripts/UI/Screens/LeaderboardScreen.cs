@@ -26,7 +26,9 @@ public class LeaderboardScreen : MonoBehaviour
 
         if (PlayerAccount.IsAuthorized == true)
         {
-            Leaderboard.SetScore(_leaderBoardName, _saveManager.Score);
+            if(_saveManager.Score > 0)
+                Leaderboard.SetScore(_leaderBoardName, _saveManager.Score);
+
             ShowCurrentUser();
             ShowAllUsers();
         }

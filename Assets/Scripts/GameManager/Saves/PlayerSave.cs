@@ -25,8 +25,8 @@ public class PlayerSave
     {
         SaveDataWrapper saveDataWrapper = new()
         {
-            levelDataList = InitLevelData(),
-            settingsData = InitVolumeData(),
+            LevelDataList = InitLevelData(),
+            SettingsData = InitVolumeData(),
             Score = _scoreStart
         };
         return saveDataWrapper;
@@ -50,7 +50,7 @@ public class PlayerSave
             }
             else
             {
-                levelData.IsUnblock = true;
+                levelData.IsUnblock = false;
             }
 
             levelDataList.Add(levelData);
