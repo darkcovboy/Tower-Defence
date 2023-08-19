@@ -42,23 +42,22 @@ public class Bootstrap : MonoBehaviour
 
     private void Awake()
     {
-        _sceneFader.Init(_fullVideoAd);
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
         _moneyCounter.Init(_levelConfig.StartMoney);
-        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney,_levelConfig.AdHealth, _spawner);
-        _adButtonMoney.Init(_levelConfig.AdStartMoney, _rewardedAd);
-        _adButtonHealth.Init(_rewardedAd, _gameOverScreen);
+        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth, _spawner);
+        _adButtonMoney.Init(_levelConfig.AdStartMoney, _rewardedAd, _soundButton);
+        _adButtonHealth.Init(_rewardedAd, _gameOverScreen, _soundButton);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
-        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd);
+        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
         _saveManager.Init(_audioManager);
         _pauseScreen.Init(_objectManagerUI, _fullVideoAd, _soundButton);
         _nextWaveButton.Init(_moneyCounter, _soundButton);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
-        TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher,_levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage,_levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
+        TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher, _levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage, _levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();
-        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd);
+        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
         DeviceDefinder.Define();
     }
 
@@ -86,10 +85,10 @@ public class Bootstrap : MonoBehaviour
 
         foreach (var item in _spellButtons)
         {
-            switch(item.Type)
+            switch (item.Type)
             {
                 case SpellType.Meteor:
-                    if(_meteorShoot == null)
+                    if (_meteorShoot == null)
                         item.GetComponent<Button>().interactable = false;
                     else
                         _meteorShoot.Init(_objectManagerUI, _mainCamera, item);
