@@ -83,6 +83,7 @@ public class SaveManager : MonoBehaviour
     private void SaveData()
     {
         Debug.Log(_jsonData);
+        _jsonData = JsonUtility.ToJson(SaveDataWrapper);
         PlayerPrefs.SetString(_dataPrefsKey, _jsonData);
         PlayerPrefs.Save();
     }
