@@ -12,11 +12,17 @@ public class AdButton : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private Player _player;
     [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawn;
+    [SerializeField] private float _timeToShow;
 
     private int _money;
     private SoundButton _soundButton; 
 
     public event UnityAction PlayerIsAlive;
+
+    private void OnDisable()
+    {
+        StopCoroutine(OnTimeGoing());
+    }
 
     public void Init(int money, RewardedVideo rewardedVideo, SoundButton soundButton)
     {
@@ -27,6 +33,7 @@ public class AdButton : MonoBehaviour
         button.onClick.AddListener(()=>_soundButton.Play());
         button.onClick.AddListener(() => rewardedVideo.Show(adType));
         button.onClick.AddListener(gameObject.Deactivate);
+        StartCoroutine(OnTimeGoing());
     }
 
     public void Init(RewardedVideo rewardedVideo, GameOverScreen gameOverScreen, SoundButton soundButton)
@@ -37,6 +44,13 @@ public class AdButton : MonoBehaviour
         button.onClick.AddListener(() => rewardedVideo.Show(adType));
         button.onClick.AddListener(() => PlayerIsExtraLive());
         button.onClick.AddListener(gameOverScreen.CloseScreen);
+    }
+
+    private IEnumerator OnTimeGoing()
+    {
+        gameObject.Deactivate();
+        yield return new WaitForSeconds(_timeToShow);
+        gameObject.Activate();
     }
 
     private void PlayerIsExtraLive()
