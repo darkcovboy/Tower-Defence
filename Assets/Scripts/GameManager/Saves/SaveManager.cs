@@ -22,15 +22,18 @@ public class SaveManager : MonoBehaviour
     private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();
+        _playerSave = new(_maxLevel);
 
-        if(PlayerPrefs.HasKey(_dataPrefsKey))
+        if (PlayerPrefs.HasKey(_dataPrefsKey))
         {
+            Debug.Log("Есть ключ");
             _jsonData = PlayerPrefs.GetString(_dataPrefsKey);
             SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
             SaveData();
         }
         else
         {
+            Debug.Log("Нет ключа");
             GenerateNewData();
         }
     }

@@ -81,8 +81,6 @@ public class Tower : MonoBehaviour
 
     public void Upgrade()
     {
-        Debug.Log((Level + 1) + " " + _maxLevel);
-
         if (Level + 1 > _maxLevel)
         {
             Level = _maxLevel;  

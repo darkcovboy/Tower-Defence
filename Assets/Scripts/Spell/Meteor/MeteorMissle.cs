@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Plugins.Audio.Core;
+using Plugins.Audio.Utils;
 
 public class MeteorMissle : Missle
 {
     [SerializeField] private ParticleSystem _afterExploseParticle;
     [SerializeField] private int _radius;
 
+    private readonly string _audioKey = "Meteor";
     private Vector3 endPosition;
 
     private void OnDisable()
@@ -36,6 +39,10 @@ public class MeteorMissle : Missle
 
     private IEnumerator DisableObject()
     {
+        if (TryGetComponent<SourceAudio>(out SourceAudio audio))
+        {
+            audio.Play(_audioKey);
+        }
         _afterExploseParticle.Play();
         yield return new WaitForSeconds(0.5f);
         gameObject.Deactivate();
@@ -52,11 +59,5 @@ public class MeteorMissle : Missle
                 enemy.TakeDamage(Damage, Type);
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(gameObject.transform.position, _radius);
     }
 }

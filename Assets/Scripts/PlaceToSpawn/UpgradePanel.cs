@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
-[RequireComponent(typeof(AudioSource))]
 public class UpgradePanel : MonoBehaviour
 {
     [SerializeField] private Button _upgradeButton;
@@ -19,16 +14,9 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField] private ChooseWarriorTarget _flagButton;
     [SerializeField] private InfoTowerPanel _shootingTowerInfo;
     [SerializeField] private InfoTowerPanel _barracksInfo;
-    [SerializeField] private AudioDataProperty _audioDataProperty;
 
     private MoneyCounter _moneyCounter;
     private Tower _tower;
-    private SourceAudio _audioSource;
-
-    private void Start()
-    {
-        _audioSource = gameObject.GetComponent<SourceAudio>();
-    }
 
     private void OnEnable()
     {
@@ -116,7 +104,7 @@ public class UpgradePanel : MonoBehaviour
         CloseInfo();
         ChangeText();
         _spawnPlaceTowerBeaty.PlayParticles();
-        _audioSource.Play(_audioDataProperty.Key);
+        _spawnPlaceTowerBeaty.PlaySound();
 
         if (_tower.TryGetComponent( out BarracksTower barracksTower))
             barracksTower.ChangeWarrior();
