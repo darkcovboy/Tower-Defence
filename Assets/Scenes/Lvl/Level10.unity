@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38407657, g: 0.49610692, b: 0.56370986, a: 1}
+  m_IndirectSpecularColor: {r: 0.38407698, g: 0.49610758, b: 0.563711, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5440,6 +5440,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1470795540788451528, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586900229473215380, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
+      propertyPath: _audioManager
+      value: 
+      objectReference: {fileID: 882534495}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _player
       value: 
@@ -5451,7 +5459,7 @@ PrefabInstance:
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _adButton
       value: 
-      objectReference: {fileID: 1186831162}
+      objectReference: {fileID: 0}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _mainCamera
       value: 
@@ -5469,6 +5477,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 400888930}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
+      propertyPath: _timeToSpawn
+      value: 
+      objectReference: {fileID: 312321773}
+    - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882534495}
@@ -5483,7 +5495,7 @@ PrefabInstance:
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _adButtonMoney
       value: 
-      objectReference: {fileID: 1186831162}
+      objectReference: {fileID: 1186831165}
     - target: {fileID: 3667506991136625090, guid: 5168d6e1a3e8f484cbf2c2bb9595e146, type: 3}
       propertyPath: _victoryScreen
       value: 
@@ -8122,7 +8134,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46729612
+      value: -0.46806574
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -11755,7 +11767,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46435595
+      value: -0.46512556
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -12975,7 +12987,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.462265
+      value: -0.46303463
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -14716,7 +14728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1186831162 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7426530062084794355, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1594438102932577444, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
   m_PrefabInstance: {fileID: 1186831159}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -14745,6 +14757,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b9ffe7e3e1eca54d93bc21297d18835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1186831165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2238029136153053010, guid: 60d3318602d1e3344a80094cc217306a, type: 3}
+  m_PrefabInstance: {fileID: 1186831159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74219d20a20cd6d4eb06d59a2fb617fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1189970692 stripped
@@ -15514,7 +15537,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46299267
+      value: -0.46376228
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -15833,7 +15856,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46357203
+      value: -0.46434164
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -23220,7 +23243,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46411467
+      value: -0.46488428
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -24301,7 +24324,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.471035
+      value: -0.47180462
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target
@@ -24438,7 +24461,7 @@ PrefabInstance:
       objectReference: {fileID: 2038465906}
     - target: {fileID: 5585307822608576722, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.46523094
+      value: -0.46600056
       objectReference: {fileID: 0}
     - target: {fileID: 6009600743247691902, guid: 7db8d4f780f89c34385b1bd0e55c951b, type: 3}
       propertyPath: target

@@ -14,6 +14,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private MoneyCounter _moneyCounter;
     [SerializeField] private SpawnPlaceTower[] _spawnPlaceTower;
     [SerializeField] private Camera _mainCamera;
+    [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawn;
     [Header("Spels")]
     [SerializeField] private SpellsCreator _spellsCreator;
     [Header("UI")]
@@ -46,8 +47,8 @@ public class Bootstrap : MonoBehaviour
         InitMoneyCounter();
         _moneyCounter.Init(_levelConfig.StartMoney);
         _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth, _spawner);
-        _adButtonMoney.Init(_levelConfig.AdStartMoney, _rewardedAd, _soundButton);
-        _adButtonHealth.Init(_rewardedAd, _gameOverScreen, _soundButton);
+        _adButtonMoney.Init(_levelConfig.AdStartMoney,_rewardedAd, _soundButton);
+        _adButtonHealth.Init(_rewardedAd ,_gameOverScreen, _soundButton, _player, _timeToSpawn);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
         _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);

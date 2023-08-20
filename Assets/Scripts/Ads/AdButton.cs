@@ -7,15 +7,16 @@ using UnityEngine.Events;
 
 public class AdButton : MonoBehaviour
 {
+    [SerializeField] private Button _adButton;
     [SerializeField] private ShowType adType;
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private float _radius;
-    [SerializeField] private Player _player;
-    [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawn;
     [SerializeField] private float _timeToShow;
 
     private int _money;
-    private SoundButton _soundButton; 
+    private SoundButton _soundButton;
+    private Player _player;
+    private TimeToSpawnNextWaveScreen _timeToSpawn;
 
     public event UnityAction PlayerIsAlive;
 
@@ -29,28 +30,29 @@ public class AdButton : MonoBehaviour
         _money = money;
         _moneyText.text = _money.ToString();
         _soundButton = soundButton;
-        var button = gameObject.GetComponent<Button>();
-        button.onClick.AddListener(()=>_soundButton.Play());
-        button.onClick.AddListener(() => rewardedVideo.Show(adType));
-        button.onClick.AddListener(gameObject.Deactivate);
+        
+        _adButton.onClick.AddListener(()=>_soundButton.Play());
+        _adButton.onClick.AddListener(() => rewardedVideo.Show(adType));
+        _adButton.onClick.AddListener(gameObject.Deactivate);
         StartCoroutine(OnTimeGoing());
     }
 
-    public void Init(RewardedVideo rewardedVideo, GameOverScreen gameOverScreen, SoundButton soundButton)
+    public void Init(RewardedVideo rewardedVideo, GameOverScreen gameOverScreen, SoundButton soundButton, Player player, TimeToSpawnNextWaveScreen timeToSpawnNextWaveScreen)
     {
         _soundButton = soundButton;
-        var button = gameObject.GetComponent<Button>();
-        button.onClick.AddListener(()=>_soundButton.Play());
-        button.onClick.AddListener(() => rewardedVideo.Show(adType));
-        button.onClick.AddListener(() => PlayerIsExtraLive());
-        button.onClick.AddListener(gameOverScreen.CloseScreen);
+        _player = player;
+        _timeToSpawn = timeToSpawnNextWaveScreen;
+        _adButton.onClick.AddListener(()=>_soundButton.Play());
+        _adButton.onClick.AddListener(() => rewardedVideo.Show(adType));
+        _adButton.onClick.AddListener(() => PlayerIsExtraLive());
+        _adButton.onClick.AddListener(gameOverScreen.CloseScreen);
     }
 
     private IEnumerator OnTimeGoing()
     {
-        gameObject.Deactivate();
+        _adButton.gameObject.Deactivate();
         yield return new WaitForSeconds(_timeToShow);
-        gameObject.Activate();
+        _adButton.gameObject.Activate();
     }
 
     private void PlayerIsExtraLive()
