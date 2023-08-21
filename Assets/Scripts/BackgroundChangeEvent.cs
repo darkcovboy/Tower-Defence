@@ -16,12 +16,15 @@ public class BackgroundChangeEvent : MonoBehaviour
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
     }
 
+    public void Init(AudioManager audioManager)
+    {
+        _audioManager = audioManager;
+    }
+
     private void OnInBackgroundChange(bool inBackground)
     {
-        // Use both pause and volume muting methods at the same time.
-        // They're both broken in Web, but work perfect together. Trust me on this.
         AudioListener.pause = inBackground;
-        AudioListener.volume = inBackground ? 0f : 1f;
-        Time.timeScale = inBackground ? 0f : _audioManager.CurrentVolume;
+        AudioListener.volume = inBackground ? 0f : _audioManager.CurrentVolume;
+        Time.timeScale = inBackground ? 0f : 1f;
     }
 }

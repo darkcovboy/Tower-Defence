@@ -31,6 +31,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private ObjectManagerUI _objectManagerUI;
     [SerializeField] private SaveManager _saveManager;
     [SerializeField] private EndLevelManager _endLevelManager;
+    [SerializeField] private BackgroundChangeEvent _backgroundChangeEvent;
     [Header("Ads")]
     [SerializeField] private FullVideo _fullVideoAd;
     [SerializeField] private RewardedVideo _rewardedAd;
@@ -55,6 +56,7 @@ public class Bootstrap : MonoBehaviour
         _saveManager.Init(_audioManager);
         _pauseScreen.Init(_objectManagerUI, _fullVideoAd, _soundButton);
         _nextWaveButton.Init(_moneyCounter, _soundButton);
+        _backgroundChangeEvent.Init(_audioManager);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
         TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher, _levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage, _levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();

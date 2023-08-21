@@ -368,6 +368,7 @@ Transform:
   - {fileID: 6039749755435145829}
   - {fileID: 7090910423405994208}
   - {fileID: 1470795540788451528}
+  - {fileID: 7791388070804587116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -761,6 +762,51 @@ MonoBehaviour:
   translationCode: tr
   cultures:
   - tr
+--- !u!1 &4203306527812436974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7791388070804587116}
+  - component: {fileID: 7559420744275461085}
+  m_Layer: 0
+  m_Name: Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7791388070804587116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203306527812436974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1451215564562653332}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7559420744275461085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203306527812436974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80185d9e112996c41bfdb4fbda1972af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioManager: {fileID: 0}
 --- !u!1 &4207338337013276293
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +864,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _mainCamera: {fileID: 0}
+  _timeToSpawn: {fileID: 0}
   _spellsCreator: {fileID: 5468758873089655730}
   _victoryScreen: {fileID: 0}
   _gameOverScreen: {fileID: 0}
@@ -833,6 +880,7 @@ MonoBehaviour:
   _objectManagerUI: {fileID: 1451215563870953052}
   _saveManager: {fileID: 1586900229473215380}
   _endLevelManager: {fileID: 1349476653386360185}
+  _backgroundChangeEvent: {fileID: 7559420744275461085}
   _fullVideoAd: {fileID: 2280000619180526179}
   _rewardedAd: {fileID: 6871650419339540294}
   _nextWaveButton: {fileID: 0}
