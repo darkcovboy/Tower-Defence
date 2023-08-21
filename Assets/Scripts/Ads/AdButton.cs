@@ -30,7 +30,6 @@ public class AdButton : MonoBehaviour
         _money = money;
         _moneyText.text = _money.ToString();
         _soundButton = soundButton;
-        
         _adButton.onClick.AddListener(()=>_soundButton.Play());
         _adButton.onClick.AddListener(() => rewardedVideo.Show(adType));
         _adButton.onClick.AddListener(gameObject.Deactivate);

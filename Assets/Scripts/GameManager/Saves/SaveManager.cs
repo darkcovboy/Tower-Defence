@@ -36,6 +36,8 @@ public class SaveManager : MonoBehaviour
             Debug.Log("Нет ключа");
             GenerateNewData();
         }
+
+        UpdateLevels();
     }
 
     public void Init(AudioManager audioManager)

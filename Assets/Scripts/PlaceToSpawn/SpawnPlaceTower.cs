@@ -6,7 +6,6 @@ public class SpawnPlaceTower : MonoBehaviour
 {
     [SerializeField] private GameObject _firstPanelUI;
     [SerializeField] private UpgradePanel _upgradePanelUI;
-    [SerializeField] private GameObject _magePanelUI;
     [SerializeField] private Tower[] _towers;
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _flag;
@@ -32,7 +31,6 @@ public class SpawnPlaceTower : MonoBehaviour
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _spawnPlaceTowerBeaty.PlayParticles();
         _towers[index].gameObject.Activate();
-        _magePanelUI.Deactivate();
         _currentPanel.Deactivate();
         _flag.Deactivate();
         _upgradePanelUI.TowerChoice(ref _towers[index]);
@@ -62,7 +60,6 @@ public class SpawnPlaceTower : MonoBehaviour
         _objectManager._event?.Invoke(false);
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _upgradePanelUI.CloseRangeField();
-        _magePanelUI.Deactivate();
         _currentPanel.Deactivate();
     }
 

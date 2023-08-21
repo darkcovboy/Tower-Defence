@@ -35,13 +35,10 @@ public class FullVideo : MonoBehaviour
 
     private void OnClose(bool isClosed)
     {
-        if(isClosed)
-        {
-            if (_isAudioOff != false)
-                AudioListener.pause = true;
+        if (_isAudioOff != false)
+            AudioListener.pause = true;
 
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(_sceneName);
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(_sceneName);
     }
 }
