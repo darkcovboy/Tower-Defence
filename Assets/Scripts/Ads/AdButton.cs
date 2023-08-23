@@ -33,7 +33,10 @@ public class AdButton : MonoBehaviour
         _adButton.onClick.AddListener(()=>_soundButton.Play());
         _adButton.onClick.AddListener(() => rewardedVideo.Show(adType));
         _adButton.onClick.AddListener(gameObject.Deactivate);
-        StartCoroutine(OnTimeGoing());
+        if(gameObject.activeSelf == true)
+        {
+            StartCoroutine(OnTimeGoing());
+        }
     }
 
     public void Init(RewardedVideo rewardedVideo, GameOverScreen gameOverScreen, SoundButton soundButton, Player player, TimeToSpawnNextWaveScreen timeToSpawnNextWaveScreen)

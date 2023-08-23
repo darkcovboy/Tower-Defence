@@ -31,7 +31,7 @@ public class LightningEffect : MonoBehaviour
 
     private void Update()
     {
-        if (_canLightning == false)
+        if (_canLightning == false || _lightningPoints.Count == 0)
             return;
 
         DrawLightning();

@@ -26,14 +26,12 @@ public class SaveManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey(_dataPrefsKey))
         {
-            Debug.Log("Есть ключ");
             _jsonData = PlayerPrefs.GetString(_dataPrefsKey);
             SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
             SaveData();
         }
         else
         {
-            Debug.Log("Нет ключа");
             GenerateNewData();
         }
 
@@ -48,7 +46,7 @@ public class SaveManager : MonoBehaviour
     //Пока не используется, задает новые значения текущему уровню, открываем следующий, сохраняем
     public void SaveEndLevel(int stars, int score)
     {
-        int index = SceneManager.GetActiveScene().buildIndex;
+        int index = (SceneManager.GetActiveScene().buildIndex - 1);
         SaveDataWrapper.Score += score;
 
         if (stars > SaveDataWrapper.LevelDataList[index].Stars)

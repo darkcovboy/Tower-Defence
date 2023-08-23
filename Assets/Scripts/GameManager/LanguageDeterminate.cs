@@ -7,11 +7,12 @@ using Lean.Localization;
 public class LanguageDeterminate : MonoBehaviour
 {
     [SerializeField] private LeanLocalization _leanLocalization;
+    [SerializeField] private string _language;
 
 #if UNITY_EDITOR
     private void Start()
     {
-        ChooseLanguage("en");
+        ChooseLanguage(_language);
     }
 #elif UNITY_WEBGL
 
