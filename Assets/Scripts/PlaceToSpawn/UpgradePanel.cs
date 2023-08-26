@@ -40,7 +40,7 @@ public class UpgradePanel : MonoBehaviour
 
     private void Update()
     {
-        if (_tower.Cost >= _moneyCounter.Money || _tower.IsMaxLevel == true)
+        if (_tower.Cost > _moneyCounter.Money || _tower.IsMaxLevel == true)
             _upgradeButton.interactable = false;
         else
             _upgradeButton.interactable = true;

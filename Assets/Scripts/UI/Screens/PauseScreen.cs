@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PauseScreen : Screen
 {
     //[SerializeField] private ReturnGameButton _returnGameButton;
+    [SerializeField] private GameObject _pause;
 
     private ObjectManagerUI _objectManagerUI;
 
@@ -20,6 +21,7 @@ public class PauseScreen : Screen
     public override void OpenScreen()
     {
         Time.timeScale = 0;
+        _pause.Activate();
         _objectManagerUI.CloseUI();
         base.OpenScreen();
     }
@@ -27,6 +29,7 @@ public class PauseScreen : Screen
     public override void CloseScreen()
     {
         Time.timeScale = 1;
+        _pause.Deactivate();
         base.CloseScreen();
     }
 }

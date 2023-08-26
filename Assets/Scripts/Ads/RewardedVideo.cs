@@ -39,8 +39,7 @@ public class RewardedVideo : MonoBehaviour
                 VideoAd.Show(OnOpen, OnRewardedMoney, OnClose);
                 break;
             case ShowType.Health:
-                //VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
-                OnRewardedHealth();
+                VideoAd.Show(OnOpen, OnRewardedHealth, OnClose);
                 break;
         }
     }
@@ -88,7 +87,7 @@ public class RewardedVideo : MonoBehaviour
 
     private void OnClose()
     {
-        if(_isAudioOff == false)
+        if(_isAudioOff == true)
             AudioListener.pause = false;
 
         Time.timeScale = 1f;

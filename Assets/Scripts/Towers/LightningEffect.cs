@@ -77,8 +77,6 @@ public class LightningEffect : MonoBehaviour
             {
                 if (_enemies[j].CurrentHealth > 0)
                     _enemies[j].TakeDamage(_damage, _damageType);
-                else
-                    _lightningPoints.Remove(_lightningPoints.Single(point => point.GetComponent<Enemy>().CurrentHealth < 0));
             }
 
             yield return new WaitForSeconds(1f);
@@ -110,6 +108,16 @@ public class LightningEffect : MonoBehaviour
 
         points[pointIndex] = _lightningPoints[_lightningPoints.Count - 1].position;
         _lineRenderer.SetPositions(points);
+        RemoveDisabled();
+    }
+
+    private void RemoveDisabled()
+    {
+        foreach (var point in _lightningPoints.Reverse<Transform>())
+        {
+            if (point.gameObject.activeSelf == false)
+                _lightningPoints.Remove(point);
+        }
     }
 
     private Vector3 RandomDeviation()
