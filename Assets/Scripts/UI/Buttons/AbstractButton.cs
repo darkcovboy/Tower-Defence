@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
 public abstract class AbstractButton : MonoBehaviour
 {
-    [SerializeField] protected SourceAudio AudioSource;
-    [SerializeField] protected AudioDataProperty AudioDataProperty;
-
     protected SceneFader SceneFader;
     protected Button ButtonComponent;
-
 
     private void Awake()
     {

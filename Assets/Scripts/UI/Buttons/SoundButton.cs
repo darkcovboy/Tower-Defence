@@ -1,30 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 using UnityEngine.UI;
-[RequireComponent(typeof(SourceAudio))]
 
 public class SoundButton : MonoBehaviour
 {
-    [SerializeField] private AudioDataProperty _buttonData;
-    [SerializeField] private AudioDataProperty _nextWaveData;
-
-    private SourceAudio _sourceAudio;
-
-    private void Start()
-    {
-        _sourceAudio = gameObject.GetComponent<SourceAudio>();
-    }
+    [SerializeField] private AudioSource _button;
+    [SerializeField] private AudioSource _nextWaveButton;
 
     public void Play()
     {
-        _sourceAudio.Play(_buttonData.Key);
+        _button.Play();
     }
 
     public void PlayNextWave()
     {
-        _sourceAudio.Play(_nextWaveData.Key);
+        _nextWaveButton.Play();
     }
 }

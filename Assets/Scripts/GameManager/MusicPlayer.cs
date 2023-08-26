@@ -1,26 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] private SourceAudio _sourceAudio;
-    [SerializeField] private AudioDataProperty dataProperty;
+    private AudioSource _audioSource;
 
     private void Start()
     {
-        _sourceAudio.Play(dataProperty.Key);
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.Play();
     }
 
     public void Play()
     {
-        _sourceAudio.Play(dataProperty.Key);
+        _audioSource.Play();
     }
 
     public void Stop()
     {
-        _sourceAudio.Stop();
+        _audioSource.Stop();
     }
 }

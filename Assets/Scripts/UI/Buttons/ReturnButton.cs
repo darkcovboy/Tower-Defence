@@ -13,7 +13,7 @@ public class ReturnButton : AbstractButton
 
     protected override void OnButtonClick()
     {
-        AudioSource.Play(AudioDataProperty.Key);
+        gameObject.GetComponent<AudioSource>().Play();
         _cameraRotate.ReturnCameraDefault();
     }
 }

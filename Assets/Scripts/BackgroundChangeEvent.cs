@@ -28,7 +28,8 @@ public class BackgroundChangeEvent : MonoBehaviour
 
     private void OnInBackgroundChange(bool inBackground)
     {
-        _isAudioOff = AudioListener.pause;
+        if(inBackground == true)
+            _isAudioOff = AudioListener.pause;
 
         if (inBackground == true)
         {

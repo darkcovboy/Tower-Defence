@@ -10,7 +10,7 @@ public class PauseButton : AbstractButton
 
     protected override void OnButtonClick()
     {
-        AudioSource.Play(AudioDataProperty.Key);
+        gameObject.GetComponent<AudioSource>().Play();
         _pauseScreen.OpenScreen();
     }
 }

@@ -579,10 +579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b14a23adec4974fb51f8b404000999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 38900655}
-  AudioDataProperty:
-    _id: c0dd0da5-5432-488e-9655-693903039099
-    _key: Button
   _screenPanels:
   - {fileID: 590486205}
   - {fileID: 1304784844}
@@ -2568,7 +2564,6 @@ GameObject:
   - component: {fileID: 396236784}
   - component: {fileID: 396236785}
   - component: {fileID: 396236786}
-  - component: {fileID: 396236787}
   m_Layer: 0
   m_Name: LevelSelector
   m_TagString: Untagged
@@ -2712,19 +2707,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &396236787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396236783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Loop: 0
 --- !u!1 &399024166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,6 +3563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _leanLocalization: {fileID: 7635544247989717681}
+  _language: 
 --- !u!1001 &656017484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4553,7 +4536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80185d9e112996c41bfdb4fbda1972af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioManager: {fileID: 1418055467}
 --- !u!1 &905973286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,7 +4841,6 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
-  - component: {fileID: 963194232}
   - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
@@ -5057,23 +5038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87886991579f0541a3b4ee4d93451d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sourceAudio: {fileID: 963194232}
-  dataProperty:
-    _id: 64aa37e5-782c-4d0c-8d06-50c7210445c2
-    _key: MainMenu
---- !u!114 &963194232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c896f32ca6a24109b8311345ab6aae6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Loop: 0
 --- !u!1001 &968324320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11099,10 +11063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5c9d0c4a88f7041a76610ca118d1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 2113331791}
-  AudioDataProperty:
-    _id: Null
-    _key: None
   _settingsScreen: {fileID: 280735846}
   _screenPanels:
   - {fileID: 590486205}
@@ -11217,10 +11177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b14a23adec4974fb51f8b404000999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource: {fileID: 38900654}
-  AudioDataProperty:
-    _id: Null
-    _key: None
   _screenPanels:
   - {fileID: 590486205}
   - {fileID: 1304784844}
@@ -13649,7 +13605,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5917734044232101929, guid: fc3876ff532594b4f98e66a1e341c296, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc3876ff532594b4f98e66a1e341c296, type: 3}
 --- !u!1 &4924818858983834652
 GameObject:
@@ -15174,7 +15131,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7166515264826046889, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
+    - {fileID: 7166515264826046888, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
+    - {fileID: 7166515264826046887, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
+    - {fileID: 481590481, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
+    - {fileID: 7166515264826046891, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
+    - {fileID: 7166515264826046890, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b7a80e495abe3aa419c7370c4fe5ea23, type: 3}
 --- !u!1 &7317715884175457108
 GameObject:
@@ -15291,7 +15254,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bestiary
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2009100274696571907, guid: f408f5a5e6fc59a4fbc5b5377ffaf45c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f408f5a5e6fc59a4fbc5b5377ffaf45c, type: 3}
 --- !u!4 &7453662954142803895
 Transform:

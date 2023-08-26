@@ -5,15 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 [RequireComponent(typeof(AudioSource))]
 public class VictoryScreen : Screen
 {
     [SerializeField] private GameObject _screen;
     [SerializeField] private Star[] _stars;
     [SerializeField] private TextMeshProUGUI _pointsText;
-    [SerializeField] private AudioDataProperty _audioData;
 
     private int _countStars;
     private AudioSource _music;
@@ -39,7 +36,7 @@ public class VictoryScreen : Screen
     {
         _screen.SetActive(true);
         _music.GetComponent<MusicPlayer>().Stop();
-        gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
+        gameObject.GetComponent<AudioSource>().Play();
         //StartCoroutine(ShowStars());
     }
 

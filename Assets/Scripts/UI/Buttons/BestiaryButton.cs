@@ -11,12 +11,12 @@ public class BestiaryButton : AbstractButton
     protected override void OnButtonClick()
     {
         _cameraRotate.ChangeDirection();
-        AudioSource.Play();
+        gameObject.GetComponent<AudioSource>().Play();
 
         foreach (var screen in _screenPanels)
         {
-            screen.gameObject.SetActive(false);
+            screen.gameObject.Deactivate();
         }
-        _bestiaryBook.gameObject.SetActive(true);
+        _bestiaryBook.gameObject.Activate();
     }
 }

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
 [RequireComponent(typeof(AudioSource))]
 public class ShootingTower : Tower
@@ -13,14 +11,12 @@ public class ShootingTower : Tower
     [SerializeField] protected Transform Target;
     [SerializeField] private ParticleSystem[] _particleSystems;
     [SerializeField] private GameObject[] _watchers;
-    [SerializeField] private AudioDataProperty _audioData;
 
     protected Enemy Enemy;
 
     private Quaternion _startRotation;
 
     private AudioSource _audioSource;
-    private SourceAudio _sourceAudio;
 
     private void Start()
     {
@@ -28,7 +24,6 @@ public class ShootingTower : Tower
             _startRotation = _watchers[Level].transform.rotation;
 
         _audioSource = gameObject.GetComponent<AudioSource>();
-        _sourceAudio = gameObject.GetComponent<SourceAudio>();
     }
 
     private void OnEnable()
@@ -108,7 +103,7 @@ public class ShootingTower : Tower
                         animator.Play("Shoot");
                     }
 
-                    _sourceAudio.Play(_audioData.Key);
+                    _audioSource.Play();
 
                     yield return new WaitForSeconds(TowerDataConfig.Delays[Level]);
                 }
