@@ -6,6 +6,7 @@ using Agava.WebUtility;
 public class BackgroundChangeEvent : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
+
     private void OnEnable()
     {
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
