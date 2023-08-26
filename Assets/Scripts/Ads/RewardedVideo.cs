@@ -48,8 +48,7 @@ public class RewardedVideo : MonoBehaviour
     {
         _isAudioOff = AudioListener.pause;
 
-        if (_isAudioOff == false)
-            AudioListener.pause = true;
+        AudioListener.pause = true;
 
         Time.timeScale = 0f;
     }
@@ -87,7 +86,7 @@ public class RewardedVideo : MonoBehaviour
 
     private void OnClose()
     {
-        if(_isAudioOff == true)
+        if(_isAudioOff == false)
             AudioListener.pause = false;
 
         Time.timeScale = 1f;
