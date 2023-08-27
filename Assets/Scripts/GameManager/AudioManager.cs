@@ -52,6 +52,7 @@ public class AudioManager : MonoBehaviour
         _audioOn.Activate();
         AudioListener.pause = true;
         AudioListener.volume = 0;
+        _currentVolume = 0f;
     }
 
     private void PlayAudio()
