@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public float CurrentVolume => _currentVolume;
 
     private float _currentVolume;
+    private float _lastCurrentVolume;
 
     private void Start()
     {
@@ -24,7 +25,17 @@ public class AudioManager : MonoBehaviour
     public void OnSliderChanged(float volume)
     {
         AudioListener.volume = volume;
-        _currentVolume = volume;
+
+        if (volume > 0)
+        {
+            _currentVolume = volume;
+            PlayAudio();
+        }
+        else
+        {
+            MuteAudio();
+        }
+        
     }
 
     public void AudioChange(bool flag)
@@ -40,6 +51,7 @@ public class AudioManager : MonoBehaviour
         _audioOff.Deactivate();
         _audioOn.Activate();
         AudioListener.pause = true;
+        AudioListener.volume = 0;
     }
 
     private void PlayAudio()
