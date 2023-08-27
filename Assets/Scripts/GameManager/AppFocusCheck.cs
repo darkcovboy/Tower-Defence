@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AppFocusCheck : MonoBehaviour
 {
+    private float _timeScace;
+
     private void OnApplicationFocus(bool focus)
     {
         AppFocus(!focus);
@@ -20,8 +22,17 @@ public class AppFocusCheck : MonoBehaviour
         AudioListener.volume = checkFocus ? 0 : 1;
 
         if (checkFocus)
-            Time.timeScale = 0f;
-        else
-            Time.timeScale = 1f;
+        {
+            _timeScace = Time.timeScale;
+            Time.timeScale = 0;        
+        }
+
+        if (!checkFocus)
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = _timeScace;
+            }
+        }
     }
 }
