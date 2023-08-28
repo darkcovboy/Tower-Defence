@@ -47,6 +47,7 @@ public class AdButton : MonoBehaviour
         _adButton.onClick.AddListener(()=>_soundButton.Play());
         _adButton.onClick.AddListener(() => rewardedVideo.Show(adType));
         _adButton.onClick.AddListener(() => PlayerIsExtraLive());
+        _adButton.onClick.AddListener(gameObject.Deactivate);
         _adButton.onClick.AddListener(gameOverScreen.CloseScreen);
     }
 

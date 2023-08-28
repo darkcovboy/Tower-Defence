@@ -29,6 +29,7 @@ public class GameOverScreen : Screen
     public override void OpenScreen()
     {
         _gameOverScreen.Activate();
+        Time.timeScale = 0f;
         _music.GetComponent<MusicPlayer>().Stop();
         gameObject.GetComponent<AudioSource>().Play();
     }
@@ -36,6 +37,7 @@ public class GameOverScreen : Screen
     public override void CloseScreen()
     {
         _gameOverScreen.Deactivate();
+        Time.timeScale = 1f;
         _music.GetComponent<MusicPlayer>().Play();
     }
 }

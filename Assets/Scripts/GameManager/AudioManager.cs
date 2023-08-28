@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     public float CurrentVolume => _currentVolume;
 
     private float _currentVolume;
-    private float _lastCurrentVolume;
+    private float _standartVolume;
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
         _audioOn.onClick.AddListener(PlayAudio);
         _sliderVolume.onValueChanged.AddListener(OnSliderChanged);
         _currentVolume = _sliderVolume.value;
+        _standartVolume= _currentVolume;
     }
 
     public void OnSliderChanged(float volume)
@@ -60,5 +61,11 @@ public class AudioManager : MonoBehaviour
         _audioOff.Activate();
         _audioOn.Deactivate();
         AudioListener.pause = false;
+
+        if(AudioListener.volume == 0)
+        {
+            AudioListener.volume = _standartVolume;
+            _sliderVolume.value = AudioListener.volume;
+        }
     }
 }
