@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
 
     private float _currentVolume;
     private float _standartVolume;
+    private SaveManager _saveManager;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class AudioManager : MonoBehaviour
         _sliderVolume.onValueChanged.AddListener(OnSliderChanged);
         _currentVolume = _sliderVolume.value;
         _standartVolume= _currentVolume;
+        _saveManager = FindObjectOfType<SaveManager>();
     }
 
     public void OnSliderChanged(float volume)
@@ -36,12 +38,11 @@ public class AudioManager : MonoBehaviour
         {
             MuteAudio();
         }
-        
     }
 
     public void AudioChange(bool flag)
     {
-        if (flag)
+        if (!flag)
             PlayAudio();
         else
             MuteAudio();
@@ -54,6 +55,7 @@ public class AudioManager : MonoBehaviour
         AudioListener.pause = true;
         AudioListener.volume = 0;
         _currentVolume = 0f;
+        _saveManager.UpdateSound();
     }
 
     private void PlayAudio()
@@ -67,5 +69,7 @@ public class AudioManager : MonoBehaviour
             AudioListener.volume = _standartVolume;
             _sliderVolume.value = AudioListener.volume;
         }
+
+        _saveManager.UpdateSound();
     }
 }

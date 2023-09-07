@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class FullVideo : MonoBehaviour
 {
     private bool _isAudioOff;
+    private float _volume;
     private string _sceneName;
     private SceneFader _sceneFader;
 
@@ -26,18 +27,16 @@ public class FullVideo : MonoBehaviour
     private void OnOpen()
     {
         _isAudioOff = AudioListener.pause;
-
-        if (_isAudioOff == false)
-            AudioListener.pause = true;
-
+        _volume = AudioListener.volume;
+        AudioListener.pause = true;
+        AudioListener.volume = 0;
         Time.timeScale = 0f;
     }
 
     private void OnClose(bool isClosed)
     {
-        if (_isAudioOff == true)
-            AudioListener.pause = false;
-
+        AudioListener.pause = _isAudioOff;
+        AudioListener.volume = _volume;
         Time.timeScale = 1f;
         SceneManager.LoadScene(_sceneName);
     }

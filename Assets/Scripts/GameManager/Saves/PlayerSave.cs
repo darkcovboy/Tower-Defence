@@ -50,7 +50,7 @@ public class PlayerSave
             }
             else
             {
-                levelData.IsUnblock = true;
+                levelData.IsUnblock = false;
             }
 
             levelDataList.Add(levelData);
@@ -80,5 +80,5 @@ public class LevelData
 public class VolumeData
 {
     public float Volume;
-    public bool SoundEnabled = true;
+    public bool SoundPause = false;
 }

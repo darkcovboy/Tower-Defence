@@ -10,6 +10,7 @@ public class LeaderboardScreen : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private RankView _template;
     [SerializeField] private RankView _user;
+    [SerializeField] private GameObject _panel;
 
     private SaveManager _saveManager;
     private readonly string _leaderBoardName = "TowerDefenceUserLeaderboard";
@@ -34,6 +35,11 @@ public class LeaderboardScreen : MonoBehaviour
         }
         else
         {
+            if(_panel != null)
+            {
+                _panel.Deactivate();
+            }
+            
             gameObject.Deactivate();
         }
     }

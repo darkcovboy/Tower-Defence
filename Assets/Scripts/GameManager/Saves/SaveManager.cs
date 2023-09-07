@@ -43,6 +43,13 @@ public class SaveManager : MonoBehaviour
         _audioManager = audioManager;
     }
 
+    public void UpdateSound()
+    {
+        SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
+        SaveDataWrapper.SettingsData.SoundPause = AudioListener.pause;
+        SaveData();
+    }
+
     //Пока не используется, задает новые значения текущему уровню, открываем следующий, сохраняем
     public void SaveEndLevel(int stars, int score)
     {
@@ -54,7 +61,8 @@ public class SaveManager : MonoBehaviour
             SaveDataWrapper.LevelDataList[index].Stars = stars;
         }
 
-        SaveDataWrapper.SettingsData.SoundEnabled = AudioListener.pause;
+        Debug.Log("Пауза -" + AudioListener.pause + " Громкость" + AudioListener.volume);
+        SaveDataWrapper.SettingsData.SoundPause = AudioListener.pause;
         SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
 
         if ((index + 1) < _maxLevel)
@@ -67,10 +75,12 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void UpdateLevels()
     {
+        Debug.Log(SaveDataWrapper.SettingsData.Volume + " " + SaveDataWrapper.SettingsData.SoundPause);
         _audioManager.OnSliderChanged(SaveDataWrapper.SettingsData.Volume);
-        _audioManager.AudioChange(SaveDataWrapper.SettingsData.SoundEnabled);
+        _audioManager.AudioChange(SaveDataWrapper.SettingsData.SoundPause);
     }
 
+    
 
     //Создаем новую дату, сохраняем, здесь JsonUnitility преобразует наш класс в формат JSON
     private void GenerateNewData()
@@ -82,7 +92,6 @@ public class SaveManager : MonoBehaviour
 
     private void SaveData()
     {
-        Debug.Log(_jsonData);
         _jsonData = JsonUtility.ToJson(SaveDataWrapper);
         PlayerPrefs.SetString(_dataPrefsKey, _jsonData);
         PlayerPrefs.Save();
