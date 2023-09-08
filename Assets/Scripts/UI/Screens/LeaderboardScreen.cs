@@ -19,7 +19,6 @@ public class LeaderboardScreen : MonoBehaviour
     private void OnEnable()
     {
         ClearChildren(_container.transform);
-
         if (PlayerAccount.IsAuthorized == false)
         {
             PlayerAccount.Authorize();
@@ -75,20 +74,32 @@ public class LeaderboardScreen : MonoBehaviour
         {
             if (result != null)
             {
-                var view = Instantiate(_template, _container.transform);
                 string name = result.player.publicName;
 
                 if (string.IsNullOrEmpty(name))
                     name = _anonymous;
 
-                if (result.score > 0)
-                {
-                    view.Render(result.rank, name, result.score);
-                }
-
                 _user.Render(result.rank, name, result.score);
             }
         });
+    }
+
+    private void ShowUsersDemo()
+    {
+        List<User> users = new List<User>()
+        {
+            new User(1, "dillon", 800),
+            new User(2, "dima", 700),
+            new User(3, "zhasmin", 600),
+            new User(4, "pisya", 500),
+        };
+
+        foreach (var user in users)
+        {
+            var view = Instantiate(_template, _container.transform);
+
+            view.Render(user.Rank, user.Name, user.Score);
+        }
     }
 
     private void ClearChildren(Transform transform)
