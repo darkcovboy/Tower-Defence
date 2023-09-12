@@ -75,12 +75,9 @@ public class SaveManager : MonoBehaviour
 
     protected virtual void UpdateLevels()
     {
-        Debug.Log(SaveDataWrapper.SettingsData.Volume + " " + SaveDataWrapper.SettingsData.SoundPause);
         _audioManager.OnSliderChanged(SaveDataWrapper.SettingsData.Volume);
         _audioManager.AudioChange(SaveDataWrapper.SettingsData.SoundPause);
     }
-
-    
 
     //Создаем новую дату, сохраняем, здесь JsonUnitility преобразует наш класс в формат JSON
     private void GenerateNewData()
