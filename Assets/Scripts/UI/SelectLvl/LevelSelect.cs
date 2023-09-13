@@ -9,12 +9,15 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] private SceneFader _sceneFader;
     [SerializeField] private LoadingScene _loadingScene;
     [SerializeField] private Button[] _levelButtons;
+    [SerializeField] private GameObject[] _blockButton;
 
     public void UpdateLevels(List<LevelData> levelDatas)
     {
         Debug.Log(_levelButtons.Length);
         for(int i = 0; i < _levelButtons.Length; i++)
         {
+            Debug.Log(levelDatas[i].IsUnblock);
+            _blockButton[i].SetActive(!levelDatas[i].IsUnblock);
             _levelButtons[i].interactable = levelDatas[i].IsUnblock;
             _levelButtons[i].GetComponent<LevelButton>().UpdateStars(levelDatas[i].Stars);
         }
