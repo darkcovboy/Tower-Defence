@@ -61,7 +61,6 @@ public class SaveManager : MonoBehaviour
             SaveDataWrapper.LevelDataList[index].Stars = stars;
         }
 
-        Debug.Log("Пауза -" + AudioListener.pause + " Громкость" + AudioListener.volume);
         SaveDataWrapper.SettingsData.SoundPause = AudioListener.pause;
         SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
 
