@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Agava.YandexGames;
 
 public class UpgradePanel : MonoBehaviour
 {
@@ -117,7 +118,22 @@ public class UpgradePanel : MonoBehaviour
 
         if (_tower.IsMaxLevel == true)
         {
+#if UNITY_EDITOR
             _costText.text = "Max";
+#elif UNITY_WEBGL
+           switch (YandexGamesSdk.Environment.i18n.lang)
+            {
+                case "en":
+                    _costText.text = "Max";
+                    break;
+                case "tr":
+                    _costText.text = "Максимум";
+                    break;
+                case "ru":
+                    _costText.text = "Maksimum";
+                    break;
+            }
+#endif
         }
         else
         {
