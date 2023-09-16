@@ -50,7 +50,7 @@ public class PlayerSave
             }
             else
             {
-                levelData.IsUnblock = true;
+                levelData.IsUnblock = false;
             }
 
             levelDataList.Add(levelData);

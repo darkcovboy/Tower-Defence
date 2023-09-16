@@ -14,7 +14,8 @@ public class LevelSelect : MonoBehaviour
     {
         for(int i = 0; i < _levelButtons.Length; i++)
         {
-            _levelButtons[i].GetComponent<LevelButton>().UnblockButton(!levelDatas[i].IsUnblock);
+            Debug.Log(levelDatas[i].IsUnblock);
+            _levelButtons[i].GetComponent<LevelButton>().UnblockButton(levelDatas[i].IsUnblock);
             _levelButtons[i].interactable = levelDatas[i].IsUnblock;
             _levelButtons[i].GetComponent<LevelButton>().UpdateStars(levelDatas[i].Stars);
         }

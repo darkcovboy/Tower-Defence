@@ -16,7 +16,7 @@ public class SaveManager : MonoBehaviour
     protected SaveDataWrapper SaveDataWrapper;
     private PlayerSave _playerSave;
     private string _jsonData;
-    private readonly int _maxLevel = 1;
+    private readonly int _maxLevel = 10;
     private readonly string _dataPrefsKey = "GameDataJSON";
 
     private IEnumerator Start()
@@ -27,6 +27,7 @@ public class SaveManager : MonoBehaviour
         if (PlayerPrefs.HasKey(_dataPrefsKey))
         {
             _jsonData = PlayerPrefs.GetString(_dataPrefsKey);
+            Debug.Log(_jsonData);
             SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
             SaveData();
         }

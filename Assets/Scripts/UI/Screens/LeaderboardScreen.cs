@@ -11,41 +11,47 @@ public class LeaderboardScreen : MonoBehaviour
     [SerializeField] private RankView _template;
     [SerializeField] private RankView _user;
     [SerializeField] private GameObject _panel;
+    [SerializeField] private GameObject _infoPanel;
 
     private SaveManager _saveManager;
     private readonly string _leaderBoardName = "TowerDefenceUserLeaderboard";
-    private readonly string _anonymous = "Anonymous";
+    private readonly string _anonymousEng = "Anonymous";
+    private readonly string _anonymousRu = "Безымянный";
+    private readonly string _anonymousTr = "Anonim";
 
     private void OnEnable()
     {
         ClearChildren(_container.transform);
+
         if (PlayerAccount.IsAuthorized == false)
         {
-            PlayerAccount.Authorize();
-        }
-
-        if (PlayerAccount.IsAuthorized == true)
-        {
-            if(_saveManager.Score > 0)
-                Leaderboard.SetScore(_leaderBoardName, _saveManager.Score);
-
-            ShowCurrentUser();
-            ShowAllUsers();
+            _infoPanel.Activate();
         }
         else
         {
-            if(_panel != null)
-            {
-                _panel.Deactivate();
-            }
-            
-            gameObject.Deactivate();
+            Fill();
         }
     }
 
     public void Init(SaveManager saveManager)
     {
         _saveManager = saveManager;
+    }
+
+    public void Authorise()
+    {
+        PlayerAccount.Authorize(Fill);
+    }
+
+    private void Fill()
+    {
+        _infoPanel.Deactivate();
+
+        if (_saveManager.Score > 0)
+            Leaderboard.SetScore(_leaderBoardName, _saveManager.Score);
+
+        ShowCurrentUser();
+        ShowAllUsers();
     }
 
     private void ShowAllUsers()
@@ -60,7 +66,7 @@ public class LeaderboardScreen : MonoBehaviour
                     string name = entry.player.publicName;
 
                     if (string.IsNullOrEmpty(name))
-                        name = _anonymous;
+                        name = _anonymousEng;
 
                     view.Render(entry.rank, name, entry.score);
                 }
@@ -77,7 +83,20 @@ public class LeaderboardScreen : MonoBehaviour
                 string name = result.player.publicName;
 
                 if (string.IsNullOrEmpty(name))
-                    name = _anonymous;
+                {
+                    switch(YandexGamesSdk.Environment.i18n.lang)
+                    {
+                        case "en":
+                            name = _anonymousEng;
+                            break;
+                        case "tr":
+                            name = _anonymousTr;
+                            break;
+                        case "ru":
+                            name = _anonymousRu;
+                            break;
+                    }
+                }
 
                 _user.Render(result.rank, name, result.score);
             }

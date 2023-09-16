@@ -7,9 +7,12 @@ public class LevelButton : MonoBehaviour
     [SerializeField] private GameObject[] _stars;
     [SerializeField] private BlockButton _blockButton;
 
-    public void UnblockButton(bool flag)
+    public void UnblockButton(bool isButtonOpened)
     {
-        _blockButton.gameObject.SetActive(flag);
+        if(isButtonOpened == true)
+            _blockButton.Deactivate();
+        else
+            _blockButton.Activate();
     }
 
     public void UpdateStars(int count)
