@@ -126,10 +126,10 @@ public class UpgradePanel : MonoBehaviour
                 case "en":
                     _costText.text = "Max";
                     break;
-                case "tr":
+                case "ru":
                     _costText.text = "Максимум";
                     break;
-                case "ru":
+                case "tr":
                     _costText.text = "Maksimum";
                     break;
             }
