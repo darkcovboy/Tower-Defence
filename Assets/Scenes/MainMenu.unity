@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.38206905, g: 0.4952296, b: 0.56356496, a: 1}
+  m_IndirectSpecularColor: {r: 0.38206905, g: 0.49523014, b: 0.56356597, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1279,17 +1279,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0412\u044B\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0443
-      \u0432\u0440\u0430\u0433\u043E\u0432 \u0438\u043B\u0438 \u0431\u0430\u0448\u0435\u043D
-      \u0438 \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0438 \u043D\u0430 \u043D\u0443\u0436\u043D\u0443\u044E
-      \u0441\u0442\u0440\u0430\u043D\u0438\u0447\u043A\u0443."
+    Text: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0437\u0430\u043A\u043B\u0430\u0434\u043A\u0443
+      '\u0412\u0440\u0430\u0433\u0438' \u0438\u043B\u0438 '\u0411\u0430\u0448\u043D\u0438'
+      \u0438 \u043F\u0435\u0440\u0435\u0439\u0434\u0438\u0442\u0435 \u043D\u0430
+      \u043D\u0443\u0436\u043D\u0443\u044E \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443."
     Object: {fileID: 0}
   - Language: English
-    Text: Select the bookmark of enemies or towers and go to the desired page.
+    Text: Select the 'Enemies' or 'Towers' tab and go to the desired page.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "D\xFC\u015Fmanlar\u0131n veya kulelerin yer imini se\xE7in ve istedi\u011Finiz
-      sayfaya gidin.\r"
+    Text: "D\xFC\u015Fmanlar' veya 'Kuleler' sekmesini se\xE7in ve istedi\u011Finiz
+      sayfaya gidin."
     Object: {fileID: 0}
 --- !u!1 &99103841
 GameObject:
@@ -1959,18 +1959,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0431\u043E\u0435\u0432\u0430\u044F
-      \u0435\u0434\u0438\u043D\u0438\u0446\u0430 \u043D\u0430\u0448\u0438\u0445 \u0432\u0440\u0430\u0433\u043E\u0432,
-      \u0438\u043C\u0435\u044E\u0442 \u0445\u043E\u0440\u043E\u0448\u0443\u044E \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
-      \u0438 \u043A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0436\u0438\u0437\u043D\u0435\u0439"
+    Text: "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u0431\u043E\u0435\u0432\u044B\u0435
+      \u044E\u043D\u0438\u0442\u044B \u0432\u0440\u0430\u0433\u043E\u0432. \u0418\u043C\u0435\u044E\u0442
+      \u0445\u043E\u0440\u043E\u0448\u0443\u044E \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+      \u0438 \u043C\u043D\u043E\u0433\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F."
     Object: {fileID: 0}
   - Language: English
-    Text: The main combat unit of our enemies, they have good speed and number of
-      lives
+    Text: Primary enemy combat units. Possess good speed and high health.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "D\xFC\u015Fmanlar\u0131m\u0131z\u0131n ana muharebe birimi, iyi h\u0131zlar\u0131
-      ve can say\u0131lar\u0131 var"
+    Text: "D\xFC\u015Fman\u0131n ana sava\u015F birimleri. \u0130yi bir h\u0131z
+      ve y\xFCksek sa\u011Fl\u0131k de\u011Ferine sahipler."
     Object: {fileID: 0}
 --- !u!1001 &221389960
 PrefabInstance:
@@ -4243,7 +4242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _leanLocalization: {fileID: 7635544247989717681}
-  _language: 
+  _language: en
 --- !u!1001 &656017484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5139,14 +5138,15 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041E\u0431\u0438\u0442\u0430\u0435\u0442 \u043D\u0430 \u0441\u0435\u0432\u0435\u0440\u0435,
-      \u0435\u0441\u043B\u0438 \u0432\u044B \u0435\u0433\u043E \u043F\u0440\u043E\u0431\u0443\u0434\u0438\u043B\u0438
-      \u0436\u0434\u0438 \u0431\u0435\u0434\u044B"
+      \u0431\u0443\u0434\u044C \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u0435\u043D,
+      \u0435\u0441\u043B\u0438 \u0440\u0430\u0437\u0431\u0443\u0434\u0438\u0448\u044C
+      \u0435\u0433\u043E."
     Object: {fileID: 0}
   - Language: English
-    Text: Lives in the north, if you awaken it, wait for trouble
+    Text: Inhabits the north, be cautious if you awaken it.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Kuzeyde ya\u015F\u0131yor, uyand\u0131r\u0131rsan bela bekle"
+    Text: "Kuzeyde ya\u015F\u0131yor, onu uyand\u0131r\u0131rsan dikkatli ol."
     Object: {fileID: 0}
 --- !u!4 &869993715 stripped
 Transform:
@@ -5274,15 +5274,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0411\u044B\u0441\u0442\u0440\u044B\u0435 , \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0433\u0430\u044E\u0442\u0441\u044F
-      \u0433\u0440\u0443\u043F\u043F\u043E\u0439 , \u0431\u0443\u0434\u044C\u0442\u0435
-      \u0432\u043D\u0438\u043C\u0430\u0442\u0435\u043B\u044C\u043D\u0435\u0435"
+    Text: "\u0411\u044B\u0441\u0442\u0440\u044B\u0435 \u0438 \u0434\u0432\u0438\u0433\u0430\u044E\u0442\u0441\u044F
+      \u0432 \u0433\u0440\u0443\u043F\u043F\u0430\u0445, \u0431\u0443\u0434\u044C\u0442\u0435
+      \u0431\u0434\u0438\u0442\u0435\u043B\u044C\u043D\u044B."
     Object: {fileID: 0}
   - Language: English
-    Text: Fast, move in a group, be careful
+    Text: Fast and move in groups, be vigilant.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "H\u0131zl\u0131, grup halinde hareket et, dikkatli ol"
+    Text: "H\u0131zl\u0131lar ve gruplar halinde hareket ediyorlar, dikkatli olun."
     Object: {fileID: 0}
 --- !u!1 &902742716
 GameObject:
@@ -5478,17 +5478,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0421\u0431\u0438\u0432\u0430\u044E\u0442\u0441\u044F \u0432 \u0441\u0442\u0430\u0438
-      \u0438 \u043D\u0430\u0431\u0438\u0440\u0430\u044E\u0442 \u043F\u043E\u0442\u0440\u044F\u0441\u0430\u044E\u0449\u0443\u044E
-      \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C , \u043D\u043E \u0441\u043B\u0430\u0431\u0430\u044F
-      \u0437\u0430\u0449\u0438\u0442\u0430 "
+    Text: "\u0421\u043E\u0431\u0438\u0440\u0430\u044E\u0442\u0441\u044F \u0432 \u0441\u0442\u0430\u0438,
+      \u0440\u0430\u0437\u0432\u0438\u0432\u0430\u044F \u0432\u044B\u0441\u043E\u043A\u0443\u044E
+      \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C, \u043D\u043E \u0441 \u043D\u0438\u0437\u043A\u043E\u0439
+      \u0437\u0430\u0449\u0438\u0442\u043E\u0439."
     Object: {fileID: 0}
   - Language: English
-    Text: They huddle in flocks and gain amazing speed, but weak defense
+    Text: Gather in packs, achieving incredible speed, but with weak defense.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "S\xFCr\xFCler halinde toplan\u0131rlar ve inan\u0131lmaz bir h\u0131z
-      kazan\u0131rlar, ancak zay\u0131f savunma"
+    Text: "S\xFCr\xFCler halinde toplanarak inan\u0131lmaz h\u0131z elde ediyorlar,
+      ancak zay\u0131f savunmaya sahipler."
     Object: {fileID: 0}
 --- !u!1 &923675238
 GameObject:
@@ -5606,19 +5606,20 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u0431\u0443\u043B\u044C\u0434\u043E\u0433
-      \u0438\u0437 \u0430\u0434\u0430, \u0441 \u044D\u0442\u0438\u043C\u0438 \u0432\u0440\u0430\u0433\u0430\u043C\u0438
-      \u043D\u0443\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u044B\u043C\u0438
-      \u0438\u0437\u0437\u0430 \u0438\u0445 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438
-      \u0438 \u0436\u0438\u0432\u0443\u0447\u0435\u0441\u0442\u0438 "
+    Text: "\u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u0438 \u0436\u0438\u0432\u0443\u0447\u0438\u0439
+      \u0431\u0443\u043B\u044C\u0434\u043E\u0433 \u0438\u0437 \u0430\u0434\u0430.
+      \u0411\u0443\u0434\u044C\u0442\u0435 \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u044B
+      \u0432 \u0431\u043E\u0440\u044C\u0431\u0435 \u0441 \u043D\u0438\u043C \u0438\u0437-\u0437\u0430
+      \u0435\u0433\u043E \u0432\u044B\u0441\u043E\u043A\u043E\u0439 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438."
     Object: {fileID: 0}
   - Language: English
-    Text: Fast bulldog from hell, these enemies need to be careful with their speed
-      and survivability
+    Text: Fast and resilient hellhound bulldog. Be cautious when dealing with it
+      due to its high speed.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Cehennemden gelen h\u0131zl\u0131 bulldog, bu d\xFC\u015Fmanlar\u0131n
-      h\u0131zlar\u0131na ve hayatta kalmalar\u0131na dikkat etmeleri gerekiyor."
+    Text: "H\u0131zl\u0131 ve dayan\u0131kl\u0131 cehennem k\xF6pe\u011Fi bulldog.
+      Y\xFCksek h\u0131z\u0131 nedeniyle onunla u\u011Fra\u015F\u0131rken dikkatli
+      olun."
     Object: {fileID: 0}
 --- !u!1 &952845169
 GameObject:
@@ -5667,16 +5668,20 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u041D\u0430\u043C \u043D\u0435 \u0438\u0437\u0432\u0435\u0441\u0442\u043D\u044B
-      \u043F\u043E\u0434\u0440\u043E\u0431\u043D\u043E\u0441\u0442\u0438 \u043E \u043D\u0435\u043C
-      , \u043F\u0440\u043E\u0442\u0438\u0432 \u043D\u0435\u0433\u043E \u0435\u0449\u0435
-      \u043D\u0438\u043A\u0442\u043E \u043D\u0435 \u0443\u0441\u0442\u043E\u044F\u043B"
+    Text: "\u0422\u0430\u0438\u043D\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0439
+      \u0438 \u0431\u0435\u0441\u043F\u043E\u0449\u0430\u0434\u043D\u044B\u0439,
+      \u043E \u043D\u0435\u043C \u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E
+      \u043C\u0430\u043B\u043E. \u0415\u0449\u0435 \u043D\u0438\u043A\u0442\u043E
+      \u043D\u0435 \u0441\u043C\u043E\u0433 \u043F\u0440\u043E\u0442\u0438\u0432\u043E\u0441\u0442\u043E\u044F\u0442\u044C
+      \u0435\u0433\u043E \u043C\u043E\u0449\u0438 \u0438 \u0443\u0436\u0430\u0441\u0443."
     Object: {fileID: 0}
   - Language: English
-    Text: We do not know the details about him, no one has resisted him yet
+    Text: Mysterious and relentless, little is known about it. No one has been able
+      to withstand its power and terror.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Onunla ilgili detaylar\u0131 bilmiyoruz, hen\xFCz kimse ona direnmedi."
+    Text: "Gizemli ve ac\u0131mas\u0131z, onun hakk\u0131nda \xE7ok az bilgi var.
+      G\xFCc\xFCne ve deh\u015Fetine kimse kar\u015F\u0131 koyamad\u0131."
     Object: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -6714,17 +6719,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0418\u043C\u0435\u044E\u0442 \u0441\u0440\u0435\u0434\u043D\u044E\u044E
-      \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0438 \u0436\u0438\u0437\u043D\u0438
-      , \u043F\u0440\u0438\u043F\u043E\u043B\u0437\u0430\u044E\u0442 \u0432\u0435\u0447\u043D\u043E
-      \u043D\u0435 \u0432\u043E\u0432\u0440\u0435\u043C\u044F"
+    Text: "\u0421\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+      \u0438 \u0437\u0430\u043F\u0430\u0441 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F,
+      \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F \u043D\u0435\u043E\u0436\u0438\u0434\u0430\u043D\u043D\u043E."
     Object: {fileID: 0}
   - Language: English
-    Text: They have an average speed and life, crawl forever at the wrong time
+    Text: Moderate speed and health pool, appear unexpectedly.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Ortalama bir h\u0131zlar\u0131 ve \xF6m\xFCrleri var, sonsuza kadar yanl\u0131\u015F
-      zamanda s\xFCr\xFCn\xFCyorlar."
+    Text: "Orta h\u0131z ve sa\u011Fl\u0131k havuzu, beklenmedik bir \u015Fekilde
+      ortaya \xE7\u0131k\u0131yorlar."
     Object: {fileID: 0}
 --- !u!114 &1083674934 stripped
 MonoBehaviour:
@@ -7519,16 +7523,14 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041E\u0436\u0438\u0432\u0448\u0438\u0435 \u0433\u043E\u043B\u0435\u043C\u044B,
-      \u0431\u044B\u0441\u0442\u0440\u044B\u0435 \u0434\u043B\u044F \u0441\u0432\u043E\u0438\u0445
-      \u0440\u0430\u0437\u043C\u0435\u0440\u043E\u0432 \u0438 \u0438\u043C\u0435\u044E\u0442
-      \u043C\u043D\u043E\u0433\u043E \u0436\u0438\u0437\u043D\u0435\u0439"
+      \u0431\u044B\u0441\u0442\u0440\u044B\u0435 \u0438 \u0432\u044B\u043D\u043E\u0441\u043B\u0438\u0432\u044B\u0435."
     Object: {fileID: 0}
   - Language: English
-    Text: Animated golems that are fast for their size and have many lives
+    Text: Animated golems, fast for their size and highly durable.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Boyutlar\u0131na g\xF6re h\u0131zl\u0131 ve bir\xE7ok cana sahip animasyonlu
-      golemler"
+    Text: "Canlanm\u0131\u015F golemler, boyutlar\u0131na g\xF6re h\u0131zl\u0131
+      ve son derece dayan\u0131kl\u0131."
     Object: {fileID: 0}
 --- !u!114 &1265283621 stripped
 MonoBehaviour:
@@ -9059,15 +9061,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0415\u0433\u043E \u0434\u0435\u0440\u0436\u0430\u043B\u0438 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u043E
-      \u043F\u0440\u043E\u0442\u0438\u0432 \u0441\u0432\u043E\u0438\u0445 \u0441\u0430\u043C\u044B\u0445
-      \u0433\u043B\u0430\u0432\u043D\u044B\u0445 \u0432\u0440\u0430\u0433\u043E\u0432 "
+    Text: "\u042D\u0442\u043E\u0433\u043E \u043E\u0433\u0440\u0430 \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u043B\u0438
+      \u0432 \u0437\u0430\u043F\u0430\u0441\u0435 \u0434\u043B\u044F \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0435\u043D\u0438\u044F
+      \u0433\u043E\u0440\u043E\u0434\u043E\u0432 \u0432 \u0441\u043B\u0443\u0447\u0430\u0435
+      \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0441\u0442\u0438."
     Object: {fileID: 0}
   - Language: English
-    Text: He was held specifically against his most important enemies.
+    Text: This ogre was kept in reserve for the destruction of cities when needed.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\xD6zellikle en \xF6nemli d\xFC\u015Fmanlar\u0131na kar\u015F\u0131 tutuldu."
+    Text: "Bu ogre, gerekti\u011Finde \u015Fehirleri yok etmek i\xE7in haz\u0131rda
+      tutuldu."
     Object: {fileID: 0}
 --- !u!1001 &1499240732
 PrefabInstance:
@@ -9234,7 +9238,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501919999}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9245,7 +9249,7 @@ RectTransform:
   - {fileID: 7596334484243008120}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 16, y: 365}
@@ -9298,16 +9302,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0421\u043B\u0430\u0431\u044B\u0439 \u0441\u043E\u043F\u0435\u0440\u043D\u0438\u043A,
-      \u043D\u043E \u0432 \u0431\u043E\u043B\u044C\u0448\u043E\u043C \u043A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0435
-      \u043C\u043E\u0433\u0443\u0442 \u043F\u043E\u0442\u0440\u0435\u043F\u0430\u0442\u044C
-      \u043D\u0435\u0440\u0432\u044B"
+    Text: "\u0421\u043B\u0430\u0431\u044B\u0435, \u043D\u043E \u0432 \u0431\u043E\u043B\u044C\u0448\u0438\u0445
+      \u0447\u0438\u0441\u043B\u0430\u0445 \u043C\u043E\u0433\u0443\u0442 \u0432\u044B\u0437\u0432\u0430\u0442\u044C
+      \u0431\u0435\u0441\u043F\u043E\u043A\u043E\u0439\u0441\u0442\u0432\u043E."
     Object: {fileID: 0}
   - Language: English
-    Text: Weak opponent, but in large numbers can fray nerves
+    Text: Weak individually, but can be annoying in large numbers.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Zay\u0131f rakip, ancak \xE7ok say\u0131da olmas\u0131 sinirleri y\u0131pratabilir"
+    Text: "Bireysel olarak zay\u0131flar, ancak b\xFCy\xFCk say\u0131larda can s\u0131k\u0131c\u0131
+      olabilirler."
     Object: {fileID: 0}
 --- !u!1001 &1523442177
 PrefabInstance:
@@ -9504,15 +9508,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0411\u044B\u0432\u0448\u0438\u0439 \u043E\u0440\u043A, \u043A\u043E\u0442\u043E\u0440\u044B\u0439
-      \u043C\u0443\u0442\u0438\u0440\u043E\u0432\u0430\u043B \u0432 \u044D\u0442\u043E,
-      \u0430\u043A\u043A\u0443\u0440\u0430\u0442\u043D\u0435\u0435 \u0441 \u043D\u0438\u043C"
+    Text: "\u041E\u0440\u043A, \u043C\u0443\u0442\u0438\u0440\u043E\u0432\u0430\u0432\u0448\u0438\u0439
+      \u0432 \u0441\u0442\u0440\u0430\u0448\u043D\u043E\u0435 \u0447\u0443\u0434\u0438\u0449\u0435."
     Object: {fileID: 0}
   - Language: English
-    Text: Former orc who mutated into this, be careful with him
+    Text: Orc mutated into a terrifying monster.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Buna d\xF6n\xFC\u015Fen eski ork, ona dikkat et."
+    Text: "Orc, korkun\xE7 bir canavara d\xF6n\xFC\u015Fm\xFC\u015F."
     Object: {fileID: 0}
 --- !u!114 &1607000766 stripped
 MonoBehaviour:
@@ -9762,19 +9765,19 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0413\u0440\u043E\u0437\u043D\u044B\u0439 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A,
-      \u043D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0439 \u0438\u043C
-      \u0441\u043A\u043E\u043F\u0438\u0442\u0441\u044F \u0432 \u0431\u043E\u043B\u044C\u0448\u043E\u043C
-      \u043A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0435, \u043E\u0431\u0440\u0443\u0448\u044C
-      \u043D\u0430 \u043D\u0438\u0445 \u0441\u0432\u043E\u044E \u044F\u0440\u043E\u0441\u0442\u044C "
+    Text: "\u041C\u043E\u0449\u043D\u044B\u0435 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0438.
+      \u041D\u0435 \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u0435 \u0438\u0445
+      \u043C\u0430\u0441\u0441\u043E\u0432\u043E\u0433\u043E \u0441\u043A\u043E\u043F\u043B\u0435\u043D\u0438\u044F
+      \u0438 \u043D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 \u0438\u043C \u0441\u0432\u043E\u0439
+      \u0443\u0434\u0430\u0440."
     Object: {fileID: 0}
   - Language: English
-    Text: Formidable opponent, do not let them accumulate in large numbers, unleash
-      your fury on them
+    Text: Formidable foes. Prevent their mass gathering and unleash your fury upon
+      them.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "M\xFCthi\u015F rakip, b\xFCy\xFCk say\u0131larda birikmelerine izin vermeyin,
-      \xF6fkenizi \xFCzerlerine sal\u0131n"
+    Text: "G\xFC\xE7l\xFC d\xFC\u015Fmanlar. Toplanmalar\u0131n\u0131 engelleyin
+      ve onlara \xF6fkenizi sal\u0131n."
     Object: {fileID: 0}
 --- !u!1001 &1649861722
 PrefabInstance:
@@ -10125,16 +10128,15 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u041B\u0435\u0442\u0443\u0447\u0438\u0435 \u0433\u0430\u0434\u044B, \u043D\u0430\u0431\u0438\u0440\u0430\u044E\u0442
-      \u0432\u044B\u0441\u043E\u043A\u0443\u044E \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
-      \u0438 \u0441\u0442\u0440\u0435\u043C\u044F\u0442\u0441\u044F \u043A \u0446\u0435\u043B\u0438"
+    Text: "\u041B\u0435\u0442\u0443\u0447\u0438\u0435 \u0433\u0430\u0434\u044B \u0431\u044B\u0441\u0442\u0440\u043E
+      \u043F\u0440\u0438\u0431\u043B\u0438\u0436\u0430\u044E\u0442\u0441\u044F \u043A
+      \u0446\u0435\u043B\u0438."
     Object: {fileID: 0}
   - Language: English
-    Text: Flying reptiles, gaining high speed and aiming at the goal
+    Text: Flying creatures swiftly approach their target.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "U\xE7an s\xFCr\xFCngenler, y\xFCksek h\u0131z kazanmak ve hedefe ni\u015Fan
-      almak"
+    Text: "U\xE7an yarat\u0131klar h\u0131zla hedeflerine yakla\u015F\u0131yorlar."
     Object: {fileID: 0}
 --- !u!224 &1713504295 stripped
 RectTransform:
@@ -11466,14 +11468,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0416\u0438\u0442\u0435\u043B\u0438 \u043B\u0435\u0441\u0430, \u043E\u0447\u0435\u043D\u044C
-      \u0436\u0438\u0432\u0443\u0447\u0438\u0435"
+    Text: "\u041B\u0435\u0441\u043D\u044B\u0435 \u043E\u0431\u0438\u0442\u0430\u0442\u0435\u043B\u0438,
+      \u043E\u0447\u0435\u043D\u044C \u0432\u044B\u043D\u043E\u0441\u043B\u0438\u0432\u044B."
     Object: {fileID: 0}
   - Language: English
-    Text: Inhabitants of the forest, very tenacious
+    Text: Forest dwellers, highly resilient.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Orman\u0131n sakinleri, \xE7ok inat\xE7\u0131"
+    Text: "Orman sakinleri, son derece dayan\u0131kl\u0131."
     Object: {fileID: 0}
 --- !u!1001 &1845898268
 PrefabInstance:
@@ -11840,16 +11842,17 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u041C\u0435\u043B\u043A\u0438\u0435, \u0441\u043B\u0430\u0431\u044B\u0435
-      , \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u044B\u0435 ,\u0441 \u043D\u0438\u043C\u0438
-      \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C
-      \u043F\u0440\u043E\u0431\u043B\u0435\u043C"
+    Text: "\u041D\u0435\u0431\u043E\u043B\u044C\u0448\u0438\u0435, \u043D\u0435 \u0441\u0438\u043B\u044C\u043D\u044B\u0435,
+      \u043D\u043E \u043D\u0435\u043F\u0440\u0438\u044F\u0442\u043D\u044B\u0435.
+      \u041F\u0440\u043E\u0431\u043B\u0435\u043C \u0441 \u043D\u0438\u043C\u0438
+      \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u043E \u0432\u043E\u0437\u043D\u0438\u043A\u043D\u0443\u0442\u044C."
     Object: {fileID: 0}
   - Language: English
-    Text: Small, weak, nasty, they shouldn't be a problem.
+    Text: "Small, weak, annoying \u2013 there shouldn't be any problems with them."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "K\xFC\xE7\xFCk, zay\u0131f, i\u011Fren\xE7, sorun olmamal\u0131lar."
+    Text: "K\xFC\xE7\xFCk, zay\u0131f, sinir bozucu \u2013 onlarla herhangi bir sorun
+      olmamal\u0131."
     Object: {fileID: 0}
 --- !u!1001 &1880264937
 PrefabInstance:
@@ -11973,17 +11976,17 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041D\u0430\u0436\u0438\u043C\u0430\u0439 \u043D\u0430 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u044E\u0449\u0435\u0433\u043E
-      \u0442\u0435\u0431\u0435 \u0432\u0440\u0430\u0433\u0430 \u0438\u043B\u0438
-      \u0431\u0430\u0448\u043D\u044E \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439
-      \u0432\u0441\u044E \u0438\u043C\u0435\u044E\u0449\u0443\u044E\u0441\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E.\r"
+      \u0442\u0435\u0431\u044F \u0432\u0440\u0430\u0433\u0430 \u0438\u043B\u0438
+      \u0431\u0430\u0448\u043D\u044E, \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0439
+      \u0432\u0441\u044E \u0438\u043C\u0435\u044E\u0449\u0443\u044E\u0441\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E."
     Object: {fileID: 0}
   - Language: English
-    Text: "Click on the enemy or tower you are interested in and get all the information
-      available.\r"
+    Text: Click on the enemy or tower of your interest, and receive all the available
+      information.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\u0130lgilendi\u011Finiz d\xFC\u015Fmana veya kuleye t\u0131klay\u0131n
-      ve mevcut t\xFCm bilgileri al\u0131n.\r"
+    Text: "\u0130lgilendi\u011Finiz d\xFC\u015Fman\u0131 veya kuleyi t\u0131klay\u0131n
+      ve mevcut t\xFCm bilgileri al\u0131n."
     Object: {fileID: 0}
 --- !u!1001 &1904596854
 PrefabInstance:
@@ -12521,15 +12524,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0421\u0442\u0440\u0430\u0448\u043D\u044B\u0435 \u0432\u0440\u0430\u0433\u0438,
-      \u043D\u0435 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0439\u0442\u0435 \u0438\u043C
-      \u043F\u0440\u043E\u0439\u0442\u0438 \u0434\u0430\u043B\u0435\u043A\u043E "
+    Text: "\u0414\u0440\u0430\u043A\u043E\u043D\u044B \u2014 \u0441\u0442\u0440\u0430\u0448\u043D\u044B\u0435
+      \u0438 \u0441\u0438\u043B\u044C\u043D\u044B\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0430."
     Object: {fileID: 0}
   - Language: English
-    Text: Terrible enemies, don't let them get far
+    Text: Dragons are fearsome and powerful creatures.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Korkun\xE7 d\xFC\u015Fmanlar, uzakla\u015Fmalar\u0131na izin vermeyin"
+    Text: "Ejderhalar korkun\xE7 ve g\xFC\xE7l\xFC yarat\u0131klard\u0131r."
     Object: {fileID: 0}
 --- !u!1 &1980752276
 GameObject:
@@ -12843,15 +12845,14 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0418\u043C\u0435\u0435\u0442 \u043F\u043E\u0432\u044B\u0448\u0435\u043D\u043D\u044B\u0439
-      \u0443\u0440\u043E\u043D , \u0438 \u0445\u043E\u0440\u043E\u0448\u0443\u044E
-      \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C "
+    Text: "\u041F\u043E\u0432\u044B\u0448\u0435\u043D\u043D\u044B\u0439 \u0443\u0440\u043E\u043D
+      \u0438 \u0445\u043E\u0440\u043E\u0448\u0430\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C."
     Object: {fileID: 0}
   - Language: English
-    Text: Has increased damage and good speed
+    Text: Elevated damage and good speed.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Artan hasara ve iyi h\u0131za sahiptir"
+    Text: "Artan hasar ve iyi h\u0131z."
     Object: {fileID: 0}
 --- !u!1001 &2004649001
 PrefabInstance:
@@ -14051,15 +14052,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0421\u043E\u0441\u0442\u043E\u044F\u0442 \u0438\u0437 \u043A\u0430\u043C\u043D\u0435\u0439
-      \u0438 \u0437\u043B\u043E\u0441\u0442\u0438, \u0441 \u0441\u043E\u043F\u0440\u043E\u0442\u0438\u0432\u043B\u0435\u043D\u0438\u0435\u043C
-      \u043A \u043E\u0433\u043D\u044E \u0438\u043B\u0438 \u0437\u0438\u043C\u0435"
+    Text: "\u0421\u0434\u0435\u043B\u0430\u043D\u044B \u0438\u0437 \u043A\u0430\u043C\u043D\u0435\u0439
+      \u0438 \u0437\u043B\u043E\u0431\u044B, \u0443\u0441\u0442\u043E\u0439\u0447\u0438\u0432\u044B
+      \u043A \u043E\u0433\u043D\u044E \u0438 \u0445\u043E\u043B\u043E\u0434\u0443."
     Object: {fileID: 0}
   - Language: English
-    Text: Composed of stones and anger, with resistance to fire or winter
+    Text: Crafted from stones and anger, resistant to fire and cold.
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Ta\u015F ve \xF6fkeden olu\u015Fan, ate\u015Fe veya k\u0131\u015Fa dayan\u0131kl\u0131"
+    Text: "Ta\u015Flardan ve \xF6fkeden olu\u015Fturulmu\u015F, ate\u015Fe ve so\u011Fu\u011Fa
+      dayan\u0131kl\u0131."
     Object: {fileID: 0}
 --- !u!1001 &2125602606
 PrefabInstance:
@@ -23241,7 +23243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474070063539257244, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 474070063539257245, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_Pivot.x
@@ -23463,9 +23465,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 474070064039449915, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 474070064081831453, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -6.2830048
       objectReference: {fileID: 0}
     - target: {fileID: 474070064094319865, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -23473,7 +23479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474070064101176748, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064116588603, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -23525,51 +23531,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 41.5895
       objectReference: {fileID: 0}
     - target: {fileID: 474070064336884509, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 15.5895
       objectReference: {fileID: 0}
     - target: {fileID: 474070064352148434, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: 474070064381328390, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -23689,27 +23695,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 15.5895
       objectReference: {fileID: 0}
     - target: {fileID: 474070064847804697, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40.5
       objectReference: {fileID: 0}
     - target: {fileID: 474070064951228425, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -23785,7 +23791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474070065195425670, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 474070065232624245, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_sharedMaterial
@@ -23843,29 +23849,61 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1482349765644986360, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349765646886442, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349765649721038, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -16.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1482349765649721038, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.099987
+      value: -36.5
       objectReference: {fileID: 0}
     - target: {fileID: 1482349765711433654, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482349765735182695, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349765735182695, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.599987
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349765777274445, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482349765780375657, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1482349765812811026, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349765834037095, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.149
+      objectReference: {fileID: 0}
     - target: {fileID: 1482349765834037095, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.099987
+      value: -36.500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349766010213772, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.149
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766010213772, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.8999977
+      value: -36.4
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766055546336, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -23876,12 +23914,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766119867964, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17.349003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349766119867964, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.599987
+      value: -37.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349766133568397, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.149
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766133568397, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.599987
+      value: -36.7
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766185971424, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -23895,6 +23941,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1482349766683877109, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1482349766708358751, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -23904,36 +23954,56 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1482349766884687314, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -17.549002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349766884687314, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.099987
+      value: -36.500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349767024949856, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349767116518364, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349767369183811, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1482349767369183811, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.599987
+      value: -37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1482349767432715372, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 41.5895
       objectReference: {fileID: 0}
     - target: {fileID: 1758276467453093275, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -66.5
       objectReference: {fileID: 0}
     - target: {fileID: 3253775422699837188, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -23949,27 +24019,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 41.5895
       objectReference: {fileID: 0}
     - target: {fileID: 6651524123081555462, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -40.5
       objectReference: {fileID: 0}
     - target: {fileID: 7707031853038197853, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -23981,27 +24051,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 15.5895
       objectReference: {fileID: 0}
     - target: {fileID: 7740429826089161452, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -66.5
       objectReference: {fileID: 0}
     - target: {fileID: 8887536466635741274, guid: 4e05792aeacaba54eb912a2e62420e8b, type: 3}
       propertyPath: m_sharedMaterial
