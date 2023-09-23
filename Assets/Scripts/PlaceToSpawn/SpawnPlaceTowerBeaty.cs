@@ -1,18 +1,15 @@
 using UnityEngine;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
 public class SpawnPlaceTowerBeaty : MonoBehaviour
 {
     [SerializeField] private GameObject _range;
     [SerializeField] private GameObject[] _blankTowers;
     [SerializeField] private ParticleSystem _buildingParticles;
-    [SerializeField] private AudioDataProperty _audioKey;
 
-    private SourceAudio _buildingSound;
+    private AudioSource _buildingSound;
     private void Start()
     {
-        _buildingSound = GetComponent<SourceAudio>();
+        _buildingSound = GetComponent<AudioSource>();
     }
 
     public void ShowBlankTower(int index, float radius)
@@ -60,5 +57,5 @@ public class SpawnPlaceTowerBeaty : MonoBehaviour
 
     public void PlayParticles() => _buildingParticles.Play();
 
-    public void PlaySound() => _buildingSound.Play(_audioKey.Key);
+    public void PlaySound() => _buildingSound.Play();
 }

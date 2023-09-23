@@ -6,9 +6,9 @@ using Agava.WebUtility;
 public class BackgroundChangeEvent : MonoBehaviour
 {
     private AudioManager _audioManager;
-    private PauseScreen _pauseScreen;
 
     private bool _isAudioOff;
+    private float _timeScale;
 
     private void OnEnable()
     {
@@ -20,27 +20,31 @@ public class BackgroundChangeEvent : MonoBehaviour
         WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
     }
 
-    public void Init(AudioManager audioManager, PauseScreen pauseScreen)
+    public void Init(AudioManager audioManager)
     {
         _audioManager = audioManager;
-        _pauseScreen = pauseScreen;
     }
 
     private void OnInBackgroundChange(bool inBackground)
     {
-        _isAudioOff = AudioListener.pause;
-
-        if (inBackground == true)
+        if(inBackground == true)
         {
+            _isAudioOff = AudioListener.pause;
+            _timeScale = Time.timeScale;
+            Time.timeScale = 0f;
             AudioListener.pause = true;
+            AudioListener.volume = 0f;
         }
-        else
+
+        if (inBackground == false)
         {
             AudioListener.pause = _isAudioOff;
+            AudioListener.volume = _audioManager.CurrentVolume;
+
+            if (_timeScale != 0)
+            {
+                Time.timeScale = _timeScale;
+            }
         }
-
-        Time.timeScale = inBackground ? 0f : 1;
-
-        AudioListener.volume = inBackground ? 0f : _audioManager.CurrentVolume;
     }
 }

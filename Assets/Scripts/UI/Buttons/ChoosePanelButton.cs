@@ -17,7 +17,7 @@ public class ChoosePanelButton : AbstractButton
     protected override void OnButtonClick()
     {
         _cameraRotate.ChangeDirection();
-        AudioSource.Play(AudioDataProperty.Key);
+        gameObject.GetComponent<AudioSource>().Play();
 
         for (int i = 0; i < _screenPanels.Length; i++)
         {

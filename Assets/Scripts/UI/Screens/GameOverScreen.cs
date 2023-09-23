@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Plugins.Audio.Core;
-using Plugins.Audio.Utils;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameOverScreen : Screen
 {
     [SerializeField] private GameObject _gameOverScreen;
-    [SerializeField] private AudioDataProperty _audioData;
-    [SerializeField] private AudioDataProperty _musicData;
 
     private Player _player;
     private AudioSource _music;
@@ -33,13 +29,15 @@ public class GameOverScreen : Screen
     public override void OpenScreen()
     {
         _gameOverScreen.Activate();
+        Time.timeScale = 0f;
         _music.GetComponent<MusicPlayer>().Stop();
-        gameObject.GetComponent<SourceAudio>().Play(_audioData.Key);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     public override void CloseScreen()
     {
         _gameOverScreen.Deactivate();
+        Time.timeScale = 1f;
         _music.GetComponent<MusicPlayer>().Play();
     }
 }

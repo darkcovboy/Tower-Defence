@@ -17,7 +17,7 @@ public class SettingsButton : AbstractButton
     protected override void OnButtonClick()
     {
         _cameraRotate.ChangeDirection();
-        AudioSource.Play();
+        gameObject.GetComponent<AudioSource>().Play();
 
         foreach (var screen in _screenPanels)
         {

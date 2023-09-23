@@ -7,7 +7,6 @@ using Plugins.Audio.Utils;
 public class Star : MonoBehaviour
 {
    [SerializeField] private Animator _animator;
-   [SerializeField] private AudioDataProperty _dataProperty;
 
     private void Start()
     {
@@ -17,6 +16,6 @@ public class Star : MonoBehaviour
     public void PlayAnimation()
     {
         _animator.SetBool("Star", true);
-        gameObject.GetComponent<SourceAudio>().Play(_dataProperty.Key);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }
