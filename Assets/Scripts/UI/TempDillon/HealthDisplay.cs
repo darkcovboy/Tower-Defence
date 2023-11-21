@@ -14,12 +14,12 @@ public class HealthDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.HealthChanged += OnHealthChanged;
+        _player.OnHealthChanged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _player.HealthChanged -= OnHealthChanged;
+        _player.OnHealthChanged -= OnHealthChanged;
     }
 
     private void OnHealthChanged(int health)

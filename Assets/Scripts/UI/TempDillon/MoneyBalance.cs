@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class MoneyBalance : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _moneyText;
 
-    [SerializeField] private MoneyCounter _moneyCounter;
+    private IMoneyHandler _moneyHandler;
+
+    [Inject]
+    public void Init(IMoneyHandler moneyCounter)
+    {
+        _moneyHandler = moneyCounter;
+        _moneyHandler.OnMoneyChanged += OnMoneyChanged;
+    }
 
     private void OnDisable()
     {
-        _moneyCounter.MoneyChanged -= OnMoneyChanged;
-    }
-
-    public void Init(MoneyCounter moneyCounter)
-    {
-        _moneyCounter = moneyCounter;
-        _moneyCounter.MoneyChanged += OnMoneyChanged;
+        _moneyHandler.OnMoneyChanged -= OnMoneyChanged;
     }
 
     private void OnMoneyChanged(int money)

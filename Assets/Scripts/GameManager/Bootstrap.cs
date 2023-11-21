@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Agava.YandexGames;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -46,8 +43,8 @@ public class Bootstrap : MonoBehaviour
     {
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
-        _moneyCounter.Init(_levelConfig.StartMoney);
-        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth, _spawner);
+        _moneyCounter = new MoneyCounter(_levelConfig.StartMoney);
+        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth);
         _adButtonMoney.Init(_levelConfig.AdStartMoney,_rewardedAd, _soundButton);
         _adButtonHealth.Init(_rewardedAd ,_gameOverScreen, _soundButton, _player, _timeToSpawn);
         _player.SetStartHealth(_levelConfig.StartHealth);

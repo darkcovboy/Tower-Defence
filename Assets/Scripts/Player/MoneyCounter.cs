@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Zenject;
 
-public class MoneyCounter : MonoBehaviour
+public class MoneyCounter : IMoneyHandler
 {
     [SerializeField] private int _money;
 
     public float Money => _money;
-    public event UnityAction<int> MoneyChanged;
+    public event Action<int> OnMoneyChanged;
 
-    public void Init(int startMoney)
+    public MoneyCounter(int startMoney)
     {
         _money = startMoney;
-        MoneyChanged?.Invoke(_money);
+        OnMoneyChanged?.Invoke(_money);
     }
 
     public void AddMoney(int money)
@@ -21,7 +22,7 @@ public class MoneyCounter : MonoBehaviour
             throw new ArgumentException();
 
         _money += money;
-        MoneyChanged?.Invoke(_money);
+        OnMoneyChanged?.Invoke(_money);
     }
 
     public void TakeMoney(int money)
@@ -30,6 +31,6 @@ public class MoneyCounter : MonoBehaviour
             throw new ArgumentException();
 
         _money -= money;
-        MoneyChanged?.Invoke(_money);
+        OnMoneyChanged?.Invoke(_money);
     }
 }

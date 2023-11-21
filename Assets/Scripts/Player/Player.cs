@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamagable, IHealthHandler, IHealible
 {
     [SerializeField] private int _maxHealth;
 
@@ -13,25 +11,25 @@ public class Player : MonoBehaviour
 
     private int _currentHealth;
 
-    public event UnityAction<int> HealthChanged;
+    public event Action<int> OnHealthChanged;
     public event UnityAction Dying;
     public event UnityAction ExtraLive;
 
     private void Start()
     {
         _currentHealth = _maxHealth;
-        HealthChanged?.Invoke(_currentHealth);
+        OnHealthChanged?.Invoke(_currentHealth);
     }
 
-    public void SetStartHealth(int health)
+    public void SetStartHealth(int startHealth)
     {
-        _maxHealth = health;
+        _maxHealth = startHealth;
     }
 
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth);
+        OnHealthChanged?.Invoke(_currentHealth);
 
         if (_currentHealth <= 0)
         {
@@ -45,7 +43,7 @@ public class Player : MonoBehaviour
             throw new ArgumentException();
 
         _currentHealth = health;
-        HealthChanged?.Invoke(_currentHealth);
+        OnHealthChanged?.Invoke(_currentHealth);
     }
 
     public void AddExtraLive(int health)
@@ -55,7 +53,7 @@ public class Player : MonoBehaviour
 
         _currentHealth = health;
         ExtraLive?.Invoke();
-        HealthChanged?.Invoke(_currentHealth);
+        OnHealthChanged?.Invoke(_currentHealth);
     }
 
     public void Die()

@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;
+using Zenject;
 
 public class ObjectManagerUI : MonoBehaviour
 {
@@ -17,7 +18,13 @@ public class ObjectManagerUI : MonoBehaviour
 
     private Camera _mainCamera;
     private bool _needToClose = true;
-    private bool _isDesktop;
+
+    [Inject]
+    public void Init(Camera camera, SpawnPlaceTower[] spawnPlaceTowers)
+    {
+        _mainCamera = camera;
+        _spawnPlaceTowers = spawnPlaceTowers;
+    }
 
     private void OnEnable()
     {
@@ -33,12 +40,6 @@ public class ObjectManagerUI : MonoBehaviour
         _event -= IsObjectOpened;
     }
 
-    public void Init(Camera camera, SpawnPlaceTower[] spawnPlaceTowers)
-    {
-        _mainCamera = camera;
-        _spawnPlaceTowers = spawnPlaceTowers;
-    }
-
     public void CloseUI()
     {
         foreach (SpawnPlaceTower spawnPlaceTower in _spawnPlaceTowers)
@@ -49,27 +50,19 @@ public class ObjectManagerUI : MonoBehaviour
 
     private void CurrentClickedGameObject(GameObject clickedObject)
     {
-        if ((clickedObject.layer == 6 | clickedObject.layer == 0) & clickedObject.CompareTag(_tag) == false)
+        if (IsNotClicable(clickedObject))
         {
             CloseUI();
         }
     }
+
 
     private void Check(InputAction.CallbackContext callbackContext)
     {
         if(_needToClose == false)
         { return; }
 
-        Vector2 clickPosition;
-        
-        if(DeviceDefinder.isDesktop)
-        {
-            clickPosition = Mouse.current.position.ReadValue();
-        }
-        else
-        {
-            clickPosition = Touchscreen.current.primaryTouch.position.ReadValue();
-        }
+        Vector2 clickPosition = IsClickByDesktop();
 
         Ray ray = _mainCamera.ScreenPointToRay(clickPosition);
 
@@ -81,6 +74,19 @@ public class ObjectManagerUI : MonoBehaviour
             }
         }
     }
+    private Vector2 IsClickByDesktop()
+    {
+        if(DeviceDefinder.isDesktop)
+        {
+            return Mouse.current.position.ReadValue();
+        }
+        else
+        {
+            return Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+    }
+
+    private bool IsNotClicable(GameObject clickedObject) => ((clickedObject.layer == 6 | clickedObject.layer == 0) & clickedObject.CompareTag(_tag) == false);
 
     private bool IsPointerOverUIObject(Vector2 vector)
     {
@@ -100,7 +106,6 @@ public class ObjectManagerUI : MonoBehaviour
 
         return isPointerUI;
     }
-
 
     private void IsObjectOpened(bool isObjectOpened)
     {
