@@ -13,6 +13,8 @@ public class GameplaySceneInstaller : MonoInstaller
     [SerializeField] private Transform _spawnerPosition;
     [SerializeField] private Transform[] _enemyPoint;
     [SerializeField] private Transform[] _placeTowerPositions;
+    [Header("Canvas Objects")]
+    [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawnNextWaveScreen;
 
     public override void InstallBindings()
     {
@@ -22,6 +24,12 @@ public class GameplaySceneInstaller : MonoInstaller
         CreateSpawner();
         CreateSpawnPlaceTower();
         CreateAds();
+        CreateSoundButton();
+    }
+
+    private void BindCanvasObjects()
+    {
+        Container.Bind<TimeToSpawnNextWaveScreen>().FromInstance(_timeToSpawnNextWaveScreen).AsSingle();
     }
 
     private void CreateMoneyCounter()
@@ -41,6 +49,12 @@ public class GameplaySceneInstaller : MonoInstaller
     {
         Spawner spawner = Container.InstantiatePrefabForComponent<Spawner>(_container.SpawnerPrefab);
         Container.Bind<Spawner>().FromInstance(spawner).AsSingle();
+    }
+
+    private void CreateSoundButton()
+    {
+        SoundButton soundButton = Container.InstantiatePrefabForComponent<SoundButton>(_container.SoundButton);
+        Container.Bind<SoundButton>().FromInstance(soundButton).AsSingle();
     }
 
     private void CreateSpawnPlaceTower()

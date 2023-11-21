@@ -20,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _moneyCounter = FindObjectOfType<MoneyCounter>();
+        //_moneyCounter = FindObjectOfType<MoneyCounter>();
     }
 
     private void Start()

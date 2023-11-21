@@ -4,7 +4,7 @@ public class RewardedMoneyVideo : RewardedVideo
 {
     private MoneyCounter _moneyCounter;
 
-    private int _adMoney;
+    public int ADMoney { get; private set; }
 
     [Inject]
     public void Init(MoneyCounter moneyCounter)
@@ -14,11 +14,11 @@ public class RewardedMoneyVideo : RewardedVideo
 
     public RewardedMoneyVideo(int money)
     {
-        _adMoney = money;
+        ADMoney = money;
     }
 
     protected override void OnRewardedCallback()
     {
-        _moneyCounter.AddMoney(_adMoney);
+        _moneyCounter.AddMoney(ADMoney);
     }
 }

@@ -7,4 +7,5 @@ public class LevelPrefabsContainer : ScriptableObject
     public Spawner SpawnerPrefab;
     public SpawnPlaceTower SpawnPlaceTowerPrefab;
     public Player Player;
+    public SoundButton SoundButton;
 }

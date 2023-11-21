@@ -219,7 +219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: "\u0412\u044B\u0445\u043E\u0434"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -5026,7 +5026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.33100003, y: 1}
-  m_AnchoredPosition: {x: 1.3945351, y: -0.000061035156}
+  m_AnchoredPosition: {x: 1.3945312, y: -0.000061035156}
   m_SizeDelta: {x: 3.1219788, y: 0.22224426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6507699022564669198
@@ -6638,7 +6638,6 @@ MonoBehaviour:
   _timerTxt: {fileID: 3186860561861444069}
   _nextWaveScreen: {fileID: 0}
   _player: {fileID: 0}
-  _adButton: {fileID: 0}
 --- !u!1 &3186860561861444091
 GameObject:
   m_ObjectHideFlags: 0
@@ -7893,7 +7892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game over
+  m_text: "\u041F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u0435"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -9720,7 +9719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart
+  m_text: "\u0417\u0430\u043D\u043E\u0432\u043E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -12154,7 +12153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moneyText: {fileID: 5396484807332089708}
-  _moneyCounter: {fileID: 0}
 --- !u!1 &5396484808122095015
 GameObject:
   m_ObjectHideFlags: 0
@@ -14981,7 +14979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Want to continue?
+  m_text: "\u0425\u043E\u0442\u0438\u0442\u0435 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
@@ -15008,7 +15006,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.1
+  m_fontSize: 53.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15063,7 +15061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: WantToContinue
-  FallbackText: 
+  FallbackText: Want to continue?
 --- !u!1 &6354682954662272042
 GameObject:
   m_ObjectHideFlags: 0
@@ -16739,7 +16737,6 @@ GameObject:
   - component: {fileID: 4303687412450864223}
   - component: {fileID: 2298428984261172325}
   - component: {fileID: 4121409371795548753}
-  - component: {fileID: 8774737897195233417}
   - component: {fileID: 3453437499392304380}
   m_Layer: 5
   m_Name: GetExtraButton
@@ -16807,50 +16804,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8774737897195233417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7243225370708433002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4121409371795548753}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &3453437499392304380
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20212,7 +20165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 597043844784335764}
-  - component: {fileID: 2238029136153053010}
+  - component: {fileID: 9041810949239738739}
   m_Layer: 5
   m_Name: AdButton
   m_TagString: Untagged
@@ -20241,7 +20194,7 @@ RectTransform:
   m_AnchoredPosition: {x: -131.04999, y: -0.49998474}
   m_SizeDelta: {x: 132, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2238029136153053010
+--- !u!114 &9041810949239738739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20250,14 +20203,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8113378646972462633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74219d20a20cd6d4eb06d59a2fb617fc, type: 3}
+  m_Script: {fileID: 11500000, guid: d6181afc381923b42a997ece0a4cdebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adButton: {fileID: 7271284064390845994}
-  adType: 0
+  _button: {fileID: 7271284064390845994}
   _moneyText: {fileID: 1513554101741976865}
-  _radius: 5
-  _timeToShow: 30
 --- !u!1 &8326925398536771140
 GameObject:
   m_ObjectHideFlags: 0
@@ -22086,7 +22036,8 @@ GameObject:
   - component: {fileID: 2361283674430907328}
   - component: {fileID: 1851654190035724932}
   - component: {fileID: 3188412387543842786}
-  - component: {fileID: 1594438102932577444}
+  - component: {fileID: 5277604634697524867}
+  - component: {fileID: 2756975147422818541}
   m_Layer: 5
   m_Name: ExtraHealth
   m_TagString: Untagged
@@ -22174,7 +22125,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1594438102932577444
+--- !u!114 &5277604634697524867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22183,14 +22134,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 8891466452295426998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74219d20a20cd6d4eb06d59a2fb617fc, type: 3}
+  m_Script: {fileID: 11500000, guid: b074262541a310646bb9d4ff3e01bcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _adButton: {fileID: 8774737897195233417}
-  adType: 1
-  _moneyText: {fileID: 0}
-  _radius: 10
-  _timeToShow: 0
+  _button: {fileID: 2756975147422818541}
+--- !u!114 &2756975147422818541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891466452295426998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1851654190035724932}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9018298434213914867
 GameObject:
   m_ObjectHideFlags: 0

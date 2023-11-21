@@ -18,8 +18,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private VictoryScreen _victoryScreen;
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private MoneyBalance _moneyBalance;
-    [SerializeField] private AdButton _adButtonMoney;
-    [SerializeField] private AdButton _adButtonHealth;
     [SerializeField] private SpellButton[] _spellButtons;
     [SerializeField] private LeaderboardScreen _leaderboardScreen;
     [SerializeField] private AudioManager _audioManager;
@@ -44,9 +42,9 @@ public class Bootstrap : MonoBehaviour
         _objectManagerUI.Init(_mainCamera, _spawnPlaceTower);
         InitMoneyCounter();
         _moneyCounter = new MoneyCounter(_levelConfig.StartMoney);
-        _rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth);
-        _adButtonMoney.Init(_levelConfig.AdStartMoney,_rewardedAd, _soundButton);
-        _adButtonHealth.Init(_rewardedAd ,_gameOverScreen, _soundButton, _player, _timeToSpawn);
+        //_rewardedAd.Init(_moneyCounter, _player, _levelConfig.AdStartMoney, _levelConfig.AdHealth);
+        //_adButtonMoney.Init(_levelConfig.AdStartMoney,_rewardedAd, _soundButton);
+        //_adButtonHealth.Init(_rewardedAd ,_gameOverScreen, _soundButton, _player, _timeToSpawn);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
         _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
