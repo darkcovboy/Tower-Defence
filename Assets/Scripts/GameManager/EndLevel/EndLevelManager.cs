@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EndLevelManager : MonoBehaviour
 {
     private Timer _timer;
-    private Spawner _spawner;
+    private IDiedHandler _diedHandler;
     private Player _player;
     private CountPoints _countPoints;
     private LevelConfig _levelConfig;
@@ -15,22 +14,23 @@ public class EndLevelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _spawner.AllEnemysDied -= WinLevel;
-        _player.Dying -= LoseLevel;
+        _diedHandler.AllEnemysDied -= WinLevel;
+        _player.OnDie -= LoseLevel;
     }
 
-    public void Init(Spawner spawner, Player player, LevelConfig levelConfig,VictoryScreen victoryScreen, SaveManager saveManager, MoneyCounter moneyCounter)
+    [Inject]
+    public void Init(IDiedHandler allDiedHandler, Player died, LevelConfig levelConfig , VictoryScreen victoryScreen, SaveManager saveManager, MoneyCounter moneyCounter)
     {
-        _spawner = spawner;
-        _player = player;
+        _diedHandler = allDiedHandler;
+        _diedHandler.AllEnemysDied += WinLevel;
+        _player = died;
+        _player.OnDie += LoseLevel;
         _levelConfig = levelConfig;
         _moneyCounter = moneyCounter;
         _saveManager = saveManager;
         _victoryScreen = victoryScreen;
         InitTimer(levelConfig.Time);
         _countPoints = new(_timer, _levelConfig.MoneyCoefficient, _levelConfig.TimeCoefficient, _levelConfig.HealthCoefficient);
-        _spawner.AllEnemysDied += WinLevel;
-        _player.Dying += LoseLevel;
     }
 
     private int CountStars()
@@ -62,7 +62,6 @@ public class EndLevelManager : MonoBehaviour
     {
         _timer.StopTimer();
         var stars = CountStars();
-        Debug.Log(_countPoints.Time + " " + _countPoints.RemainTime);
         var points = (int)_countPoints.Count(_player.MaxHealth, _player.CurrentHealth, _moneyCounter.Money);
         _victoryScreen.SetScore(points);
         _victoryScreen.SetStars(stars);

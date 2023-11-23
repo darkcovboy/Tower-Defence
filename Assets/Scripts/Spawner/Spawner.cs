@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
+using Random = UnityEngine.Random;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour, ISpawnedHandler, IDiedHandler
 {
+    [SerializeField] private WavesConfig _wavesConfig;
     [SerializeField] protected Wavesss[] _waves;
     [SerializeField] private Transform[] _spawnPoint;
     [SerializeField] private Player _player;
@@ -21,19 +25,43 @@ public class Spawner : MonoBehaviour
     private bool _allEnemySpawn = false;
     private WaitForSeconds _waitForSeconds = new WaitForSeconds(3f);
     private Coroutine _coroutine;
+    private WaveConfig[] _waveConfigs;
 
     private int _enemyCount = 0;
     public int EnemySpawnCount { get; private set; }
     public int CurrentWaveNumber { get; private set; } = 0;
 
-    public event UnityAction AllEnemysSpawned;
-    public event UnityAction AllEnemysDied;
+    public event Action AllEnemysSpawned;
+    public event Action AllEnemysDied;
     public event UnityAction<int, int> EnemyCountChanged;
     public event UnityAction<int, int> WaveChanged;
 
+    [Inject]
+    public void Init(MoneyCounter moneyCounter)
+    {
+        _moneyCounter = moneyCounter;
+    }
+
     private void Start()
     {
-        SetWave(CurrentWaveNumber);
+        //SetWave(CurrentWaveNumber);
+        _waveConfigs = (WaveConfig[])_wavesConfig.Waves.Clone();
+        StartCoroutine(SpawnWaves());
+    }
+
+    private IEnumerator SpawnWaves()
+    {
+        foreach (WaveConfig wave in _waveConfigs)
+        {
+            foreach (EnemySpawn enemySpawn in wave.EnemySpawns)
+            {
+                //Создание врага и прочее из метода intstantiateEnemy
+
+                yield return new WaitForSeconds(enemySpawn.SpawnDelay);
+            }
+
+            yield return new WaitForSeconds(wave.TimeBetweenWaves);
+        }
     }
 
     private void Update()
@@ -74,11 +102,6 @@ public class Spawner : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void Init(MoneyCounter moneyCounter)
-    {
-        _moneyCounter = moneyCounter;
     }
 
     private void InstantiateEnemy()
@@ -125,11 +148,6 @@ public class Spawner : MonoBehaviour
         _spawned = 0;
         _currentEnemyIndex = 0;
         _checkTimerWaveSpawn = false;
-    }
-
-    public void DecrementEnemy()
-    {
-        _enemyCount--;
     }
 
     IEnumerator AllEnemysDying()

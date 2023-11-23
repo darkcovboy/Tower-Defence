@@ -52,12 +52,12 @@ public class SpawnPlaceTower : MonoBehaviour
     {
         _objectManager.CloseUI();
         _currentPanel.Activate();
-        _objectManager._event?.Invoke(true);
+        _objectManager.ObjectOpened?.Invoke(true);
     }
 
     public void ClosePanel()
     {
-        _objectManager._event?.Invoke(false);
+        _objectManager.ObjectOpened?.Invoke(false);
         _spawnPlaceTowerBeaty.CloseBlankTower();
         _upgradePanelUI.CloseRangeField();
         _currentPanel.Deactivate();

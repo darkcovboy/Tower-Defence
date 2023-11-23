@@ -2,10 +2,12 @@ using UnityEngine;
 using Zenject;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using System;
 
 public class GameplaySceneInstaller : MonoInstaller
 {
     [SerializeField] private LevelPrefabsContainer _container;
+    [SerializeField] private LevelTemporaryPrefabs _containerTemproraryPrefabs;
     [SerializeField] private LevelConfig _levelConfig;
     [SerializeField] private Camera _mainCamera;
     [Header("Positions")]
@@ -15,6 +17,10 @@ public class GameplaySceneInstaller : MonoInstaller
     [SerializeField] private Transform[] _placeTowerPositions;
     [Header("Canvas Objects")]
     [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawnNextWaveScreen;
+    [SerializeField] private VictoryScreen _victoryScreen;
+
+
+    private BackgroundChangeEvent _backgroundChangeEvent;
 
     public override void InstallBindings()
     {
@@ -24,12 +30,20 @@ public class GameplaySceneInstaller : MonoInstaller
         CreateSpawner();
         CreateSpawnPlaceTower();
         CreateAds();
+        CreateBackgroundChangeEvent();
         CreateSoundButton();
+        BindCanvasObjects();
+    }
+
+    private void CreateBackgroundChangeEvent()
+    {
+        _backgroundChangeEvent = new BackgroundChangeEvent();
     }
 
     private void BindCanvasObjects()
     {
         Container.Bind<TimeToSpawnNextWaveScreen>().FromInstance(_timeToSpawnNextWaveScreen).AsSingle();
+        Container.Bind<VictoryScreen>().FromInstance(_victoryScreen).AsSingle();
     }
 
     private void CreateMoneyCounter()
@@ -47,8 +61,10 @@ public class GameplaySceneInstaller : MonoInstaller
 
     private void CreateSpawner()
     {
-        Spawner spawner = Container.InstantiatePrefabForComponent<Spawner>(_container.SpawnerPrefab);
+        Spawner spawner = Container.InstantiatePrefabForComponent<Spawner>(_containerTemproraryPrefabs.Spawner, _spawnerPosition);
         Container.Bind<Spawner>().FromInstance(spawner).AsSingle();
+        Container.Bind<IDiedHandler>().To<Spawner>().FromInstance(spawner).AsSingle();
+        Container.Bind<ISpawnedHandler>().To<Spawner>().FromInstance(spawner).AsSingle();
     }
 
     private void CreateSoundButton()
@@ -72,7 +88,7 @@ public class GameplaySceneInstaller : MonoInstaller
 
     private void CreatePlayer()
     {
-        Player player = Container.InstantiatePrefabForComponent<Player>(_container.Player, _playerPosition);
+        Player player = Container.InstantiatePrefabForComponent<Player>(_containerTemproraryPrefabs.Player, _playerPosition);
         player.SetStartHealth(_levelConfig.StartHealth);
         Container.Bind<Player>().FromInstance(player).AsSingle();
         Container.Bind<IHealible>().To<Player>().FromInstance(player).AsSingle();
@@ -83,6 +99,8 @@ public class GameplaySceneInstaller : MonoInstaller
     {
         RewardedHealthVideo rewardedHealthVideo = new RewardedHealthVideo(_playerPosition, _levelConfig.AdHealth);
         RewardedMoneyVideo rewardedMoneyVideo = new RewardedMoneyVideo(_levelConfig.AdStartMoney);
+        FullVideo fullVideo = new FullVideo(LoadingPanel.Instance);
+        Container.Bind<FullVideo>().FromInstance(fullVideo).AsSingle();
         Container.Bind<RewardedMoneyVideo>().FromInstance(rewardedMoneyVideo).AsSingle();
         Container.Bind<RewardedHealthVideo>().FromInstance(rewardedHealthVideo).AsSingle();
     }

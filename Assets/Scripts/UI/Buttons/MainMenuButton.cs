@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using Zenject;
 
 public class MainMenuButton : AbstractButton
 {
-    private string _mainMenuLevelKey = "MainMenu";
+    private const string MainMenuName = "MainMenu";
+
     private FullVideo _fullVideo;
     private SoundButton _soundButton;
 
+    [Inject]
     public void Init(FullVideo fullVideo, SoundButton soundButton)
     {
         _fullVideo = fullVideo;
@@ -23,6 +22,6 @@ public class MainMenuButton : AbstractButton
 
     private void GoMainMenu()
     {
-        _fullVideo.Show(_mainMenuLevelKey);
+        _fullVideo.Show(MainMenuName);
     }
 }

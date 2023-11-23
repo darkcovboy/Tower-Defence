@@ -3,55 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agava.YandexGames;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using System.IO;
-using TMPro;
+using System;
+using System.Threading.Tasks;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager
 {
-    [SerializeField] private AudioManager _audioManager;
+    public int Score => SaveDataWrapper.Score;
 
-    public int Score => SaveDataWrapper.Score; 
+    public event Action LoadingFinished;
+    public bool IsDataLoaded { get; private set; }
 
-    protected SaveDataWrapper SaveDataWrapper;
+    public SaveDataWrapper SaveDataWrapper { get; private set; }
     private PlayerSave _playerSave;
-    private string _jsonData;
     private readonly int _maxLevel = 10;
-    private readonly string _dataPrefsKey = "GameDataJSON";
+    private ICoroutineRunner _coroutineRunner;
 
-    private IEnumerator Start()
+    public SaveManager(ICoroutineRunner coroutineRunner)
     {
-        yield return YandexGamesSdk.Initialize();
-        _playerSave = new(_maxLevel);
-
-        if (PlayerPrefs.HasKey(_dataPrefsKey))
-        {
-            _jsonData = PlayerPrefs.GetString(_dataPrefsKey);
-            Debug.Log(_jsonData);
-            SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(_jsonData);
-            SaveData();
-        }
-        else
-        {
-            GenerateNewData();
-        }
-
-        UpdateLevels();
+        _coroutineRunner = coroutineRunner;
+        IsDataLoaded = false;
+        _coroutineRunner.StartCoroutine(Start());
     }
 
-    public void Init(AudioManager audioManager)
-    {
-        _audioManager = audioManager;
-    }
-
-    public void UpdateSound()
-    {
-        SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
-        SaveDataWrapper.SettingsData.SoundPause = AudioListener.pause;
-        SaveData();
-    }
-
-    //Пока не используется, задает новые значения текущему уровню, открываем следующий, сохраняем
     public void SaveEndLevel(int stars, int score)
     {
         int index = (SceneManager.GetActiveScene().buildIndex - 1);
@@ -62,9 +35,6 @@ public class SaveManager : MonoBehaviour
             SaveDataWrapper.LevelDataList[index].Stars = stars;
         }
 
-        SaveDataWrapper.SettingsData.SoundPause = AudioListener.pause;
-        SaveDataWrapper.SettingsData.Volume = AudioListener.volume;
-
         if ((index + 1) < _maxLevel)
         {
             SaveDataWrapper.LevelDataList[index + 1].IsUnblock = true;
@@ -73,25 +43,62 @@ public class SaveManager : MonoBehaviour
         SaveData();
     }
 
-    protected virtual void UpdateLevels()
+    private IEnumerator Start()
     {
-        _audioManager.OnSliderChanged(SaveDataWrapper.SettingsData.Volume);
-        _audioManager.AudioChange(SaveDataWrapper.SettingsData.SoundPause);
+#if UNITY_WEBGL && !UNITY_EDITOR
+        yield return YandexGamesSdk.Initialize();
+        _playerSave = new(_maxLevel);
+        LoadData();
+#elif UNITY_EDITOR
+        _playerSave = new(_maxLevel);
+        SaveDataWrapper = _playerSave.LoadNewData();
+        IsDataLoaded = true;
+        LoadingFinished?.Invoke();
+        yield break;
+#endif
     }
 
-    //Создаем новую дату, сохраняем, здесь JsonUnitility преобразует наш класс в формат JSON
-    private void GenerateNewData()
+    private async void LoadData()
     {
-        SaveDataWrapper = _playerSave.LoadData();
-        _jsonData = JsonUtility.ToJson(SaveDataWrapper);
+        Task task = LoadDataTask();
+        await task;
+
+        LoadingFinished?.Invoke();
+        IsDataLoaded = true;
         SaveData();
+    }
+
+    private async Task LoadDataTask()
+    {
+        string json = null;
+
+        var task = new TaskCompletionSource<string>();
+
+        PlayerAccount.GetCloudSaveData((data) =>
+        {
+            json = data;
+            task.SetResult(data);
+        }
+        );
+
+        await task.Task;
+
+        if (json != null)
+        {
+            SaveDataWrapper = JsonUtility.FromJson<SaveDataWrapper>(json);
+        }
+        else
+        {
+            SaveDataWrapper = _playerSave.LoadNewData();
+        }
     }
 
     private void SaveData()
     {
-        _jsonData = JsonUtility.ToJson(SaveDataWrapper);
-        PlayerPrefs.SetString(_dataPrefsKey, _jsonData);
-        PlayerPrefs.Save();
+        string json = JsonUtility.ToJson(SaveDataWrapper);
+#if UNITY_WEBGL && !UNITY_EDITOR
+        PlayerAccount.SetCloudSaveData(json);
+#endif
     }
 }
 
@@ -99,6 +106,5 @@ public class SaveManager : MonoBehaviour
 public class SaveDataWrapper
 {
     public List<LevelData> LevelDataList;
-    public VolumeData SettingsData;
     public int Score;
 }

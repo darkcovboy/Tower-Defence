@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class NextWaveButton : AbstractButton
 {
-    [SerializeField] private TimeToSpawnNextWaveScreen _timerToSpawnNextWave;
-
     private SoundButton _soundButton;
     private MoneyCounter _moneyCounter;
+    private TimeToSpawnNextWaveScreen _timerToSpawnNextWave;
 
-    public void Init(MoneyCounter moneyCounter, SoundButton soundButton)
+    public void Init(MoneyCounter moneyCounter, SoundButton soundButton, TimeToSpawnNextWaveScreen timeToSpawnNextWaveScreen)
     {
         _soundButton = soundButton;
         _moneyCounter = moneyCounter;
+        _timerToSpawnNextWave = timeToSpawnNextWaveScreen;
     }
 
     protected override void OnButtonClick()

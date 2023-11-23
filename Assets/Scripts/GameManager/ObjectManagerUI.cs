@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using Agava.YandexGames;
-using Agava.YandexGames.Samples;
 using Zenject;
 
 public class ObjectManagerUI : MonoBehaviour
@@ -14,7 +12,7 @@ public class ObjectManagerUI : MonoBehaviour
     [SerializeField] private InputAction _mouseClick;
     [SerializeField] private string _tag;
 
-    public UnityAction<bool> _event;
+    public UnityAction<bool> ObjectOpened;
 
     private Camera _mainCamera;
     private bool _needToClose = true;
@@ -30,14 +28,14 @@ public class ObjectManagerUI : MonoBehaviour
     {
         _mouseClick.Enable();
         _mouseClick.performed += Check;
-        _event += IsObjectOpened;
+        ObjectOpened += IsObjectOpened;
     }
 
     private void OnDisable()
     {
         _mouseClick.performed -= Check;
         _mouseClick.Disable();
-        _event -= IsObjectOpened;
+        ObjectOpened -= IsObjectOpened;
     }
 
     public void CloseUI()

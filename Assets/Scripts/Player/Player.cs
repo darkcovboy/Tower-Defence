@@ -12,8 +12,8 @@ public class Player : MonoBehaviour, IDamagable, IHealthHandler, IHealible
     private int _currentHealth;
 
     public event Action<int> OnHealthChanged;
-    public event UnityAction Dying;
     public event UnityAction ExtraLive;
+    public event Action OnDie;
 
     private void Start()
     {
@@ -28,6 +28,9 @@ public class Player : MonoBehaviour, IDamagable, IHealthHandler, IHealible
 
     public void ApplyDamage(int damage)
     {
+        if (damage <= 0)
+            throw new ArgumentException(nameof(damage));
+
         _currentHealth -= damage;
         OnHealthChanged?.Invoke(_currentHealth);
 
@@ -58,6 +61,6 @@ public class Player : MonoBehaviour, IDamagable, IHealthHandler, IHealible
 
     public void Die()
     {
-        Dying.Invoke();
+        OnDie?.Invoke();
     }
 }

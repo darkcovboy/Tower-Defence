@@ -1,25 +1,27 @@
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _healthText;
 
-    private Player _player;
+    private IHealthHandler _healthHandler;
 
-    private void Awake()
+    [Inject]
+    public void Constructor(IHealthHandler healthHandler)
     {
-        _player = FindObjectOfType<Player>();
+        _healthHandler = healthHandler;
     }
 
     private void OnEnable()
     {
-        _player.OnHealthChanged += OnHealthChanged;
+        _healthHandler.OnHealthChanged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _player.OnHealthChanged -= OnHealthChanged;
+        _healthHandler.OnHealthChanged -= OnHealthChanged;
     }
 
     private void OnHealthChanged(int health)

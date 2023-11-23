@@ -13,17 +13,14 @@ public class GameOverScreen : Screen
 
     private void OnDisable()
     {
-        _player.Dying -= OpenScreen;
+        _player.OnDie -= OpenScreen;
     }
 
-    public void Init(Player player, AudioSource music, FullVideo fullVideo, SoundButton soundButton)
+    public void Init(Player player, AudioSource music)
     {
         _player = player;
         _music = music;
-        _player.Dying += OpenScreen;
-
-        RestartSceneButton.Init(fullVideo,soundButton);
-        MainMenuButton.Init(fullVideo, soundButton);
+        _player.OnDie += OpenScreen;
     }
 
     public override void OpenScreen()

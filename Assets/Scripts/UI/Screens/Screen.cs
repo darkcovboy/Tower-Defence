@@ -7,8 +7,6 @@ using Plugins.Audio.Utils;
 
 public abstract class Screen : MonoBehaviour
 {
-    [SerializeField] protected RestartSceneButton RestartSceneButton;
-    [SerializeField] protected MainMenuButton MainMenuButton;
     [SerializeField] protected CanvasGroup CanvasGroup;
     [SerializeField] protected ReturnGameButton ReturnGameButton;
 

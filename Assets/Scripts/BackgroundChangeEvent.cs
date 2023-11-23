@@ -3,26 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agava.WebUtility;
 
-public class BackgroundChangeEvent : MonoBehaviour
+public class BackgroundChangeEvent
 {
-    private AudioManager _audioManager;
-
     private bool _isAudioOff;
     private float _timeScale;
 
-    private void OnEnable()
+    public BackgroundChangeEvent()
     {
         WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
-    }
-
-    private void OnDisable()
-    {
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
-    }
-
-    public void Init(AudioManager audioManager)
-    {
-        _audioManager = audioManager;
     }
 
     private void OnInBackgroundChange(bool inBackground)
@@ -39,7 +27,6 @@ public class BackgroundChangeEvent : MonoBehaviour
         if (inBackground == false)
         {
             AudioListener.pause = _isAudioOff;
-            AudioListener.volume = _audioManager.CurrentVolume;
 
             if (_timeScale != 0)
             {

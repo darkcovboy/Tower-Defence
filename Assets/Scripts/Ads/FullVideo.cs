@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Agava.YandexGames;
-using UnityEngine.SceneManagement;
 
-public class FullVideo : MonoBehaviour
+public class FullVideo
 {
-    private bool _isAudioOff;
-    private float _volume;
-    private string _sceneName;
-    private SceneFader _sceneFader;
+    private const float MaxVolume = 1.0f;
+    private const float MinVolume = 0f;
 
-    public void Init(SceneFader sceneFader)
+    private bool _isAudioOff;
+    private string _sceneName;
+    private LoadingPanel _loadingPanel;
+
+    public FullVideo(LoadingPanel loadingPanel)
     {
-        _sceneFader = sceneFader;
+        _loadingPanel = loadingPanel;
     }
 
     public void Show(string sceneName)
@@ -27,17 +26,16 @@ public class FullVideo : MonoBehaviour
     private void OnOpen()
     {
         _isAudioOff = AudioListener.pause;
-        _volume = AudioListener.volume;
         AudioListener.pause = true;
-        AudioListener.volume = 0;
+        AudioListener.volume = MinVolume;
         Time.timeScale = 0f;
     }
 
     private void OnClose(bool isClosed)
     {
         AudioListener.pause = _isAudioOff;
-        AudioListener.volume = _volume;
+        AudioListener.volume = MaxVolume;
         Time.timeScale = 1f;
-        SceneManager.LoadScene(_sceneName);
+        _loadingPanel.LoadLevel(_sceneName);
     }
 }

@@ -1,20 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
+using Zenject;
 
 public class RestartSceneButton : AbstractButton
 {
-    private string _currentScene;
     private FullVideo _fullVideo;
     private SoundButton _soundButton;
 
-    private void Start()
-    {
-        _currentScene = SceneManager.GetActiveScene().name;
-    }
-
+    [Inject]
     public void Init(FullVideo fullVideo, SoundButton soundButton)
     {
         _fullVideo = fullVideo;
@@ -29,6 +21,6 @@ public class RestartSceneButton : AbstractButton
 
     private void Restart()
     {
-        _fullVideo.Show(_currentScene);
+        _fullVideo.Show(SceneManager.GetActiveScene().name);
     }
 }

@@ -1,12 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class CountWave : MonoBehaviour
 {
-    [SerializeField] private Spawner _spawner;
     [SerializeField] private TMP_Text _wavesText;
+
+    private Spawner _spawner;
+
+    [Inject]
+    public void Constructor(Spawner spawner)
+    {
+        _spawner = spawner;
+    }
 
     private void OnEnable()
     {

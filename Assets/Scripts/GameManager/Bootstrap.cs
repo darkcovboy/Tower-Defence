@@ -20,7 +20,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private MoneyBalance _moneyBalance;
     [SerializeField] private SpellButton[] _spellButtons;
     [SerializeField] private LeaderboardScreen _leaderboardScreen;
-    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private PauseScreen _pauseScreen;
     [Header("GameManager")]
     [SerializeField] private ObjectManagerUI _objectManagerUI;
@@ -47,33 +46,14 @@ public class Bootstrap : MonoBehaviour
         //_adButtonHealth.Init(_rewardedAd ,_gameOverScreen, _soundButton, _player, _timeToSpawn);
         _player.SetStartHealth(_levelConfig.StartHealth);
         _leaderboardScreen.Init(_saveManager);
-        _victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
-        _saveManager.Init(_audioManager);
-        _pauseScreen.Init(_objectManagerUI, _fullVideoAd, _soundButton);
-        _nextWaveButton.Init(_moneyCounter, _soundButton);
-        _backgroundChangeEvent.Init(_audioManager);
+        //_victoryScreen.Init(_spawner, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
+        //_pauseScreen.Init(_objectManagerUI, _fullVideoAd, _soundButton);
+        //_nextWaveButton.Init(_moneyCounter, _soundButton);
         _endLevelManager.Init(_spawner, _player, _levelConfig, _victoryScreen, _saveManager, _moneyCounter);
         TowerUnlockSettings.Set(_levelConfig.MaxLevelArcher, _levelConfig.MaxLevelBarracks, _levelConfig.MaxLevelCanon, _levelConfig.MaxLevelFireMage, _levelConfig.MaxLevelIceMage, _levelConfig.MaxLevelLightningMage, _levelConfig.IsFireOpened, _levelConfig.IsIceOpened, _levelConfig.IsLightningOpened);
         InitSpels();
-        _gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
+        //_gameOverScreen.Init(_player, _mainCamera.GetComponent<AudioSource>(), _fullVideoAd, _soundButton);
         DeviceDefinder.Define();
-    }
-
-    private void OnEnable()
-    {
-        _spawner.AllEnemysDied += EndLevel;
-        _player.Dying += EndLevel;
-    }
-
-    private void OnDisable()
-    {
-        _spawner.AllEnemysDied -= EndLevel;
-        _player.Dying -= EndLevel;
-    }
-
-    private void EndLevel()
-    {
-        _objectManagerUI.CloseUI();
     }
 
     private void InitSpels()

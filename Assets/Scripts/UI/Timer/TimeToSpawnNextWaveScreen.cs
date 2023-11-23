@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class TimeToSpawnNextWaveScreen : MonoBehaviour
 {
@@ -20,13 +17,13 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
     {
         _spawner.AllEnemysSpawned += OnScreenTimer;
         _timer = _timeLeftBeforeTheWave;
-        _player.Dying += SetPlayerDead;
+        _player.OnDie += SetPlayerDead;
         //_adButton.PlayerIsAlive += SetPlayerAlive;
     }
 
     private void OnDisable()
     {
-        _player.Dying -= SetPlayerDead;
+        _player.OnDie -= SetPlayerDead;
         _spawner.AllEnemysSpawned -= OnScreenTimer;
         //_adButton.PlayerIsAlive -= SetPlayerAlive;
     }

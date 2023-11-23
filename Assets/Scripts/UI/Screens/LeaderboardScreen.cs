@@ -4,6 +4,7 @@ using UnityEngine;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;
 using System.Linq;
+using Zenject;
 
 public class LeaderboardScreen : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class LeaderboardScreen : MonoBehaviour
     private readonly string _anonymousRu = "Безымянный";
     private readonly string _anonymousTr = "Anonim";
 
+    [Inject]
+    public void Init(SaveManager saveManager)
+    {
+        _saveManager = saveManager;
+    }
+
     private void OnEnable()
     {
         ClearChildren(_container.transform);
@@ -31,11 +38,6 @@ public class LeaderboardScreen : MonoBehaviour
         {
             Fill();
         }
-    }
-
-    public void Init(SaveManager saveManager)
-    {
-        _saveManager = saveManager;
     }
 
     public void Authorise()
