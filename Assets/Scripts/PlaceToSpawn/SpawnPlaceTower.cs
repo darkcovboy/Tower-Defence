@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using Zenject;
 
 public class SpawnPlaceTower : MonoBehaviour
 {
@@ -15,15 +15,12 @@ public class SpawnPlaceTower : MonoBehaviour
     private SpawnPlaceTowerBeaty _spawnPlaceTowerBeaty;
     private float _radius = 5f;
 
-    private void Start()
-    {
-        _currentPanel = _firstPanelUI;
-        _spawnPlaceTowerBeaty = GetComponent<SpawnPlaceTowerBeaty>();
-    }
-
+    [Inject]
     public void Init(ObjectManagerUI objectManagerUI)
     {
         _objectManager = objectManagerUI;
+        _currentPanel = _firstPanelUI;
+        _spawnPlaceTowerBeaty = GetComponent<SpawnPlaceTowerBeaty>();
     }
 
     public void PlaceTower(int index)

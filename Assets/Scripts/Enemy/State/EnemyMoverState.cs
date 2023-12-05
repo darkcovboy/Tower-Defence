@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyMoverState : State
 {
-    [SerializeField] private Waypoints _waypoints;
+    private const float Offset = 2.0f;
 
-    private Transform _target;
+    private Vector3 _target;
+    private Waypoints _waypoints;
     private int _wavePointIndex = 0;
     private Enemy _enemy;
     private Vector3 _startPosition;
@@ -15,66 +15,51 @@ public class EnemyMoverState : State
 
     private void Awake()
     {
-        _waypoints = FindObjectOfType<Waypoints>();
-        _enemy = gameObject.GetComponent<Enemy>();
+        _enemy = GetComponent<Enemy>();
+    }
+
+    public void Init(Waypoints waypoints)
+    {
+        _waypoints = waypoints;
     }
 
     private void Start()
     {
         _startPosition = transform.position;
-        ChooseWaypoint();
+        _target = _waypoints.Points[0].position;
     }
 
     private void Update()
     {
-        Vector3 direction = _target.position - transform.position;
+        Vector3 direction = _target - transform.position;
         transform.Translate(direction.normalized * _enemy.Speed * Time.deltaTime, Space.World);
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, _enemy.Speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, _target.position) <= _distanceBetweenTarget)
+        if (Vector3.Distance(transform.position, _target) <= _distanceBetweenTarget)
             GetNextWaypoint();
     }
 
     private void GetNextWaypoint()
     {
-        if (_wavePointIndex >= _waypoints.Points.Length - 1 || _wavePointIndex >= _waypoints.Points1.Length - 1)
+        if (_wavePointIndex >= _waypoints.Points.Count() - 1)
         {
             return;
         }
 
-        bool indexArray = Random.value > 0.5f;
-
         _wavePointIndex++;
 
-        if (_enemy.Index == 0)
-        {
-            if (indexArray)
-                _target = _waypoints.Points[_wavePointIndex];
-            else
-                _target = _waypoints.Points2[_wavePointIndex];
-        }
-        else
-        {
-            if (indexArray)
-                _target = _waypoints.Points1[_wavePointIndex];
-            else
-                _target = _waypoints.Points3[_wavePointIndex];
-        }
+        float randomOffsetX = Random.Range(-Offset, Offset);
+        float randomOffsetZ = Random.Range(-Offset, Offset);
+
+        Vector3 newPosition = _waypoints.Points[_wavePointIndex].position + new Vector3(randomOffsetX, 0f, randomOffsetZ);
+        _target = newPosition;
     }
 
     public void ResetWaypoint()
     {
         transform.position = _startPosition;
         _wavePointIndex = 0;
-        ChooseWaypoint();
-    }
-
-    private void ChooseWaypoint()
-    {
-        if (_enemy.Index == 0)
-            _target = _waypoints.Points[0];
-        else
-            _target = _waypoints.Points1[0];
+        _target = _waypoints.Points[0].position;
     }
 }

@@ -84,7 +84,7 @@ public class Bootstrap : MonoBehaviour
 
     private void InitMoneyCounter()
     {
-        _spawner.Init(_moneyCounter);
+        //_spawner.Init(_moneyCounter);
         _moneyBalance.Init(_moneyCounter);
 
         foreach (var spawnPlaceTower in _spawnPlaceTower)

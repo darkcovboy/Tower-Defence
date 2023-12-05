@@ -110,10 +110,9 @@ public class Enemy : MonoBehaviour
         HealthChanged?.Invoke(_currentHealth, _health);
     }
     #region
-    public void Init(Player target, Warrior warrior)
+    public void Init(Player target)
     {
         _target = target;
-        _warrior = warrior;
     }
 
     public void Init(Warrior warrior)
@@ -134,11 +133,6 @@ public class Enemy : MonoBehaviour
     public void TargetNull()
     {
         _warrior = null;
-    }
-
-    public void GetIndexToArray(int index)
-    {
-        _index = index;
     }
     #endregion
 
@@ -211,9 +205,7 @@ public class Enemy : MonoBehaviour
     public void RollBack()
     {
         if (_boss == true)
-        {
             _enemyMoverState.ResetWaypoint();
-        }
         else
             _currentHealth = 0;
     }

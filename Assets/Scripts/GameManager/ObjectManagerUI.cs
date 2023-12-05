@@ -15,10 +15,11 @@ public class ObjectManagerUI : MonoBehaviour
     public UnityAction<bool> ObjectOpened;
 
     private Camera _mainCamera;
+    private ChoicePanel _choicePanel;
     private bool _needToClose = true;
 
     [Inject]
-    public void Init(Camera camera, SpawnPlaceTower[] spawnPlaceTowers)
+    public void Init(Camera camera, SpawnPlaceTower[] spawnPlaceTowers, ChoicePanel choicePanel)
     {
         _mainCamera = camera;
         _spawnPlaceTowers = spawnPlaceTowers;
@@ -46,9 +47,14 @@ public class ObjectManagerUI : MonoBehaviour
         }
     }
 
-    private void CurrentClickedGameObject(GameObject clickedObject)
+    private void CurrentClickedGameObject(GameObject clickedObject, Vector2 clicklPosition)
     {
-        if (IsNotClicable(clickedObject))
+        if(clickedObject.TryGetComponent<SpawnPlaceTower>(out SpawnPlaceTower spawnPlaceTower))
+        {
+            spawnPlaceTower.OpenPanel();
+            _choicePanel.transform.position = clicklPosition;
+        }
+        else
         {
             CloseUI();
         }
@@ -68,7 +74,7 @@ public class ObjectManagerUI : MonoBehaviour
         {
             if (raycastHit.transform != null)
             {
-                CurrentClickedGameObject(raycastHit.transform.gameObject);
+                CurrentClickedGameObject(raycastHit.transform.gameObject, clickPosition);
             }
         }
     }

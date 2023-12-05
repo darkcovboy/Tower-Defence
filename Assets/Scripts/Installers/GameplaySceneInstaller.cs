@@ -13,7 +13,7 @@ public class GameplaySceneInstaller : MonoInstaller
     [Header("Positions")]
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private Transform _spawnerPosition;
-    [SerializeField] private Transform[] _enemyPoint;
+    [SerializeField] private Waypoints _waypoints;
     [SerializeField] private Transform[] _placeTowerPositions;
     [Header("Canvas Objects")]
     [SerializeField] private TimeToSpawnNextWaveScreen _timeToSpawnNextWaveScreen;
@@ -65,6 +65,7 @@ public class GameplaySceneInstaller : MonoInstaller
         Container.Bind<Spawner>().FromInstance(spawner).AsSingle();
         Container.Bind<IDiedHandler>().To<Spawner>().FromInstance(spawner).AsSingle();
         Container.Bind<ISpawnedHandler>().To<Spawner>().FromInstance(spawner).AsSingle();
+        Container.Bind<Waypoints>().FromInstance(_waypoints).AsSingle();
     }
 
     private void CreateSoundButton()

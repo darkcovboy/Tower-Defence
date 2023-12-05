@@ -40,7 +40,7 @@ public class TimeToSpawnNextWaveScreen : MonoBehaviour
                 if (_timer <= 0)
                 {
                     _timer = _timeLeftBeforeTheWave;
-                    _spawner.NextWaves();
+                    //_spawner.NextWaves();
                     _timerTxt.gameObject.Deactivate();
                     _nextWaveScreen.gameObject.Deactivate();
                 }
